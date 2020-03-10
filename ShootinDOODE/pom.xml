@@ -61,9 +61,9 @@
     <modules>
         <module>branding</module>
         <module>application</module>
+        <module>SilentUpdate</module>
         <module>Core</module>
         <module>Common</module>
-        <module>SilentUpdate</module>
     </modules>
 
     <properties>
