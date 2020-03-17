@@ -21,6 +21,7 @@ import static java.lang.Math.sqrt;
 public class MovingPart
         implements EntityPart {
 
+    
     private float dx, dy;
     private float deceleration, acceleration;
     private float maxSpeed, rotationSpeed;
