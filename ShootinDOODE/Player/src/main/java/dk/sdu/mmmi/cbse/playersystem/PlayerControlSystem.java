@@ -6,8 +6,8 @@ import dk.sdu.mmmi.cbse.common.data.GameKeys;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
+import dk.sdu.mmmi.cbse.common.data.entityparts.PlayerMovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
-import dk.sdu.mmmi.cbse.common.data.entityparts.ShootingPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
@@ -21,19 +21,21 @@ public class PlayerControlSystem implements IEntityProcessingService {
 
         for (Entity player : world.getEntities(Player.class)) {
             PositionPart positionPart = player.getPart(PositionPart.class);
-            MovingPart movingPart = player.getPart(MovingPart.class);
-            ShootingPart shootingPart = player.getPart(ShootingPart.class);
+            PlayerMovingPart playerMovingPart = player.getPart(PlayerMovingPart.class);
             LifePart lifePart = player.getPart(LifePart.class);
 
-            movingPart.setLeft(gameData.getKeys().isDown(GameKeys.LEFT));
-            movingPart.setRight(gameData.getKeys().isDown(GameKeys.RIGHT));
-            movingPart.setUp(gameData.getKeys().isDown(GameKeys.UP));
+            playerMovingPart.setLeft(gameData.getKeys().isDown(GameKeys.LEFT));
+            playerMovingPart.setRight(gameData.getKeys().isDown(GameKeys.RIGHT));
+            playerMovingPart.setUp(gameData.getKeys().isDown(GameKeys.UP));
+            playerMovingPart.setDown(gameData.getKeys().isDown(GameKeys.DOWN));
+            
+            playerMovingPart.setW(gameData.getKeys().isDown(GameKeys.W));
+            playerMovingPart.setA(gameData.getKeys().isDown(GameKeys.A));
+            playerMovingPart.setS(gameData.getKeys().isDown(GameKeys.S));
+            playerMovingPart.setD(gameData.getKeys().isDown(GameKeys.D));
 
-            shootingPart.setIsShooting(gameData.getKeys().isDown(GameKeys.SPACE));
-
-            movingPart.process(gameData, player);
+            playerMovingPart.process(gameData, player);
             positionPart.process(gameData, player);
-            shootingPart.process(gameData, player);
             lifePart.process(gameData, player);
 
             updateShape(player);
