@@ -1,4 +1,4 @@
-package shootin.doode.shootindoode;
+package shoot.doode.shootindoode;
 
 import java.util.logging.Level;
 import junit.framework.Test;

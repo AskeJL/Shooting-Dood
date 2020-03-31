@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package shootin.doode.common.data.entityparts;
+package shoot.doode.common.data.entityparts;
 
-import shootin.doode.common.data.Entity;
-import shootin.doode.common.data.GameData;
+import shoot.doode.common.data.Entity;
+import shoot.doode.common.data.GameData;
 
 /**
  *

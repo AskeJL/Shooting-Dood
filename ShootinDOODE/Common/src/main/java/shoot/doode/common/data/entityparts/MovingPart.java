@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package shootin.doode.common.data.entityparts;
+package shoot.doode.common.data.entityparts;
 
-import shootin.doode.common.data.Entity;
-import shootin.doode.common.data.GameData;
-import static shootin.doode.common.data.GameKeys.LEFT;
-import static shootin.doode.common.data.GameKeys.RIGHT;
-import static shootin.doode.common.data.GameKeys.UP;
+import shoot.doode.common.data.Entity;
+import shoot.doode.common.data.GameData;
+import static shoot.doode.common.data.GameKeys.LEFT;
+import static shoot.doode.common.data.GameKeys.RIGHT;
+import static shoot.doode.common.data.GameKeys.UP;
 import static java.lang.Math.cos;
 import static java.lang.Math.sin;
 import static java.lang.Math.sqrt;
