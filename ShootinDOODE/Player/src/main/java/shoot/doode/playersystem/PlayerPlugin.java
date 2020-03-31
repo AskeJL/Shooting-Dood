@@ -11,6 +11,7 @@ import shoot.doode.common.services.IGamePluginService;
 import java.util.UUID;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
+import shoot.doode.common.data.entityparts.AssetPart;
 
 @ServiceProviders(value = {
     @ServiceProvider(service = IGamePluginService.class),})
@@ -42,20 +43,26 @@ public class PlayerPlugin implements IGamePluginService {
         colour[2] = 1.0f;
         colour[3] = 1.0f;
 
+        String module = "Player";
+        String[] assetPaths = new String[1];
+        assetPaths[0] = "Red_Virus.png";
+        
         Entity playerShip = new Player();
         playerShip.setRadius(8);
         playerShip.setColour(colour);
         playerShip.add(new PlayerMovingPart(maxSpeed));
         playerShip.add(new PositionPart(x, y, radians));
-        UUID uuid = UUID.randomUUID();
         playerShip.add(new LifePart(1));
-
+        playerShip.add(new AssetPart(module, assetPaths));
+        
+        
         return playerShip;
     }
 
     @Override
     public void stop(GameData gameData, World world) {
         // Remove entities
+        System.out.println("Called the method");
         world.removeEntity(player);
     }
 

@@ -3,7 +3,7 @@ OpenIDE-Module-Localizing-Bundle: dk/sdu/mmmi/cbse/playersystem/Bundle
  .properties
 OpenIDE-Module-Specification-Version: 1.0
 OpenIDE-Module-Implementation-Version: 1.0-20200331
-OpenIDE-Module-Build-Version: 202003310921
+OpenIDE-Module-Build-Version: 202003311512
 OpenIDE-Module: shoot.doode.Player
 OpenIDE-Module-Public-Packages: -
 OpenIDE-Module-Requires: org.openide.modules.ModuleFormat1

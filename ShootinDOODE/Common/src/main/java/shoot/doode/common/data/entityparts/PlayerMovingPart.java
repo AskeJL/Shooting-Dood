@@ -120,7 +120,7 @@ public class PlayerMovingPart implements EntityPart
         PositionPart positionPart = entity.getPart(PositionPart.class);
         float x = positionPart.getX();
         float y = positionPart.getY();
-        float rotation = positionPart.getRadians();
+        float rotation = positionPart.getRotation();
 
         //Rotation
         if (left)
@@ -231,7 +231,7 @@ public class PlayerMovingPart implements EntityPart
 
         positionPart.setX(x);
         positionPart.setY(y);
-        positionPart.setRadians(rotation);
+        positionPart.setRotation(rotation);
 
     }
 

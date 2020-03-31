@@ -52,12 +52,6 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>Common</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
         <!--
                 <dependency>
                     <groupId>${project.groupId}</groupId>
@@ -67,12 +61,17 @@
         -->
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>Player</artifactId>
+            <artifactId>Core</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>Core</artifactId>
+            <artifactId>Common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>Player</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>

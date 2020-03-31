@@ -24,7 +24,7 @@ public class Entity implements Serializable {
     public void add(EntityPart part) {
         parts.put(part.getClass(), part);
     }
-
+    
     public void remove(Class partClass) {
         parts.remove(partClass);
     }
