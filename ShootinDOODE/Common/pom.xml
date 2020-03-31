@@ -18,10 +18,10 @@
                 <extensions>true</extensions>
                 <configuration>
                     <publicPackages>
-                        <publicPackage>dk.sdu.mmmi.cbse.common.data</publicPackage>
-                        <publicPackage>dk.sdu.mmmi.cbse.common.data.entityparts</publicPackage>
-                        <publicPackage>dk.sdu.mmmi.cbse.common.events</publicPackage>
-                        <publicPackage>dk.sdu.mmmi.cbse.common.services</publicPackage>
+                        <publicPackage>shootin.doode.common.data</publicPackage>
+                        <publicPackage>shootin.doode.common.data.entityparts</publicPackage>
+                        <publicPackage>shootin.doode.common.events</publicPackage>
+                        <publicPackage>shootin.doode.common.services</publicPackage>
                     </publicPackages>
                 </configuration>
             </plugin>

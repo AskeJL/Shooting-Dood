@@ -1,4 +1,4 @@
-package dk.sdu.mmmi.cbse.core.main;
+package shootin.doode.core.main;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;

@@ -1,4 +1,4 @@
-package dk.sdu.mmmi.cbse.core.managers;
+package shootin.doode.core.managers;
 
 import com.badlogic.gdx.assets.loaders.FileHandleResolver;
 import com.badlogic.gdx.files.FileHandle;

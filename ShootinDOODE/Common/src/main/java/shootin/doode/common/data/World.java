@@ -1,4 +1,4 @@
-package dk.sdu.mmmi.cbse.common.data;
+package shootin.doode.common.data;
 
 import java.util.ArrayList;
 import java.util.Collection;

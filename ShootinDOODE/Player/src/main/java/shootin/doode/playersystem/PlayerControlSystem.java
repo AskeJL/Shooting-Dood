@@ -1,14 +1,14 @@
-package dk.sdu.mmmi.cbse.playersystem;
+package shootin.doode.playersystem;
 
-import dk.sdu.mmmi.cbse.common.data.Entity;
-import dk.sdu.mmmi.cbse.common.data.GameData;
-import dk.sdu.mmmi.cbse.common.data.GameKeys;
-import dk.sdu.mmmi.cbse.common.data.World;
-import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
-import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
-import dk.sdu.mmmi.cbse.common.data.entityparts.PlayerMovingPart;
-import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
-import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
+import shootin.doode.common.data.Entity;
+import shootin.doode.common.data.GameData;
+import shootin.doode.common.data.GameKeys;
+import shootin.doode.common.data.World;
+import shootin.doode.common.data.entityparts.LifePart;
+import shootin.doode.common.data.entityparts.MovingPart;
+import shootin.doode.common.data.entityparts.PlayerMovingPart;
+import shootin.doode.common.data.entityparts.PositionPart;
+import shootin.doode.common.services.IEntityProcessingService;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
 

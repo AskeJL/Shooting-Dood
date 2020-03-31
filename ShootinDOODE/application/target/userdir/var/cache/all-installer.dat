@@ -1,4 +1,4 @@
-#Tue Mar 31 10:49:55 CEST 2020
+#Tue Mar 31 11:08:38 CEST 2020
 org.openide.util.ui.OpenIDE-Module-Install=\u0000
 org.netbeans.api.annotations.common.OpenIDE-Module-Install=\u0000
 shoot.doode.Player.AutoUpdate-Show-In-Client=\u0000
@@ -14,7 +14,7 @@ org.netbeans.libs.asm.OpenIDE-Module-Deprecated=\u0000
 org.openide.util.OpenIDE-Module-Deprecated=\u0000
 org.netbeans.bootstrap.AutoUpdate-Show-In-Client=false
 org.netbeans.core.startup.base.OpenIDE-Module-Hide-Classpath-Packages=\u0000
-shoot.doode.Core.OpenIDE-Module-Install=dk/sdu/mmmi/cbse/core/main/Installer.class
+shoot.doode.Core.OpenIDE-Module-Install=shootin/doode/core/main/Installer.class
 org.netbeans.core.startup.OpenIDE-Module-Deprecated=\u0000
 org.netbeans.core.startup.OpenIDE-Module-Description=\u0000
 org.openide.modules.OpenIDE-Module-Deprecated=\u0000

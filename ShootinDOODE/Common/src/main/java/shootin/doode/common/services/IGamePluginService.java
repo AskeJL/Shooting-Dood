@@ -1,7 +1,7 @@
-package dk.sdu.mmmi.cbse.common.services;
+package shootin.doode.common.services;
 
-import dk.sdu.mmmi.cbse.common.data.GameData;
-import dk.sdu.mmmi.cbse.common.data.World;
+import shootin.doode.common.data.GameData;
+import shootin.doode.common.data.World;
 
 public interface IGamePluginService {
 

@@ -1,4 +1,4 @@
-package dk.sdu.mmmi.cbse.shootindoode;
+package shootin.doode.shootindoode;
 
 import java.util.logging.Level;
 import junit.framework.Test;

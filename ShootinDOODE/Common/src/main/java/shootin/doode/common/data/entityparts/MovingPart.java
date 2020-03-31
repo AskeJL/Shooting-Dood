@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dk.sdu.mmmi.cbse.common.data.entityparts;
+package shootin.doode.common.data.entityparts;
 
-import dk.sdu.mmmi.cbse.common.data.Entity;
-import dk.sdu.mmmi.cbse.common.data.GameData;
-import static dk.sdu.mmmi.cbse.common.data.GameKeys.LEFT;
-import static dk.sdu.mmmi.cbse.common.data.GameKeys.RIGHT;
-import static dk.sdu.mmmi.cbse.common.data.GameKeys.UP;
+import shootin.doode.common.data.Entity;
+import shootin.doode.common.data.GameData;
+import static shootin.doode.common.data.GameKeys.LEFT;
+import static shootin.doode.common.data.GameKeys.RIGHT;
+import static shootin.doode.common.data.GameKeys.UP;
 import static java.lang.Math.cos;
 import static java.lang.Math.sin;
 import static java.lang.Math.sqrt;

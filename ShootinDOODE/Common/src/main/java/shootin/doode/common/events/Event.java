@@ -1,6 +1,6 @@
-package dk.sdu.mmmi.cbse.common.events;
+package shootin.doode.common.events;
 
-import dk.sdu.mmmi.cbse.common.data.Entity;
+import shootin.doode.common.data.Entity;
 import java.io.Serializable;
 
 /**

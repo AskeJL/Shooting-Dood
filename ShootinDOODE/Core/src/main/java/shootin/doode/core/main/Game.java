@@ -1,17 +1,17 @@
-package dk.sdu.mmmi.cbse.core.main;
+package shootin.doode.core.main;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import dk.sdu.mmmi.cbse.common.data.Entity;
-import dk.sdu.mmmi.cbse.common.data.GameData;
-import dk.sdu.mmmi.cbse.common.data.World;
-import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
-import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
-import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
-import dk.sdu.mmmi.cbse.core.managers.GameInputProcessor;
+import shootin.doode.common.data.Entity;
+import shootin.doode.common.data.GameData;
+import shootin.doode.common.data.World;
+import shootin.doode.common.services.IEntityProcessingService;
+import shootin.doode.common.services.IGamePluginService;
+import shootin.doode.common.services.IPostEntityProcessingService;
+import shootin.doode.core.managers.GameInputProcessor;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
