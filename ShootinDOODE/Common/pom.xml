@@ -18,10 +18,10 @@
                 <extensions>true</extensions>
                 <configuration>
                     <publicPackages>
-                        <publicPackage>shootin.doode.common.data</publicPackage>
-                        <publicPackage>shootin.doode.common.data.entityparts</publicPackage>
-                        <publicPackage>shootin.doode.common.events</publicPackage>
-                        <publicPackage>shootin.doode.common.services</publicPackage>
+                        <publicPackage>shoot.doode.common.data</publicPackage>
+                        <publicPackage>shoot.doode.common.data.entityparts</publicPackage>
+                        <publicPackage>shoot.doode.common.events</publicPackage>
+                        <publicPackage>shoot.doode.common.services</publicPackage>
                     </publicPackages>
                 </configuration>
             </plugin>

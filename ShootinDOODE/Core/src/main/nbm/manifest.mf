@@ -1,2 +1,2 @@
 Manifest-Version: 1.0
-OpenIDE-Module-Install: shootin/doode/core/main/Installer.class
+OpenIDE-Module-Install: shoot/doode/core/main/Installer.class

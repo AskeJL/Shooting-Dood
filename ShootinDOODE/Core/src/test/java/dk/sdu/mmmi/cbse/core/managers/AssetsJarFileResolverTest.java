@@ -1,6 +1,6 @@
 package dk.sdu.mmmi.cbse.core.managers;
 
-import shootin.doode.core.managers.AssetsJarFileResolver;
+import shoot.doode.core.managers.AssetsJarFileResolver;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;

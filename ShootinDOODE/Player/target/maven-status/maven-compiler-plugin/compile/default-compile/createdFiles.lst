@@ -1,5 +1,5 @@
-META-INF\services\shootin.doode.common.services.IGamePluginService
-shootin\doode\playersystem\PlayerPlugin.class
-shootin\doode\playersystem\PlayerControlSystem.class
-META-INF\services\shootin.doode.common.services.IEntityProcessingService
-shootin\doode\playersystem\Player.class
+META-INF\services\shoot.doode.common.services.IEntityProcessingService
+META-INF\services\shoot.doode.common.services.IGamePluginService
+shoot\doode\playersystem\PlayerControlSystem.class
+shoot\doode\playersystem\Player.class
+shoot\doode\playersystem\PlayerPlugin.class
