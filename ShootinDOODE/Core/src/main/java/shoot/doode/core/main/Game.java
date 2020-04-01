@@ -25,6 +25,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.openide.util.Lookup;
 import org.openide.util.LookupEvent;
 import org.openide.util.LookupListener;
+import shoot.doode.common.services.IAssetService;
+import shoot.doode.core.managers.AssetsHelper;
 import shoot.doode.core.managers.AssetsJarFileResolver;
 
 public class Game implements ApplicationListener {
@@ -37,7 +39,10 @@ public class Game implements ApplicationListener {
     private final GameData gameData = new GameData();
     private World world = new World();
     private List<IGamePluginService> gamePlugins = new CopyOnWriteArrayList<>();
-    private Lookup.Result<IGamePluginService> result;
+    private Lookup.Result<IGamePluginService> iGameResult;
+    private List<IAssetService> assetServices = new CopyOnWriteArrayList<>();
+    private Lookup.Result<IAssetService> iAssetResult;
+    private AssetsHelper assetesHelper = new AssetsHelper();
 
     @Override
     public void create() {
@@ -53,15 +58,26 @@ public class Game implements ApplicationListener {
 
         Gdx.input.setInputProcessor(new GameInputProcessor(gameData));
 
-        result = lookup.lookupResult(IGamePluginService.class);
-        result.addLookupListener(lookupListener);
-        result.allItems();
+        iGameResult = lookup.lookupResult(IGamePluginService.class);
+        iGameResult.addLookupListener(lookupListener);
+        iGameResult.allItems();
+        
+        iAssetResult = lookup.lookupResult(IAssetService.class);
+        iAssetResult.addLookupListener(lookupListener);
+        iAssetResult.allItems();
+        
 
-        for (IGamePluginService plugin : result.allInstances()) {
+        for (IGamePluginService plugin : iGameResult.allInstances()) {
             plugin.start(gameData, world);
             gamePlugins.add(plugin);
         }
-        updateAssets();
+
+        for (IAssetService assetService : iAssetResult.allInstances()) {
+            assetesHelper.loadImages((assetService.loadImages()));
+            //loadImages(assetService.loadImages());
+            assetServices.add(assetService);
+        }
+
     }
 
     @Override
@@ -89,34 +105,9 @@ public class Game implements ApplicationListener {
         }
     }
 
-    private void updateAssets() {
-        spriteMap.clear();
-        for (Entity entity : world.getEntities()) {
-            AssetPart assets = entity.getPart(AssetPart.class);
-            if (assets != null) {
-                String jarPath = "shootindoode/modules/shoot-doode-";
-                String module = assets.getModule();
-                String imagePath = assets.getAssetPath();
-
-                String inputPath = jarPath + module + ".jar!/Assets/" + imagePath;
-
-                if (!spriteMap.containsKey(inputPath)) {
-                    AssetsJarFileResolver jarfile = new AssetsJarFileResolver();
-                    FileHandle file = jarfile.resolve(inputPath);
-                    Texture texture = new Texture(file);
-                    Sprite sprite = new Sprite(texture);
-                    System.out.println("Touched the files");
-
-                    spriteMap.put(inputPath, sprite);
-                }
-
-            }
-        }
-    }
-
     private void draw() {
 
-        System.out.println("HashMap has: " + spriteMap.size());
+        System.out.println("AssetServices " + assetServices);
         System.out.println("Gameplugins" + gamePlugins);
         System.out.println("Entity process" + getEntityProcessingServices());
         System.out.println("Post process" + getPostEntityProcessingServices());
@@ -126,19 +117,11 @@ public class Game implements ApplicationListener {
             System.out.println(entity);
             if (assets != null) {
 
-                String jarPath = "shootindoode/modules/shoot-doode-";
                 String module = assets.getModule();
                 String imagePath = assets.getAssetPath();
 
-                String inputPath = jarPath + module + ".jar!/Assets/" + imagePath;
+                Sprite sprite = assetesHelper.getSprite(module,imagePath);
 
-                Sprite sprite;
-                if (spriteMap.containsKey(inputPath)) {
-                    sprite = spriteMap.get(inputPath);
-                } else {
-                    updateAssets();
-                    sprite = spriteMap.get(inputPath);
-                }
                 PositionPart positionPart = entity.getPart(PositionPart.class);
 
                 sprite.setRotation(positionPart.getRotation());
@@ -197,13 +180,12 @@ public class Game implements ApplicationListener {
         @Override
         public void resultChanged(LookupEvent le) {
        
-            Collection<? extends IGamePluginService> updated = result.allInstances();
-            
+            Collection<? extends IGamePluginService> iGameUpdated = iGameResult.allInstances();
+            Collection<? extends IAssetService> iAssetUpdated = iAssetResult.allInstances();
 
-            for (IGamePluginService us : updated) {
+            for (IGamePluginService us : iGameUpdated) {
                 // Newly installed modules
                 if (!gamePlugins.contains(us)) {
-                    System.out.println("IGAMESTART");
                     us.start(gameData, world);
                     gamePlugins.add(us);
                 }
@@ -211,12 +193,34 @@ public class Game implements ApplicationListener {
 
             // Stop and remove module
             for (IGamePluginService gs : gamePlugins) {
-                if (!updated.contains(gs)) {
-                    System.out.println("IGAMESTOP");
+                if (!iGameUpdated.contains(gs)) {
                     gs.stop(gameData, world);
                     gamePlugins.remove(gs);
                 }
             }
+            
+            for (IAssetService us : iAssetUpdated) {
+                // Newly installed modules
+                if (!assetServices.contains(us)) {
+                    assetesHelper.loadImages(us.loadImages());
+                    //loadImages(us.loadImages());               
+                    assetServices.add(us);
+                }
+            }
+
+            // Stop and remove module
+            for (IAssetService gs : assetServices) {
+                if (!iGameUpdated.contains(gs)) {
+                    //unLoadImages(gs.unLoadImages());
+                    assetesHelper.unLoadImages(gs.unLoadImages());
+                    assetServices.remove(gs);
+                }
+            }
+            
+            
+            
+            
+            
         }
 
     };

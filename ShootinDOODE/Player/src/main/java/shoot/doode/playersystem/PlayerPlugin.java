@@ -14,11 +14,13 @@ import org.openide.util.lookup.ServiceProviders;
 import shoot.doode.common.data.entityparts.AssetPart;
 
 @ServiceProviders(value = {
-    @ServiceProvider(service = IGamePluginService.class),})
+    @ServiceProvider(service = IGamePluginService.class),
+    })
 public class PlayerPlugin implements IGamePluginService {
 
     private Entity player;
-
+    
+    
     public PlayerPlugin() {
     }
 
