@@ -9,65 +9,63 @@ import shoot.doode.common.services.IAssetService;
 import java.util.ArrayList;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
+
 /**
  *
  * @author tobia
  */
-
 @ServiceProviders(value = {
-    @ServiceProvider(service = IAssetService.class),
-    })
+    @ServiceProvider(service = IAssetService.class),})
 
-public class PlayerAssetsLoader implements IAssetService{
-    
-    
-    private String[] images()
-    {
-        String module = "Player";
-        
+public class PlayerAssetsLoader implements IAssetService {
+
+    String module = "Player";
+
+    private String[] images() {
         ArrayList<String> paths = new ArrayList<>();
         paths.add("Red_Virus.png");
-        
-        
-        
-        
-        for(int i = 0; i < paths.size(); i++)
-        {
-            paths.set(i, module+"!"+paths.get(i));
-        }
-                        
-        String[] arrayPaths = paths.toArray(new String[paths.size()]);
-        for(String s : arrayPaths)
-        {
-            System.out.println(s);
-        }
-        return arrayPaths;
+
+        return arrayListToString(paths);
     }
-    
-    
-    
-     @Override
-    public String[] loadImages()
-    {
+
+    private String[] sounds() {
+        ArrayList<String> paths = new ArrayList<>();
+        //paths.add("sound.mp3");
+
+        return arrayListToString(paths);
+
+    }
+
+    private String[] arrayListToString(ArrayList<String> paths) {
+        if (paths.size() >= 1) {
+            for (int i = 0; i < paths.size(); i++) {
+                paths.set(i, module + "!" + paths.get(i));
+            }
+        } else {
+            return null;
+        }
+
+        return paths.toArray(new String[paths.size()]);
+    }
+
+    @Override
+    public String[] loadImages() {
         return images();
     }
-    
+
     @Override
-    public String[] unLoadImages()
-    {
+    public String[] unLoadImages() {
         return images();
     }
-    
+
     @Override
-    public String[] loadSounds()
-    {
-        return null;
+    public String[] loadSounds() {
+        return sounds();
     }
-    
+
     @Override
-    public String[] unLoadSounds()
-    {
-        return null;
+    public String[] unLoadSounds() {
+        return sounds();
     }
-    
+
 }

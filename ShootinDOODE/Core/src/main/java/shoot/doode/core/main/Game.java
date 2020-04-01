@@ -73,8 +73,8 @@ public class Game implements ApplicationListener {
         }
 
         for (IAssetService assetService : iAssetResult.allInstances()) {
-            assetesHelper.loadImages((assetService.loadImages()));
-            //loadImages(assetService.loadImages());
+            assetesHelper.loadImages(assetService.loadImages());
+            assetesHelper.loadSounds(assetService.loadSounds());
             assetServices.add(assetService);
         }
 

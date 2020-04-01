@@ -16,13 +16,14 @@ public class AssetPart implements EntityPart {
     String module;
     String[] assetPaths;
     int currentAsset = 0;
-    
+    //**Creates an AssetPart, which alows the entity to have images showed that represent it
     public AssetPart(String module,String[] assetPaths)
     {
         this.module = module;
         this.assetPaths = assetPaths;
     }
     
+    //** Sets which asset that should be showed by the draw method 
     public void setCurrentAsset(int currentAsset)
     {
         this.currentAsset = currentAsset;
