@@ -31,7 +31,6 @@ import shoot.doode.core.managers.AssetsJarFileResolver;
 
 public class Game implements ApplicationListener {
 
-    private HashMap<String, Sprite> spriteMap = new HashMap<>();
     private SpriteBatch batch;
     private static OrthographicCamera cam;
     private ShapeRenderer sr;
