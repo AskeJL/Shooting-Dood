@@ -1,0 +1,28 @@
+apr. 01, 2020 3:40:58 PM org.netbeans.updater.UpdaterFrame <clinit>
+INFO: Entering updater.jar .................................................................... 
+apr. 01, 2020 3:40:59 PM org.netbeans.updater.ModuleUpdater unpack
+INFO: 780: Unpacking shoot-doode-Player.nbm
+apr. 01, 2020 3:40:59 PM org.netbeans.updater.ModuleUpdater unpack
+INFO: Backup file D:\4. Semester Projekt\Shooting-Dood\ShootinDOODE\application\target\shootindoode\shootindoode\config\Modules\shoot-doode-Player.xml to D:\4. Semester Projekt\Shooting-Dood\ShootinDOODE\application\target\shootindoode\shootindoode\update\backup\netbeans\config\Modules\shoot-doode-Player.xml
+apr. 01, 2020 3:40:59 PM org.netbeans.updater.ModuleUpdater unpack
+INFO: File D:\4. Semester Projekt\Shooting-Dood\ShootinDOODE\application\target\shootindoode\shootindoode\config\Modules\shoot-doode-Player.xml deleted.
+apr. 01, 2020 3:40:59 PM org.netbeans.updater.ModuleUpdater unpack
+INFO: Copied file D:\4. Semester Projekt\Shooting-Dood\ShootinDOODE\application\target\shootindoode\shootindoode\update\download\shoot-doode-Player.nbm:netbeans/config/Modules/shoot-doode-Player.xml to D:\4. Semester Projekt\Shooting-Dood\ShootinDOODE\application\target\shootindoode\shootindoode\config\Modules\shoot-doode-Player.xml
+apr. 01, 2020 3:40:59 PM org.netbeans.updater.ModuleUpdater unpack
+INFO: Backup file D:\4. Semester Projekt\Shooting-Dood\ShootinDOODE\application\target\shootindoode\shootindoode\modules\shoot-doode-Player.jar to D:\4. Semester Projekt\Shooting-Dood\ShootinDOODE\application\target\shootindoode\shootindoode\update\backup\netbeans\modules\shoot-doode-Player.jar
+apr. 01, 2020 3:40:59 PM org.netbeans.updater.ModuleUpdater unpack
+INFO: File D:\4. Semester Projekt\Shooting-Dood\ShootinDOODE\application\target\shootindoode\shootindoode\modules\shoot-doode-Player.jar deleted.
+apr. 01, 2020 3:40:59 PM org.netbeans.updater.ModuleUpdater unpack
+INFO: Copied file D:\4. Semester Projekt\Shooting-Dood\ShootinDOODE\application\target\shootindoode\shootindoode\update\download\shoot-doode-Player.nbm:netbeans/modules/shoot-doode-Player.jar to D:\4. Semester Projekt\Shooting-Dood\ShootinDOODE\application\target\shootindoode\shootindoode\modules\shoot-doode-Player.jar
+apr. 01, 2020 3:40:59 PM org.netbeans.updater.ModuleUpdater unpack
+INFO: Backup file D:\4. Semester Projekt\Shooting-Dood\ShootinDOODE\application\target\shootindoode\shootindoode\update_tracking\shoot-doode-Player.xml to D:\4. Semester Projekt\Shooting-Dood\ShootinDOODE\application\target\shootindoode\shootindoode\update\backup\netbeans\update_tracking\shoot-doode-Player.xml
+apr. 01, 2020 3:40:59 PM org.netbeans.updater.ModuleUpdater unpack
+INFO: File D:\4. Semester Projekt\Shooting-Dood\ShootinDOODE\application\target\shootindoode\shootindoode\update_tracking\shoot-doode-Player.xml deleted.
+apr. 01, 2020 3:40:59 PM org.netbeans.updater.ModuleUpdater unpack
+INFO: Copied file D:\4. Semester Projekt\Shooting-Dood\ShootinDOODE\application\target\shootindoode\shootindoode\update\download\shoot-doode-Player.nbm:netbeans/update_tracking/shoot-doode-Player.xml to D:\4. Semester Projekt\Shooting-Dood\ShootinDOODE\application\target\shootindoode\shootindoode\update_tracking\shoot-doode-Player.xml
+apr. 01, 2020 3:40:59 PM org.netbeans.updater.ModuleUpdater unpack
+INFO: File D:\4. Semester Projekt\Shooting-Dood\ShootinDOODE\application\target\shootindoode\shootindoode\update\download\shoot-doode-Player.nbm deleted.
+apr. 01, 2020 3:40:59 PM org.netbeans.updater.XMLUtil write
+INFO: Use XML Transformer: com.sun.org.apache.xalan.internal.xsltc.trax.TransformerImpl@6c2b02c6
+apr. 01, 2020 3:40:59 PM org.netbeans.updater.UpdateTracking$Module write
+INFO: File D:\4. Semester Projekt\Shooting-Dood\ShootinDOODE\application\target\shootindoode\shootindoode\update_tracking\shoot-doode-Player.xml modified.

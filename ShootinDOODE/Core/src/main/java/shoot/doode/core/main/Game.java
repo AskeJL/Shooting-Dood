@@ -116,6 +116,11 @@ public class Game implements ApplicationListener {
 
     private void draw() {
 
+        System.out.println("HashMap has: " + spriteMap.size());
+        System.out.println("Gameplugins" + gamePlugins);
+        System.out.println("Entity process" + getEntityProcessingServices());
+        System.out.println("Post process" + getPostEntityProcessingServices());
+        
         for (Entity entity : world.getEntities()) {
             AssetPart assets = entity.getPart(AssetPart.class);
             System.out.println(entity);
@@ -191,12 +196,14 @@ public class Game implements ApplicationListener {
     private final LookupListener lookupListener = new LookupListener() {
         @Override
         public void resultChanged(LookupEvent le) {
-
+       
             Collection<? extends IGamePluginService> updated = result.allInstances();
+            
 
             for (IGamePluginService us : updated) {
                 // Newly installed modules
                 if (!gamePlugins.contains(us)) {
+                    System.out.println("IGAMESTART");
                     us.start(gameData, world);
                     gamePlugins.add(us);
                 }

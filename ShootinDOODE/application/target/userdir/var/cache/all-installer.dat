@@ -1,4 +1,4 @@
-#Tue Mar 31 17:08:26 CEST 2020
+#Wed Apr 01 15:39:09 CEST 2020
 shoot.doode.Common.OpenIDE-Module-Install=\u0000
 org.netbeans.api.progress.OpenIDE-Module-Description=\u0000
 org.netbeans.libs.asm.OpenIDE-Module-Deprecated=\u0000
@@ -37,8 +37,8 @@ processSections=false
 org.netbeans.api.io.AutoUpdate-Show-In-Client=false
 org.netbeans.core.startup.OpenIDE-Module-Layer=org/netbeans/core/startup/layer.xml
 org.openide.util.ui.OpenIDE-Module-Deprecated=\u0000
-org.openide.modules.OpenIDE-Module-Hide-Classpath-Packages=\u0000
 org.netbeans.api.progress.OpenIDE-Module-Hide-Classpath-Packages=\u0000
+org.openide.modules.OpenIDE-Module-Hide-Classpath-Packages=\u0000
 org.netbeans.libs.osgi.OpenIDE-Module-Hide-Classpath-Packages=\u0000
 org.openide.io.OpenIDE-Module-Description=\u0000
 shoot.doode.Player.OpenIDE-Module-Layer=\u0000
