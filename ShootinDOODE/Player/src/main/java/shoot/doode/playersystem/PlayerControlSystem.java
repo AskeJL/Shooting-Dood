@@ -32,6 +32,7 @@ public class PlayerControlSystem implements IEntityProcessingService {
             playerMovingPart.setUp(gameData.getKeys().isDown(GameKeys.UP));
             playerMovingPart.setDown(gameData.getKeys().isDown(GameKeys.DOWN));
             
+            // Will give a nullPointerExeption
             //shootingPart.setIsShooting(gameData.getKeys().isDown(GameKeys.SPACE));
             
             playerMovingPart.setW(gameData.getKeys().isDown(GameKeys.W));
