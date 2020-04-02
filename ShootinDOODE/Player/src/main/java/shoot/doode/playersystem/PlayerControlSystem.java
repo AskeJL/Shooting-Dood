@@ -11,6 +11,7 @@ import shoot.doode.common.data.entityparts.PositionPart;
 import shoot.doode.common.services.IEntityProcessingService;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
+import shoot.doode.common.data.entityparts.ShootingPart;
 
 @ServiceProviders(value = {
     @ServiceProvider(service = IEntityProcessingService.class),})
@@ -22,12 +23,16 @@ public class PlayerControlSystem implements IEntityProcessingService {
         for (Entity player : world.getEntities(Player.class)) {
             PositionPart positionPart = player.getPart(PositionPart.class);
             PlayerMovingPart playerMovingPart = player.getPart(PlayerMovingPart.class);
+            ShootingPart shootingPart = player.getPart(ShootingPart.class);
             LifePart lifePart = player.getPart(LifePart.class);
+            
 
             playerMovingPart.setLeft(gameData.getKeys().isDown(GameKeys.LEFT));
             playerMovingPart.setRight(gameData.getKeys().isDown(GameKeys.RIGHT));
             playerMovingPart.setUp(gameData.getKeys().isDown(GameKeys.UP));
             playerMovingPart.setDown(gameData.getKeys().isDown(GameKeys.DOWN));
+            
+            //shootingPart.setIsShooting(gameData.getKeys().isDown(GameKeys.SPACE));
             
             playerMovingPart.setW(gameData.getKeys().isDown(GameKeys.W));
             playerMovingPart.setA(gameData.getKeys().isDown(GameKeys.A));
@@ -36,12 +41,14 @@ public class PlayerControlSystem implements IEntityProcessingService {
 
             playerMovingPart.process(gameData, player);
             positionPart.process(gameData, player);
+            //shootingPart.process(gameData, player);
             lifePart.process(gameData, player);
 
             updateShape(player);
 
         }
     }
+    
 
     private void updateShape(Entity entity) {
         float[] shapex = new float[4];
