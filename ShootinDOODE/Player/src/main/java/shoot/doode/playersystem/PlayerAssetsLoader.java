@@ -30,7 +30,7 @@ public class PlayerAssetsLoader implements IAssetService {
 
     private String[] sounds() {
         ArrayList<String> paths = new ArrayList<>();
-        //paths.add("sound.mp3");
+        paths.add("Gun_Fire.mp3");
 
         return IAssetService.arrayListToString(module, paths);
 

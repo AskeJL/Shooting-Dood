@@ -12,31 +12,31 @@ import shoot.doode.common.data.GameData;
  *
  * @author tobia
  */
-public class AssetPart implements EntityPart {
+public class SpritePart implements EntityPart {
     String module;
-    String[] assetPaths;
-    int currentAsset = 0;
-    //**Creates an AssetPart, which alows the entity to have images showed that represent it
-    public AssetPart(String module,String[] assetPaths)
+    String[] spritePaths;
+    int currentSprite = 0;
+    //**Creates an SpritePart, which alows the entity to have images showed that represent it
+    public SpritePart(String module,String[] spritePaths)
     {
         this.module = module;
-        this.assetPaths = assetPaths;
+        this.spritePaths = spritePaths;
     }
     
     //** Sets which asset that should be showed by the draw method 
-    public void setCurrentAsset(int currentAsset)
+    public void setCurrentSprite(int currentSprite)
     {
-        this.currentAsset = currentAsset;
+        this.currentSprite = currentSprite;
     }
     
-    public String[] getAssetPaths()
+    public String[] getSpritePaths()
     {
-        return assetPaths;
+        return spritePaths;
     }
     
-    public String getAssetPath()    
+    public String getSpritePath()    
     {
-        return assetPaths[currentAsset];
+        return spritePaths[currentSprite];
     }
     
     public String getModule()

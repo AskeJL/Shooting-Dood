@@ -11,7 +11,8 @@ import shoot.doode.common.services.IGamePluginService;
 import java.util.UUID;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
-import shoot.doode.common.data.entityparts.AssetPart;
+import shoot.doode.common.data.entityparts.SoundPart;
+import shoot.doode.common.data.entityparts.SpritePart;
 
 @ServiceProviders(value = {
     @ServiceProvider(service = IGamePluginService.class),
@@ -46,8 +47,12 @@ public class PlayerPlugin implements IGamePluginService {
         colour[3] = 1.0f;
 
         String module = "Player";
-        String[] assetPaths = new String[1];
-        assetPaths[0] = "Red_Virus.png";
+        String[] spritePaths = new String[1];
+        spritePaths[0] = "Red_Virus.png";
+        
+        String[] soundPaths = new String[1];
+        soundPaths[0] = "Gun_Fire.mp3";
+        
         
         Entity playerShip = new Player();
         playerShip.setRadius(8);
@@ -55,8 +60,8 @@ public class PlayerPlugin implements IGamePluginService {
         playerShip.add(new PlayerMovingPart(maxSpeed));
         playerShip.add(new PositionPart(x, y, radians));
         playerShip.add(new LifePart(1));
-        playerShip.add(new AssetPart(module, assetPaths));
-        
+        playerShip.add(new SpritePart(module, spritePaths));
+        playerShip.add(new SoundPart(module, soundPaths));
         
         return playerShip;
     }

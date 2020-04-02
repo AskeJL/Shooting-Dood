@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.Player">
-    <module_version install_time="1585814799920" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1585866279985" last="true" origin="installer" specification_version="1.0">
         <file crc="462997863" name="config/Modules/shoot-doode-Player.xml"/>
-        <file crc="3579075882" name="modules/shoot-doode-Player.jar"/>
-        <file crc="3511875960" name="update_tracking/shoot-doode-Player.xml"/>
+        <file crc="75124696" name="modules/shoot-doode-Player.jar"/>
+        <file crc="2027308547" name="update_tracking/shoot-doode-Player.xml"/>
     </module_version>
 </module>

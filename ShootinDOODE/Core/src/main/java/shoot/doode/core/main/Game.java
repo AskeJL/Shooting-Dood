@@ -6,10 +6,11 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import shoot.doode.common.data.entityparts.AssetPart;
+import shoot.doode.common.data.entityparts.SpritePart;
 import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
 import shoot.doode.common.data.World;
@@ -25,6 +26,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.openide.util.Lookup;
 import org.openide.util.LookupEvent;
 import org.openide.util.LookupListener;
+import shoot.doode.common.data.entityparts.SoundPart;
 import shoot.doode.common.services.IAssetService;
 import shoot.doode.core.managers.AssetsHelper;
 import shoot.doode.core.managers.AssetsJarFileResolver;
@@ -112,12 +114,12 @@ public class Game implements ApplicationListener {
         System.out.println("Post process" + getPostEntityProcessingServices());
         
         for (Entity entity : world.getEntities()) {
-            AssetPart assets = entity.getPart(AssetPart.class);
+            SpritePart spritePart = entity.getPart(SpritePart.class);
             System.out.println(entity);
-            if (assets != null) {
+            if (spritePart != null) {
 
-                String module = assets.getModule();
-                String imagePath = assets.getAssetPath();
+                String module = spritePart.getModule();
+                String imagePath = spritePart.getSpritePath();
 
                 Sprite sprite = assetesHelper.getSprite(module,imagePath);
 
@@ -147,6 +149,25 @@ public class Game implements ApplicationListener {
 
                 sr.end();
             }
+            
+            SoundPart soundPart = entity.getPart(SoundPart.class);
+            if (soundPart != null) {
+                String module = soundPart.getModule();
+                
+                for(String soundPath : soundPart.getSoundPaths())
+                {
+                    Sound sound = assetesHelper.getSound(module, soundPath);
+                    sound.play();
+                    soundPart.setPlay(soundPath,false);
+                }
+                
+                
+                
+            }
+            
+            
+            
+            
 
         }
     }
