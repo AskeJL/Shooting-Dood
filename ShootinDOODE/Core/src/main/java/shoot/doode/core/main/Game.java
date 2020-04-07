@@ -124,10 +124,8 @@ public class Game implements ApplicationListener {
                 Sprite sprite = assetesHelper.getSprite(module,imagePath);
 
                 PositionPart positionPart = entity.getPart(PositionPart.class);
-
                 sprite.setRotation(positionPart.getRotation());
-                sprite.setPosition(positionPart.getX(), positionPart.getY());
-
+                sprite.setPosition(positionPart.getX() - sprite.getWidth()/2, positionPart.getY() - sprite.getHeight()/2);
                 batch.begin();
                 sprite.draw(batch);
                 batch.end();

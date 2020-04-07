@@ -1,4 +1,4 @@
-#Tue Apr 07 12:26:26 CEST 2020
+#Tue Apr 07 12:35:43 CEST 2020
 shoot.doode.Common.OpenIDE-Module-Install=\u0000
 org.netbeans.libs.asm.OpenIDE-Module-Deprecated=\u0000
 org.openide.modules.OpenIDE-Module-Install=\u0000
@@ -11,8 +11,8 @@ org.netbeans.core.startup.base.OpenIDE-Module-Hide-Classpath-Packages=\u0000
 org.netbeans.modules.netbinox.AutoUpdate-Show-In-Client=false
 org.netbeans.core.startup.OpenIDE-Module-Install=\u0000
 org.netbeans.api.annotations.common.OpenIDE-Module-Install=\u0000
-org.netbeans.core.netigso.OpenIDE-Module-Deprecated=\u0000
 org.netbeans.libs.osgi.OpenIDE-Module-Description=\u0000
+org.netbeans.core.netigso.OpenIDE-Module-Deprecated=\u0000
 org.openide.util.OpenIDE-Module-Install=\u0000
 shoot.doode.Bullet.OpenIDE-Module-Hide-Classpath-Packages=\u0000
 org.netbeans.core.startup.base.OpenIDE-Module-Deprecated=\u0000
