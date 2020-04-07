@@ -16,12 +16,12 @@ public class PositionPart implements EntityPart {
 
     private float x;
     private float y;
-    private float radians;
+    private float rotation;
 
-    public PositionPart(float x, float y, float radians) {
+    public PositionPart(float x, float y, float rotation) {
         this.x = x;
         this.y = y;
-        this.radians = radians;
+        this.rotation = rotation;
     }
 
     public float getX() {
@@ -32,8 +32,8 @@ public class PositionPart implements EntityPart {
         return y;
     }
 
-    public float getRadians() {
-        return radians;
+    public float getRotation() {
+        return rotation;
     }
 
     public void setX(float newX) {
@@ -49,8 +49,8 @@ public class PositionPart implements EntityPart {
         this.y = newY;
     }
 
-    public void setRadians(float radians) {
-        this.radians = radians;
+    public void setRotation(float rotation) {
+        this.rotation = rotation;
     }
 
     @Override

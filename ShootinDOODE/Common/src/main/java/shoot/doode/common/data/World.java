@@ -21,10 +21,12 @@ public class World {
 
     public void removeEntity(String entityID) {
         entityMap.remove(entityID);
+        System.out.println("Removed entity");
     }
 
     public void removeEntity(Entity entity) {
         entityMap.remove(entity.getID());
+        System.out.println("Removed entity");
     }
 
     public Collection<Entity> getEntities() {

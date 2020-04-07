@@ -1,5 +1,7 @@
 META-INF\services\shoot.doode.common.services.IEntityProcessingService
-META-INF\services\shoot.doode.common.services.IGamePluginService
 shoot\doode\playersystem\PlayerControlSystem.class
 shoot\doode\playersystem\Player.class
+META-INF\services\shoot.doode.common.services.IAssetService
+META-INF\services\shoot.doode.common.services.IGamePluginService
+shoot\doode\playersystem\PlayerAssetsLoader.class
 shoot\doode\playersystem\PlayerPlugin.class
