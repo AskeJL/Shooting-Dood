@@ -36,7 +36,7 @@ public class BulletControlSystem implements IEntityProcessingService {
                     bullet = createBullet(entity);
                     
                     PositionPart test = bullet.getPart(PositionPart.class);
-                    System.out.println(test.getRadians());
+                    System.out.println(test.getRotation());
                     
                     shootingPart.setIsShooting(false);
                     world.addEntity(bullet);
@@ -56,32 +56,32 @@ public class BulletControlSystem implements IEntityProcessingService {
             if (btp.getExpiration() < 0) {
                 world.removeEntity(b);
             }
-            //System.out.println("Radians" + ppb.getRadians());
-            if(ppb.getRadians() == 0){
+            //System.out.println("Radians" + ppb.getRotation());
+            if(ppb.getRotation() == 0){
                 mpb.setD(true);               
             }
-            if(ppb.getRadians() == (float)Math.PI/2){
+            if(ppb.getRotation() == (float)Math.PI/2){
                 mpb.setW(true);
             }
-            if(ppb.getRadians() == (float)Math.PI){
+            if(ppb.getRotation() == (float)Math.PI){
                 mpb.setA(true);
             }
-            if(ppb.getRadians() == (float)Math.PI+(float)Math.PI/2){
+            if(ppb.getRotation() == (float)Math.PI+(float)Math.PI/2){
                 mpb.setS(true);
             }
-            if(ppb.getRadians() == (float)Math.PI/4 ){
+            if(ppb.getRotation() == (float)Math.PI/4 ){
                 mpb.setD(true);
                 mpb.setW(true);
             }
-            if(ppb.getRadians() == (float)Math.PI*3/4){
+            if(ppb.getRotation() == (float)Math.PI*3/4){
                 mpb.setW(true);
                 mpb.setA(true);
             }
-            if(ppb.getRadians() == (float)Math.PI+(float)Math.PI/4){
+            if(ppb.getRotation() == (float)Math.PI+(float)Math.PI/4){
                 mpb.setA(true);
                 mpb.setS(true);
             }
-            if(ppb.getRadians() == (float)Math.PI*2-(float)Math.PI/4){
+            if(ppb.getRotation() == (float)Math.PI*2-(float)Math.PI/4){
                 mpb.setS(true);
                 mpb.setD(true);
             }
@@ -103,8 +103,8 @@ public class BulletControlSystem implements IEntityProcessingService {
         Entity b = new Bullet();
 
         
-        b.add(new PositionPart(p.getX(), p.getY(), p.getRadians()));
-        System.out.println(p.getRadians());
+        b.add(new PositionPart(p.getX(), p.getY(), p.getRotation()));
+        System.out.println(p.getRotation());
         b.add(new PlayerMovingPart((float)4.5));
         b.add(new TimerPart(3));
         b.add(new LifePart(1));
@@ -135,7 +135,7 @@ public class BulletControlSystem implements IEntityProcessingService {
         PositionPart positionPart = entity.getPart(PositionPart.class);
         float x = positionPart.getX();
         float y = positionPart.getY();
-        float radians = positionPart.getRadians();
+        float radians = positionPart.getRotation();
 
         shapex[0] = (float) (x + Math.cos(radians) * entity.getRadius());
         shapey[0] = (float) (y + Math.sin(radians) * entity.getRadius());

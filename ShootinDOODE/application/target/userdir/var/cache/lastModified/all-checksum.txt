@@ -1,25 +1,11 @@
-<<<<<<< HEAD
-platform=1585866617248
-cluster.bin=1585866617248
-cluster.etc=1585866617248
-cluster.platform=1585866617248
-cluster.shootindoode=1585866617248
-user=1585866617248
-=======
-platform=1586253946163
-cluster.bin=1586253946162
-cluster.etc=1586253946162
-cluster.platform=1586253946163
-cluster.shootindoode=1586253946163
-user=1586253946163
->>>>>>> Bullet+PlayerUpdate
+platform=1586255169014
+cluster.bin=1586255169013
+cluster.etc=1586255169013
+cluster.platform=1586255169014
+cluster.shootindoode=1586255169014
+user=1586255169014
 crc=7
 locale=en_GB
 branding=shootindoode
-<<<<<<< HEAD
-java.version=10.0.2
-java.vm.version=10.0.2+13
-=======
 java.version=13.0.2
 java.vm.version=13.0.2+8
->>>>>>> Bullet+PlayerUpdate

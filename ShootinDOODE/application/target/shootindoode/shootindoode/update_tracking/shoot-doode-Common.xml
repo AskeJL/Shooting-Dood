@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.Common">
-<<<<<<< HEAD
-    <module_version install_time="1585866280610" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1586255154491" last="true" origin="installer" specification_version="1.0">
         <file crc="340195565" name="config/Modules/shoot-doode-Common.xml"/>
-        <file crc="2656022503" name="modules/shoot-doode-Common.jar"/>
-        <file crc="2988344630" name="update_tracking/shoot-doode-Common.xml"/>
-=======
-    <module_version install_time="1586253932379" last="true" origin="installer" specification_version="1.0">
-        <file crc="340195565" name="config/Modules/shoot-doode-Common.xml"/>
-        <file crc="4002398393" name="modules/shoot-doode-Common.jar"/>
-        <file crc="3735014558" name="update_tracking/shoot-doode-Common.xml"/>
->>>>>>> Bullet+PlayerUpdate
+        <file crc="3534143646" name="modules/shoot-doode-Common.jar"/>
+        <file crc="433241426" name="update_tracking/shoot-doode-Common.xml"/>
     </module_version>
 </module>
