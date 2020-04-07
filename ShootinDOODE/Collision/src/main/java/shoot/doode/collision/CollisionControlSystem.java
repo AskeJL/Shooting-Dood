@@ -38,7 +38,9 @@ public class CollisionControlSystem implements IEntityProcessingService {
                     continue;
                 }
                 
-                handleCollisionOverlap((CollidableEntity)f, (CollidableEntity)e);
+                if(rectangleCollision((CollidableEntity)f, (CollidableEntity)e)) {
+                    handleCollisionOverlap((CollidableEntity)f, (CollidableEntity)e);
+                }
             }
         }
         
@@ -70,12 +72,21 @@ public class CollisionControlSystem implements IEntityProcessingService {
         entity.setShapeY(shapey);
     }*/
     
-    private boolean circleCollision(CollidableEntity e, CollidableEntity f) {
+    private boolean rectangleCollision(CollidableEntity e, CollidableEntity f) {
         PositionPart ep = e.getPart(PositionPart.class);
         PositionPart fp = f.getPart(PositionPart.class);
         
-        return Intersector.overlaps(new Circle(ep.getX(), ep.getY(), e.getRadius()),
-                new Circle(fp.getX(), fp.getY(), f.getRadius()));
+        Rectangle rec1 = new Rectangle(ep.getX() - (e.getBoundaryWidth() / 2),
+                ep.getY() - (e.getBoundaryHeight() / 2),
+                e.getBoundaryWidth(),
+                e.getBoundaryHeight());
+        
+        Rectangle rec2 = new Rectangle(fp.getX() - (f.getBoundaryWidth() / 2),
+                fp.getY() - (f.getBoundaryHeight() / 2),
+                f.getBoundaryWidth(),
+                f.getBoundaryHeight());
+        
+        return Intersector.overlaps(rec1, rec2);
     }
     
     private void handleCollisionOverlap(CollidableEntity e, CollidableEntity f) {
