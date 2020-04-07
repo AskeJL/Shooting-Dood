@@ -1,0 +1,11 @@
+platform=1586253946163
+cluster.bin=1586253946162
+cluster.etc=1586253946162
+cluster.platform=1586253946163
+cluster.shootindoode=1586253946163
+user=1586253946163
+crc=7
+locale=en_GB
+branding=shootindoode
+java.version=13.0.2
+java.vm.version=13.0.2+8

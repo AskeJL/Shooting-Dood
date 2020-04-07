@@ -33,7 +33,7 @@ public class PlayerControlSystem implements IEntityProcessingService {
             playerMovingPart.setDown(gameData.getKeys().isDown(GameKeys.DOWN));
             
             // Will give a nullPointerExeption
-            //shootingPart.setIsShooting(gameData.getKeys().isDown(GameKeys.SPACE));
+            shootingPart.setIsShooting(gameData.getKeys().isDown(GameKeys.SPACE));
             
             playerMovingPart.setW(gameData.getKeys().isDown(GameKeys.W));
             playerMovingPart.setA(gameData.getKeys().isDown(GameKeys.A));
@@ -42,7 +42,7 @@ public class PlayerControlSystem implements IEntityProcessingService {
 
             playerMovingPart.process(gameData, player);
             positionPart.process(gameData, player);
-            //shootingPart.process(gameData, player);
+            shootingPart.process(gameData, player);
             lifePart.process(gameData, player);
 
             updateShape(player);

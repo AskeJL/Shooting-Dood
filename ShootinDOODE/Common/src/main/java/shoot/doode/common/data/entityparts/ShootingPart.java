@@ -27,6 +27,7 @@ public class ShootingPart implements EntityPart{
     
     public void setIsShooting(boolean b){
         this.isSchooting = b;
+        //System.out.println("is shooting" + b);
     }
 
     public String getID() {
@@ -40,5 +41,6 @@ public class ShootingPart implements EntityPart{
     @Override
     public void process(GameData gameData, Entity entity) {
     }
+    
     
 }

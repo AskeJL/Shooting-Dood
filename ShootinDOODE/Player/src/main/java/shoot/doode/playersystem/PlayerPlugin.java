@@ -11,6 +11,7 @@ import shoot.doode.common.services.IGamePluginService;
 import java.util.UUID;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
+import shoot.doode.common.data.entityparts.ShootingPart;
 
 @ServiceProviders(value = {
     @ServiceProvider(service = IGamePluginService.class),})
@@ -49,6 +50,8 @@ public class PlayerPlugin implements IGamePluginService {
         playerShip.add(new PositionPart(x, y, radians));
         UUID uuid = UUID.randomUUID();
         playerShip.add(new LifePart(1));
+        
+        playerShip.add(new ShootingPart(uuid.toString()));
 
         return playerShip;
     }
