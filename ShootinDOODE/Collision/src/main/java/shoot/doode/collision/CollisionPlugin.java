@@ -47,8 +47,8 @@ public class CollisionPlugin implements IGamePluginService {
         entity.setColour(colour);
         entity.add(new PositionPart(x, y, radians));
         
-        entity.setBoundaryWidth(25);
-        entity.setBoundaryHeight(50);
+        entity.setBoundaryWidth(26);
+        entity.setBoundaryHeight(60);
         entity.setIsStatic(true);
 
         return entity;

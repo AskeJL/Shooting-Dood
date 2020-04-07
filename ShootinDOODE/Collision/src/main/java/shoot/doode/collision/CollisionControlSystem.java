@@ -57,16 +57,16 @@ public class CollisionControlSystem implements IEntityProcessingService {
         float y = positionPart.getY();
         
         shapex[0] = x - 10;
-        shapey[0] = y - 10;
+        shapey[0] = y + 10;
 
         shapex[1] = x + 10;
         shapey[1] = y + 10;
 
         shapex[2] = x + 10;
-        shapey[2] = y + 30;
+        shapey[2] = y + 50;
 
         shapex[3] = x - 10;
-        shapey[3] = y + 30;
+        shapey[3] = y + 50;
 
         entity.setShapeX(shapex);
         entity.setShapeY(shapey);
