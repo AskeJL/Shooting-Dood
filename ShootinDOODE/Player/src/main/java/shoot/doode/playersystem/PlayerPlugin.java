@@ -13,6 +13,7 @@ import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
 import shoot.doode.common.data.entityparts.SoundPart;
 import shoot.doode.common.data.entityparts.SpritePart;
+import shoot.doode.common.data.entityparts.ShootingPart;
 
 @ServiceProviders(value = {
     @ServiceProvider(service = IGamePluginService.class),
@@ -63,6 +64,9 @@ public class PlayerPlugin implements IGamePluginService {
         playerShip.add(new SpritePart(module, spritePaths));
         playerShip.add(new SoundPart(module, soundPaths));
         
+        
+        playerShip.add(new ShootingPart(uuid.toString()));
+
         return playerShip;
     }
 

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="org.openide.util.lookup">
+<<<<<<< HEAD
     <module_version install_time="1585866267928" last="true" origin="installer" specification_version="8.39">
+=======
+    <module_version install_time="1586251942393" last="true" origin="installer" specification_version="8.39">
+>>>>>>> Bullet+PlayerUpdate
         <file crc="2379262314" name="lib/org-openide-util-lookup.jar"/>
     </module_version>
 </module>

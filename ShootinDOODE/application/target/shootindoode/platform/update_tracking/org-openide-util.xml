@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="org.openide.util">
+<<<<<<< HEAD
     <module_version install_time="1585866267891" last="true" origin="installer" specification_version="9.13">
+=======
+    <module_version install_time="1586251942349" last="true" origin="installer" specification_version="9.13">
+>>>>>>> Bullet+PlayerUpdate
         <file crc="2286822072" name="config/ModuleAutoDeps/org-openide-util.xml"/>
         <file crc="244353016" name="lib/org-openide-util.jar"/>
     </module_version>

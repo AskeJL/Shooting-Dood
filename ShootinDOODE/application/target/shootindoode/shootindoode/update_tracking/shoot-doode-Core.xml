@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.Core">
+<<<<<<< HEAD
     <module_version install_time="1585866280499" last="true" origin="installer" specification_version="1.0">
+=======
+    <module_version install_time="1586253932728" last="true" origin="installer" specification_version="1.0">
+>>>>>>> Bullet+PlayerUpdate
         <file crc="1284631590" name="config/Modules/shoot-doode-Core.xml"/>
         <file crc="2488665527" name="modules/ext/shoot.doode.Core/com-badlogicgames-gdx/gdx-backend-lwjgl.jar"/>
         <file crc="2933476186" name="modules/ext/shoot.doode.Core/com-badlogicgames-gdx/gdx-box2d-platform-natives-desktop.jar"/>
@@ -17,7 +21,12 @@
         <file crc="1629828147" name="modules/ext/shoot.doode.Core/org-lwjgl-lwjgl/lwjgl-platform-natives-windows.jar"/>
         <file crc="1810775593" name="modules/ext/shoot.doode.Core/org-lwjgl-lwjgl/lwjgl.jar"/>
         <file crc="1003691195" name="modules/ext/shoot.doode.Core/org-lwjgl-lwjgl/lwjgl_util.jar"/>
+<<<<<<< HEAD
         <file crc="1680259939" name="modules/shoot-doode-Core.jar"/>
         <file crc="2307277480" name="update_tracking/shoot-doode-Core.xml"/>
+=======
+        <file crc="496802076" name="modules/shoot-doode-Core.jar"/>
+        <file crc="2476410362" name="update_tracking/shoot-doode-Core.xml"/>
+>>>>>>> Bullet+PlayerUpdate
     </module_version>
 </module>

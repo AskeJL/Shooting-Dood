@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.core.startup.base">
+<<<<<<< HEAD
     <module_version install_time="1585866267985" last="true" origin="installer" specification_version="1.68.0.1">
+=======
+    <module_version install_time="1586251942502" last="true" origin="installer" specification_version="1.68.0.1">
+>>>>>>> Bullet+PlayerUpdate
         <file crc="2986119528" name="core/core-base.jar"/>
     </module_version>
 </module>
