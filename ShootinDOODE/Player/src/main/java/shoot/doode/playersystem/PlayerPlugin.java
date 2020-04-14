@@ -57,7 +57,7 @@ public class PlayerPlugin implements IGamePluginService {
         
         UUID uuid = UUID.randomUUID();
         
-        Entity playerShip = new Player();
+        
         CollidableEntity playerShip = new Player();
         playerShip.setRadius(8);
         playerShip.setColour(colour);
@@ -70,8 +70,8 @@ public class PlayerPlugin implements IGamePluginService {
         
         
         
-        playerShip.setBoundaryWidth(10);
-        playerShip.setBoundaryHeight(10);
+        playerShip.setBoundaryWidth(50);
+        playerShip.setBoundaryHeight(50);
 
         return playerShip;
     }

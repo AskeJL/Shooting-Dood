@@ -44,12 +44,12 @@ public class CollisionControlSystem implements IEntityProcessingService {
             }
         }
         
-        /*for (Entity obstacle : world.getEntities(CollidableEntity.class)) {
+        for (Entity obstacle : world.getEntities(CollidableEntity.class)) {
             updateShape(obstacle);
-        }*/
+        }
     }
     
-    /*private void updateShape(Entity entity) {
+    private void updateShape(Entity entity) {
         float[] shapex = new float[4];
         float[] shapey = new float[4];
         PositionPart positionPart = entity.getPart(PositionPart.class);
@@ -70,7 +70,7 @@ public class CollisionControlSystem implements IEntityProcessingService {
 
         entity.setShapeX(shapex);
         entity.setShapeY(shapey);
-    }*/
+    }
     
     private boolean rectangleCollision(CollidableEntity e, CollidableEntity f) {
         PositionPart ep = e.getPart(PositionPart.class);
