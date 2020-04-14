@@ -14,6 +14,7 @@ import org.openide.util.lookup.ServiceProviders;
 import shoot.doode.common.data.entityparts.SoundPart;
 import shoot.doode.common.data.entityparts.SpritePart;
 import shoot.doode.common.data.entityparts.ShootingPart;
+import shoot.doode.common.data.CollidableEntity;
 
 @ServiceProviders(value = {
     @ServiceProvider(service = IGamePluginService.class),
@@ -57,6 +58,7 @@ public class PlayerPlugin implements IGamePluginService {
         UUID uuid = UUID.randomUUID();
         
         Entity playerShip = new Player();
+        CollidableEntity playerShip = new Player();
         playerShip.setRadius(8);
         playerShip.setColour(colour);
         playerShip.add(new PlayerMovingPart(maxSpeed));
@@ -67,6 +69,9 @@ public class PlayerPlugin implements IGamePluginService {
         playerShip.add(new ShootingPart(uuid.toString()));
         
         
+        
+        playerShip.setBoundaryWidth(10);
+        playerShip.setBoundaryHeight(10);
 
         return playerShip;
     }
