@@ -7,6 +7,7 @@ import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
 import shoot.doode.common.data.World;
 import shoot.doode.common.data.entityparts.PositionPart;
+import shoot.doode.common.data.entityparts.SpritePart;
 import shoot.doode.common.services.IGamePluginService;
 
 /**
@@ -42,13 +43,17 @@ public class CollisionPlugin implements IGamePluginService {
         colour[2] = 1.0f;
         colour[3] = 1.0f;
 
+        String[] spritePaths = new String[1];
+        spritePaths[0] = "Red_Virus.png";
+        
         CollidableEntity entity = new CollidableEntity();
         entity.setRadius(30);
         entity.setColour(colour);
         entity.add(new PositionPart(x, y, radians));
+        entity.add(new SpritePart("Player", spritePaths));
         
-        entity.setBoundaryWidth(26);
-        entity.setBoundaryHeight(60);
+        entity.setBoundaryWidth(50);
+        entity.setBoundaryHeight(50);
         entity.setIsStatic(true);
 
         return entity;
