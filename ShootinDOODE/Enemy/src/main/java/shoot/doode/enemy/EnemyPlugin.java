@@ -5,6 +5,7 @@
  */
 package shoot.doode.enemy;
 
+import java.util.Random;
 import shoot.doode.commonenemy.Enemy;
 import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
@@ -25,6 +26,10 @@ import org.openide.util.lookup.ServiceProviders;
 @ServiceProviders(value = {
     @ServiceProvider(service = IGamePluginService.class),})
 public class EnemyPlugin implements IGamePluginService {
+     private Entity enemy = new Enemy();
+
+    public EnemyPlugin() {
+    }
 
     @Override
     public void start(GameData gameData, World world) {
@@ -33,8 +38,29 @@ public class EnemyPlugin implements IGamePluginService {
     }
 
     private Entity createEnemy(GameData gameData) {
+        
+        float deacceleration = 10;
+        float acceleration = 150;
+        float maxSpeed = 200;
+        float rotationSpeed = 5;
+        float x = new Random().nextFloat() * gameData.getDisplayWidth();
+        float y = new Random().nextFloat() * gameData.getDisplayHeight();
+        float radians = 3.1415f / 2;
+
+        float[] colour = new float[4];
+        colour[0] = 1.0f;
+        colour[1] = 0.0f;
+        colour[2] = 0.0f;
+        colour[3] = 1.0f;
 
         Entity enemy = new Enemy();
+        enemy.setRadius(8);
+        enemy.setColour(colour);
+        enemy.add(new MovingPart(deacceleration, acceleration, maxSpeed, rotationSpeed));
+        enemy.add(new PositionPart(x, y, radians));
+        enemy.add(new LifePart(1));
+        
+       
         return enemy;
     }
 
