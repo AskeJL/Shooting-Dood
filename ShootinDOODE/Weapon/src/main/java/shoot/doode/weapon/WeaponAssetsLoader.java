@@ -1,29 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package shoot.doode.playersystem;
+package shoot.doode.weapon;
 
 import shoot.doode.common.services.IAssetService;
 import java.util.ArrayList;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
 
-/**
- *
- * @author tobia
- */
+
 @ServiceProviders(value = {
     @ServiceProvider(service = IAssetService.class),})
+public class WeaponAssetsLoader implements IAssetService {
 
-public class PlayerAssetsLoader implements IAssetService {
-
-    String module = "Player";
+    String module = "Weapon";
 
     private String[] images() {
         ArrayList<String> paths = new ArrayList<>();
-        paths.add("Red_Virus.png");
+        paths.add("knife.png");
 
         return IAssetService.arrayListToString(module, paths);
     }
@@ -46,6 +37,7 @@ public class PlayerAssetsLoader implements IAssetService {
         return images();
     }
 
+    
     @Override
     public String[] loadSounds() {
         return sounds();

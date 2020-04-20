@@ -5,9 +5,11 @@ import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
 import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
+import shoot.doode.common.data.GameKeys;
 import shoot.doode.common.data.World;
 import shoot.doode.common.data.entityparts.MovingPart;
 import shoot.doode.common.data.entityparts.PositionPart;
+import shoot.doode.common.data.entityparts.ShootingPart;
 import shoot.doode.common.services.IEntityProcessingService;
 import shoot.doode.commonweapon.Weapon;
 
@@ -22,58 +24,52 @@ public class WeaponControlSystem implements IEntityProcessingService {
 
     @Override
     public void process(GameData gameData, World world) {
-        for (Entity weapon : world.getEntities(Weapon.class)) {
-            System.out.println("hello");
-            PositionPart positionPart = weapon.getPart(PositionPart.class);
-            MovingPart movingPart = weapon.getPart(MovingPart.class);
+        Entity player;
+        for (Entity entity : world.getEntities()) {
+            if (entity.getPart(ShootingPart.class) != null) {
+                player = entity;
+                for (Entity weapon : world.getEntities(Weapon.class)) {
+                    PositionPart positionPart = weapon.getPart(PositionPart.class);
+                    positionPart.process(gameData, weapon);
 
-            float speed = (float) Math.random() * 10f + 40f;
-            if (rnd.nextInt() < 8) {
-                movingPart.setMaxSpeed(speed);
-                movingPart.setUp(true);
-            } else {
-                movingPart.setLeft(true);
+                    updateShape(player, weapon);
+                }
             }
-
-            movingPart.process(gameData, weapon);
-            positionPart.process(gameData, weapon);
-            updateShape(weapon);
-            movingPart.setLeft(false);
-            movingPart.setUp(false);
         }
     }
 
-    private void updateShape(Entity weapon) {
-        PositionPart positionPart = weapon.getPart(PositionPart.class);
-        float x = positionPart.getX();
-        float y = positionPart.getY();
-        float radians = 4;
+    private void updateShape(Entity player, Entity weapon) {
+        PositionPart playerPositionPart = player.getPart(PositionPart.class);
+        
+        float[] shapex = new float[4];
+        float[] shapey = new float[4];
+        float x = playerPositionPart.getX()+40;
+        float y = playerPositionPart.getY();
+        float radians = playerPositionPart.getRotation();
 
-        float[] shapex = new float[6];
-        float[] shapey = new float[6];
+
         Weapon asWeapon = (Weapon) weapon;
         if (asWeapon.getType().equals("GUN")) {
             for (int i = 0; i < numPoints; i++) {
-                shapex[i] = x + (float) Math.cos(angle + radians) * 26;
-                shapey[i] = y + (float) Math.sin(angle + radians) * 26;
-                angle += 2 * 3.1415f / numPoints;
+                shapex[i] = (x-10) + (float) Math.cos(angle + radians) * 5;
+                shapey[i] = y + (float) Math.sin(angle + radians) * 15;
+                angle += 2 * 3.1415f /numPoints;
             }
         }
         if (asWeapon.getType().equals("RIFLE")) {
             for (int i = 0; i < numPoints; i++) {
-                shapex[i] = x + (float) Math.cos(angle + radians) * 16;
-                shapey[i] = y + (float) Math.sin(angle + radians) * 16;
+                shapex[i] = x + (float) Math.cos(angle + radians) * 8;
+                shapey[i] = y + (float) Math.sin(angle + radians) * 18;
                 angle += 2 * 3.1415f / numPoints;
             }
         }
         if (asWeapon.getType().equals("KNIFE")) {
             for (int i = 0; i < numPoints; i++) {
-                shapex[i] = x + (float) Math.cos(angle + radians) * 8;
-                shapey[i] = y + (float) Math.sin(angle + radians) * 8;
+                shapex[i] = x + (float) Math.cos(angle + radians) * 3;
+                shapey[i] = y + (float) Math.sin(angle + radians) * 12;
                 angle += 2 * 3.1415f / numPoints;
             }
         }
-
         weapon.setShapeX(shapex);
         weapon.setShapeY(shapey);
     }
