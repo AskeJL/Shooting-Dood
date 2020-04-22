@@ -1,6 +1,5 @@
 package shoot.doode.collision;
 
-import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Rectangle;
 import org.openide.util.lookup.ServiceProvider;
