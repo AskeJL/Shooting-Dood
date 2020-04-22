@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 platform=1587542516990
 cluster.bin=1587542516989
 cluster.etc=1587542516990
@@ -9,3 +10,16 @@ locale=da_DK
 branding=shootindoode
 java.version=1.8.0_181
 java.vm.version=25.181-b13
+=======
+platform=1587401761501
+cluster.bin=1587401761500
+cluster.etc=1587401761501
+cluster.platform=1587401761501
+cluster.shootindoode=1587401761502
+user=1587401761502
+crc=7
+locale=da_DK
+branding=shootindoode
+java.version=1.8.0_221
+java.vm.version=25.221-b11
+>>>>>>> Weapon

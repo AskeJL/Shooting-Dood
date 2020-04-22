@@ -51,6 +51,11 @@
             <version>${netbeans.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-netbeans-api-annotations-common</artifactId>
+            <version>${netbeans.version}</version>
+        </dependency>
 
         <!--
                 <dependency>
@@ -92,6 +97,16 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>CommonEnemy</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>Weapon</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>CommonWeapon</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
