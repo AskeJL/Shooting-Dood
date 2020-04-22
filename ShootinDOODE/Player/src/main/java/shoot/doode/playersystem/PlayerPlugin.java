@@ -11,13 +11,19 @@ import shoot.doode.common.services.IGamePluginService;
 import java.util.UUID;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
+import shoot.doode.common.data.entityparts.SoundPart;
+import shoot.doode.common.data.entityparts.SpritePart;
+import shoot.doode.common.data.entityparts.ShootingPart;
+import shoot.doode.common.data.CollidableEntity;
 
 @ServiceProviders(value = {
-    @ServiceProvider(service = IGamePluginService.class),})
+    @ServiceProvider(service = IGamePluginService.class),
+    })
 public class PlayerPlugin implements IGamePluginService {
 
     private Entity player;
-
+    
+    
     public PlayerPlugin() {
     }
 
@@ -42,13 +48,30 @@ public class PlayerPlugin implements IGamePluginService {
         colour[2] = 1.0f;
         colour[3] = 1.0f;
 
-        Entity playerShip = new Player();
+        String module = "Player";
+        String[] spritePaths = new String[1];
+        spritePaths[0] = "Red_Virus.png";
+        
+        String[] soundPaths = new String[1];
+        soundPaths[0] = "Gun_Fire.mp3";
+        
+        UUID uuid = UUID.randomUUID();
+        
+        
+        CollidableEntity playerShip = new Player();
         playerShip.setRadius(8);
         playerShip.setColour(colour);
         playerShip.add(new PlayerMovingPart(maxSpeed));
         playerShip.add(new PositionPart(x, y, radians));
-        UUID uuid = UUID.randomUUID();
         playerShip.add(new LifePart(1));
+        playerShip.add(new SpritePart(module, spritePaths));
+        playerShip.add(new SoundPart(module, soundPaths));
+        playerShip.add(new ShootingPart(uuid.toString()));
+        
+        
+        
+        playerShip.setBoundaryWidth(50);
+        playerShip.setBoundaryHeight(50);
 
         return playerShip;
     }

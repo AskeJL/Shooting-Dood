@@ -26,3 +26,5 @@ hs_err_pid*
 /ShootinDOODE/SilentUpdate/target/
 /ShootinDOODE/CommonEnemy/CommonEnemy/target/
 /ShootinDOODE/Enemy/target/
+/ShootinDOODE/Bullet/target/
+/ShootinDOODE/Collision/target/
