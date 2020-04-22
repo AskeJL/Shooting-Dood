@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="org.openide.util.ui">
-<<<<<<< HEAD
-    <module_version install_time="1587382470771" last="true" origin="installer" specification_version="9.14">
-=======
-    <module_version install_time="1586255385271" last="true" origin="installer" specification_version="9.14">
->>>>>>> master
+    <module_version install_time="1587542500874" last="true" origin="installer" specification_version="9.14">
         <file crc="3057570575" name="lib/org-openide-util-ui.jar"/>
     </module_version>
 </module>

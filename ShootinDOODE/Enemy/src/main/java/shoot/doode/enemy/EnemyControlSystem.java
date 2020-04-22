@@ -70,7 +70,7 @@ public class EnemyControlSystem implements IEntityProcessingService, AI {
         PositionPart positionPart = entity.getPart(PositionPart.class);
         float x = positionPart.getX();
         float y = positionPart.getY();
-        float radians = positionPart.getRadians();
+        float radians = positionPart.getRotation();
 
         shapex[0] = (float) (x + Math.cos(radians) * entity.getRadius());
         shapey[0] = (float) (y + Math.sin(radians) * entity.getRadius());

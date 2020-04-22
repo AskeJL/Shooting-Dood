@@ -1,20 +1,11 @@
-<<<<<<< HEAD
-platform=1587382481630
-cluster.bin=1587382481629
-cluster.etc=1587382481630
-cluster.platform=1587382481630
-cluster.shootindoode=1587382481630
-user=1587382481630
-=======
-platform=1586853775270
-cluster.bin=1586853775270
-cluster.etc=1586853775270
-cluster.platform=1586853775270
-cluster.shootindoode=1586853775270
-user=1586853775270
->>>>>>> master
+platform=1587542516990
+cluster.bin=1587542516989
+cluster.etc=1587542516990
+cluster.platform=1587542516990
+cluster.shootindoode=1587542516990
+user=1587542516990
 crc=7
 locale=da_DK
 branding=shootindoode
-java.version=10.0.2
-java.vm.version=10.0.2+13
+java.version=1.8.0_181
+java.vm.version=25.181-b13
