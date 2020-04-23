@@ -11,6 +11,7 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import java.util.HashMap;
+import java.util.Set;
 
 /**
  *
@@ -23,15 +24,32 @@ public class AssetsHelper {
     private String jarPath = "shootindoode/modules/shoot-doode-";
     private String imagePath = ".jar!/Assets/Images/";
     private String soundPath = ".jar!/Assets/Sounds/";
+    private AssetsJarFileResolver jarfile = new AssetsJarFileResolver();;
 
     public AssetsHelper() {
 
     }
 
+    public Set<String> getSpriteMapKeys()
+    {
+        return spriteMap.keySet();
+    }
+    
+    public Set<String> getSoundMapKeys()
+    {
+        return soundMap.keySet();
+    }
+    
+    
+    public Sprite getSprite(String toalAssetPath) {
+
+        return spriteMap.get(toalAssetPath);
+    }
+    
     public Sprite getSprite(String module, String assetPath) {
 
         String inputPath = jarPath + module + imagePath + assetPath;
-
+        
         return spriteMap.get(inputPath);
     }
 
@@ -41,8 +59,31 @@ public class AssetsHelper {
 
         return soundMap.get(inputPath);
     }
+    
+    public Sound getSound(String totalAssetPath) {
 
-    public void loadImages(String[] paths) {
+        return soundMap.get(totalAssetPath);
+    }
+
+    public int getImageTotal() {
+        return spriteMap.size();
+    }
+
+    public int getSoundTotal() {
+
+        return soundMap.size();
+    }
+
+    public void loadImages(String path) {
+        FileHandle file = jarfile.resolve(path);
+
+        Texture texture = new Texture(file);
+        Sprite sprite = new Sprite(texture);
+
+        spriteMap.replace(path, sprite);
+    }
+
+    public void queueImages(String[] paths) {
 
         if (paths != null) {
             for (String path : paths) {
@@ -50,12 +91,9 @@ public class AssetsHelper {
                 String inputPath = getImagePath(path);
 
                 if (!spriteMap.containsKey(inputPath)) {
-                    AssetsJarFileResolver jarfile = new AssetsJarFileResolver();
-                    FileHandle file = jarfile.resolve(inputPath);
-                    Texture texture = new Texture(file);
-                    Sprite sprite = new Sprite(texture);
 
-                    spriteMap.put(inputPath, sprite);
+                    spriteMap.put(inputPath, null);
+                } else {
                 }
 
             }
@@ -63,17 +101,19 @@ public class AssetsHelper {
 
     }
 
-    public void loadSounds(String[] paths) {
+    public void loadSounds(String path) {
+        FileHandle file = jarfile.resolve(path);
+        Sound sound = Gdx.audio.newSound(file);
+        soundMap.replace(path, sound);
+    }
+
+    public void queueSounds(String[] paths) {
         if (paths != null) {
             for (String path : paths) {
                 String inputPath = getSoundPath(path);
 
                 if (!spriteMap.containsKey(inputPath)) {
-                    AssetsJarFileResolver jarfile = new AssetsJarFileResolver();
-                    FileHandle file = jarfile.resolve(inputPath);
-                    Sound sound = Gdx.audio.newSound(file);
-                    soundMap.put(inputPath, sound);
-
+                    soundMap.put(inputPath, null);
                 }
 
             }

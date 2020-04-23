@@ -17,7 +17,6 @@ public class CollisionAssetsLoader implements IAssetService {
 
     private String[] images() {
         ArrayList<String> paths = new ArrayList<>();
-        paths.add("Wall.png");
 
         return IAssetService.arrayListToString(module, paths);
     }

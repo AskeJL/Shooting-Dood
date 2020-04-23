@@ -23,7 +23,7 @@ public class PlayerAssetsLoader implements IAssetService {
 
     private String[] images() {
         ArrayList<String> paths = new ArrayList<>();
-        paths.add("Red_Virus.png");
+        paths.add("Doode-still.png");
 
         return IAssetService.arrayListToString(module, paths);
     }
