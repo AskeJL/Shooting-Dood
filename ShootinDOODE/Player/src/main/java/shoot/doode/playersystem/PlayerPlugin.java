@@ -49,8 +49,11 @@ public class PlayerPlugin implements IGamePluginService {
         colour[3] = 1.0f;
 
         String module = "Player";
-        String[] spritePaths = new String[1];
+        String[] spritePaths = new String[4];
         spritePaths[0] = "Doode-still.png";
+        spritePaths[1] = "Doode-left.png";
+        spritePaths[2] = "Doode-right.png";
+        spritePaths[3] = "Doode-back.png";
         
         String[] soundPaths = new String[1];
         soundPaths[0] = "Gun_Fire.mp3";

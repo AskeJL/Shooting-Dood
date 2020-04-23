@@ -13,6 +13,7 @@ import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
 import shoot.doode.common.data.entityparts.SoundPart;
 import shoot.doode.common.data.entityparts.ShootingPart;
+import shoot.doode.common.data.entityparts.SpritePart;
 
 @ServiceProviders(value = {
     @ServiceProvider(service = IEntityProcessingService.class),})
@@ -27,12 +28,25 @@ public class PlayerControlSystem implements IEntityProcessingService {
             ShootingPart shootingPart = player.getPart(ShootingPart.class);
             LifePart lifePart = player.getPart(LifePart.class);
             SoundPart soundPart = player.getPart(SoundPart.class);
+            SpritePart spritepart = player.getPart(SpritePart.class);
             
             
             playerMovingPart.setLeft(gameData.getKeys().isDown(GameKeys.LEFT));
+            if (gameData.getKeys().isDown(GameKeys.LEFT)){
+            spritepart.setCurrentSprite(1);
+            }
             playerMovingPart.setRight(gameData.getKeys().isDown(GameKeys.RIGHT));
+            if (gameData.getKeys().isDown(GameKeys.RIGHT)){
+            spritepart.setCurrentSprite(2);
+            }
             playerMovingPart.setUp(gameData.getKeys().isDown(GameKeys.UP));
+            if (gameData.getKeys().isDown(GameKeys.UP)){
+            spritepart.setCurrentSprite(3);
+            }
             playerMovingPart.setDown(gameData.getKeys().isDown(GameKeys.DOWN));
+            if (gameData.getKeys().isDown(GameKeys.DOWN)){
+            spritepart.setCurrentSprite(0);
+            }
             
             // Will give a nullPointerExeption
             shootingPart.setIsShooting(gameData.getKeys().isDown(GameKeys.SPACE));
