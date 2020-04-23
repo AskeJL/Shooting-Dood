@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.SilentUpdate">
+    <module_version install_time="1587646365847" last="true" origin="installer" specification_version="1.0">
+        <file crc="700602899" name="config/Modules/shoot-doode-SilentUpdate.xml"/>
+        <file crc="2547874820" name="modules/shoot-doode-SilentUpdate.jar"/>
+        <file crc="3236832369" name="update_tracking/shoot-doode-SilentUpdate.xml"/>
+    </module_version>
+</module>

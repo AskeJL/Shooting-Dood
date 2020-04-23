@@ -66,7 +66,10 @@ public class EnemyPlugin implements IGamePluginService {
 
     @Override
     public void stop(GameData gameData, World world) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for(int i = 0; i < world.getEntities(Enemy.class).size();i++)
+        {
+            world.removeEntity(world.getEntities(Enemy.class).get(i));
+        }
     }
 
 }
