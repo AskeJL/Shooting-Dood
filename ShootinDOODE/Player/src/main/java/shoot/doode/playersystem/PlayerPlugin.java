@@ -4,7 +4,6 @@ import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
 import shoot.doode.common.data.World;
 import shoot.doode.common.data.entityparts.LifePart;
-import shoot.doode.common.data.entityparts.MovingPart;
 import shoot.doode.common.data.entityparts.PlayerMovingPart;
 import shoot.doode.common.data.entityparts.PositionPart;
 import shoot.doode.common.services.IGamePluginService;

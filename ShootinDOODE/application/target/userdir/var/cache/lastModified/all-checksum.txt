@@ -1,11 +1,6 @@
-platform=1587648721673
-cluster.bin=1587648721673
 cluster.etc=1587648721673
-cluster.platform=1587648721673
-cluster.shootindoode=1587648721673
-user=1587648721673
 crc=7
 locale=da_DK
 branding=shootindoode
-java.version=1.8.0_181
-java.vm.version=25.181-b13
+java.version=1.8.0_221
+java.vm.version=25.221-b11

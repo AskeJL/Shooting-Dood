@@ -20,7 +20,7 @@ public class WeaponControlSystem implements IEntityProcessingService {
     
     int numPoints = 4;
     Random rnd = new Random(10);
-    float angle = 0;
+    float angle = 90;
 
     @Override
     public void process(GameData gameData, World world) {
@@ -45,17 +45,30 @@ public class WeaponControlSystem implements IEntityProcessingService {
         float[] shapey = new float[4];
         float x = playerPositionPart.getX()+40;
         float y = playerPositionPart.getY();
-        float radians = playerPositionPart.getRotation();
+        float rotation = playerPositionPart.getRotation();
 
 
         Weapon asWeapon = (Weapon) weapon;
         if (asWeapon.getType().equals("GUN")) {
+            shapex[0] = (float) (x + Math.cos(rotation) * 5);
+            shapey[0] = (float) (y + Math.sin(rotation) * 15);
+
+            shapex[1] = (float) (x + Math.cos(rotation - 4 * 3.1415f / 5) * weapon.getRadius());
+            shapey[1] = (float) (y + Math.sin(rotation - 4 * 3.1145f / 5) * weapon.getRadius());
+
+            shapex[2] = (float) (x + Math.cos(rotation + 3.1415f) * weapon.getRadius());
+            shapey[2] = (float) (y + Math.sin(rotation + 3.1415f) * weapon.getRadius());
+
+            shapex[3] = (float) (x + Math.cos(rotation + 4 * 3.1415f / 5) * weapon.getRadius());
+            shapey[3] = (float) (y + Math.sin(rotation + 4 * 3.1415f / 5) * weapon.getRadius());
+            /*
             for (int i = 0; i < numPoints; i++) {
                 shapex[i] = (x-10) + (float) Math.cos(angle + radians) * 5;
                 shapey[i] = y + (float) Math.sin(angle + radians) * 15;
                 angle += 2 * 3.1415f /numPoints;
-            }
+            }*/
         }
+        /*
         if (asWeapon.getType().equals("RIFLE")) {
             for (int i = 0; i < numPoints; i++) {
                 shapex[i] = x + (float) Math.cos(angle + radians) * 8;
@@ -69,7 +82,7 @@ public class WeaponControlSystem implements IEntityProcessingService {
                 shapey[i] = y + (float) Math.sin(angle + radians) * 12;
                 angle += 2 * 3.1415f / numPoints;
             }
-        }
+        }*/
         weapon.setShapeX(shapex);
         weapon.setShapeY(shapey);
     }

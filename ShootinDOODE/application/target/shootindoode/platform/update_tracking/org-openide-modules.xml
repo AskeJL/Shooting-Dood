@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="org.openide.modules">
+<<<<<<< Updated upstream
     <module_version install_time="1587648648196" last="true" origin="installer" specification_version="7.54">
+=======
+    <module_version install_time="1587550042736" last="true" origin="installer" specification_version="7.54">
+>>>>>>> Stashed changes
         <file crc="1810389638" name="config/ModuleAutoDeps/org-openide-modules.xml"/>
         <file crc="9087806" name="lib/org-openide-modules.jar"/>
     </module_version>
