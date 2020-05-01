@@ -4,7 +4,6 @@ import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
 import shoot.doode.common.data.World;
 import shoot.doode.common.data.entityparts.LifePart;
-import shoot.doode.common.data.entityparts.MovingPart;
 import shoot.doode.common.data.entityparts.PositionPart;
 import shoot.doode.common.data.entityparts.ProjectilePart;
 import shoot.doode.common.data.entityparts.ShootingPart;
@@ -14,6 +13,7 @@ import shoot.doode.common.services.IEntityProcessingService;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
 import shoot.doode.common.data.entityparts.PlayerMovingPart;
+import shoot.doode.common.data.entityparts.PlayerPositionPart;
 
 @ServiceProviders(value = {
     @ServiceProvider(service = IEntityProcessingService.class),})
@@ -25,7 +25,7 @@ public class BulletControlSystem implements IEntityProcessingService {
     public void process(GameData gameData, World world) {
         //System.out.println("Bullet Process");
         for (Entity entity : world.getEntities()) {
-            if (entity.getPart(ShootingPart.class) != null) {
+            if (entity.getPart(PlayerPositionPart.class) != null) {
 
                 ShootingPart shootingPart = entity.getPart(ShootingPart.class);
                 //Shoot if isShooting is true, ie. space is pressed.
@@ -46,7 +46,7 @@ public class BulletControlSystem implements IEntityProcessingService {
 
         for (Entity b : world.getEntities(Bullet.class)) {
             //System.out.println("Bullet");
-            PositionPart ppb = b.getPart(PositionPart.class);
+            PlayerPositionPart ppb = b.getPart(PlayerPositionPart.class);
             PlayerMovingPart mpb = b.getPart(PlayerMovingPart.class);
             TimerPart btp = b.getPart(TimerPart.class);
             //mpb.setUp(true);
@@ -98,7 +98,7 @@ public class BulletControlSystem implements IEntityProcessingService {
 
     //Could potentially do some shenanigans with differing colours for differing sources.
     private Entity createBullet(Entity e) {
-        PositionPart p = e.getPart(PositionPart.class);
+        PlayerPositionPart p = e.getPart(PlayerPositionPart.class);
         ShootingPart s = e.getPart(ShootingPart.class);
         Entity b = new Bullet();
 
