@@ -5,12 +5,11 @@ import shoot.doode.common.data.GameData;
 import shoot.doode.common.data.GameKeys;
 import shoot.doode.common.data.World;
 import shoot.doode.common.data.entityparts.LifePart;
-import shoot.doode.common.data.entityparts.MovingPart;
 import shoot.doode.common.data.entityparts.PlayerMovingPart;
-import shoot.doode.common.data.entityparts.PositionPart;
 import shoot.doode.common.services.IEntityProcessingService;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
+import shoot.doode.common.data.entityparts.PlayerPositionPart;
 import shoot.doode.common.data.entityparts.SoundPart;
 import shoot.doode.common.data.entityparts.ShootingPart;
 import shoot.doode.common.data.entityparts.SpritePart;
@@ -23,7 +22,7 @@ public class PlayerControlSystem implements IEntityProcessingService {
     public void process(GameData gameData, World world) {
 
         for (Entity player : world.getEntities(Player.class)) {
-            PositionPart positionPart = player.getPart(PositionPart.class);
+            PlayerPositionPart positionPart = player.getPart(PlayerPositionPart.class);
             PlayerMovingPart playerMovingPart = player.getPart(PlayerMovingPart.class);
             ShootingPart shootingPart = player.getPart(ShootingPart.class);
             LifePart lifePart = player.getPart(LifePart.class);
@@ -70,7 +69,6 @@ public class PlayerControlSystem implements IEntityProcessingService {
             lifePart.process(gameData, player);
 
             updateShape(player);
-
         }
     }
     
@@ -78,7 +76,7 @@ public class PlayerControlSystem implements IEntityProcessingService {
     private void updateShape(Entity entity) {
         float[] shapex = new float[4];
         float[] shapey = new float[4];
-        PositionPart positionPart = entity.getPart(PositionPart.class);
+        PlayerPositionPart positionPart = entity.getPart(PlayerPositionPart.class);
         float x = positionPart.getX();
         float y = positionPart.getY();
         float rotation = positionPart.getRotation();

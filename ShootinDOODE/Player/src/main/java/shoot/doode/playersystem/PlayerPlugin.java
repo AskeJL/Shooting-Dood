@@ -5,7 +5,6 @@ import shoot.doode.common.data.GameData;
 import shoot.doode.common.data.World;
 import shoot.doode.common.data.entityparts.LifePart;
 import shoot.doode.common.data.entityparts.PlayerMovingPart;
-import shoot.doode.common.data.entityparts.PositionPart;
 import shoot.doode.common.services.IGamePluginService;
 import java.util.UUID;
 import org.openide.util.lookup.ServiceProvider;
@@ -14,6 +13,7 @@ import shoot.doode.common.data.entityparts.SoundPart;
 import shoot.doode.common.data.entityparts.SpritePart;
 import shoot.doode.common.data.entityparts.ShootingPart;
 import shoot.doode.common.data.CollidableEntity;
+import shoot.doode.common.data.entityparts.PlayerPositionPart;
 
 @ServiceProviders(value = {
     @ServiceProvider(service = IGamePluginService.class),
@@ -64,7 +64,7 @@ public class PlayerPlugin implements IGamePluginService {
         playerShip.setRadius(8);
         playerShip.setColour(colour);
         playerShip.add(new PlayerMovingPart(maxSpeed));
-        playerShip.add(new PositionPart(x, y, radians));
+        playerShip.add(new PlayerPositionPart(x, y, radians));
         playerShip.add(new LifePart(1));
         playerShip.add(new SpritePart(module, spritePaths));
         playerShip.add(new SoundPart(module, soundPaths));
