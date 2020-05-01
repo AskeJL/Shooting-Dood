@@ -12,17 +12,13 @@ import shoot.doode.common.data.GameData;
  *
  * @author emili
  */
-public class PlayerPositionPart implements EntityPart {
-
-
+public class PlayerPositionPart extends PositionPart implements EntityPart {
     private float x;
     private float y;
     private float rotation;
 
     public PlayerPositionPart(float x, float y, float rotation) {
-        this.x = x;
-        this.y = y;
-        this.rotation = rotation;
+        super(x, y, rotation);
     }
 
     public float getX() {

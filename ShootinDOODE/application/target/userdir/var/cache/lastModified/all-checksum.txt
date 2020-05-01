@@ -1,4 +1,9 @@
-cluster.etc=1587648721673
+platform=1588324097971
+cluster.bin=1588324097970
+cluster.etc=1588324097971
+cluster.platform=1588324097971
+cluster.shootindoode=1588324097972
+user=1588324097972
 crc=7
 locale=da_DK
 branding=shootindoode

@@ -8,6 +8,7 @@ import shoot.doode.common.data.CollidableEntity;
 import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
 import shoot.doode.common.data.World;
+import shoot.doode.common.data.entityparts.PlayerPositionPart;
 import shoot.doode.common.data.entityparts.PositionPart;
 import shoot.doode.common.services.IEntityProcessingService;
 
@@ -23,77 +24,100 @@ public class CollisionControlSystem implements IEntityProcessingService {
     public void process(GameData gameData, World world) {
         for (Entity e : world.getEntities()) {
             // Get only Collidable entities
-            if(!CollidableEntity.class.isAssignableFrom(e.getClass())) {
+            if (!CollidableEntity.class.isAssignableFrom(e.getClass())) {
                 continue;
             }
-            
+
             for (Entity f : world.getEntities()) {
                 // Get only Collidable entities
-                if(!CollidableEntity.class.isAssignableFrom(f.getClass())) {
+                if (!CollidableEntity.class.isAssignableFrom(f.getClass())) {
                     continue;
                 }
-                
+
                 if (e.getID().equals(f.getID())) {
                     continue;
                 }
-                
-                if(rectangleCollision((CollidableEntity)f, (CollidableEntity)e)) {
-                    handleCollisionOverlap((CollidableEntity)f, (CollidableEntity)e);
+
+                if (rectangleCollision((CollidableEntity) f, (CollidableEntity) e)) {
+                    handleCollisionOverlap((CollidableEntity) f, (CollidableEntity) e);
                 }
             }
         }
     }
-    
+
     private boolean rectangleCollision(CollidableEntity e, CollidableEntity f) {
-        PositionPart ep = e.getPart(PositionPart.class);
-        PositionPart fp = f.getPart(PositionPart.class);
-        
+        PositionPart ep;
+        PositionPart fp;
+
+        //Check if any of the collidableEntities are the player
+        if (e.getPart(PlayerPositionPart.class) != null) {
+            ep = e.getPart(PlayerPositionPart.class);
+            fp = f.getPart(PositionPart.class);
+        } else if (f.getPart(PlayerPositionPart.class) != null) {
+            fp = f.getPart(PlayerPositionPart.class);
+            ep = e.getPart(PositionPart.class);
+        } else {
+            ep = e.getPart(PositionPart.class);
+            fp = f.getPart(PositionPart.class);
+        }
+
         Rectangle rec1 = new Rectangle(ep.getX() - (e.getBoundaryWidth() / 2),
                 ep.getY() - (e.getBoundaryHeight() / 2),
                 e.getBoundaryWidth(),
                 e.getBoundaryHeight());
-        
+
         Rectangle rec2 = new Rectangle(fp.getX() - (f.getBoundaryWidth() / 2),
                 fp.getY() - (f.getBoundaryHeight() / 2),
                 f.getBoundaryWidth(),
                 f.getBoundaryHeight());
-        
+
         return Intersector.overlaps(rec1, rec2);
     }
-    
+
     private void handleCollisionOverlap(CollidableEntity e, CollidableEntity f) {
-        PositionPart ep = e.getPart(PositionPart.class);
-        PositionPart fp = f.getPart(PositionPart.class);
+        PositionPart ep;
+        PositionPart fp;
         
+        //Check if any of the collidableEntities are the player
+        if (e.getPart(PlayerPositionPart.class) != null) {
+            ep = e.getPart(PlayerPositionPart.class);
+            fp = f.getPart(PositionPart.class);
+        } else if (f.getPart(PlayerPositionPart.class) != null) {
+            fp = f.getPart(PlayerPositionPart.class);
+            ep = e.getPart(PositionPart.class);
+        } else {
+            ep = e.getPart(PositionPart.class);
+            fp = f.getPart(PositionPart.class);
+        }
+
         Rectangle rec1 = new Rectangle(ep.getX(),
                 ep.getY(),
                 e.getBoundaryWidth(),
                 e.getBoundaryHeight());
-        
+
         Rectangle rec2 = new Rectangle(fp.getX(),
                 fp.getY(),
                 f.getBoundaryWidth(),
                 f.getBoundaryHeight());
-        
+
         Rectangle intersection = new Rectangle();
-        if(Intersector.intersectRectangles(rec1, rec2, intersection)) {
-            if(e.getIsStatic()) {
+        if (Intersector.intersectRectangles(rec1, rec2, intersection)) {
+            if (e.getIsStatic()) {
                 return;
             }
-            
-            if(intersection.getHeight() < intersection.getWidth()) {
-                if(intersection.getY() == ep.getY()) {
+
+            if (intersection.getHeight() < intersection.getWidth()) {
+                if (intersection.getY() == ep.getY()) {
                     ep.setY(intersection.getY() + intersection.getHeight());
                 }
-                if(intersection.getY() > ep.getY()) {
+                if (intersection.getY() > ep.getY()) {
                     ep.setY(intersection.getY() - e.getBoundaryHeight());
                 }
-            }
-            else if(intersection.getWidth() < intersection.getHeight()) {
-                if(intersection.getX() == ep.getX()) {
+            } else if (intersection.getWidth() < intersection.getHeight()) {
+                if (intersection.getX() == ep.getX()) {
                     ep.setX(intersection.getX() + intersection.getWidth());
                 }
-                if(intersection.getX() > ep.getX()) {
+                if (intersection.getX() > ep.getX()) {
                     ep.setX(intersection.getX() - e.getBoundaryWidth());
                 }
             }

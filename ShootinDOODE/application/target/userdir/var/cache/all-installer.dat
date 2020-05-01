@@ -1,4 +1,4 @@
-#Thu Apr 23 15:32:18 CEST 2020
+#Fri May 01 11:08:35 CEST 2020
 org.openide.util.ui.OpenIDE-Module-Install=\u0000
 org.netbeans.api.annotations.common.OpenIDE-Module-Install=\u0000
 shoot.doode.Collision.OpenIDE-Module-Hide-Classpath-Packages=\u0000
@@ -56,8 +56,8 @@ org.netbeans.core.netigso.OpenIDE-Module-Description=\u0000
 shoot.doode.Player.OpenIDE-Module-Layer=\u0000
 org.netbeans.api.annotations.common.OpenIDE-Module-Layer=\u0000
 org.netbeans.core.netigso.OpenIDE-Module-Layer=\u0000
-org.netbeans.core.startup.base.AutoUpdate-Show-In-Client=false
 org.openide.util.ui.AutoUpdate-Show-In-Client=false
+org.netbeans.core.startup.base.AutoUpdate-Show-In-Client=false
 org.openide.util.OpenIDE-Module-Description=\u0000
 shoot.doode.Collision.OpenIDE-Module-Layer=\u0000
 shoot.doode.Weapon.OpenIDE-Module-Layer=\u0000
