@@ -26,22 +26,20 @@ public class BackgroundAssetsLoader implements IAssetService {
 
     @Override
     public String[] loadImages() {
-        return maps();    }
+        return null;  }
 
     @Override
     public String[] unLoadImages() {
-        return maps();
+        return null;
     }
 
     @Override
     public String[] loadSounds() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        return null;    }
 
     @Override
     public String[] unLoadSounds() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        return null;    }
 
     @Override
     public String[] loadMaps() {

@@ -61,12 +61,12 @@ public class PlayerAssetsLoader implements IAssetService {
 
     @Override
     public String[] loadMaps() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
 
     @Override
     public String[] unLoadMaps() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
 
 }

@@ -10,6 +10,9 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TmxMapLoader;
+import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import shoot.doode.common.data.entityparts.SpritePart;
 import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
@@ -26,6 +29,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.openide.util.Lookup;
 import org.openide.util.LookupEvent;
 import org.openide.util.LookupListener;
+import shoot.doode.common.data.entityparts.MapPart;
 import shoot.doode.common.data.entityparts.SoundPart;
 import shoot.doode.common.services.IAssetService;
 import shoot.doode.core.managers.AssetsHelper;
@@ -46,10 +50,12 @@ public class Game implements ApplicationListener {
     private Lookup.Result<IAssetService> iAssetResult;
     private AssetsHelper assetesHelper = new AssetsHelper();
     private Background background;
+    private TiledMap map; 
+    private OrthogonalTiledMapRenderer renderer;
+    private float scale;
 
     @Override
     public void create() {
-        background = new Background();
         batch = new SpriteBatch();
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
         gameData.setDisplayHeight(Gdx.graphics.getHeight());
@@ -139,15 +145,28 @@ public class Game implements ApplicationListener {
             
             
             
-        background.render(cam);
+        //background.render(cam);
         System.out.println("SpriteAmount: " + assetesHelper.getImageTotal());
         System.out.println("SoundAmount: " + assetesHelper.getSoundTotal());
+        System.out.println("MapAmount: " + assetesHelper.getMapTotal());
         System.out.println("AssetServices " + assetServices);
         System.out.println("Gameplugins" + gamePlugins);
         System.out.println("Entity process" + getEntityProcessingServices());
         System.out.println("Post process" + getPostEntityProcessingServices());
         
         for (Entity entity : world.getEntities()) {
+            MapPart mapPart = entity.getPart(MapPart.class);
+            if(mapPart != null){
+                String module = mapPart.getModule();
+                String mapPath = mapPart.getMapPath();
+                scale = Gdx.graphics.getWidth()/1280f;
+		map = assetesHelper.getMap(module,mapPath);
+		renderer = new OrthogonalTiledMapRenderer(map,scale);
+                
+                renderer.setView(cam);
+                renderer.render();
+                
+            }
             SpritePart spritePart = entity.getPart(SpritePart.class);
             System.out.println(entity);
             if (spritePart != null) {
