@@ -67,6 +67,7 @@
         <module>Collision</module>
         <module>CommonWeapon</module>
         <module>Weapon</module>
+        <module>Map</module>
     </modules>
 
     <properties>

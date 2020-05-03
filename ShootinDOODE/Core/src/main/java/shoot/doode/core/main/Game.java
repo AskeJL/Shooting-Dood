@@ -30,6 +30,7 @@ import shoot.doode.common.data.entityparts.SoundPart;
 import shoot.doode.common.services.IAssetService;
 import shoot.doode.core.managers.AssetsHelper;
 import shoot.doode.core.managers.AssetsJarFileResolver;
+import shoot.doode.map.Background;
 
 public class Game implements ApplicationListener {
 
@@ -44,9 +45,11 @@ public class Game implements ApplicationListener {
     private List<IAssetService> assetServices = new CopyOnWriteArrayList<>();
     private Lookup.Result<IAssetService> iAssetResult;
     private AssetsHelper assetesHelper = new AssetsHelper();
+    private Background background;
 
     @Override
     public void create() {
+        background = new Background();
         batch = new SpriteBatch();
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
         gameData.setDisplayHeight(Gdx.graphics.getHeight());
@@ -56,7 +59,7 @@ public class Game implements ApplicationListener {
         cam.update();
 
         sr = new ShapeRenderer();
-
+        
         Gdx.input.setInputProcessor(new GameInputProcessor(gameData));
 
         iGameResult = lookup.lookupResult(IGamePluginService.class);
@@ -135,7 +138,7 @@ public class Game implements ApplicationListener {
             
             
             
-            
+        background.render(cam);
         System.out.println("SpriteAmount: " + assetesHelper.getImageTotal());
         System.out.println("SoundAmount: " + assetesHelper.getSoundTotal());
         System.out.println("AssetServices " + assetServices);

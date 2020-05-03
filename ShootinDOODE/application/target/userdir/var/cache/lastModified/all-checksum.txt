@@ -1,6 +1,12 @@
-cluster.etc=1587648721673
+platform=1588507982672
+cluster.assets=1588507982672
+cluster.bin=1588507982672
+cluster.etc=1588507982672
+cluster.platform=1588507982672
+cluster.shootindoode=1588507982673
+user=1588507982673
 crc=7
 locale=da_DK
 branding=shootindoode
-java.version=1.8.0_221
-java.vm.version=25.221-b11
+java.version=1.8.0_181
+java.vm.version=25.181-b13
