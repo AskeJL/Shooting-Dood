@@ -14,11 +14,12 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
 import shoot.doode.core.managers.AssetsHelper;
 
 
-public class Background {
+public class Background extends Entity{
 	private TiledMap map; 
 	private OrthogonalTiledMapRenderer renderer;
 	private float scale;

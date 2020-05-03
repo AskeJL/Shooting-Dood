@@ -147,9 +147,27 @@ public class AssetsHelper {
     
     public void loadMaps(String path) {
         FileHandle file = jarfile.resolve(path);
-        TiledMap map = new TmxMapLoader().load(file.toString());;
+        TiledMap map = new TmxMapLoader().load(file.toString());
 
         mapMap.replace(path, map);
+    }
+    
+    public void queueMaps(String[] paths) {
+
+        if (paths != null) {
+            for (String path : paths) {
+
+                String inputPath = getMapPath(path);
+
+                if (!mapMap.containsKey(inputPath)) {
+
+                    mapMap.put(inputPath, null);
+                } else {
+                }
+
+            }
+        }
+
     }
     
     public void unLoadMaps(String[] paths) {

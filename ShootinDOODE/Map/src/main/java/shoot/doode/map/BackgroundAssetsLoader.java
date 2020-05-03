@@ -42,5 +42,15 @@ public class BackgroundAssetsLoader implements IAssetService {
     public String[] unLoadSounds() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public String[] loadMaps() {
+        return maps();
+    }
+
+    @Override
+    public String[] unLoadMaps() {
+        return maps();
+    }
     
 }

@@ -48,4 +48,14 @@ public class WeaponAssetsLoader implements IAssetService {
         return sounds();
     }
 
+    @Override
+    public String[] loadMaps() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String[] unLoadMaps() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

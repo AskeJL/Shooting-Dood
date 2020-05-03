@@ -77,6 +77,7 @@ public class Game implements ApplicationListener {
         }
 
         for (IAssetService assetService : iAssetResult.allInstances()) {
+            assetesHelper.queueMaps(assetService.loadMaps());
             assetesHelper.queueImages(assetService.loadImages());
             assetesHelper.queueSounds(assetService.loadSounds());
             assetServices.add(assetService);
