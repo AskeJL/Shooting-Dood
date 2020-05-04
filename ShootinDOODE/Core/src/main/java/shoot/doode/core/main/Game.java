@@ -43,7 +43,6 @@ public class Game implements ApplicationListener {
     private Lookup.Result<IGamePluginService> iGameResult;
     private List<IAssetService> assetServices = new CopyOnWriteArrayList<>();
     private Lookup.Result<IAssetService> iAssetResult;
-    private AssetsHelper assetesHelper = new AssetsHelper();
 
     @Override
     public void create() {
@@ -74,8 +73,8 @@ public class Game implements ApplicationListener {
         }
 
         for (IAssetService assetService : iAssetResult.allInstances()) {
-            assetesHelper.queueImages(assetService.loadImages());
-            assetesHelper.queueSounds(assetService.loadSounds());
+            AssetsHelper.getInstance().queueImages(assetService.loadImages());
+            AssetsHelper.getInstance().queueSounds(assetService.loadSounds());
             assetServices.add(assetService);
         }
 
@@ -106,38 +105,13 @@ public class Game implements ApplicationListener {
         }
     }
 
-    private void draw() {
-        for(String totalPath : assetesHelper.getSpriteMapKeys())
-        {
-            if(assetesHelper.getSprite(totalPath) == null)
-            {
-                assetesHelper.loadImages(totalPath);
-                System.out.println("Loaded Image at: " + totalPath);
-            }
-            else
-            {
-                System.out.println("Image was already loaded at: " + totalPath);
-            }
-        }
-        
-        for(String totalPath : assetesHelper.getSoundMapKeys())
-        {
-            if(assetesHelper.getSound(totalPath) == null)
-            {
-                assetesHelper.loadSounds(totalPath);
-                System.out.println("Loaded sound at: " + totalPath);
-            }
-            else
-            {
-                System.out.println("Sound was already loaded at: " + totalPath);
-            }
-        }
+    private void draw() {    
+        AssetsHelper.getInstance().loadQueue();
             
             
             
-            
-        System.out.println("SpriteAmount: " + assetesHelper.getImageTotal());
-        System.out.println("SoundAmount: " + assetesHelper.getSoundTotal());
+        System.out.println("SpriteAmount: " + AssetsHelper.getInstance().getImageTotal());
+        System.out.println("SoundAmount: " + AssetsHelper.getInstance().getSoundTotal());
         System.out.println("AssetServices " + assetServices);
         System.out.println("Gameplugins" + gamePlugins);
         System.out.println("Entity process" + getEntityProcessingServices());
@@ -151,7 +125,7 @@ public class Game implements ApplicationListener {
                 String module = spritePart.getModule();
                 String imagePath = spritePart.getSpritePath();
 
-                Sprite sprite = assetesHelper.getSprite(module,imagePath);
+                Sprite sprite = AssetsHelper.getInstance().getSprite(module,imagePath);
                 System.out.println(sprite);
                 PositionPart positionPart = entity.getPart(PositionPart.class);
                 sprite.setRotation(positionPart.getRotation());
@@ -184,7 +158,7 @@ public class Game implements ApplicationListener {
                 
                 for(String soundPath : soundPart.getSoundPaths())
                 {
-                    Sound sound = assetesHelper.getSound(module, soundPath);
+                    Sound sound = AssetsHelper.getInstance().getSound(module, soundPath);
                     sound.play();
                     soundPart.setPlay(soundPath,false);
                 }
@@ -245,8 +219,8 @@ public class Game implements ApplicationListener {
                 // Newly installed modules
                 if (!assetServices.contains(us)) {
                     System.out.println("New AssetLoader: " + us);
-                    assetesHelper.queueImages(us.loadImages());
-                    assetesHelper.queueSounds(us.loadSounds());
+                    AssetsHelper.getInstance().queueImages(us.loadImages());
+                    AssetsHelper.getInstance().queueSounds(us.loadSounds());
                     //loadImages(us.queueImages());               
                     assetServices.add(us);
                 }
@@ -257,8 +231,8 @@ public class Game implements ApplicationListener {
                 if (!iAssetUpdated.contains(gs)) {
                     //unLoadImages(gs.unLoadImages());
                     System.out.println("Remove AssetLoader: " + gs);
-                    assetesHelper.unLoadImages(gs.unLoadImages());
-                    assetesHelper.unLoadSounds(gs.unLoadSounds());
+                    AssetsHelper.getInstance().unLoadImages(gs.unLoadImages());
+                    AssetsHelper.getInstance().unLoadSounds(gs.unLoadSounds());
                     assetServices.remove(gs);
                 }
             }

@@ -19,6 +19,7 @@ import shoot.doode.common.data.entityparts.PositionPart;
 import shoot.doode.common.services.IEntityProcessingService;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
+import shoot.doode.common.data.entityparts.SpritePart;
 
 /**
  *
@@ -27,10 +28,15 @@ import org.openide.util.lookup.ServiceProviders;
 @ServiceProviders(value = {
     @ServiceProvider(service = IEntityProcessingService.class),})
 public class EnemyControlSystem implements IEntityProcessingService, AI {
-    private Entity enemy = new Enemy();
 
     @Override
     public void process(GameData gameData, World world) {
+        if(world.getEntities(Enemy.class).size() == 0)
+        {
+            Entity enemy = createEnemy(gameData);
+            world.addEntity(enemy);
+        }
+        
         for (Entity enemy : world.getEntities(Enemy.class)) {
             PositionPart positionPart = enemy.getPart(PositionPart.class);
             MovingPart movingPart = enemy.getPart(MovingPart.class);
@@ -91,6 +97,49 @@ public class EnemyControlSystem implements IEntityProcessingService, AI {
     @Override
     public void AI() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    private Entity createEnemy(GameData gameData) {
+        
+        float deacceleration = 10;
+        float acceleration = 150;
+        float maxSpeed = 200;
+        float rotationSpeed = 5;
+        float x = new Random().nextFloat() * gameData.getDisplayWidth();
+        float y = new Random().nextFloat() * gameData.getDisplayHeight();
+        float radians = 3.1415f / 2;
+
+        float[] colour = new float[4];
+        colour[0] = 1.0f;
+        colour[1] = 0.0f;
+        colour[2] = 0.0f;
+        colour[3] = 1.0f;
+        String module = "Enemy";
+        String[] spritePaths = new String[1];
+        double ran = Math.random();
+        if(ran > 0.75)
+        {
+            spritePaths[0] = "Enemy-front.png";
+        }
+        else if(ran > 0.50)
+        {
+            spritePaths[0] = "Enemy2-front.png";
+        }else if(ran > 0.25)
+        {
+            spritePaths[0] = "Green_Virus.png";
+        }else
+        {
+            spritePaths[0] = "Red_virus.png";
+        }
+        Entity enemy = new Enemy();
+        enemy.setRadius(8);
+        enemy.setColour(colour);
+        enemy.add(new MovingPart(deacceleration, acceleration, maxSpeed, rotationSpeed));
+        enemy.add(new PositionPart(x, y, radians));
+        enemy.add(new LifePart(1));
+        enemy.add(new SpritePart(module,spritePaths));
+       
+        return enemy;
     }
     
 }

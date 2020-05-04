@@ -18,6 +18,7 @@ import shoot.doode.common.services.IGamePluginService;
 import java.util.UUID;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
+import shoot.doode.common.data.entityparts.SpritePart;
 
 /**
  *
@@ -53,13 +54,31 @@ public class EnemyPlugin implements IGamePluginService {
         colour[2] = 0.0f;
         colour[3] = 1.0f;
 
+        String module = "Enemy";
+        String[] spritePaths = new String[1];
+        double ran = Math.random();
+        if(ran > 0.75)
+        {
+            spritePaths[0] = "Enemy-front.png";
+        }
+        else if(ran > 0.50)
+        {
+            spritePaths[0] = "Enemy2-front.png";
+        }else if(ran > 0.25)
+        {
+            spritePaths[0] = "Green_Virus.png";
+        }else
+        {
+            spritePaths[0] = "Red_Virus.png";
+        }
+        
         Entity enemy = new Enemy();
         enemy.setRadius(8);
         enemy.setColour(colour);
         enemy.add(new MovingPart(deacceleration, acceleration, maxSpeed, rotationSpeed));
         enemy.add(new PositionPart(x, y, radians));
         enemy.add(new LifePart(1));
-        
+        enemy.add(new SpritePart(module,spritePaths));
        
         return enemy;
     }
