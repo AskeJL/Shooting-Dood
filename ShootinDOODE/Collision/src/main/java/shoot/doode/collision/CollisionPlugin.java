@@ -18,6 +18,7 @@ import shoot.doode.common.services.IGamePluginService;
     @ServiceProvider(service = IGamePluginService.class)})
 public class CollisionPlugin implements IGamePluginService {
 
+    private String module = "Collision";
     private Entity obstacle;
     
     @Override
@@ -43,17 +44,17 @@ public class CollisionPlugin implements IGamePluginService {
         colour[2] = 1.0f;
         colour[3] = 1.0f;
 
-        //String[] spritePaths = new String[1];
-        //spritePaths[0] = "Red_Virus.png";
+        String[] spritePaths = new String[1];
+        spritePaths[0] = "brick_wall_red.png";
         
         CollidableEntity entity = new CollidableEntity();
         entity.setRadius(30);
         entity.setColour(colour);
         entity.add(new PositionPart(x, y, radians));
-        //entity.add(new SpritePart("Player", spritePaths));
+        entity.add(new SpritePart(module, spritePaths));
         
-        entity.setBoundaryWidth(50);
-        entity.setBoundaryHeight(50);
+        entity.setBoundaryWidth(40);
+        entity.setBoundaryHeight(40);
         entity.setIsStatic(true);
 
         return entity;

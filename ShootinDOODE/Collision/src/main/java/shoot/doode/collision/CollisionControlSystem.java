@@ -84,17 +84,21 @@ public class CollisionControlSystem implements IEntityProcessingService {
             if(intersection.getHeight() < intersection.getWidth()) {
                 if(intersection.getY() == ep.getY()) {
                     ep.setY(intersection.getY() + intersection.getHeight());
+                    System.out.println("Collision");
                 }
                 if(intersection.getY() > ep.getY()) {
                     ep.setY(intersection.getY() - e.getBoundaryHeight());
+                    System.out.println("Collision1");
                 }
             }
             else if(intersection.getWidth() < intersection.getHeight()) {
                 if(intersection.getX() == ep.getX()) {
                     ep.setX(intersection.getX() + intersection.getWidth());
+                    System.out.println("Collision2");
                 }
                 if(intersection.getX() > ep.getX()) {
                     ep.setX(intersection.getX() - e.getBoundaryWidth());
+                    System.out.println("Collision3");
                 }
             }
         }
