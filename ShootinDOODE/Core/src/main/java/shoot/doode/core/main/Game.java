@@ -24,7 +24,6 @@ import shoot.doode.common.services.IGamePluginService;
 import shoot.doode.common.services.IPostEntityProcessingService;
 import shoot.doode.common.data.entityparts.PositionPart;
 import shoot.doode.core.managers.GameInputProcessor;
-import java.util.HashMap;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -89,6 +88,8 @@ public class Game extends ApplicationAdapter {
             assetesHelper.queueMaps(assetService.loadMaps());
             assetesHelper.queueImages(assetService.loadImages());
             assetesHelper.queueSounds(assetService.loadSounds());
+            AssetsHelper.getInstance().queueImages(assetService.loadImages());
+            AssetsHelper.getInstance().queueSounds(assetService.loadSounds());
             assetServices.add(assetService);
         }
         for(String totalPath : assetesHelper.getMapMapKeys())
@@ -180,8 +181,13 @@ public class Game extends ApplicationAdapter {
                 System.out.println("Map was already loaded at: " + totalPath);
             }
         }
+    private void draw() {    
+        AssetsHelper.getInstance().loadQueue();
             
             
+        /*    
+        System.out.println("SpriteAmount: " + AssetsHelper.getInstance().getImageTotal());
+        System.out.println("SoundAmount: " + AssetsHelper.getInstance().getSoundTotal());
             
         //background.render(cam);
         System.out.println("SpriteAmount: " + assetesHelper.getImageTotal());
@@ -191,6 +197,7 @@ public class Game extends ApplicationAdapter {
         System.out.println("Gameplugins" + gamePlugins);
         System.out.println("Entity process" + getEntityProcessingServices());
         System.out.println("Post process" + getPostEntityProcessingServices());
+        */
         cam.update();
         renderer.setView(cam);
         System.out.println(renderer);
@@ -212,17 +219,16 @@ public class Game extends ApplicationAdapter {
 //                
 //            }
             SpritePart spritePart = entity.getPart(SpritePart.class);
-            System.out.println(entity);
             if (spritePart != null) {
-
                 String module = spritePart.getModule();
                 String imagePath = spritePart.getSpritePath();
 
-                Sprite sprite = assetesHelper.getSprite(module,imagePath);
+                Sprite sprite = AssetsHelper.getInstance().getSprite(module,imagePath);
                 System.out.println(sprite);
                 PositionPart positionPart = entity.getPart(PositionPart.class);
                 sprite.setRotation(positionPart.getRotation());
-                sprite.setPosition(positionPart.getX() - sprite.getWidth()/2, positionPart.getY() - sprite.getHeight()/2);
+                sprite.setPosition(positionPart.getX() - sprite.getWidth()/2, positionPart.getY() - sprite.getHeight()/2); 
+                
                 batch.begin();
                 sprite.draw(batch);
                 batch.end();
@@ -251,19 +257,11 @@ public class Game extends ApplicationAdapter {
                 
                 for(String soundPath : soundPart.getSoundPaths())
                 {
-                    Sound sound = assetesHelper.getSound(module, soundPath);
+                    Sound sound = AssetsHelper.getInstance().getSound(module, soundPath);
                     sound.play();
                     soundPart.setPlay(soundPath,false);
                 }
-                
-                
-                
             }
-            
-            
-            
-            
-
         }
     }
 
@@ -294,16 +292,7 @@ public class Game extends ApplicationAdapter {
     private final LookupListener lookupListener = new LookupListener() {
         @Override
         public void resultChanged(LookupEvent le) {
-       
-            for(int i = 0; i < 10;i++)
-            {
-                System.out.println("|");
-                if(i == 5)
-                {
-                    System.out.println("Running resultChanged");
-                }        
-                System.out.println("|");
-            }
+
             Collection<? extends IGamePluginService> iGameUpdated = iGameResult.allInstances();
             Collection<? extends IAssetService> iAssetUpdated = iAssetResult.allInstances();
 
@@ -312,9 +301,8 @@ public class Game extends ApplicationAdapter {
                 // Newly installed modules
                 if (!assetServices.contains(us)) {
                     System.out.println("New AssetLoader: " + us);
-                    assetesHelper.queueImages(us.loadImages());
-                    assetesHelper.queueSounds(us.loadSounds());
-                    //loadImages(us.queueImages());               
+                    AssetsHelper.getInstance().queueImages(us.loadImages());
+                    AssetsHelper.getInstance().queueSounds(us.loadSounds());             
                     assetServices.add(us);
                 }
             }
@@ -322,10 +310,9 @@ public class Game extends ApplicationAdapter {
             // Stop and remove module
             for (IAssetService gs : assetServices) {
                 if (!iAssetUpdated.contains(gs)) {
-                    //unLoadImages(gs.unLoadImages());
                     System.out.println("Remove AssetLoader: " + gs);
-                    assetesHelper.unLoadImages(gs.unLoadImages());
-                    assetesHelper.unLoadSounds(gs.unLoadSounds());
+                    AssetsHelper.getInstance().unLoadImages(gs.unLoadImages());
+                    AssetsHelper.getInstance().unLoadSounds(gs.unLoadSounds());
                     assetServices.remove(gs);
                 }
             }
@@ -333,7 +320,6 @@ public class Game extends ApplicationAdapter {
             for (IGamePluginService us : iGameUpdated) {
                 // Newly installed modules
                 if (!gamePlugins.contains(us)) {
-                    System.out.println("New GamePlugin: " + us);
                     us.start(gameData, world);
                     gamePlugins.add(us);
                 }
@@ -342,14 +328,10 @@ public class Game extends ApplicationAdapter {
             // Stop and remove module
             for (IGamePluginService gs : gamePlugins) {
                 if (!iGameUpdated.contains(gs)) {
-                    System.out.println("Remove GamePlugin: " + gs);
                     gs.stop(gameData, world);
                     gamePlugins.remove(gs);
                 }
             }
-                    
-            
         }
-
     };
 }

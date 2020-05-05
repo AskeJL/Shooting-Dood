@@ -1,24 +1,36 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package shoot.doode.common.data.entityparts;
 
 import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
 
-/**
- *
- * @author rasmu
- */
+
 public class ShootingPart implements EntityPart{
     
+    private boolean switchWeapon = false;
+    private Entity weapon;
     private boolean isSchooting;
     private String ID;
 
-    public ShootingPart( String ID) {
+    public ShootingPart(String ID) {
         this.ID = ID;
+    }
+    
+    public Entity getWeapon() {
+        return weapon;
+    }
+    
+    public void setSwitchWeapon(boolean switchWeapon)
+    {
+        this.switchWeapon = switchWeapon;
+    }
+    
+    public boolean isSwitchWeapon()
+    {
+        return switchWeapon;
+    }
+    
+    public void setWeapon(Entity weapon) {
+        this.weapon = weapon;
     }
     
     public boolean isShooting(){
@@ -27,7 +39,6 @@ public class ShootingPart implements EntityPart{
     
     public void setIsShooting(boolean b){
         this.isSchooting = b;
-        //System.out.println("is shooting" + b);
     }
 
     public String getID() {

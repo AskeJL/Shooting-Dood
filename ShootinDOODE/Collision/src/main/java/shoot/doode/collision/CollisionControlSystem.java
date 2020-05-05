@@ -23,27 +23,27 @@ public class CollisionControlSystem implements IEntityProcessingService {
     public void process(GameData gameData, World world) {
         for (Entity e : world.getEntities()) {
             // Get only Collidable entities
-            if(!CollidableEntity.class.isAssignableFrom(e.getClass())) {
+            if (!CollidableEntity.class.isAssignableFrom(e.getClass())) {
                 continue;
             }
-            
+
             for (Entity f : world.getEntities()) {
                 // Get only Collidable entities
-                if(!CollidableEntity.class.isAssignableFrom(f.getClass())) {
+                if (!CollidableEntity.class.isAssignableFrom(f.getClass())) {
                     continue;
                 }
-                
+
                 if (e.getID().equals(f.getID())) {
                     continue;
                 }
-                
-                if(rectangleCollision((CollidableEntity)f, (CollidableEntity)e)) {
-                    handleCollisionOverlap((CollidableEntity)f, (CollidableEntity)e);
+
+                if (rectangleCollision((CollidableEntity) f, (CollidableEntity) e)) {
+                    handleCollisionOverlap((CollidableEntity) f, (CollidableEntity) e);
                 }
             }
         }
     }
-    
+
     private boolean rectangleCollision(CollidableEntity e, CollidableEntity f) {
         PositionPart ep = e.getPart(PositionPart.class);
         PositionPart fp = f.getPart(PositionPart.class);
@@ -52,15 +52,15 @@ public class CollisionControlSystem implements IEntityProcessingService {
                 ep.getY() - (e.getBoundaryHeight() / 2),
                 e.getBoundaryWidth(),
                 e.getBoundaryHeight());
-        
+
         Rectangle rec2 = new Rectangle(fp.getX() - (f.getBoundaryWidth() / 2),
                 fp.getY() - (f.getBoundaryHeight() / 2),
                 f.getBoundaryWidth(),
                 f.getBoundaryHeight());
-        
+
         return Intersector.overlaps(rec1, rec2);
     }
-    
+
     private void handleCollisionOverlap(CollidableEntity e, CollidableEntity f) {
         PositionPart ep = e.getPart(PositionPart.class);
         PositionPart fp = f.getPart(PositionPart.class);
@@ -69,32 +69,35 @@ public class CollisionControlSystem implements IEntityProcessingService {
                 ep.getY(),
                 e.getBoundaryWidth(),
                 e.getBoundaryHeight());
-        
+
         Rectangle rec2 = new Rectangle(fp.getX(),
                 fp.getY(),
                 f.getBoundaryWidth(),
                 f.getBoundaryHeight());
-        
+
         Rectangle intersection = new Rectangle();
-        if(Intersector.intersectRectangles(rec1, rec2, intersection)) {
-            if(e.getIsStatic()) {
+        if (Intersector.intersectRectangles(rec1, rec2, intersection)) {
+            if (e.getIsStatic()) {
                 return;
             }
-            
-            if(intersection.getHeight() < intersection.getWidth()) {
-                if(intersection.getY() == ep.getY()) {
+
+            if (intersection.getHeight() < intersection.getWidth()) {
+                if (intersection.getY() == ep.getY()) {
                     ep.setY(intersection.getY() + intersection.getHeight());
+                    System.out.println("Collision");
                 }
-                if(intersection.getY() > ep.getY()) {
+                if (intersection.getY() > ep.getY()) {
                     ep.setY(intersection.getY() - e.getBoundaryHeight());
+                    System.out.println("Collision1");
                 }
-            }
-            else if(intersection.getWidth() < intersection.getHeight()) {
-                if(intersection.getX() == ep.getX()) {
+            } else if (intersection.getWidth() < intersection.getHeight()) {
+                if (intersection.getX() == ep.getX()) {
                     ep.setX(intersection.getX() + intersection.getWidth());
+                    System.out.println("Collision2");
                 }
-                if(intersection.getX() > ep.getX()) {
+                if (intersection.getX() > ep.getX()) {
                     ep.setX(intersection.getX() - e.getBoundaryWidth());
+                    System.out.println("Collision3");
                 }
             }
         }

@@ -15,6 +15,8 @@ public class WeaponAssetsLoader implements IAssetService {
     private String[] images() {
         ArrayList<String> paths = new ArrayList<>();
         paths.add("knife.png");
+        paths.add("gun.png");
+        paths.add("Shotgun.png");
 
         return IAssetService.arrayListToString(module, paths);
     }

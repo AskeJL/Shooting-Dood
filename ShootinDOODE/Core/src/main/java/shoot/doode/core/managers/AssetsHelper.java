@@ -14,6 +14,7 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -23,6 +24,8 @@ import java.util.Set;
  */
 public class AssetsHelper {
 
+    private ArrayList<String> soundQueue = new ArrayList<>();
+    private ArrayList<String> spriteQueue = new ArrayList<>();
     private HashMap<String, Sprite> spriteMap = new HashMap<>();
     private HashMap<String, Sound> soundMap = new HashMap<>();
     private HashMap<String, TiledMap> mapMap = new HashMap<>();
@@ -32,14 +35,20 @@ public class AssetsHelper {
     private String mapPath = ".jar!/Assets/Maps/";
     private AssetsJarFileResolver jarfile = new AssetsJarFileResolver();;
     private AssetManager manager;
+    private AssetsJarFileResolver jarfile = new AssetsJarFileResolver();
+    
+    private static AssetsHelper single_instance = null;
 
-    public AssetsHelper() {
+    private AssetsHelper() {
 
     }
 
-    public Set<String> getSpriteMapKeys()
-    {
-        return spriteMap.keySet();
+    //Singleton
+    public static AssetsHelper getInstance() {
+        if (single_instance == null) {
+            single_instance = new AssetsHelper();
+        }
+        return single_instance;
     }
     
     public Set<String> getSoundMapKeys()
@@ -54,13 +63,10 @@ public class AssetsHelper {
     
     public Sprite getSprite(String toalAssetPath) {
 
-        return spriteMap.get(toalAssetPath);
-    }
-    
     public Sprite getSprite(String module, String assetPath) {
 
         String inputPath = jarPath + module + imagePath + assetPath;
-        
+
         return spriteMap.get(inputPath);
     }
 
@@ -71,9 +77,9 @@ public class AssetsHelper {
         return soundMap.get(inputPath);
     }
     
-    public Sound getSound(String totalAssetPath) {
-
-        return soundMap.get(totalAssetPath);
+    public String getImageTotal() {
+        String s = spriteMap.size() + " " + spriteQueue.size();
+        return s;
     }
     
      public TiledMap getMap(String module, String assetPath) {
@@ -92,9 +98,28 @@ public class AssetsHelper {
         return spriteMap.size();
     }
 
-    public int getSoundTotal() {
-
-        return soundMap.size();
+    public String getSoundTotal() {
+        String s = soundMap.size() + " " + soundQueue.size();
+        return s;
+    }
+    
+    public void loadQueue()
+    {
+    public String getSoundTotal() {
+    
+    public void loadQueue()
+    {
+        for(String path : spriteQueue)
+        {
+            loadImages(path);
+        }
+            
+        for(String path : soundQueue)
+        {
+            loadSounds(path);
+        }
+        spriteQueue.clear();
+        soundQueue.clear();
     }
     
     public int getMapTotal() {
@@ -108,7 +133,7 @@ public class AssetsHelper {
         Texture texture = new Texture(file);
         Sprite sprite = new Sprite(texture);
 
-        spriteMap.replace(path, sprite);
+        spriteMap.put(path, sprite);
     }
 
     public void queueImages(String[] paths) {
@@ -118,21 +143,20 @@ public class AssetsHelper {
 
                 String inputPath = getImagePath(path);
 
-                if (!spriteMap.containsKey(inputPath)) {
+                if (!spriteMap.containsKey(inputPath) && !spriteQueue.contains(inputPath)) {
+                    spriteQueue.add(inputPath);
 
-                    spriteMap.put(inputPath, null);
-                } else {
                 }
-
+ 
             }
-        }
 
+        }
     }
 
     public void loadSounds(String path) {
         FileHandle file = jarfile.resolve(path);
         Sound sound = Gdx.audio.newSound(file);
-        soundMap.replace(path, sound);
+        soundMap.put(path, sound);
     }
 
     public void queueSounds(String[] paths) {
@@ -140,8 +164,8 @@ public class AssetsHelper {
             for (String path : paths) {
                 String inputPath = getSoundPath(path);
 
-                if (!spriteMap.containsKey(inputPath)) {
-                    soundMap.put(inputPath, null);
+                if (!soundMap.containsKey(inputPath) && !soundQueue.contains(inputPath)) {
+                    soundQueue.add(inputPath);
                 }
 
             }
