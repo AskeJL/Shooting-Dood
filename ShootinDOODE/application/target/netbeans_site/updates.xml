@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <!DOCTYPE module_updates PUBLIC "-//NetBeans//DTD Autoupdate Catalog 2.5//EN" "http://www.netbeans.org/dtds/autoupdate-catalog-2_5.dtd">
-<module_updates timestamp="39/23/18/05/05/2020">
+<module_updates timestamp="50/46/18/05/05/2020">
 
 
 
@@ -19,21 +19,21 @@
 
 </module>
 
-<module codenamebase="shoot.doode.Bullet" distribution="Bullet-1.0-SNAPSHOT.nbm" downloadsize="6995" license="EE864CEE" needsrestart="false" releasedate="2020/05/05" targetcluster="shootindoode">
+<module codenamebase="shoot.doode.Bullet" distribution="Bullet-1.0-SNAPSHOT.nbm" downloadsize="7003" license="EE864CEE" needsrestart="false" releasedate="2020/05/05" targetcluster="shootindoode">
         
     <manifest OpenIDE-Module="shoot.doode.Bullet" OpenIDE-Module-Display-Category="shoot.doode" OpenIDE-Module-Implementation-Version="1.0-20200505" OpenIDE-Module-Long-Description="&lt;undefined&gt;" OpenIDE-Module-Module-Dependencies="org.netbeans.api.annotations.common/1 &gt; 1.33, org.openide.util.lookup &gt; 8.39, shoot.doode.Common &gt; 1.0, shoot.doode.CommonWeapon &gt; 1.0" OpenIDE-Module-Name="Bullet" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="&lt;undefined&gt;" OpenIDE-Module-Specification-Version="1.0"/>
         
 
 </module>
 
-<module codenamebase="shoot.doode.Collision" distribution="Collision-1.0-SNAPSHOT.nbm" downloadsize="1586082" license="EE864CEE" needsrestart="false" releasedate="2020/05/05" targetcluster="shootindoode">
+<module codenamebase="shoot.doode.Collision" distribution="Collision-1.0-SNAPSHOT.nbm" downloadsize="1586548" license="EE864CEE" needsrestart="false" releasedate="2020/05/05" targetcluster="shootindoode">
         
     <manifest OpenIDE-Module="shoot.doode.Collision" OpenIDE-Module-Display-Category="shoot.doode" OpenIDE-Module-Implementation-Version="1.0-20200505" OpenIDE-Module-Long-Description="&lt;undefined&gt;" OpenIDE-Module-Module-Dependencies="org.netbeans.api.annotations.common/1 &gt; 1.33, shoot.doode.Common &gt; 1.0" OpenIDE-Module-Name="Collision" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="&lt;undefined&gt;" OpenIDE-Module-Specification-Version="1.0"/>
         
 
 </module>
 
-<module codenamebase="shoot.doode.Common" distribution="Common-1.0-SNAPSHOT.nbm" downloadsize="19164" license="EE864CEE" needsrestart="false" releasedate="2020/05/05" targetcluster="shootindoode">
+<module codenamebase="shoot.doode.Common" distribution="Common-1.0-SNAPSHOT.nbm" downloadsize="19163" license="EE864CEE" needsrestart="false" releasedate="2020/05/05" targetcluster="shootindoode">
         
     <manifest OpenIDE-Module="shoot.doode.Common" OpenIDE-Module-Display-Category="shoot.doode" OpenIDE-Module-Implementation-Version="1.0-20200505" OpenIDE-Module-Long-Description="&lt;undefined&gt;" OpenIDE-Module-Module-Dependencies="org.netbeans.api.annotations.common/1 &gt; 1.33, org.openide.modules &gt; 7.54, org.openide.util.ui &gt; 9.14" OpenIDE-Module-Name="Common" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="&lt;undefined&gt;" OpenIDE-Module-Specification-Version="1.0"/>
         
@@ -47,28 +47,28 @@
 
 </module>
 
-<module codenamebase="shoot.doode.CommonEnemy" distribution="CommonEnemy-1.0-SNAPSHOT.nbm" downloadsize="4726" license="EE864CEE" needsrestart="false" releasedate="2020/05/05" targetcluster="shootindoode">
+<module codenamebase="shoot.doode.CommonEnemy" distribution="CommonEnemy-1.0-SNAPSHOT.nbm" downloadsize="4741" license="EE864CEE" needsrestart="false" releasedate="2020/05/05" targetcluster="shootindoode">
         
     <manifest OpenIDE-Module="shoot.doode.CommonEnemy" OpenIDE-Module-Display-Category="shoot.doode" OpenIDE-Module-Implementation-Version="1.0-20200505" OpenIDE-Module-Long-Description="&lt;undefined&gt;" OpenIDE-Module-Module-Dependencies="org.netbeans.api.annotations.common/1 &gt; 1.33, shoot.doode.Common &gt; 1.0" OpenIDE-Module-Name="CommonEnemy" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="&lt;undefined&gt;" OpenIDE-Module-Specification-Version="1.0"/>
         
 
 </module>
 
-<module codenamebase="shoot.doode.CommonWeapon" distribution="CommonWeapon-1.0-SNAPSHOT.nbm" downloadsize="5796" license="EE864CEE" needsrestart="false" releasedate="2020/05/05" targetcluster="shootindoode">
+<module codenamebase="shoot.doode.CommonWeapon" distribution="CommonWeapon-1.0-SNAPSHOT.nbm" downloadsize="5872" license="EE864CEE" needsrestart="false" releasedate="2020/05/05" targetcluster="shootindoode">
         
     <manifest OpenIDE-Module="shoot.doode.CommonWeapon" OpenIDE-Module-Display-Category="shoot.doode" OpenIDE-Module-Implementation-Version="1.0-20200505" OpenIDE-Module-Long-Description="&lt;undefined&gt;" OpenIDE-Module-Module-Dependencies="org.netbeans.api.annotations.common/1 &gt; 1.33, shoot.doode.Common &gt; 1.0" OpenIDE-Module-Name="CommonWeapon" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="&lt;undefined&gt;" OpenIDE-Module-Specification-Version="1.0"/>
         
 
 </module>
 
-<module codenamebase="shoot.doode.Core" distribution="Core-1.0-SNAPSHOT.nbm" downloadsize="8907008" license="EE864CEE" needsrestart="false" releasedate="2020/05/05" targetcluster="shootindoode">
+<module codenamebase="shoot.doode.Core" distribution="Core-1.0-SNAPSHOT.nbm" downloadsize="8906954" license="EE864CEE" needsrestart="false" releasedate="2020/05/05" targetcluster="shootindoode">
         
     <manifest OpenIDE-Module="shoot.doode.Core" OpenIDE-Module-Display-Category="shoot.doode" OpenIDE-Module-Implementation-Version="1.0-20200505" OpenIDE-Module-Long-Description="&lt;undefined&gt;" OpenIDE-Module-Module-Dependencies="org.netbeans.api.annotations.common/1 &gt; 1.33, org.openide.modules &gt; 7.54, org.openide.util &gt; 9.13, org.openide.util.lookup &gt; 8.39, shoot.doode.Common &gt; 1.0" OpenIDE-Module-Name="Core" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="&lt;undefined&gt;" OpenIDE-Module-Specification-Version="1.0"/>
         
 
 </module>
 
-<module codenamebase="shoot.doode.Enemy" distribution="Enemy-1.0-SNAPSHOT.nbm" downloadsize="11570" license="EE864CEE" needsrestart="false" releasedate="2020/05/05" targetcluster="shootindoode">
+<module codenamebase="shoot.doode.Enemy" distribution="Enemy-1.0-SNAPSHOT.nbm" downloadsize="11839" license="EE864CEE" needsrestart="false" releasedate="2020/05/05" targetcluster="shootindoode">
         
     <manifest OpenIDE-Module="shoot.doode.Enemy" OpenIDE-Module-Display-Category="shoot.doode" OpenIDE-Module-Implementation-Version="1.0-20200505" OpenIDE-Module-Long-Description="&lt;undefined&gt;" OpenIDE-Module-Module-Dependencies="org.netbeans.api.annotations.common/1 &gt; 1.33, shoot.doode.CommonEnemy &gt; 1.0, org.openide.util.lookup &gt; 8.39, shoot.doode.Common &gt; 1.0" OpenIDE-Module-Name="Enemy" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="&lt;undefined&gt;" OpenIDE-Module-Specification-Version="1.0"/>
         
@@ -124,7 +124,7 @@
 
 </module>
 
-<module codenamebase="shoot.doode.Player" distribution="Player-1.0-SNAPSHOT.nbm" downloadsize="81941" license="EE864CEE" needsrestart="false" releasedate="2020/05/05" targetcluster="shootindoode">
+<module codenamebase="shoot.doode.Player" distribution="Player-1.0-SNAPSHOT.nbm" downloadsize="81968" license="EE864CEE" needsrestart="false" releasedate="2020/05/05" targetcluster="shootindoode">
         
     <manifest OpenIDE-Module="shoot.doode.Player" OpenIDE-Module-Display-Category="shoot.doode" OpenIDE-Module-Implementation-Version="1.0-20200505" OpenIDE-Module-Long-Description="&lt;undefined&gt;" OpenIDE-Module-Module-Dependencies="org.netbeans.api.annotations.common/1 &gt; 1.33, org.openide.util.lookup &gt; 8.39, shoot.doode.Common &gt; 1.0" OpenIDE-Module-Name="Player" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="&lt;undefined&gt;" OpenIDE-Module-Specification-Version="1.0"/>
         
@@ -152,7 +152,7 @@
 
 </module>
 
-<module codenamebase="shoot.doode.Weapon" distribution="Weapon-1.0-SNAPSHOT.nbm" downloadsize="92125" license="EE864CEE" needsrestart="false" releasedate="2020/05/05" targetcluster="shootindoode">
+<module codenamebase="shoot.doode.Weapon" distribution="Weapon-1.0-SNAPSHOT.nbm" downloadsize="92107" license="EE864CEE" needsrestart="false" releasedate="2020/05/05" targetcluster="shootindoode">
         
     <manifest OpenIDE-Module="shoot.doode.Weapon" OpenIDE-Module-Display-Category="shoot.doode" OpenIDE-Module-Implementation-Version="1.0-20200505" OpenIDE-Module-Long-Description="&lt;undefined&gt;" OpenIDE-Module-Module-Dependencies="org.netbeans.api.annotations.common/1 &gt; 1.33, shoot.doode.Common &gt; 1.0, shoot.doode.CommonWeapon &gt; 1.0" OpenIDE-Module-Name="Weapon" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="&lt;undefined&gt;" OpenIDE-Module-Specification-Version="1.0"/>
         

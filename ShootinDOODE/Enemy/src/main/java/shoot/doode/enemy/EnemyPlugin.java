@@ -77,7 +77,7 @@ public class EnemyPlugin implements IGamePluginService {
         }
         else
         {
-            spritePaths[0] = "Green_Virus.png"; //"Red_Virus.png"; (file not found exception)
+            spritePaths[0] = "Red_Virus.png";
             boundaryWidth = 45;
             boundaryHeight = 45;
         }
