@@ -1,5 +1,6 @@
 package shoot.doode.core.main;
 
+import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -36,7 +37,7 @@ import shoot.doode.core.managers.AssetsHelper;
 import shoot.doode.core.managers.AssetsJarFileResolver;
 import shoot.doode.map.Background;
 
-public class Game implements ApplicationListener {
+public class Game extends ApplicationAdapter {
 
     private SpriteBatch batch;
     private static OrthographicCamera cam;
@@ -62,6 +63,7 @@ public class Game implements ApplicationListener {
 
         cam = new OrthographicCamera(gameData.getDisplayWidth(), gameData.getDisplayHeight());
         cam.translate(gameData.getDisplayWidth() / 2, gameData.getDisplayHeight() / 2);
+        cam.position.set(gameData.getDisplayWidth() / 2, gameData.getDisplayHeight() / 2, 0);
         cam.update();
 
         sr = new ShapeRenderer();
@@ -142,6 +144,18 @@ public class Game implements ApplicationListener {
                 System.out.println("Sound was already loaded at: " + totalPath);
             }
         }
+        for(String totalPath : assetesHelper.getMapMapKeys())
+        {
+            if(assetesHelper.getMap(totalPath) == null)
+            {
+                assetesHelper.loadMaps(totalPath);
+                System.out.println("Loaded map at: " + totalPath);
+            }
+            else
+            {
+                System.out.println("Map was already loaded at: " + totalPath);
+            }
+        }
             
             
             
@@ -159,10 +173,10 @@ public class Game implements ApplicationListener {
             if(mapPart != null){
                 String module = mapPart.getModule();
                 String mapPath = mapPart.getMapPath();
-                scale = Gdx.graphics.getWidth()/1280f;
+                scale = Gdx.graphics.getWidth();
 		map = assetesHelper.getMap(module,mapPath);
-		renderer = new OrthogonalTiledMapRenderer(map,scale);
-                
+		renderer = new OrthogonalTiledMapRenderer(map);
+                cam.update();
                 renderer.setView(cam);
                 renderer.render();
                 

@@ -6,6 +6,7 @@
 package shoot.doode.core.managers;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.files.FileHandle;
@@ -29,6 +30,7 @@ public class AssetsHelper {
     private String soundPath = ".jar!/Assets/Sounds/";
     private String mapPath = ".jar!/Assets/Maps/";
     private AssetsJarFileResolver jarfile = new AssetsJarFileResolver();;
+    private AssetManager manager;
 
     public AssetsHelper() {
 
@@ -147,7 +149,14 @@ public class AssetsHelper {
     
     public void loadMaps(String path) {
         FileHandle file = jarfile.resolve(path);
-        TiledMap map = new TmxMapLoader().load(file.toString());
+        boolean exists = file.exists();
+        System.out.println(exists);
+        manager = new AssetManager();
+        manager.setLoader(TiledMap.class, new TmxMapLoader());
+        manager.load(file.toString(), TiledMap.class);
+        manager.finishLoading();
+        TiledMap map = manager.get(file.toString(), TiledMap.class);
+        //TiledMap map = new TmxMapLoader().load(file.toString());
 
         mapMap.replace(path, map);
     }
