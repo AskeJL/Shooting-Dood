@@ -12,26 +12,28 @@ import shoot.doode.common.services.IEntityProcessingService;
 
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
+import shoot.doode.common.data.entityparts.MovingPart;
 import shoot.doode.common.data.entityparts.PlayerMovingPart;
-import shoot.doode.common.data.entityparts.PlayerPositionPart;
 
 @ServiceProviders(value = {
     @ServiceProvider(service = IEntityProcessingService.class),})
 public class BulletControlSystem implements IEntityProcessingService {
 
     private Entity bullet;
+    private PositionPart weaponPositionPart;
 
     @Override
     public void process(GameData gameData, World world) {
-        //System.out.println("Bullet Process");
+        System.out.println("Bullet Process");
         for (Entity entity : world.getEntities()) {
-            if (entity.getPart(PlayerPositionPart.class) != null) {
-
+            if (entity.getPart(ShootingPart.class) != null) {
+                System.out.println("weapon found");
                 ShootingPart shootingPart = entity.getPart(ShootingPart.class);
                 //Shoot if isShooting is true, ie. space is pressed.
                 if (shootingPart.isShooting()) {
-                    //System.out.println("Bullet ShootingPart.isShooting");
-                    PositionPart positionPart = entity.getPart(PositionPart.class);
+                    System.out.println("weapon is shooting");
+                    
+                    /*weaponPositionPart = entity.getPart(PositionPart.class);
                     //Add entity radius to initial position to avoid immideate collision.
                     bullet = createBullet(entity);
                     
@@ -39,23 +41,28 @@ public class BulletControlSystem implements IEntityProcessingService {
                     System.out.println(test.getRotation());
                     
                     shootingPart.setIsShooting(false);
-                    world.addEntity(bullet);
+                    world.addEntity(bullet);*/
                 }
             }
+             /*
         }
-
-        for (Entity b : world.getEntities(Bullet.class)) {
+        
+        for (Entity bullet : world.getEntities(Bullet.class)) {
             //System.out.println("Bullet");
-            PlayerPositionPart ppb = b.getPart(PlayerPositionPart.class);
-            PlayerMovingPart mpb = b.getPart(PlayerMovingPart.class);
-            TimerPart btp = b.getPart(TimerPart.class);
+            
+            PositionPart position = bullet.getPart(PositionPart.class);
+            MovingPart moving = bullet.getPart(MovingPart.class);
+            TimerPart time = bullet.getPart(TimerPart.class);
+            
             //mpb.setUp(true);
-            btp.reduceExpiration(gameData.getDelta());
-            LifePart lpb = b.getPart(LifePart.class);
+            time.reduceExpiration(gameData.getDelta());
+            LifePart life = bullet.getPart(LifePart.class);
             //If duration is exceeded, remove the bullet.
-            if (btp.getExpiration() < 0) {
-                world.removeEntity(b);
+            if (time.getExpiration() < 0) {
+                world.removeEntity(bullet);
             }
+            
+            /*
             //System.out.println("Radians" + ppb.getRotation());
             if(ppb.getRotation() == 0){
                 mpb.setD(true);               
@@ -85,20 +92,21 @@ public class BulletControlSystem implements IEntityProcessingService {
                 mpb.setS(true);
                 mpb.setD(true);
             }
+            */
             
+/*
+            position.process(gameData, bullet);
+            moving.process(gameData, bullet);
+            time.process(gameData, bullet);
+            life.process(gameData, bullet);
 
-            ppb.process(gameData, b);
-            mpb.process(gameData, b);
-            btp.process(gameData, b);
-            lpb.process(gameData, b);
-
-            updateShape(b);
+            updateShape(bullet);*/
         }
     }
 
     //Could potentially do some shenanigans with differing colours for differing sources.
     private Entity createBullet(Entity e) {
-        PlayerPositionPart p = e.getPart(PlayerPositionPart.class);
+        PositionPart p = e.getPart(PositionPart.class);
         ShootingPart s = e.getPart(ShootingPart.class);
         Entity b = new Bullet();
 

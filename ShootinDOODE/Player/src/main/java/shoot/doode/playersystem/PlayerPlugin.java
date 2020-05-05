@@ -57,9 +57,6 @@ public class PlayerPlugin implements IGamePluginService {
         String[] soundPaths = new String[1];
         soundPaths[0] = "Gun_Fire.mp3";
         
-        UUID uuid = UUID.randomUUID();
-        
-        
         CollidableEntity playerShip = new Player();
         playerShip.setRadius(8);
         playerShip.setColour(colour);
@@ -68,9 +65,6 @@ public class PlayerPlugin implements IGamePluginService {
         playerShip.add(new LifePart(1));
         playerShip.add(new SpritePart(module, spritePaths));
         playerShip.add(new SoundPart(module, soundPaths));
-        playerShip.add(new ShootingPart(uuid.toString()));
-        
-        
         
         playerShip.setBoundaryWidth(50);
         playerShip.setBoundaryHeight(50);

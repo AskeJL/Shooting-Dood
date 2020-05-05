@@ -232,7 +232,6 @@ public class PlayerMovingPart implements EntityPart
         playerPositionPart.setX(x);
         playerPositionPart.setY(y);
         playerPositionPart.setRotation(rotation);
-
     }
 
 }

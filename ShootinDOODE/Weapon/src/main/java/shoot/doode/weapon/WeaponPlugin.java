@@ -54,9 +54,12 @@ public class WeaponPlugin implements IGamePluginService{
         
         String[] soundPaths = new String[1];
         soundPaths[0] = "Gun_Fire.mp3";
+        
+        UUID uuid = UUID.randomUUID();
 
         Entity weapon = new Weapon(GUN);
         weapon.add(new PositionPart(x, y, radians));
+        weapon.add(new ShootingPart(uuid.toString()));
         // weapon.add(new SpritePart(module, spritePaths));
         weapon.add(new SoundPart(module, soundPaths));
         weapon.setColour(colour);
