@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.Enemy">
-    <module_version install_time="1588669096100" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1588678446953" last="true" origin="installer" specification_version="1.0">
         <file crc="2358616893" name="config/Modules/shoot-doode-Enemy.xml"/>
-        <file crc="2567368782" name="modules/shoot-doode-Enemy.jar"/>
+        <file crc="2497100518" name="modules/shoot-doode-Enemy.jar"/>
     </module_version>
 </module>

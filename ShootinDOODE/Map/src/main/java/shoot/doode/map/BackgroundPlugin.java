@@ -25,6 +25,7 @@ public class BackgroundPlugin implements IGamePluginService  {
     @Override
     public void start(GameData gameData, World world) {
         Entity background = createBackground(gameData);
+        world.addEntity(background);
     }
     
     private Entity createBackground(GameData gameData) {

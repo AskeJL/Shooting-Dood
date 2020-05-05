@@ -7,6 +7,7 @@ package shoot.doode.core.managers;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.assets.loaders.resolvers.ExternalFileHandleResolver;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.files.FileHandle;
@@ -151,12 +152,14 @@ public class AssetsHelper {
         FileHandle file = jarfile.resolve(path);
         boolean exists = file.exists();
         System.out.println(exists);
-        manager = new AssetManager();
+        manager = new AssetManager(new ExternalFileHandleResolver());
         manager.setLoader(TiledMap.class, new TmxMapLoader());
-        manager.load(file.toString(), TiledMap.class);
+        manager.load("C:\\Users\\askel\\OneDrive\\Shooting-Dood\\ShootinDOODE\\Map\\src\\main\\resources\\assets\\Maps\\map.tmx", TiledMap.class);
         manager.finishLoading();
-        TiledMap map = manager.get(file.toString(), TiledMap.class);
-        //TiledMap map = new TmxMapLoader().load(file.toString());
+        System.out.println(manager.getLoadedAssets());
+        System.out.println(manager.getAssetNames());
+        TiledMap map = manager.get("C:/Users/askel/OneDrive/Shooting-Dood/ShootinDOODE/Map/src/main/resources/assets/Maps/map.tmx", TiledMap.class);
+        
 
         mapMap.replace(path, map);
     }
