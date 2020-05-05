@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.Collision">
-<<<<<<< HEAD
-    <module_version install_time="1588600713439" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1588690304912" last="true" origin="installer" specification_version="1.0">
         <file crc="3587771722" name="config/Modules/shoot-doode-Collision.xml"/>
         <file crc="1015876392" name="modules/ext/shoot.doode.Collision/com-badlogicgames-gdx/gdx.jar"/>
-        <file crc="2114691223" name="modules/shoot-doode-Collision.jar"/>
-        <file crc="2468933299" name="update_tracking/shoot-doode-Collision.xml"/>
-=======
-    <module_version install_time="1588689830918" last="true" origin="installer" specification_version="1.0">
-        <file crc="3587771722" name="config/Modules/shoot-doode-Collision.xml"/>
-        <file crc="1015876392" name="modules/ext/shoot.doode.Collision/com-badlogicgames-gdx/gdx.jar"/>
-        <file crc="2711802156" name="modules/shoot-doode-Collision.jar"/>
-        <file crc="1183303250" name="update_tracking/shoot-doode-Collision.xml"/>
->>>>>>> PlayerPositionPart
+        <file crc="1527734829" name="modules/shoot-doode-Collision.jar"/>
+        <file crc="3163066706" name="update_tracking/shoot-doode-Collision.xml"/>
     </module_version>
 </module>

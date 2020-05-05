@@ -1,18 +1,9 @@
-<<<<<<< HEAD
-platform=1588600719826
-cluster.bin=1588600719825
-cluster.etc=1588600719825
-cluster.platform=1588600719826
-cluster.shootindoode=1588600719826
-user=1588600719826
-=======
-platform=1588689836194
-cluster.bin=1588689836194
-cluster.etc=1588689836194
-cluster.platform=1588689836194
-cluster.shootindoode=1588689836194
-user=1588689836194
->>>>>>> PlayerPositionPart
+platform=1588690310050
+cluster.bin=1588690310050
+cluster.etc=1588690310050
+cluster.platform=1588690310050
+cluster.shootindoode=1588690310050
+user=1588690310050
 crc=7
 locale=da_DK
 branding=shootindoode

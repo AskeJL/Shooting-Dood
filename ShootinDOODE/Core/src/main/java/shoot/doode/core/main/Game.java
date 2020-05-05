@@ -107,14 +107,14 @@ public class Game implements ApplicationListener {
         AssetsHelper.getInstance().loadQueue();
             
             
-            
+        /*    
         System.out.println("SpriteAmount: " + AssetsHelper.getInstance().getImageTotal());
         System.out.println("SoundAmount: " + AssetsHelper.getInstance().getSoundTotal());
         System.out.println("AssetServices " + assetServices);
         System.out.println("Gameplugins" + gamePlugins);
         System.out.println("Entity process" + getEntityProcessingServices());
         System.out.println("Post process" + getPostEntityProcessingServices());
-        
+        */
         for (Entity entity : world.getEntities()) {
             SpritePart spritePart = entity.getPart(SpritePart.class);
             if (spritePart != null) {
@@ -190,16 +190,7 @@ public class Game implements ApplicationListener {
     private final LookupListener lookupListener = new LookupListener() {
         @Override
         public void resultChanged(LookupEvent le) {
-       /*
-            for(int i = 0; i < 10;i++)
-            {
-                System.out.println("|");
-                if(i == 5)
-                {
-                    System.out.println("Running resultChanged");
-                }        
-                System.out.println("|");
-            }*/
+
             Collection<? extends IGamePluginService> iGameUpdated = iGameResult.allInstances();
             Collection<? extends IAssetService> iAssetUpdated = iAssetResult.allInstances();
 
@@ -209,8 +200,7 @@ public class Game implements ApplicationListener {
                 if (!assetServices.contains(us)) {
                     System.out.println("New AssetLoader: " + us);
                     AssetsHelper.getInstance().queueImages(us.loadImages());
-                    AssetsHelper.getInstance().queueSounds(us.loadSounds());
-                    //loadImages(us.queueImages());               
+                    AssetsHelper.getInstance().queueSounds(us.loadSounds());             
                     assetServices.add(us);
                 }
             }
@@ -218,7 +208,6 @@ public class Game implements ApplicationListener {
             // Stop and remove module
             for (IAssetService gs : assetServices) {
                 if (!iAssetUpdated.contains(gs)) {
-                    //unLoadImages(gs.unLoadImages());
                     System.out.println("Remove AssetLoader: " + gs);
                     AssetsHelper.getInstance().unLoadImages(gs.unLoadImages());
                     AssetsHelper.getInstance().unLoadSounds(gs.unLoadSounds());
@@ -229,7 +218,6 @@ public class Game implements ApplicationListener {
             for (IGamePluginService us : iGameUpdated) {
                 // Newly installed modules
                 if (!gamePlugins.contains(us)) {
-                    //System.out.println("New GamePlugin: " + us);
                     us.start(gameData, world);
                     gamePlugins.add(us);
                 }
@@ -238,7 +226,6 @@ public class Game implements ApplicationListener {
             // Stop and remove module
             for (IGamePluginService gs : gamePlugins) {
                 if (!iGameUpdated.contains(gs)) {
-                    //System.out.println("Remove GamePlugin: " + gs);
                     gs.stop(gameData, world);
                     gamePlugins.remove(gs);
                 }

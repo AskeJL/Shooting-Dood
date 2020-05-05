@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.Weapon">
-<<<<<<< HEAD
-    <module_version install_time="1588600713371" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1588690304835" last="true" origin="installer" specification_version="1.0">
         <file crc="812484391" name="config/Modules/shoot-doode-Weapon.xml"/>
-        <file crc="1772481051" name="modules/shoot-doode-Weapon.jar"/>
-        <file crc="4204261459" name="update_tracking/shoot-doode-Weapon.xml"/>
-=======
-    <module_version install_time="1588689830850" last="true" origin="installer" specification_version="1.0">
-        <file crc="812484391" name="config/Modules/shoot-doode-Weapon.xml"/>
-        <file crc="4261720572" name="modules/shoot-doode-Weapon.jar"/>
-        <file crc="3886147981" name="update_tracking/shoot-doode-Weapon.xml"/>
->>>>>>> PlayerPositionPart
+        <file crc="1125765698" name="modules/shoot-doode-Weapon.jar"/>
+        <file crc="1322865711" name="update_tracking/shoot-doode-Weapon.xml"/>
     </module_version>
 </module>
