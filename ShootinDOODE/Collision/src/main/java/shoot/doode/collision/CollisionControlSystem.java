@@ -8,7 +8,10 @@ import shoot.doode.common.data.CollidableEntity;
 import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
 import shoot.doode.common.data.World;
+import shoot.doode.common.data.entityparts.LifePart;
+import shoot.doode.common.data.entityparts.PlayerMovingPart;
 import shoot.doode.common.data.entityparts.PositionPart;
+import shoot.doode.common.data.entityparts.ProjectilePart;
 import shoot.doode.common.services.IEntityProcessingService;
 
 /**
@@ -36,8 +39,51 @@ public class CollisionControlSystem implements IEntityProcessingService {
                 if (e.getID().equals(f.getID())) {
                     continue;
                 }
+                
+                CollidableEntity collidableF = (CollidableEntity)f;
+                CollidableEntity collidableE = (CollidableEntity)e;
 
-                if (rectangleCollision((CollidableEntity) f, (CollidableEntity) e)) {
+                if (rectangleCollision(collidableF, collidableE)) {
+                    boolean fIsBullet = f.getPart(ProjectilePart.class) != null;
+                    boolean eIsBullet = e.getPart(ProjectilePart.class) != null;
+                    
+                    // Check if player and bullet interacting
+                    if ((fIsBullet && e.getPart(PlayerMovingPart.class) != null) ||
+                        (f.getPart(PlayerMovingPart.class) != null && eIsBullet)) {
+                        continue;
+                    }
+                    
+                    // Check if enemy and static collidable interacting
+                    if ((collidableE.getIsStatic() && collidableF.getClass().getName().contains("Enemy")) ||
+                        (collidableF.getIsStatic() && collidableE.getClass().getName().contains("Enemy"))) {
+                        continue;
+                    }
+                    
+                    System.out.println(collidableF.getClass().getName());
+                    
+                    LifePart lifePartF = f.getPart(LifePart.class);
+                    LifePart lifePartE = e.getPart(LifePart.class);
+                    
+                    boolean removedEntity = false;
+                    if (lifePartF != null && (!collidableE.getIsStatic() || fIsBullet)) {
+                        lifePartF.setLife(lifePartF.getLife() - 1);
+                        if (lifePartF.getLife() <= 0) {
+                            world.removeEntity(f);
+                            removedEntity = true;
+                        }
+                    }
+                    if (lifePartE != null && (!collidableF.getIsStatic() || eIsBullet)) {
+                        lifePartE.setLife(lifePartE.getLife() - 1);
+                        if (lifePartE.getLife() <= 0) {
+                            world.removeEntity(e);
+                            removedEntity = true;
+                        }
+                    }
+                    
+                    if (removedEntity) {
+                        return;
+                    }
+                    
                     handleCollisionOverlap((CollidableEntity) f, (CollidableEntity) e);
                 }
             }
@@ -84,20 +130,16 @@ public class CollisionControlSystem implements IEntityProcessingService {
             if (intersection.getHeight() < intersection.getWidth()) {
                 if (intersection.getY() == ep.getY()) {
                     ep.setY(intersection.getY() + intersection.getHeight());
-                    System.out.println("Collision");
                 }
                 if (intersection.getY() > ep.getY()) {
                     ep.setY(intersection.getY() - e.getBoundaryHeight());
-                    System.out.println("Collision1");
                 }
             } else if (intersection.getWidth() < intersection.getHeight()) {
                 if (intersection.getX() == ep.getX()) {
                     ep.setX(intersection.getX() + intersection.getWidth());
-                    System.out.println("Collision2");
                 }
                 if (intersection.getX() > ep.getX()) {
                     ep.setX(intersection.getX() - e.getBoundaryWidth());
-                    System.out.println("Collision3");
                 }
             }
         }
