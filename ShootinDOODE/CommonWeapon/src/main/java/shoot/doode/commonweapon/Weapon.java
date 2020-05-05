@@ -7,13 +7,22 @@ import shoot.doode.common.data.World;
 
 public abstract class Weapon extends Entity {
     
-    private double reloadTime = 2;
-    private double damage = 2;
+    private double currentTime;
+    private double reloadTime;
+    private double damage;
 
     public Weapon() {
     }
     
     abstract public void shoot(GameData gameData, World world);
+    
+    public double getCurrentTime() {
+        return currentTime;
+    }
+    
+    public void SetCurrentTime(double currentTime) {
+        this.currentTime = currentTime;
+    }
     
     public double getRealoadTime() {
         return reloadTime;

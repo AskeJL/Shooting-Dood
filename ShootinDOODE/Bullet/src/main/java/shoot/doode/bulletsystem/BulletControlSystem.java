@@ -17,6 +17,7 @@ import shoot.doode.common.data.entityparts.PlayerMovingPart;
 public class BulletControlSystem implements IEntityProcessingService {
 
     private Entity bullet;
+    private double delta = 0.01;
 
     @Override
     public void process(GameData gameData, World world) {
@@ -40,30 +41,30 @@ public class BulletControlSystem implements IEntityProcessingService {
             if(position.getRotation() == 0){
                 moving.setD(true);               
             }
-            if(position.getRotation() == (float)Math.PI/2){
-                moving.setW(true);
+            if(Math.abs(position.getRotation() - (float)Math.PI/2) < delta){
+                moving.setW(true);              
             }
-            if(position.getRotation() == (float)Math.PI){
-                moving.setA(true);
+            if(Math.abs(position.getRotation() - (float)Math.PI) < delta){
+                moving.setA(true);               
             }
-            if(position.getRotation() == (float)Math.PI+(float)Math.PI/2){
-                moving.setS(true);
+            if(Math.abs(position.getRotation() - (float)(Math.PI+Math.PI/2)) < delta){
+                moving.setS(true);               
             }
-            if(position.getRotation() == (float)Math.PI/4 ){
+            if(Math.abs(position.getRotation() - (float)Math.PI/4 ) < delta){
                 moving.setD(true);
+                moving.setW(true);              
+            }
+            if(Math.abs(position.getRotation() - (float)Math.PI*3/4) < delta){
                 moving.setW(true);
+                moving.setA(true);              
             }
-            if(position.getRotation() == (float)Math.PI*3/4){
-                moving.setW(true);
+            if(Math.abs(position.getRotation() - (float)(Math.PI+Math.PI/4)) < delta){
                 moving.setA(true);
+                moving.setS(true);              
             }
-            if(position.getRotation() == (float)Math.PI+(float)Math.PI/4){
-                moving.setA(true);
+            if(Math.abs(position.getRotation() - (float)(Math.PI*2-Math.PI/4)) < delta){
                 moving.setS(true);
-            }
-            if(position.getRotation() == (float)Math.PI*2-(float)Math.PI/4){
-                moving.setS(true);
-                moving.setD(true);
+                moving.setD(true);              
             }
             
            

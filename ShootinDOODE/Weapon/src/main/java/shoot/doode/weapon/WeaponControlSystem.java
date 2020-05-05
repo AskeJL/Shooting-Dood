@@ -42,12 +42,36 @@ public class WeaponControlSystem implements IEntityProcessingService {
                     weaponPosition.process(gameData, weapon);
                                     
                     if (playerShootingPart.isShooting()) {
-                        weapon.shoot(gameData, world);
-                        SoundPart soundPart = weapon.getPart(SoundPart.class);
-                        soundPart.setPlay("Gun_Fire.mp3", true);
+                        if(weapon.getCurrentTime() >= weapon.getRealoadTime())
+                        {
+                            weapon.shoot(gameData, world);
+                            weapon.SetCurrentTime(0);
+                        }
                     }
+                    weapon.SetCurrentTime(weapon.getCurrentTime()+gameData.getDelta());
+                    if(playerShootingPart.isSwitchWeapon())
+                    {
+                        System.out.println("We are in it");
+                        for(int i = 0; i < 20; i++)
+                        {
+                            System.out.println("We are in it");
+                        }
+                        System.out.println("We are in it");
+                        if(playerShootingPart.getWeapon() instanceof Gun)
+                        {
+                            world.removeEntity(playerShootingPart.getWeapon());
+                            playerShootingPart.setWeapon(createWeapon(player,Shotgun.class));
+                        }
+                        else
+                        {
+                            world.removeEntity(playerShootingPart.getWeapon());
+                            playerShootingPart.setWeapon(createWeapon(player,Gun.class));
+                        }
+                    }
+                    
+                    
                 } else {
-                    weapon = createGun(player);
+                    weapon = createWeapon(player,Gun.class);
                     world.addEntity(weapon);
                     playerShootingPart.setWeapon(weapon);
                 }
@@ -82,8 +106,8 @@ public class WeaponControlSystem implements IEntityProcessingService {
         weapon.setShapeX(shapex);
         weapon.setShapeY(shapey);
     }
-    
-    private Weapon createGun(Entity player) {
+    //public <E extends Entity> List<Entity> getEntities(Class<E>... entityTypes) {
+    private <E extends Weapon> Weapon createWeapon(Entity player, Class<E> type) {
         PositionPart playerPositionPart = player.getPart(PositionPart.class);
         float x = playerPositionPart.getX() + 10;
         float y = playerPositionPart.getY() + 10;
@@ -95,19 +119,19 @@ public class WeaponControlSystem implements IEntityProcessingService {
         colour[1] = 1.0f;
         colour[2] = 1.0f;
         colour[3] = 1.0f;
-
-        String module = "Weapon";
-        String[] spritePaths = new String[1];
-        spritePaths[0] = "knife.png";
+        Entity weapon = null;
         
-        String[] soundPaths = new String[1];
-        soundPaths[0] = "Gun_Fire.mp3";
-        
-        Entity weapon = new Gun();
+        try
+        {
+            weapon = type.newInstance();
+        } catch(Exception e)
+        {
+            System.out.println(e);
+        }
+            
         weapon.setID(id.toString());
         weapon.add(new PositionPart(x, y, radians));
-        weapon.add(new SpritePart(module, spritePaths));
-        weapon.add(new SoundPart(module, soundPaths));
+
         weapon.setColour(colour);
         weapon.setRadius(5);
 

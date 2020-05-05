@@ -6,6 +6,7 @@ import shoot.doode.common.data.GameData;
 
 public class ShootingPart implements EntityPart{
     
+    private boolean switchWeapon = false;
     private Entity weapon;
     private boolean isSchooting;
     private String ID;
@@ -16,6 +17,16 @@ public class ShootingPart implements EntityPart{
     
     public Entity getWeapon() {
         return weapon;
+    }
+    
+    public void setSwitchWeapon(boolean switchWeapon)
+    {
+        this.switchWeapon = switchWeapon;
+    }
+    
+    public boolean isSwitchWeapon()
+    {
+        return switchWeapon;
     }
     
     public void setWeapon(Entity weapon) {
