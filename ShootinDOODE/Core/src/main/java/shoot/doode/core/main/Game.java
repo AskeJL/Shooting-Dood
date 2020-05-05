@@ -19,18 +19,15 @@ import shoot.doode.common.services.IGamePluginService;
 import shoot.doode.common.services.IPostEntityProcessingService;
 import shoot.doode.common.data.entityparts.PositionPart;
 import shoot.doode.core.managers.GameInputProcessor;
-import java.util.HashMap;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.openide.util.Lookup;
 import org.openide.util.LookupEvent;
 import org.openide.util.LookupListener;
-import shoot.doode.common.data.entityparts.PlayerPositionPart;
 import shoot.doode.common.data.entityparts.SoundPart;
 import shoot.doode.common.services.IAssetService;
 import shoot.doode.core.managers.AssetsHelper;
-import shoot.doode.core.managers.AssetsJarFileResolver;
 
 public class Game implements ApplicationListener {
 
@@ -153,16 +150,10 @@ public class Game implements ApplicationListener {
 
                 Sprite sprite = assetesHelper.getSprite(module,imagePath);
                 System.out.println(sprite);
-                // Check if entity is player
-                if (entity.getPart(PlayerPositionPart.class) != null) {
-                    PlayerPositionPart positionPart = entity.getPart(PlayerPositionPart.class);
-                    sprite.setRotation(positionPart.getRotation());
-                    sprite.setPosition(positionPart.getX() - sprite.getWidth()/2, positionPart.getY() - sprite.getHeight()/2);
-                } else {
-                    PositionPart positionPart = entity.getPart(PositionPart.class);
-                    sprite.setRotation(positionPart.getRotation());
-                    sprite.setPosition(positionPart.getX() - sprite.getWidth()/2, positionPart.getY() - sprite.getHeight()/2); 
-                }
+                PositionPart positionPart = entity.getPart(PositionPart.class);
+                sprite.setRotation(positionPart.getRotation());
+                sprite.setPosition(positionPart.getX() - sprite.getWidth()/2, positionPart.getY() - sprite.getHeight()/2); 
+                
                 batch.begin();
                 sprite.draw(batch);
                 batch.end();

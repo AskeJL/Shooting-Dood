@@ -1,17 +1,35 @@
 package shoot.doode.commonweapon;
 
 import shoot.doode.common.data.Entity;
+import shoot.doode.common.data.GameData;
+import shoot.doode.common.data.World;
 
 
-public class Weapon extends Entity {
+public abstract class Weapon extends Entity {
     
-    private WeaponType type;
+    private double reloadTime = 2;
+    private double damage = 2;
 
-    public Weapon(WeaponType type) {
-        this.type = type;
+    public Weapon() {
     }
-
-    public String getType() {
-        return type.getType();
+    
+    abstract public void shoot(GameData gameData, World world);
+    
+    public double getRealoadTime() {
+        return reloadTime;
     }
+    
+    public double getDamage() {
+        return damage;
+    }
+    
+    public void setReloadTime(double reloadTime) {
+        this.reloadTime = reloadTime;
+    }
+    
+    public void setDamage(double damage) {
+        this.damage = damage;
+    }
+    
+    
 }

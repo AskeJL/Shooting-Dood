@@ -9,7 +9,7 @@ import shoot.doode.common.data.entityparts.PlayerMovingPart;
 import shoot.doode.common.services.IEntityProcessingService;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
-import shoot.doode.common.data.entityparts.PlayerPositionPart;
+import shoot.doode.common.data.entityparts.PositionPart;
 import shoot.doode.common.data.entityparts.SoundPart;
 import shoot.doode.common.data.entityparts.ShootingPart;
 import shoot.doode.common.data.entityparts.SpritePart;
@@ -20,13 +20,13 @@ public class PlayerControlSystem implements IEntityProcessingService {
 
     @Override
     public void process(GameData gameData, World world) {
-
+        System.out.println("HERE!!!!!!!!!!!!!!!!");
         for (Entity player : world.getEntities(Player.class)) {
-            PlayerPositionPart positionPart = player.getPart(PlayerPositionPart.class);
+            System.out.println("DAMENQ!!!!!!!!!!!!!!!");
+            PositionPart positionPart = player.getPart(PositionPart.class);
             PlayerMovingPart playerMovingPart = player.getPart(PlayerMovingPart.class);
-            //ShootingPart shootingPart = player.getPart(ShootingPart.class);
+            ShootingPart shootingPart = player.getPart(ShootingPart.class);
             LifePart lifePart = player.getPart(LifePart.class);
-            SoundPart soundPart = player.getPart(SoundPart.class);
             SpritePart spritepart = player.getPart(SpritePart.class);
             
             
@@ -47,25 +47,16 @@ public class PlayerControlSystem implements IEntityProcessingService {
             spritepart.setCurrentSprite(0);
             }
             
-            // Will give a nullPointerExeption
-            //shootingPart.setIsShooting(gameData.getKeys().isDown(GameKeys.SPACE));
+            shootingPart.setIsShooting(gameData.getKeys().isDown(GameKeys.SPACE));
             
             playerMovingPart.setW(gameData.getKeys().isDown(GameKeys.W));
             playerMovingPart.setA(gameData.getKeys().isDown(GameKeys.A));
             playerMovingPart.setS(gameData.getKeys().isDown(GameKeys.S));
             playerMovingPart.setD(gameData.getKeys().isDown(GameKeys.D));
-
-            /*
-            if(gameData.getKeys().isDown(GameKeys.SPACE))
-            {
-                //The sound will play every frame they key is down like this
-                //Which is why we should tie it to the weapon or bullet module and have it play when a bullet gets spawned
-                soundPart.setPlay("Gun_Fire.mp3", true);
-            }*/
             
             playerMovingPart.process(gameData, player);
             positionPart.process(gameData, player);
-            // shootingPart.process(gameData, player);
+            shootingPart.process(gameData, player);
             lifePart.process(gameData, player);
 
             updateShape(player);
@@ -76,7 +67,7 @@ public class PlayerControlSystem implements IEntityProcessingService {
     private void updateShape(Entity entity) {
         float[] shapex = new float[4];
         float[] shapey = new float[4];
-        PlayerPositionPart positionPart = entity.getPart(PlayerPositionPart.class);
+        PositionPart positionPart = entity.getPart(PositionPart.class);
         float x = positionPart.getX();
         float y = positionPart.getY();
         float rotation = positionPart.getRotation();

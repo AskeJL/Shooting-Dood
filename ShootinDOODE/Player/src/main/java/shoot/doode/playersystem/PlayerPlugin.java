@@ -13,7 +13,7 @@ import shoot.doode.common.data.entityparts.SoundPart;
 import shoot.doode.common.data.entityparts.SpritePart;
 import shoot.doode.common.data.entityparts.ShootingPart;
 import shoot.doode.common.data.CollidableEntity;
-import shoot.doode.common.data.entityparts.PlayerPositionPart;
+import shoot.doode.common.data.entityparts.PositionPart;
 
 @ServiceProviders(value = {
     @ServiceProvider(service = IGamePluginService.class),
@@ -28,10 +28,14 @@ public class PlayerPlugin implements IGamePluginService {
 
     @Override
     public void start(GameData gameData, World world) {
-
         // Add entities to the world
         player = createPlayerShip(gameData);
         world.addEntity(player);
+        System.out.println("!!!!!!!!" + player);
+        for (Entity e : world.getEntities(Player.class)){
+            System.out.println("EFNIE#U¤I#");
+            System.out.println(e);
+        }
     }
 
     private Entity createPlayerShip(GameData gameData) {
@@ -53,18 +57,15 @@ public class PlayerPlugin implements IGamePluginService {
         spritePaths[1] = "Doode-left.png";
         spritePaths[2] = "Doode-right.png";
         spritePaths[3] = "Doode-back.png";
-        
-        String[] soundPaths = new String[1];
-        soundPaths[0] = "Gun_Fire.mp3";
-        
+       
         CollidableEntity playerShip = new Player();
         playerShip.setRadius(8);
         playerShip.setColour(colour);
         playerShip.add(new PlayerMovingPart(maxSpeed));
-        playerShip.add(new PlayerPositionPart(x, y, radians));
+        playerShip.add(new PositionPart(x, y, radians));
         playerShip.add(new LifePart(1));
         playerShip.add(new SpritePart(module, spritePaths));
-        playerShip.add(new SoundPart(module, soundPaths));
+        playerShip.add(new ShootingPart(playerShip.getID()));
         
         playerShip.setBoundaryWidth(50);
         playerShip.setBoundaryHeight(50);

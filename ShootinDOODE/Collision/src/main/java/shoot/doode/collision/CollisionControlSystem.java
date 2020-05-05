@@ -8,7 +8,6 @@ import shoot.doode.common.data.CollidableEntity;
 import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
 import shoot.doode.common.data.World;
-import shoot.doode.common.data.entityparts.PlayerPositionPart;
 import shoot.doode.common.data.entityparts.PositionPart;
 import shoot.doode.common.services.IEntityProcessingService;
 
@@ -46,21 +45,9 @@ public class CollisionControlSystem implements IEntityProcessingService {
     }
 
     private boolean rectangleCollision(CollidableEntity e, CollidableEntity f) {
-        PositionPart ep;
-        PositionPart fp;
-
-        //Check if any of the collidableEntities are the player
-        if (e.getPart(PlayerPositionPart.class) != null) {
-            ep = e.getPart(PlayerPositionPart.class);
-            fp = f.getPart(PositionPart.class);
-        } else if (f.getPart(PlayerPositionPart.class) != null) {
-            fp = f.getPart(PlayerPositionPart.class);
-            ep = e.getPart(PositionPart.class);
-        } else {
-            ep = e.getPart(PositionPart.class);
-            fp = f.getPart(PositionPart.class);
-        }
-
+        PositionPart ep = e.getPart(PositionPart.class);
+        PositionPart fp = f.getPart(PositionPart.class);
+        
         Rectangle rec1 = new Rectangle(ep.getX() - (e.getBoundaryWidth() / 2),
                 ep.getY() - (e.getBoundaryHeight() / 2),
                 e.getBoundaryWidth(),
@@ -75,21 +62,9 @@ public class CollisionControlSystem implements IEntityProcessingService {
     }
 
     private void handleCollisionOverlap(CollidableEntity e, CollidableEntity f) {
-        PositionPart ep;
-        PositionPart fp;
+        PositionPart ep = e.getPart(PositionPart.class);
+        PositionPart fp = f.getPart(PositionPart.class);
         
-        //Check if any of the collidableEntities are the player
-        if (e.getPart(PlayerPositionPart.class) != null) {
-            ep = e.getPart(PlayerPositionPart.class);
-            fp = f.getPart(PositionPart.class);
-        } else if (f.getPart(PlayerPositionPart.class) != null) {
-            fp = f.getPart(PlayerPositionPart.class);
-            ep = e.getPart(PositionPart.class);
-        } else {
-            ep = e.getPart(PositionPart.class);
-            fp = f.getPart(PositionPart.class);
-        }
-
         Rectangle rec1 = new Rectangle(ep.getX(),
                 ep.getY(),
                 e.getBoundaryWidth(),

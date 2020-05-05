@@ -2,14 +2,13 @@ package shoot.doode.common.data;
 
 import shoot.doode.common.data.entityparts.EntityPart;
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Entity implements Serializable {
 
-    private final UUID ID = UUID.randomUUID();
+    private String ID = UUID.randomUUID().toString();
 
     private float[] shapeX = new float[4];
     private float[] shapeY = new float[4];
@@ -42,7 +41,11 @@ public class Entity implements Serializable {
     }
 
     public String getID() {
-        return ID.toString();
+        return ID;
+    }
+    
+    public void setID(String id) {
+        this.ID = id;
     }
 
     public float[] getShapeX() {
