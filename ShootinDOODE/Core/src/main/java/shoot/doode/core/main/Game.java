@@ -49,7 +49,6 @@ public class Game extends ApplicationAdapter {
     private Lookup.Result<IGamePluginService> iGameResult;
     private List<IAssetService> assetServices = new CopyOnWriteArrayList<>();
     private Lookup.Result<IAssetService> iAssetResult;
-    private AssetsHelper assetesHelper = new AssetsHelper();
     private Background background;
     private TiledMap map; 
     private OrthogonalTiledMapRenderer renderer;
@@ -85,18 +84,16 @@ public class Game extends ApplicationAdapter {
         }
 
         for (IAssetService assetService : iAssetResult.allInstances()) {
-            assetesHelper.queueMaps(assetService.loadMaps());
-            assetesHelper.queueImages(assetService.loadImages());
-            assetesHelper.queueSounds(assetService.loadSounds());
+            AssetsHelper.getInstance().queueMaps(assetService.loadMaps());
             AssetsHelper.getInstance().queueImages(assetService.loadImages());
             AssetsHelper.getInstance().queueSounds(assetService.loadSounds());
             assetServices.add(assetService);
         }
-        for(String totalPath : assetesHelper.getMapMapKeys())
+        for(String totalPath : AssetsHelper.getInstance().getMapMapKeys())
         {
-            if(assetesHelper.getMap(totalPath) == null)
+            if(AssetsHelper.getInstance().getMap(totalPath) == null)
             {
-                assetesHelper.loadMaps(totalPath);
+                AssetsHelper.getInstance().loadMaps(totalPath);
                 System.out.println("Loaded map at: " + totalPath);
             }
             else
@@ -110,7 +107,7 @@ public class Game extends ApplicationAdapter {
                 String module = mapPart.getModule();
                 String mapPath = mapPart.getMapPath();
                 scale = Gdx.graphics.getWidth();
-		map = assetesHelper.getMap(module,mapPath);
+		map = AssetsHelper.getInstance().getMap(module,mapPath);
                 System.out.println(map);
 		renderer = new OrthogonalTiledMapRenderer(map, batch);
                 
@@ -144,44 +141,19 @@ public class Game extends ApplicationAdapter {
     }
 
     private void draw() {
-        for(String totalPath : assetesHelper.getSpriteMapKeys())
-        {
-            if(assetesHelper.getSprite(totalPath) == null)
-            {
-                assetesHelper.loadImages(totalPath);
-                System.out.println("Loaded Image at: " + totalPath);
-            }
-            else
-            {
-                System.out.println("Image was already loaded at: " + totalPath);
-            }
-        }
         
-        for(String totalPath : assetesHelper.getSoundMapKeys())
+        for(String totalPath : AssetsHelper.getInstance().getMapMapKeys())
         {
-            if(assetesHelper.getSound(totalPath) == null)
+            if(AssetsHelper.getInstance().getMap(totalPath) == null)
             {
-                assetesHelper.loadSounds(totalPath);
-                System.out.println("Loaded sound at: " + totalPath);
-            }
-            else
-            {
-                System.out.println("Sound was already loaded at: " + totalPath);
-            }
-        }
-        for(String totalPath : assetesHelper.getMapMapKeys())
-        {
-            if(assetesHelper.getMap(totalPath) == null)
-            {
-                assetesHelper.loadMaps(totalPath);
+                AssetsHelper.getInstance().loadMaps(totalPath);
                 System.out.println("Loaded map at: " + totalPath);
             }
             else
             {
                 System.out.println("Map was already loaded at: " + totalPath);
             }
-        }
-    private void draw() {    
+        } 
         AssetsHelper.getInstance().loadQueue();
             
             

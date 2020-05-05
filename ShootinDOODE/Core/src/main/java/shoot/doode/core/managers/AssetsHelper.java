@@ -35,7 +35,6 @@ public class AssetsHelper {
     private String mapPath = ".jar!/Assets/Maps/";
     private AssetsJarFileResolver jarfile = new AssetsJarFileResolver();;
     private AssetManager manager;
-    private AssetsJarFileResolver jarfile = new AssetsJarFileResolver();
     
     private static AssetsHelper single_instance = null;
 
@@ -59,9 +58,6 @@ public class AssetsHelper {
     public Set<String> getMapMapKeys(){
         return mapMap.keySet();
     }
-    
-    
-    public Sprite getSprite(String toalAssetPath) {
 
     public Sprite getSprite(String module, String assetPath) {
 
@@ -94,18 +90,11 @@ public class AssetsHelper {
         return mapMap.get(totalAssetPath);
     }
 
-    public int getImageTotal() {
-        return spriteMap.size();
-    }
-
     public String getSoundTotal() {
         String s = soundMap.size() + " " + soundQueue.size();
         return s;
     }
     
-    public void loadQueue()
-    {
-    public String getSoundTotal() {
     
     public void loadQueue()
     {
