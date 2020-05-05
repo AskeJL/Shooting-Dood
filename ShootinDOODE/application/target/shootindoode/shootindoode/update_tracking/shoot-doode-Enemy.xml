@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.Enemy">
+<<<<<<< HEAD
     <module_version install_time="1588600713498" last="true" origin="installer" specification_version="1.0">
         <file crc="2358616893" name="config/Modules/shoot-doode-Enemy.xml"/>
         <file crc="2961707173" name="modules/shoot-doode-Enemy.jar"/>
         <file crc="1744957720" name="update_tracking/shoot-doode-Enemy.xml"/>
+=======
+    <module_version install_time="1588689830980" last="true" origin="installer" specification_version="1.0">
+        <file crc="2358616893" name="config/Modules/shoot-doode-Enemy.xml"/>
+        <file crc="2010907836" name="modules/shoot-doode-Enemy.jar"/>
+        <file crc="149473826" name="update_tracking/shoot-doode-Enemy.xml"/>
+>>>>>>> PlayerPositionPart
     </module_version>
 </module>

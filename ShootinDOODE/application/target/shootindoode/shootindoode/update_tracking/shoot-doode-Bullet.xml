@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.Bullet">
+<<<<<<< HEAD
     <module_version install_time="1588600713452" last="true" origin="installer" specification_version="1.0">
         <file crc="3090761841" name="config/Modules/shoot-doode-Bullet.xml"/>
         <file crc="4050801305" name="modules/shoot-doode-Bullet.jar"/>
         <file crc="2423282953" name="update_tracking/shoot-doode-Bullet.xml"/>
+=======
+    <module_version install_time="1588689830934" last="true" origin="installer" specification_version="1.0">
+        <file crc="3090761841" name="config/Modules/shoot-doode-Bullet.xml"/>
+        <file crc="3669449371" name="modules/shoot-doode-Bullet.jar"/>
+        <file crc="2295292544" name="update_tracking/shoot-doode-Bullet.xml"/>
+>>>>>>> PlayerPositionPart
     </module_version>
 </module>

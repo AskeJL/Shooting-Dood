@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.ShootinDOODE.branding">
-<<<<<<< Updated upstream
-    <module_version install_time="1587648639176" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1588685241403" last="true" origin="installer" specification_version="1.0">
         <file crc="2756717434" name="config/Modules/shoot-doode-ShootinDOODE-branding.xml"/>
-        <file crc="1116505957" name="modules/shoot-doode-ShootinDOODE-branding.jar"/>
-=======
-    <module_version install_time="1587544874437" last="true" origin="installer" specification_version="1.0">
-        <file crc="2756717434" name="config/Modules/shoot-doode-ShootinDOODE-branding.xml"/>
-        <file crc="2529402353" name="modules/shoot-doode-ShootinDOODE-branding.jar"/>
-        <file crc="3139876646" name="update_tracking/shoot-doode-ShootinDOODE-branding.xml"/>
->>>>>>> Stashed changes
+        <file crc="3981834776" name="modules/shoot-doode-ShootinDOODE-branding.jar"/>
+        <file crc="424817268" name="update_tracking/shoot-doode-ShootinDOODE-branding.xml"/>
     </module_version>
 </module>

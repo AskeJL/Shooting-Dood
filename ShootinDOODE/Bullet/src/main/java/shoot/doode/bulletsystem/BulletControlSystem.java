@@ -1,16 +1,13 @@
 package shoot.doode.bulletsystem;
 
+import shoot.doode.commonweapon.Bullet;
 import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
 import shoot.doode.common.data.World;
 import shoot.doode.common.data.entityparts.LifePart;
-import shoot.doode.common.data.entityparts.MovingPart;
 import shoot.doode.common.data.entityparts.PositionPart;
-import shoot.doode.common.data.entityparts.ProjectilePart;
-import shoot.doode.common.data.entityparts.ShootingPart;
 import shoot.doode.common.data.entityparts.TimerPart;
 import shoot.doode.common.services.IEntityProcessingService;
-
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
 import shoot.doode.common.data.entityparts.PlayerMovingPart;
@@ -20,113 +17,60 @@ import shoot.doode.common.data.entityparts.PlayerMovingPart;
 public class BulletControlSystem implements IEntityProcessingService {
 
     private Entity bullet;
+    private double delta = 0.01;
 
     @Override
     public void process(GameData gameData, World world) {
-        //System.out.println("Bullet Process");
-        for (Entity entity : world.getEntities()) {
-            if (entity.getPart(ShootingPart.class) != null) {
-
-                ShootingPart shootingPart = entity.getPart(ShootingPart.class);
-                //Shoot if isShooting is true, ie. space is pressed.
-                if (shootingPart.isShooting()) {
-                    //System.out.println("Bullet ShootingPart.isShooting");
-                    PositionPart positionPart = entity.getPart(PositionPart.class);
-                    //Add entity radius to initial position to avoid immideate collision.
-                    bullet = createBullet(entity);
-                    
-                    PositionPart test = bullet.getPart(PositionPart.class);
-                    System.out.println(test.getRotation());
-                    
-                    shootingPart.setIsShooting(false);
-                    world.addEntity(bullet);
-                }
-            }
-        }
-
-        for (Entity b : world.getEntities(Bullet.class)) {
-            //System.out.println("Bullet");
-            PositionPart ppb = b.getPart(PositionPart.class);
-            PlayerMovingPart mpb = b.getPart(PlayerMovingPart.class);
-            TimerPart btp = b.getPart(TimerPart.class);
+        for (Entity bullet : world.getEntities(Bullet.class)) {
+            PositionPart position = bullet.getPart(PositionPart.class);
+            PlayerMovingPart moving = bullet.getPart(PlayerMovingPart.class);
+            TimerPart time = bullet.getPart(TimerPart.class);
+            
             //mpb.setUp(true);
-            btp.reduceExpiration(gameData.getDelta());
-            LifePart lpb = b.getPart(LifePart.class);
+            time.reduceExpiration(gameData.getDelta());
+            LifePart life = bullet.getPart(LifePart.class);
             //If duration is exceeded, remove the bullet.
-            if (btp.getExpiration() < 0) {
-                world.removeEntity(b);
+            if (time.getExpiration() < 0) {
+                world.removeEntity(bullet);
             }
-            //System.out.println("Radians" + ppb.getRotation());
-            if(ppb.getRotation() == 0){
-                mpb.setD(true);               
+
+            if(position.getRotation() == 0){
+                moving.setD(true);               
             }
-            if(ppb.getRotation() == (float)Math.PI/2){
-                mpb.setW(true);
+            if(Math.abs(position.getRotation() - (float)Math.PI/2) < delta){
+                moving.setW(true);              
             }
-            if(ppb.getRotation() == (float)Math.PI){
-                mpb.setA(true);
+            if(Math.abs(position.getRotation() - (float)Math.PI) < delta){
+                moving.setA(true);               
             }
-            if(ppb.getRotation() == (float)Math.PI+(float)Math.PI/2){
-                mpb.setS(true);
+            if(Math.abs(position.getRotation() - (float)(Math.PI+Math.PI/2)) < delta){
+                moving.setS(true);               
             }
-            if(ppb.getRotation() == (float)Math.PI/4 ){
-                mpb.setD(true);
-                mpb.setW(true);
+            if(Math.abs(position.getRotation() - (float)Math.PI/4 ) < delta){
+                moving.setD(true);
+                moving.setW(true);              
             }
-            if(ppb.getRotation() == (float)Math.PI*3/4){
-                mpb.setW(true);
-                mpb.setA(true);
+            if(Math.abs(position.getRotation() - (float)Math.PI*3/4) < delta){
+                moving.setW(true);
+                moving.setA(true);              
             }
-            if(ppb.getRotation() == (float)Math.PI+(float)Math.PI/4){
-                mpb.setA(true);
-                mpb.setS(true);
+            if(Math.abs(position.getRotation() - (float)(Math.PI+Math.PI/4)) < delta){
+                moving.setA(true);
+                moving.setS(true);              
             }
-            if(ppb.getRotation() == (float)Math.PI*2-(float)Math.PI/4){
-                mpb.setS(true);
-                mpb.setD(true);
+            if(Math.abs(position.getRotation() - (float)(Math.PI*2-Math.PI/4)) < delta){
+                moving.setS(true);
+                moving.setD(true);              
             }
             
+           
+            position.process(gameData, bullet);
+            moving.process(gameData, bullet);
+            time.process(gameData, bullet);
+            life.process(gameData, bullet);
 
-            ppb.process(gameData, b);
-            mpb.process(gameData, b);
-            btp.process(gameData, b);
-            lpb.process(gameData, b);
-
-            updateShape(b);
+            updateShape(bullet);
         }
-    }
-
-    //Could potentially do some shenanigans with differing colours for differing sources.
-    private Entity createBullet(Entity e) {
-        PositionPart p = e.getPart(PositionPart.class);
-        ShootingPart s = e.getPart(ShootingPart.class);
-        Entity b = new Bullet();
-
-        
-        b.add(new PositionPart(p.getX(), p.getY(), p.getRotation()));
-        System.out.println(p.getRotation());
-        b.add(new PlayerMovingPart((float)4.5));
-        b.add(new TimerPart(3));
-        b.add(new LifePart(1));
-        // Projectile Part only used for better collision detection     
-        b.add(new ProjectilePart(s.getID()));
-        b.setRadius(2);
-
-        float[] colour = new float[4];
-        colour[0] = 0.2f;
-        colour[1] = 0.5f;
-        colour[2] = 0.7f;
-        colour[3] = 1.0f;
-
-        b.setColour(colour);
-        
-        
-
-        //System.out.println(x);
-        //System.out.println(y);
-        
-        return b;
-        
     }
 
     private void updateShape(Entity entity) {
@@ -152,5 +96,7 @@ public class BulletControlSystem implements IEntityProcessingService {
         entity.setShapeX(shapex);
         entity.setShapeY(shapey);
     }
+    
+    
 
 }

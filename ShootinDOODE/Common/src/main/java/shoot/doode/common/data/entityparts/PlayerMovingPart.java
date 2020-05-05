@@ -117,10 +117,10 @@ public class PlayerMovingPart implements EntityPart
     @Override
     public void process(GameData gameData, Entity entity)
     {
-        PositionPart positionPart = entity.getPart(PositionPart.class);
-        float x = positionPart.getX();
-        float y = positionPart.getY();
-        float rotation = positionPart.getRotation();
+        PositionPart PositionPart = entity.getPart(PositionPart.class);
+        float x = PositionPart.getX();
+        float y = PositionPart.getY();
+        float rotation = PositionPart.getRotation();
 
         //Rotation
         if (left)
@@ -229,10 +229,9 @@ public class PlayerMovingPart implements EntityPart
             y = gameData.getDisplayHeight();
         }
 
-        positionPart.setX(x);
-        positionPart.setY(y);
-        positionPart.setRotation(rotation);
-
+        PositionPart.setX(x);
+        PositionPart.setY(y);
+        PositionPart.setRotation(rotation);
     }
 
 }

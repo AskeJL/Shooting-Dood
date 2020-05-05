@@ -14,10 +14,12 @@ import shoot.doode.common.data.GameData;
  */
 public class ProjectilePart implements EntityPart{
 
-    String ID;
-
-    public ProjectilePart(String ID) {
+    private String ID;
+    private double damege;
+    
+    public ProjectilePart(String ID,double damege) {
         this.ID = ID;
+        this.damege = damege;
     }
     
     public String getID(){

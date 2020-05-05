@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.CommonEnemy">
+<<<<<<< HEAD
     <module_version install_time="1588600713508" last="true" origin="installer" specification_version="1.0">
         <file crc="1604169143" name="config/Modules/shoot-doode-CommonEnemy.xml"/>
         <file crc="3883937553" name="modules/shoot-doode-CommonEnemy.jar"/>
         <file crc="3889295050" name="update_tracking/shoot-doode-CommonEnemy.xml"/>
+=======
+    <module_version install_time="1588689830990" last="true" origin="installer" specification_version="1.0">
+        <file crc="1604169143" name="config/Modules/shoot-doode-CommonEnemy.xml"/>
+        <file crc="1036609386" name="modules/shoot-doode-CommonEnemy.jar"/>
+        <file crc="2590800743" name="update_tracking/shoot-doode-CommonEnemy.xml"/>
+>>>>>>> PlayerPositionPart
     </module_version>
 </module>

@@ -19,7 +19,6 @@ import shoot.doode.common.services.IGamePluginService;
 import shoot.doode.common.services.IPostEntityProcessingService;
 import shoot.doode.common.data.entityparts.PositionPart;
 import shoot.doode.core.managers.GameInputProcessor;
-import java.util.HashMap;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -29,7 +28,6 @@ import org.openide.util.LookupListener;
 import shoot.doode.common.data.entityparts.SoundPart;
 import shoot.doode.common.services.IAssetService;
 import shoot.doode.core.managers.AssetsHelper;
-import shoot.doode.core.managers.AssetsJarFileResolver;
 
 public class Game implements ApplicationListener {
 
@@ -119,9 +117,7 @@ public class Game implements ApplicationListener {
         
         for (Entity entity : world.getEntities()) {
             SpritePart spritePart = entity.getPart(SpritePart.class);
-            System.out.println(entity);
             if (spritePart != null) {
-
                 String module = spritePart.getModule();
                 String imagePath = spritePart.getSpritePath();
 
@@ -129,7 +125,8 @@ public class Game implements ApplicationListener {
                 System.out.println(sprite);
                 PositionPart positionPart = entity.getPart(PositionPart.class);
                 sprite.setRotation(positionPart.getRotation());
-                sprite.setPosition(positionPart.getX() - sprite.getWidth()/2, positionPart.getY() - sprite.getHeight()/2);
+                sprite.setPosition(positionPart.getX() - sprite.getWidth()/2, positionPart.getY() - sprite.getHeight()/2); 
+                
                 batch.begin();
                 sprite.draw(batch);
                 batch.end();
@@ -162,15 +159,7 @@ public class Game implements ApplicationListener {
                     sound.play();
                     soundPart.setPlay(soundPath,false);
                 }
-                
-                
-                
             }
-            
-            
-            
-            
-
         }
     }
 
@@ -201,7 +190,7 @@ public class Game implements ApplicationListener {
     private final LookupListener lookupListener = new LookupListener() {
         @Override
         public void resultChanged(LookupEvent le) {
-       
+       /*
             for(int i = 0; i < 10;i++)
             {
                 System.out.println("|");
@@ -210,7 +199,7 @@ public class Game implements ApplicationListener {
                     System.out.println("Running resultChanged");
                 }        
                 System.out.println("|");
-            }
+            }*/
             Collection<? extends IGamePluginService> iGameUpdated = iGameResult.allInstances();
             Collection<? extends IAssetService> iAssetUpdated = iAssetResult.allInstances();
 
@@ -240,7 +229,7 @@ public class Game implements ApplicationListener {
             for (IGamePluginService us : iGameUpdated) {
                 // Newly installed modules
                 if (!gamePlugins.contains(us)) {
-                    System.out.println("New GamePlugin: " + us);
+                    //System.out.println("New GamePlugin: " + us);
                     us.start(gameData, world);
                     gamePlugins.add(us);
                 }
@@ -249,14 +238,11 @@ public class Game implements ApplicationListener {
             // Stop and remove module
             for (IGamePluginService gs : gamePlugins) {
                 if (!iGameUpdated.contains(gs)) {
-                    System.out.println("Remove GamePlugin: " + gs);
+                    //System.out.println("Remove GamePlugin: " + gs);
                     gs.stop(gameData, world);
                     gamePlugins.remove(gs);
                 }
             }
-                    
-            
         }
-
     };
 }
