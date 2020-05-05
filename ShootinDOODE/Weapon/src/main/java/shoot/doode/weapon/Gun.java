@@ -19,7 +19,7 @@ public class Gun extends Weapon {
     public Gun() {
 
         spritePaths = new String[1];
-        spritePaths[0] = "knife.png";
+        spritePaths[0] = "gun.png";
         
         soundPaths = new String[1];
         soundPaths[0] = "Gun_Fire.mp3";

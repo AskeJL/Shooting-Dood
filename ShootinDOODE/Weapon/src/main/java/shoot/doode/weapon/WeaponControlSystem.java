@@ -51,21 +51,19 @@ public class WeaponControlSystem implements IEntityProcessingService {
                     weapon.SetCurrentTime(weapon.getCurrentTime()+gameData.getDelta());
                     if(playerShootingPart.isSwitchWeapon())
                     {
-                        System.out.println("We are in it");
-                        for(int i = 0; i < 20; i++)
-                        {
-                            System.out.println("We are in it");
-                        }
-                        System.out.println("We are in it");
                         if(playerShootingPart.getWeapon() instanceof Gun)
                         {
                             world.removeEntity(playerShootingPart.getWeapon());
-                            playerShootingPart.setWeapon(createWeapon(player,Shotgun.class));
+                            Weapon newWeapon = createWeapon(player,Shotgun.class);
+                            world.addEntity(newWeapon);
+                            playerShootingPart.setWeapon(newWeapon);
                         }
                         else
                         {
                             world.removeEntity(playerShootingPart.getWeapon());
-                            playerShootingPart.setWeapon(createWeapon(player,Gun.class));
+                            Weapon newWeapon = createWeapon(player,Gun.class);
+                            world.addEntity(newWeapon);
+                            playerShootingPart.setWeapon(newWeapon);
                         }
                     }
                     
@@ -109,8 +107,8 @@ public class WeaponControlSystem implements IEntityProcessingService {
     //public <E extends Entity> List<Entity> getEntities(Class<E>... entityTypes) {
     private <E extends Weapon> Weapon createWeapon(Entity player, Class<E> type) {
         PositionPart playerPositionPart = player.getPart(PositionPart.class);
-        float x = playerPositionPart.getX() + 10;
-        float y = playerPositionPart.getY() + 10;
+        float x = playerPositionPart.getX() + 12;
+        float y = playerPositionPart.getY();
         float radians = playerPositionPart.getRotation();
         UUID id = UUID.randomUUID();
 

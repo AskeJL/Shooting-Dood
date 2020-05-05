@@ -27,7 +27,7 @@ public class Shotgun extends Weapon{
     public Shotgun() {
 
         spritePaths = new String[1];
-        spritePaths[0] = "knife.png";
+        spritePaths[0] = "Shotgun.png";
         
         soundPaths = new String[1];
         soundPaths[0] = "Gun_Fire.mp3";

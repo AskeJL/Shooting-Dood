@@ -61,18 +61,11 @@ public class PlayerControlSystem implements IEntityProcessingService {
                 shootingPart.setSwitchWeapon(true);
             }           
             oldSpaceValue = newSpaceValue;
-            
-            //shootingPart.setSwitchWeapon(gameData.getKeys().isDown(GameKeys.SPACE));
-            
-            
-            
+   
             playerMovingPart.setW(gameData.getKeys().isDown(GameKeys.W));
             playerMovingPart.setA(gameData.getKeys().isDown(GameKeys.A));
             playerMovingPart.setS(gameData.getKeys().isDown(GameKeys.S));
-            playerMovingPart.setD(gameData.getKeys().isDown(GameKeys.D));
-           
-            
-            
+            playerMovingPart.setD(gameData.getKeys().isDown(GameKeys.D));        
             
             playerMovingPart.process(gameData, player);
             positionPart.process(gameData, player);

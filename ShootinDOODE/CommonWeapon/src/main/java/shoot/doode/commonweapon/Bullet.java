@@ -23,10 +23,6 @@ public class Bullet extends Entity {
         if (rotation < 0) {
             rotation = (float)(Math.PI*2)+rotation;
         }
-
-        for (int i = 0; i < 20; i++) {
-            System.out.println(rotation);
-        }
         bullet.add(new PositionPart(weaponPosition.getX(), weaponPosition.getY(), rotation));
         bullet.add(new PlayerMovingPart((float) 4.5));
         bullet.add(new TimerPart(3));
