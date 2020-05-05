@@ -1,5 +1,6 @@
 package shoot.doode.commonweapon;
 
+import shoot.doode.common.data.CollidableEntity;
 import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.entityparts.LifePart;
 import shoot.doode.common.data.entityparts.PlayerMovingPart;
@@ -8,13 +9,13 @@ import shoot.doode.common.data.entityparts.ProjectilePart;
 import shoot.doode.common.data.entityparts.ShootingPart;
 import shoot.doode.common.data.entityparts.TimerPart;
 
-public class Bullet extends Entity {
+public class Bullet extends CollidableEntity {
 
     //Could potentially do some shenanigans with differing colours for differing sources.
     public static Entity createBullet(Entity weapon, float rotation, double damege) {
         PositionPart weaponPosition = weapon.getPart(PositionPart.class);
         ShootingPart shoot = weapon.getPart(ShootingPart.class);
-        Entity bullet = new Bullet();
+        CollidableEntity bullet = new Bullet();
         
         if (rotation > Math.PI * 2) {
             rotation = rotation - ((float) Math.PI * 2);
@@ -39,6 +40,8 @@ public class Bullet extends Entity {
         colour[3] = 1.0f;
 
         bullet.setColour(colour);
+        bullet.setBoundaryWidth(10);
+        bullet.setBoundaryHeight(10);
 
         return bullet;
     }
