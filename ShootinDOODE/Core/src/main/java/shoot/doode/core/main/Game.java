@@ -110,12 +110,13 @@ public class Game implements ApplicationListener {
             if(assetesHelper.getSprite(totalPath) == null)
             {
                 assetesHelper.loadImages(totalPath);
-                System.out.println("Loaded Image at: " + totalPath);
+                // System.out.println("Loaded Image at: " + totalPath);
             }
-            else
+            /*else
+
             {
                 System.out.println("Image was already loaded at: " + totalPath);
-            }
+            }*/
         }
         
         for(String totalPath : assetesHelper.getSoundMapKeys())
@@ -123,33 +124,31 @@ public class Game implements ApplicationListener {
             if(assetesHelper.getSound(totalPath) == null)
             {
                 assetesHelper.loadSounds(totalPath);
-                System.out.println("Loaded sound at: " + totalPath);
+                //System.out.println("Loaded sound at: " + totalPath);
             }
-            else
+            /*else
             {
                 System.out.println("Sound was already loaded at: " + totalPath);
-            }
+            }*/
         }
             
             
             
             
-        System.out.println("SpriteAmount: " + assetesHelper.getImageTotal());
-        System.out.println("SoundAmount: " + assetesHelper.getSoundTotal());
-        System.out.println("AssetServices " + assetServices);
-        System.out.println("Gameplugins" + gamePlugins);
-        System.out.println("Entity process" + getEntityProcessingServices());
-        System.out.println("Post process" + getPostEntityProcessingServices());
+//        System.out.println("SpriteAmount: " + assetesHelper.getImageTotal());
+//        System.out.println("SoundAmount: " + assetesHelper.getSoundTotal());
+//        System.out.println("AssetServices " + assetServices);
+//        System.out.println("Gameplugins" + gamePlugins);
+//        System.out.println("Entity process" + getEntityProcessingServices());
+//        System.out.println("Post process" + getPostEntityProcessingServices());
         
         for (Entity entity : world.getEntities()) {
             SpritePart spritePart = entity.getPart(SpritePart.class);
-            System.out.println(entity);
             if (spritePart != null) {
                 String module = spritePart.getModule();
                 String imagePath = spritePart.getSpritePath();
 
                 Sprite sprite = assetesHelper.getSprite(module,imagePath);
-                System.out.println(sprite);
                 PositionPart positionPart = entity.getPart(PositionPart.class);
                 sprite.setRotation(positionPart.getRotation());
                 sprite.setPosition(positionPart.getX() - sprite.getWidth()/2, positionPart.getY() - sprite.getHeight()/2); 
@@ -186,15 +185,7 @@ public class Game implements ApplicationListener {
                     sound.play();
                     soundPart.setPlay(soundPath,false);
                 }
-                
-                
-                
             }
-            
-            
-            
-            
-
         }
     }
 
@@ -225,7 +216,7 @@ public class Game implements ApplicationListener {
     private final LookupListener lookupListener = new LookupListener() {
         @Override
         public void resultChanged(LookupEvent le) {
-       
+       /*
             for(int i = 0; i < 10;i++)
             {
                 System.out.println("|");
@@ -234,7 +225,7 @@ public class Game implements ApplicationListener {
                     System.out.println("Running resultChanged");
                 }        
                 System.out.println("|");
-            }
+            }*/
             Collection<? extends IGamePluginService> iGameUpdated = iGameResult.allInstances();
             Collection<? extends IAssetService> iAssetUpdated = iAssetResult.allInstances();
 
@@ -242,7 +233,7 @@ public class Game implements ApplicationListener {
             for (IAssetService us : iAssetUpdated) {
                 // Newly installed modules
                 if (!assetServices.contains(us)) {
-                    System.out.println("New AssetLoader: " + us);
+                    //System.out.println("New AssetLoader: " + us);
                     assetesHelper.queueImages(us.loadImages());
                     assetesHelper.queueSounds(us.loadSounds());
                     //loadImages(us.queueImages());               
@@ -254,7 +245,7 @@ public class Game implements ApplicationListener {
             for (IAssetService gs : assetServices) {
                 if (!iAssetUpdated.contains(gs)) {
                     //unLoadImages(gs.unLoadImages());
-                    System.out.println("Remove AssetLoader: " + gs);
+                    //System.out.println("Remove AssetLoader: " + gs);
                     assetesHelper.unLoadImages(gs.unLoadImages());
                     assetesHelper.unLoadSounds(gs.unLoadSounds());
                     assetServices.remove(gs);
@@ -264,7 +255,7 @@ public class Game implements ApplicationListener {
             for (IGamePluginService us : iGameUpdated) {
                 // Newly installed modules
                 if (!gamePlugins.contains(us)) {
-                    System.out.println("New GamePlugin: " + us);
+                    //System.out.println("New GamePlugin: " + us);
                     us.start(gameData, world);
                     gamePlugins.add(us);
                 }
@@ -273,14 +264,11 @@ public class Game implements ApplicationListener {
             // Stop and remove module
             for (IGamePluginService gs : gamePlugins) {
                 if (!iGameUpdated.contains(gs)) {
-                    System.out.println("Remove GamePlugin: " + gs);
+                    //System.out.println("Remove GamePlugin: " + gs);
                     gs.stop(gameData, world);
                     gamePlugins.remove(gs);
                 }
             }
-                    
-            
         }
-
     };
 }

@@ -39,7 +39,6 @@ public class ShootingPart implements EntityPart{
     
     public void setIsShooting(boolean b){
         this.isSchooting = b;
-        //System.out.println("is shooting" + b);
     }
 
     public String getID() {

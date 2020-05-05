@@ -31,11 +31,6 @@ public class PlayerPlugin implements IGamePluginService {
         // Add entities to the world
         player = createPlayerShip(gameData);
         world.addEntity(player);
-        System.out.println("!!!!!!!!" + player);
-        for (Entity e : world.getEntities(Player.class)){
-            System.out.println("EFNIE#U¤I#");
-            System.out.println(e);
-        }
     }
 
     private Entity createPlayerShip(GameData gameData) {

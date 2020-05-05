@@ -22,8 +22,6 @@ public class BulletControlSystem implements IEntityProcessingService {
     @Override
     public void process(GameData gameData, World world) {
         for (Entity bullet : world.getEntities(Bullet.class)) {
-            //System.out.println("Bullet");
-            
             PositionPart position = bullet.getPart(PositionPart.class);
             PlayerMovingPart moving = bullet.getPart(PlayerMovingPart.class);
             TimerPart time = bullet.getPart(TimerPart.class);
@@ -35,9 +33,7 @@ public class BulletControlSystem implements IEntityProcessingService {
             if (time.getExpiration() < 0) {
                 world.removeEntity(bullet);
             }
-            
-            
-            //System.out.println("Radians" + ppb.getRotation());
+
             if(position.getRotation() == 0){
                 moving.setD(true);               
             }

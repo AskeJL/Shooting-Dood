@@ -21,9 +21,7 @@ public class PlayerControlSystem implements IEntityProcessingService {
     private boolean newSpaceValue;
     @Override
     public void process(GameData gameData, World world) {
-        System.out.println("HERE!!!!!!!!!!!!!!!!");
         for (Entity player : world.getEntities(Player.class)) {
-            System.out.println("DAMENQ!!!!!!!!!!!!!!!");
             PositionPart positionPart = player.getPart(PositionPart.class);
             PlayerMovingPart playerMovingPart = player.getPart(PlayerMovingPart.class);
             ShootingPart shootingPart = player.getPart(ShootingPart.class);
