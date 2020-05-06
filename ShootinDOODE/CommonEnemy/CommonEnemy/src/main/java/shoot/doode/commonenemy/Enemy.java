@@ -5,12 +5,13 @@
  */
 package shoot.doode.commonenemy;
 
+import shoot.doode.common.data.CollidableEntity;
 import shoot.doode.common.data.Entity;
 
 /**
  *
  * @author askel
  */
-public class Enemy extends Entity {
+public class Enemy extends CollidableEntity {
 
 }

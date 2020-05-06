@@ -24,5 +24,13 @@ public class WeaponPlugin implements IGamePluginService{
         for (Entity weapon : world.getEntities(Weapon.class)) {
             world.removeEntity(weapon);
         }
+        
+        for (Entity weapon : world.getEntities(Gun.class)) {
+            world.removeEntity(weapon);
+        }
+        
+        for (Entity weapon : world.getEntities(Shotgun.class)) {
+            world.removeEntity(weapon);
+        }
     }
 }

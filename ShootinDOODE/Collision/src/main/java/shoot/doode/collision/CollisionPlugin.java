@@ -30,6 +30,7 @@ public class CollisionPlugin implements IGamePluginService {
     @Override
     public void stop(GameData gameData, World world) {
         
+        
     }
     
     private Entity createObstacle(GameData gameData) {

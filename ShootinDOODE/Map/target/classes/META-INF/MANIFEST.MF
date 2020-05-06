@@ -1,0 +1,41 @@
+Manifest-Version: 1.0
+OpenIDE-Module-Localizing-Bundle: shoot/doode/map/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+OpenIDE-Module-Implementation-Version: 1.0-20200505
+OpenIDE-Module-Build-Version: 202005051800
+OpenIDE-Module: shoot.doode.Map
+OpenIDE-Module-Public-Packages: shoot.doode.map.*
+OpenIDE-Module-Requires: org.openide.modules.ModuleFormat1
+OpenIDE-Module-Display-Category: shoot.doode
+OpenIDE-Module-Name: Map
+OpenIDE-Module-Short-Description: <undefined>
+OpenIDE-Module-Long-Description: <undefined>
+X-Class-Path: ext/shoot.doode.Map/com-badlogicgames-gdx/gdx.jar ext/sh
+ oot.doode.Map/com-badlogicgames-gdx/gdx-platform-natives-desktop.jar 
+ ext/shoot.doode.Map/com-badlogicgames-gdx/gdx-backend-lwjgl.jar ext/s
+ hoot.doode.Map/org-lwjgl-lwjgl/lwjgl.jar ext/shoot.doode.Map/org-lwjg
+ l-lwjgl/lwjgl-platform-natives-windows.jar ext/shoot.doode.Map/org-lw
+ jgl-lwjgl/lwjgl-platform-natives-linux.jar ext/shoot.doode.Map/org-lw
+ jgl-lwjgl/lwjgl-platform-natives-osx.jar ext/shoot.doode.Map/net-java
+ -jinput/jinput.jar ext/shoot.doode.Map/net-java-jutils/jutils.jar ext
+ /shoot.doode.Map/org-lwjgl-lwjgl/lwjgl_util.jar ext/shoot.doode.Map/c
+ om-badlogicgames-jlayer/jlayer.jar ext/shoot.doode.Map/org-jcraft/jor
+ bis.jar ext/shoot.doode.Map/com-badlogicgames-gdx/gdx-box2d.jar ext/s
+ hoot.doode.Map/com-badlogicgames-gdx/gdx-box2d-platform-natives-deskt
+ op.jar ext/shoot.doode.Map/com-badlogicgames-gdx/gdx-freetype.jar ext
+ /shoot.doode.Map/com-badlogicgames-gdx/gdx-freetype-platform-natives-
+ desktop.jar
+Maven-Class-Path: com.badlogicgames.gdx:gdx:1.5.0 com.badlogicgames.gd
+ x:gdx-platform:1.5.0:natives-desktop com.badlogicgames.gdx:gdx-backen
+ d-lwjgl:1.5.0 org.lwjgl.lwjgl:lwjgl:2.9.1 org.lwjgl.lwjgl:lwjgl-platf
+ orm:2.9.1:natives-windows org.lwjgl.lwjgl:lwjgl-platform:2.9.1:native
+ s-linux org.lwjgl.lwjgl:lwjgl-platform:2.9.1:natives-osx net.java.jin
+ put:jinput:2.0.5 net.java.jutils:jutils:1.0.0 org.lwjgl.lwjgl:lwjgl_u
+ til:2.9.1 com.badlogicgames.jlayer:jlayer:1.0.1-gdx org.jcraft:jorbis
+ :0.0.17 com.badlogicgames.gdx:gdx-box2d:1.5.0 com.badlogicgames.gdx:g
+ dx-box2d-platform:1.5.0:natives-desktop com.badlogicgames.gdx:gdx-fre
+ etype:1.5.0 com.badlogicgames.gdx:gdx-freetype-platform:1.5.0:natives
+ -desktop
+OpenIDE-Module-Module-Dependencies: org.netbeans.api.annotations.commo
+ n/1 > 1.33, shoot.doode.Common > 1.0
+

@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 #Tue May 05 17:23:46 CEST 2020
 org.openide.util.ui.OpenIDE-Module-Install=\u0000
 org.netbeans.api.annotations.common.OpenIDE-Module-Install=\u0000
+=======
+#Tue May 05 20:38:09 CEST 2020
+shoot.doode.Common.OpenIDE-Module-Install=\u0000
+org.netbeans.libs.asm.OpenIDE-Module-Deprecated=\u0000
+org.openide.modules.OpenIDE-Module-Install=\u0000
+>>>>>>> master
 shoot.doode.Collision.OpenIDE-Module-Hide-Classpath-Packages=\u0000
 shoot.doode.Player.AutoUpdate-Show-In-Client=\u0000
 org.openide.filesystems.OpenIDE-Module-Hide-Classpath-Packages=\u0000

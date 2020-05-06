@@ -38,7 +38,9 @@ public class CollisionAssetsLoader implements IAssetService {
 
     @Override
     public String[] unLoadImages() {
-        return images();
+        ArrayList<String> paths = new ArrayList<>();
+
+        return IAssetService.arrayListToString(module, paths);
     }
     
     @Override
