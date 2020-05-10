@@ -112,16 +112,16 @@ public class MovingPart
         // set position
         x += dx * dt;
         if (x > gameData.getDisplayWidth()) {
-            x = 0;
-        } else if (x < 0) {
             x = gameData.getDisplayWidth();
+        } else if (x < 0) {
+            x = 0;
         }
 
         y += dy * dt;
         if (y > gameData.getDisplayHeight()) {
-            y = 0;
-        } else if (y < 0) {
             y = gameData.getDisplayHeight();
+        } else if (y < 0) {
+            y = 0;
         }
 
         positionPart.setX(x);

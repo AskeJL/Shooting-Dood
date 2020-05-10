@@ -31,11 +31,11 @@ import org.openide.util.Lookup;
 import org.openide.util.LookupEvent;
 import org.openide.util.LookupListener;
 import shoot.doode.common.data.entityparts.MapPart;
+import shoot.doode.common.data.entityparts.PlayerMovingPart;
 import shoot.doode.common.data.entityparts.SoundPart;
 import shoot.doode.common.services.IAssetService;
 import shoot.doode.core.managers.AssetsHelper;
 import shoot.doode.core.managers.AssetsJarFileResolver;
-import shoot.doode.map.Background;
 
 public class Game extends ApplicationAdapter {
 
@@ -49,10 +49,8 @@ public class Game extends ApplicationAdapter {
     private Lookup.Result<IGamePluginService> iGameResult;
     private List<IAssetService> assetServices = new CopyOnWriteArrayList<>();
     private Lookup.Result<IAssetService> iAssetResult;
-    private Background background;
     private TiledMap map; 
     private OrthogonalTiledMapRenderer renderer;
-    private float scale;
 
     @Override
     public void create() {
@@ -103,10 +101,8 @@ public class Game extends ApplicationAdapter {
         for (Entity entity : world.getEntities()) {
             MapPart mapPart = entity.getPart(MapPart.class);
             if(mapPart != null){
-                System.out.println("HEJ!!");
                 String module = mapPart.getModule();
                 String mapPath = mapPart.getMapPath();
-                scale = Gdx.graphics.getWidth();
 		map = AssetsHelper.getInstance().getMap(module,mapPath);
                 System.out.println(map);
 		renderer = new OrthogonalTiledMapRenderer(map, batch);
@@ -177,19 +173,11 @@ public class Game extends ApplicationAdapter {
         renderer.getBatch();
         
         for (Entity entity : world.getEntities()) {
-//            MapPart mapPart = entity.getPart(MapPart.class);
-//            if(mapPart != null){
-//                String module = mapPart.getModule();
-//                String mapPath = mapPart.getMapPath();
-//                scale = Gdx.graphics.getWidth();
-//		map = assetesHelper.getMap(module,mapPath);
-//		renderer = new OrthogonalTiledMapRenderer(map);
-//                cam.update();
-//                renderer.setView(cam);
-//                renderer.render();
-//                renderer.getBatch();
-//                
-//            }
+           PlayerMovingPart pmp = entity.getPart(PlayerMovingPart.class);
+           if (pmp !=null){
+               cam.position.set(pmp.getX(entity), pmp.getY(entity), 0);
+           }
+           
             SpritePart spritePart = entity.getPart(SpritePart.class);
             if (spritePart != null) {
                 String module = spritePart.getModule();
