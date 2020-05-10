@@ -30,12 +30,12 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.openide.util.Lookup;
 import org.openide.util.LookupEvent;
 import org.openide.util.LookupListener;
+import shoot.doode.common.data.GameKeys;
 import shoot.doode.common.data.entityparts.MapPart;
 import shoot.doode.common.data.entityparts.PlayerMovingPart;
 import shoot.doode.common.data.entityparts.SoundPart;
 import shoot.doode.common.services.IAssetService;
 import shoot.doode.core.managers.AssetsHelper;
-import shoot.doode.core.managers.AssetsJarFileResolver;
 
 public class Game extends ApplicationAdapter {
 
@@ -49,8 +49,12 @@ public class Game extends ApplicationAdapter {
     private Lookup.Result<IGamePluginService> iGameResult;
     private List<IAssetService> assetServices = new CopyOnWriteArrayList<>();
     private Lookup.Result<IAssetService> iAssetResult;
-    private TiledMap map; 
+    private TiledMap map;
     private OrthogonalTiledMapRenderer renderer;
+
+    private State state = State.RUN;
+    private boolean newPausedValue;
+    private boolean oldPausedValue;
 
     @Override
     public void create() {
@@ -64,17 +68,16 @@ public class Game extends ApplicationAdapter {
         //cam.update();
 
         sr = new ShapeRenderer();
-        
+
         Gdx.input.setInputProcessor(new GameInputProcessor(gameData));
 
         iGameResult = lookup.lookupResult(IGamePluginService.class);
         iGameResult.addLookupListener(lookupListener);
         iGameResult.allItems();
-        
+
         iAssetResult = lookup.lookupResult(IAssetService.class);
         iAssetResult.addLookupListener(lookupListener);
         iAssetResult.allItems();
-        
 
         for (IGamePluginService plugin : iGameResult.allInstances()) {
             plugin.start(gameData, world);
@@ -87,41 +90,69 @@ public class Game extends ApplicationAdapter {
             AssetsHelper.getInstance().queueSounds(assetService.loadSounds());
             assetServices.add(assetService);
         }
-        for(String totalPath : AssetsHelper.getInstance().getMapMapKeys())
-        {
-            if(AssetsHelper.getInstance().getMap(totalPath) == null)
-            {
+        for (String totalPath : AssetsHelper.getInstance().getMapMapKeys()) {
+            if (AssetsHelper.getInstance().getMap(totalPath) == null) {
                 AssetsHelper.getInstance().loadMaps(totalPath);
                 System.out.println("Loaded map at: " + totalPath);
-            }
-            else
-            {
+            } else {
                 System.out.println("Map was already loaded at: " + totalPath);
-            }}
+            }
+        }
         for (Entity entity : world.getEntities()) {
             MapPart mapPart = entity.getPart(MapPart.class);
-            if(mapPart != null){
+            if (mapPart != null) {
                 String module = mapPart.getModule();
                 String mapPath = mapPart.getMapPath();
-		map = AssetsHelper.getInstance().getMap(module,mapPath);
+                map = AssetsHelper.getInstance().getMap(module, mapPath);
                 System.out.println(map);
-		renderer = new OrthogonalTiledMapRenderer(map, batch);
-                
-            }}
+                renderer = new OrthogonalTiledMapRenderer(map, batch);
+
+            }
+        }
 
     }
 
     @Override
     public void render() {
-        // clear screen to black
-        Gdx.gl.glClearColor(0, 0, 0, 1);
-        Gdx.gl.glClear( GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT );
+        switch (state) {
+            case START:
+                break;
 
-        gameData.setDelta(Gdx.graphics.getDeltaTime());
-        gameData.getKeys().update();
+            case RUN:
+                if (gameData.getKeys().isPressed(GameKeys.ENTER)) {
+                    System.out.println("Enter pressed");
+                    pause();
+                }
+                // clear screen to black
+                Gdx.gl.glClearColor(0, 0, 0, 1);
+                Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
 
-        update();
-        draw();
+                gameData.setDelta(Gdx.graphics.getDeltaTime());
+                gameData.getKeys().update();
+
+                update();
+                draw();
+                break;
+
+            case PAUSE:
+                System.out.println("Paused");
+
+                newPausedValue = gameData.getKeys().isDown(GameKeys.ENTER);
+                if (newPausedValue != oldPausedValue && newPausedValue) {
+                    setGameState(State.RUN);
+                }
+                oldPausedValue = newPausedValue;
+                break;
+
+            case RESUME:
+                break;
+
+            case STOP:
+                break;
+
+            default:
+                break;
+        }
     }
 
     private void update() {
@@ -137,22 +168,17 @@ public class Game extends ApplicationAdapter {
     }
 
     private void draw() {
-        
-        for(String totalPath : AssetsHelper.getInstance().getMapMapKeys())
-        {
-            if(AssetsHelper.getInstance().getMap(totalPath) == null)
-            {
+
+        for (String totalPath : AssetsHelper.getInstance().getMapMapKeys()) {
+            if (AssetsHelper.getInstance().getMap(totalPath) == null) {
                 AssetsHelper.getInstance().loadMaps(totalPath);
                 System.out.println("Loaded map at: " + totalPath);
-            }
-            else
-            {
+            } else {
                 System.out.println("Map was already loaded at: " + totalPath);
             }
-        } 
+        }
         AssetsHelper.getInstance().loadQueue();
-            
-            
+
         /*    
         System.out.println("SpriteAmount: " + AssetsHelper.getInstance().getImageTotal());
         System.out.println("SoundAmount: " + AssetsHelper.getInstance().getSoundTotal());
@@ -165,30 +191,30 @@ public class Game extends ApplicationAdapter {
         System.out.println("Gameplugins" + gamePlugins);
         System.out.println("Entity process" + getEntityProcessingServices());
         System.out.println("Post process" + getPostEntityProcessingServices());
-        */
+         */
         cam.update();
         renderer.setView(cam);
         System.out.println(renderer);
         renderer.render();
         renderer.getBatch();
-        
+
         for (Entity entity : world.getEntities()) {
-           PlayerMovingPart pmp = entity.getPart(PlayerMovingPart.class);
-           if (pmp !=null){
-               cam.position.set(pmp.getX(entity), pmp.getY(entity), 0);
-           }
-           
+            PlayerMovingPart pmp = entity.getPart(PlayerMovingPart.class);
+            if (pmp != null) {
+                cam.position.set(pmp.getX(entity), pmp.getY(entity), 0);
+            }
+
             SpritePart spritePart = entity.getPart(SpritePart.class);
             if (spritePart != null) {
                 String module = spritePart.getModule();
                 String imagePath = spritePart.getSpritePath();
 
-                Sprite sprite = AssetsHelper.getInstance().getSprite(module,imagePath);
+                Sprite sprite = AssetsHelper.getInstance().getSprite(module, imagePath);
                 //System.out.println(sprite);
                 PositionPart positionPart = entity.getPart(PositionPart.class);
                 sprite.setRotation(positionPart.getRotation());
-                sprite.setPosition(positionPart.getX() - sprite.getWidth()/2, positionPart.getY() - sprite.getHeight()/2);
-                
+                sprite.setPosition(positionPart.getX() - sprite.getWidth() / 2, positionPart.getY() - sprite.getHeight() / 2);
+
                 batch.begin();
                 sprite.draw(batch);
                 batch.end();
@@ -210,16 +236,15 @@ public class Game extends ApplicationAdapter {
 
                 sr.end();
             }
-            
+
             SoundPart soundPart = entity.getPart(SoundPart.class);
             if (soundPart != null) {
                 String module = soundPart.getModule();
-                
-                for(String soundPath : soundPart.getSoundPaths())
-                {
+
+                for (String soundPath : soundPart.getSoundPaths()) {
                     Sound sound = AssetsHelper.getInstance().getSound(module, soundPath);
                     sound.play();
-                    soundPart.setPlay(soundPath,false);
+                    soundPart.setPlay(soundPath, false);
                 }
             }
         }
@@ -231,14 +256,20 @@ public class Game extends ApplicationAdapter {
 
     @Override
     public void pause() {
+        this.state = State.PAUSE;
     }
 
     @Override
     public void resume() {
+        this.state = State.RESUME;
     }
 
     @Override
     public void dispose() {
+    }
+
+    public void setGameState(State s) {
+        this.state = s;
     }
 
     private Collection<? extends IEntityProcessingService> getEntityProcessingServices() {
@@ -256,13 +287,12 @@ public class Game extends ApplicationAdapter {
             Collection<? extends IGamePluginService> iGameUpdated = iGameResult.allInstances();
             Collection<? extends IAssetService> iAssetUpdated = iAssetResult.allInstances();
 
-            
             for (IAssetService us : iAssetUpdated) {
                 // Newly installed modules
                 if (!assetServices.contains(us)) {
                     System.out.println("New AssetLoader: " + us);
                     AssetsHelper.getInstance().queueImages(us.loadImages());
-                    AssetsHelper.getInstance().queueSounds(us.loadSounds());             
+                    AssetsHelper.getInstance().queueSounds(us.loadSounds());
                     assetServices.add(us);
                 }
             }
@@ -276,7 +306,7 @@ public class Game extends ApplicationAdapter {
                     assetServices.remove(gs);
                 }
             }
-            
+
             for (IGamePluginService us : iGameUpdated) {
                 // Newly installed modules
                 if (!gamePlugins.contains(us)) {
