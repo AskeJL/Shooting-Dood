@@ -167,11 +167,12 @@ public class AssetsHelper {
         System.out.println(exists);
         manager = new AssetManager(new ExternalFileHandleResolver());
         manager.setLoader(TiledMap.class, new TmxMapLoader());
-        manager.load("C:\\Users\\askel\\OneDrive\\Shooting-Dood\\ShootinDOODE\\Map\\src\\main\\resources\\assets\\Maps\\map.tmx", TiledMap.class);
+        String currentPath = System.getProperty("user.dir");
+        String subPath = currentPath.substring(0, currentPath.lastIndexOf("ShootinDOODE"));
+        String absolutePath = subPath + "ShootinDOODE\\Map\\src\\main\\resources\\assets\\Maps\\map.tmx";
+        manager.load(absolutePath, TiledMap.class);
         manager.finishLoading();
-        System.out.println(manager.getLoadedAssets());
-        System.out.println(manager.getAssetNames());
-        TiledMap map = manager.get("C:/Users/askel/OneDrive/Shooting-Dood/ShootinDOODE/Map/src/main/resources/assets/Maps/map.tmx", TiledMap.class);
+        TiledMap map = manager.get(absolutePath.replaceAll("\\\\", "/"), TiledMap.class);
         
 
         mapMap.replace(path, map);
