@@ -21,6 +21,7 @@ import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
 import shoot.doode.common.data.CollidableEntity;
 import shoot.doode.common.data.entityparts.SpritePart;
+import shoot.doode.commonenemy.Pathfinding;
 
 /**
  *
@@ -30,8 +31,14 @@ import shoot.doode.common.data.entityparts.SpritePart;
     @ServiceProvider(service = IEntityProcessingService.class),})
 public class EnemyControlSystem implements IEntityProcessingService, AI {
 
+    private Pathfinding pathfinding = new Pathfinding();
+    
     @Override
     public void process(GameData gameData, World world) {
+        // If new obstacles are loaded, this needs to be called again
+        // Calling it here is not the most performant method...
+        pathfinding.setup(world);
+        
         if(world.getEntities(Enemy.class).size() == 0)
         {
             Entity enemy = createEnemy(gameData);
