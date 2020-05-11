@@ -14,17 +14,17 @@ import shoot.doode.common.data.GameData;
  */
 public class LifePart implements EntityPart {
 
-    private int life;
+    private double life;
 
-    public LifePart(int life) {
+    public LifePart(double life) {
         this.life = life;
     }
 
-    public int getLife() {
+    public double getLife() {
         return life;
     }
 
-    public void setLife(int life) {
+    public void setLife(double life) {
         this.life = life;
     }
 

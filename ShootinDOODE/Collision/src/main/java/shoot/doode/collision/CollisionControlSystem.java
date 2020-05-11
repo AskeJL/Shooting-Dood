@@ -66,14 +66,16 @@ public class CollisionControlSystem implements IEntityProcessingService {
                     
                     boolean removedEntity = false;
                     if (lifePartF != null && (!collidableE.getIsStatic() || fIsBullet)) {
-                        lifePartF.setLife(lifePartF.getLife() - 1);
+                        ProjectilePart bullet = f.getPart(ProjectilePart.class);
+                        lifePartF.setLife(lifePartF.getLife() - bullet.getDamage());
                         if (lifePartF.getLife() <= 0) {
                             world.removeEntity(f);
                             removedEntity = true;
                         }
                     }
                     if (lifePartE != null && (!collidableF.getIsStatic() || eIsBullet)) {
-                        lifePartE.setLife(lifePartE.getLife() - 1);
+                        ProjectilePart bullet = e.getPart(ProjectilePart.class);
+                        lifePartE.setLife(lifePartE.getLife() - bullet.getDamage());
                         if (lifePartE.getLife() <= 0) {
                             world.removeEntity(e);
                             removedEntity = true;
