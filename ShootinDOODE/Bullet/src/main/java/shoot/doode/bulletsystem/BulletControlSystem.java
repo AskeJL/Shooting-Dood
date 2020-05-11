@@ -11,20 +11,23 @@ import shoot.doode.common.services.IEntityProcessingService;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
 import shoot.doode.common.data.entityparts.PlayerMovingPart;
+import shoot.doode.common.data.entityparts.ProjectilePart;
 
 @ServiceProviders(value = {
     @ServiceProvider(service = IEntityProcessingService.class),})
 public class BulletControlSystem implements IEntityProcessingService {
 
-    private Entity bullet;
     private double delta = 0.01;
 
     @Override
     public void process(GameData gameData, World world) {
         for (Entity bullet : world.getEntities(Bullet.class)) {
+            
             PositionPart position = bullet.getPart(PositionPart.class);
             PlayerMovingPart moving = bullet.getPart(PlayerMovingPart.class);
             TimerPart time = bullet.getPart(TimerPart.class);
+            ProjectilePart projectilePart = bullet.getPart(ProjectilePart.class);
+            System.out.println(projectilePart.getDamage());
             
             //mpb.setUp(true);
             time.reduceExpiration(gameData.getDelta());

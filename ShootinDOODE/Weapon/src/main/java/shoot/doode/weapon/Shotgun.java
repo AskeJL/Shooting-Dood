@@ -40,13 +40,13 @@ public class Shotgun extends Weapon{
     }
 
     @Override
-    public void shoot(GameData gameData, World world) {
+    public void shoot(GameData gameData, World world,double dmgModifier) {
         SoundPart soundpart = this.getPart(SoundPart.class);
         PositionPart positionPart = this.getPart(PositionPart.class);
         
-        Entity bullet1 = Bullet.createBullet(this, positionPart.getRotation(),this.getDamage());
-        Entity bullet2 = Bullet.createBullet(this, positionPart.getRotation()- ((float)Math.PI/4),this.getDamage());
-        Entity bullet3 = Bullet.createBullet(this, positionPart.getRotation() + ((float)Math.PI/4),this.getDamage());
+        Entity bullet1 = Bullet.createBullet(this, positionPart.getRotation(),this.getDamage()*dmgModifier);
+        Entity bullet2 = Bullet.createBullet(this, positionPart.getRotation()- ((float)Math.PI/4),this.getDamage()*dmgModifier);
+        Entity bullet3 = Bullet.createBullet(this, positionPart.getRotation() + ((float)Math.PI/4),this.getDamage()*dmgModifier);
         
         
         

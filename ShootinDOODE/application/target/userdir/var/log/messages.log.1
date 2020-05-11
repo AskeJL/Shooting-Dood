@@ -1,5 +1,5 @@
 -------------------------------------------------------------------------------
->Log Session: Tuesday, May 5, 2020 at 8:37:53 PM Central European Summer Time
+>Log Session: Monday, May 11, 2020 at 4:07:14 PM Central European Summer Time
 >System Info: 
   Product Version         = Apache NetBeans Platform Dev (Build 11.2-d04fb24027334c4b6fd8397b5d0cdd33187a8f54)
   Operating System        = Windows 10 version 10.0 running on amd64
@@ -26,15 +26,17 @@ INFO [org.netbeans.core.startup.NbEvents]: Turning on modules:
 	org.openide.util.ui [9.14 11.2-d04fb24027334c4b6fd8397b5d0cdd33187a8f54]
 	org.openide.modules [7.54 11.2-d04fb24027334c4b6fd8397b5d0cdd33187a8f54]
 	org.netbeans.api.annotations.common/1 [1.33 11.2-d04fb24027334c4b6fd8397b5d0cdd33187a8f54]
-	shoot.doode.Common [1.0 1.0-20200505 202005051828]
-	shoot.doode.CommonWeapon [1.0 1.0-20200505 202005051828]
-	shoot.doode.Weapon [1.0 1.0-20200505 202005051828]
-	shoot.doode.Player [1.0 1.0-20200505 202005051828]
-	shoot.doode.CommonEnemy [1.0 1.0-20200505 202005051828]
-	shoot.doode.Enemy [1.0 1.0-20200505 202005051828]
-	shoot.doode.Core [1.0 1.0-20200505 202005051828]
-	shoot.doode.Collision [1.0 1.0-20200505 202005051828]
-	shoot.doode.Bullet [1.0 1.0-20200505 202005051828]
+	shoot.doode.Common [1.0 1.0-20200511 202005111406]
+	shoot.doode.CommonWeapon [1.0 1.0-20200511 202005111407]
+	shoot.doode.Weapon [1.0 1.0-20200511 202005111407]
+	shoot.doode.CommonPowerUp [1.0 1.0-20200511 202005111407]
+	shoot.doode.PowerUps [1.0 1.0-20200511 202005111407]
+	shoot.doode.Player [1.0 1.0-20200511 202005111407]
+	shoot.doode.CommonEnemy [1.0 1.0-20200511 202005111407]
+	shoot.doode.Enemy [1.0 1.0-20200511 202005111407]
+	shoot.doode.Core [1.0 1.0-20200511 202005111407]
+	shoot.doode.Collision [1.0 1.0-20200511 202005111407]
+	shoot.doode.Bullet [1.0 1.0-20200511 202005111407]
 	org.openide.filesystems [9.16 11.2-d04fb24027334c4b6fd8397b5d0cdd33187a8f54]
 	org.netbeans.libs.asm [5.9 11.2-d04fb24027334c4b6fd8397b5d0cdd33187a8f54]
 	org.netbeans.bootstrap/1 [2.84 11.2-d04fb24027334c4b6fd8397b5d0cdd33187a8f54]
@@ -43,3 +45,11 @@ INFO [org.netbeans.core.startup.NbEvents]: Turning on modules:
 	org.netbeans.libs.osgi [1.28 11.2-d04fb24027334c4b6fd8397b5d0cdd33187a8f54]
 	org.netbeans.core.netigso [1.37 11.2-d04fb24027334c4b6fd8397b5d0cdd33187a8f54]
 	org.netbeans.modules.netbinox [1.47 11.2-d04fb24027334c4b6fd8397b5d0cdd33187a8f54]
+SEVERE [global]
+java.lang.NullPointerException
+	at shoot.doode.commonpowerup.PowerUp.applyPowerUp(PowerUp.java:46)
+	at shoot.doode.collision.CollisionControlSystem.process(CollisionControlSystem.java:56)
+	at shoot.doode.core.main.Game.update(Game.java:97)
+	at shoot.doode.core.main.Game.render(Game.java:90)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication.mainLoop(LwjglApplication.java:207)
+[catch] at com.badlogic.gdx.backends.lwjgl.LwjglApplication$1.run(LwjglApplication.java:114)

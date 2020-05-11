@@ -6,6 +6,8 @@ import shoot.doode.common.data.GameData;
 
 public class ShootingPart implements EntityPart{
     
+    private double damageModifier = 1;
+    private double reloadModifier = 1;
     private boolean switchWeapon = false;
     private Entity weapon;
     private boolean isSchooting;
@@ -17,6 +19,26 @@ public class ShootingPart implements EntityPart{
     
     public Entity getWeapon() {
         return weapon;
+    }
+    
+    public void setDamageModifier(double damageModifier)
+    {
+        this.damageModifier = damageModifier;
+    }
+    
+    public void setReloadModifier(double reloadModifier)
+    {
+        this.reloadModifier = reloadModifier;
+    }
+    
+    public double getReloadModifier()
+    {
+        return reloadModifier;
+    }
+    
+    public double getDamageModifier()
+    {
+        return damageModifier;
     }
     
     public void setSwitchWeapon(boolean switchWeapon)

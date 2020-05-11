@@ -13,7 +13,7 @@ import shoot.doode.common.data.entityparts.PlayerMovingPart;
 import shoot.doode.common.data.entityparts.PositionPart;
 import shoot.doode.common.data.entityparts.ProjectilePart;
 import shoot.doode.common.services.IEntityProcessingService;
-
+import shoot.doode.commonpowerup.PowerUp;
 /**
  *
  * @author sande
@@ -46,6 +46,33 @@ public class CollisionControlSystem implements IEntityProcessingService {
                 if (rectangleCollision(collidableF, collidableE)) {
                     boolean fIsBullet = f.getPart(ProjectilePart.class) != null;
                     boolean eIsBullet = e.getPart(ProjectilePart.class) != null;
+                    boolean fIsPowerUp = f instanceof PowerUp;
+                    boolean eIsPowerUp = e instanceof PowerUp;
+                    
+                    
+                    if(fIsPowerUp && e.getPart(PlayerMovingPart.class) != null)
+                    {
+                        PowerUp fAsPowerUp = (PowerUp)f;
+                        fAsPowerUp.applyPowerUp(e);
+                        world.removeEntity(f);
+                        continue;
+                    }
+                    else if(fIsPowerUp)
+                    {
+                        continue;
+                    }
+                    
+                    if(e.getPart(PlayerMovingPart.class) != null && eIsPowerUp)
+                    {
+                        PowerUp eAsPowerUp = (PowerUp)e;
+                        eAsPowerUp.applyPowerUp(f);
+                        world.removeEntity(e);
+                        continue;
+                    }
+                    else if(eIsPowerUp)
+                    {
+                        continue;
+                    }
                     
                     // Check if player and bullet interacting
                     if ((fIsBullet && e.getPart(PlayerMovingPart.class) != null) ||
@@ -65,22 +92,50 @@ public class CollisionControlSystem implements IEntityProcessingService {
                     LifePart lifePartE = e.getPart(LifePart.class);
                     
                     boolean removedEntity = false;
-                    if (lifePartF != null && (!collidableE.getIsStatic() || fIsBullet)) {
+                    
+                    if (lifePartE != null && fIsBullet) {
                         ProjectilePart bullet = f.getPart(ProjectilePart.class);
+                        lifePartE.setLife(lifePartE.getLife() - bullet.getDamage());
+                        if (lifePartE.getLife() <= 0) {
+                            world.removeEntity(f);
+                            removedEntity = true;
+                        }
+                    }
+                    
+                    if (lifePartF != null && eIsBullet) {
+                        ProjectilePart bullet = e.getPart(ProjectilePart.class);
                         lifePartF.setLife(lifePartF.getLife() - bullet.getDamage());
                         if (lifePartF.getLife() <= 0) {
                             world.removeEntity(f);
                             removedEntity = true;
                         }
                     }
-                    if (lifePartE != null && (!collidableF.getIsStatic() || eIsBullet)) {
-                        ProjectilePart bullet = e.getPart(ProjectilePart.class);
-                        lifePartE.setLife(lifePartE.getLife() - bullet.getDamage());
+                       
+                    
+                    if (lifePartE != null && !collidableF.getIsStatic()) {
+                        lifePartE.setLife(lifePartE.getLife() - 1);
                         if (lifePartE.getLife() <= 0) {
                             world.removeEntity(e);
                             removedEntity = true;
                         }
                     }
+                    
+                    if (lifePartF != null && !collidableE.getIsStatic()) {
+                        lifePartE.setLife(lifePartE.getLife() - 1);
+                        if (lifePartE.getLife() <= 0) {
+                            world.removeEntity(e);
+                            removedEntity = true;
+                        }
+                    }
+                    
+                    if (collidableE.getIsStatic() && fIsBullet) {
+                        world.removeEntity(f); //Rebund could be nice AF
+                    }
+                    
+                    if (collidableF.getIsStatic() && eIsBullet) {
+                        world.removeEntity(e); //Rebund could be nice AF
+                    }
+                    
                     
                     if (removedEntity) {
                         return;
