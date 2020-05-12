@@ -16,6 +16,10 @@ public interface IAssetService {
     String[] loadImages();
 
     String[] unLoadImages();
+    
+    String[] loadMaps();
+
+    String[] unLoadMaps();
 
     String[] loadSounds();
 

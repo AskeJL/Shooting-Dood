@@ -50,4 +50,14 @@ public class WeaponAssetsLoader implements IAssetService {
         return sounds();
     }
 
+    @Override
+    public String[] loadMaps() {
+        return null;
+    }
+
+    @Override
+    public String[] unLoadMaps() {
+        return null;
+    }
+
 }

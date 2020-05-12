@@ -71,6 +71,7 @@ public class PlayerControlSystem implements IEntityProcessingService {
             positionPart.process(gameData, player);
             shootingPart.process(gameData, player);
             lifePart.process(gameData, player);
+            
 
             updateShape(player);
         }

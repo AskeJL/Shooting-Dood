@@ -49,8 +49,6 @@ public class GameInputProcessor extends InputAdapter {
         }if (k == Keys.D) {
             gameData.getKeys().setKey(GameKeys.D, true);
         }
-        
-        
         return true;
     }
 
