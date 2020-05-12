@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.Weapon">
+<<<<<<< HEAD
     <module_version install_time="1589280440479" last="true" origin="installer" specification_version="1.0">
         <file crc="812484391" name="config/Modules/shoot-doode-Weapon.xml"/>
         <file crc="3430070895" name="modules/shoot-doode-Weapon.jar"/>
         <file crc="1401612194" name="update_tracking/shoot-doode-Weapon.xml"/>
+=======
+    <module_version install_time="1589206028269" last="true" origin="installer" specification_version="1.0">
+        <file crc="812484391" name="config/Modules/shoot-doode-Weapon.xml"/>
+        <file crc="2901716151" name="modules/shoot-doode-Weapon.jar"/>
+        <file crc="1023983743" name="update_tracking/shoot-doode-Weapon.xml"/>
+>>>>>>> PowerUp
     </module_version>
 </module>

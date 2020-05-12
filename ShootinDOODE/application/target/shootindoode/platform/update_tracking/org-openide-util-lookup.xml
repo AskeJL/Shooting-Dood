@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="org.openide.util.lookup">
+<<<<<<< HEAD
     <module_version install_time="1589280439383" last="true" origin="installer" specification_version="8.39">
+=======
+    <module_version install_time="1589206010095" last="true" origin="installer" specification_version="8.39">
+>>>>>>> PowerUp
         <file crc="2379262314" name="lib/org-openide-util-lookup.jar"/>
     </module_version>
 </module>

@@ -42,5 +42,10 @@
             <artifactId>gdx</artifactId>
             <version>1.5.0</version>
         </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>CommonPowerUp</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 </project>

@@ -14,7 +14,7 @@ public abstract class Weapon extends Entity {
     public Weapon() {
     }
     
-    abstract public void shoot(GameData gameData, World world);
+    abstract public void shoot(GameData gameData, World world,double dmgModifer);
     
     public double getCurrentTime() {
         return currentTime;

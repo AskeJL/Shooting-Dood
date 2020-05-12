@@ -14,24 +14,45 @@ import shoot.doode.common.data.GameData;
  */
 public class PlayerMovingPart implements EntityPart
 {
-
-    private float maxSpeed;
+    private double speedModifier = 1;
+    private float currentSpeed;
+    private float baseSpeed;
     private boolean left, right, up, down;
     private boolean W, A, S, D;
 
-    public PlayerMovingPart(float maxSpeed)
+    public PlayerMovingPart(float baseSpeed)
     {
-        this.maxSpeed = maxSpeed;
+        this.baseSpeed = baseSpeed;
+        this.currentSpeed = this.baseSpeed;
     }
 
-    public void setMaxSpeed(float maxSpeed)
+    public void setCurrentSpeed(float currentSpeed)
     {
-        this.maxSpeed = maxSpeed;
+        this.currentSpeed = currentSpeed;
     }
-
-    public float getMaxSpeed()
+    
+    public float getCurrentSpeed()
     {
-        return maxSpeed;
+        return currentSpeed;
+    }
+    
+    public void setBaseSpeed(float baseSpeed)
+    {
+        this.baseSpeed = baseSpeed;
+    }
+    
+    public void setSpeedModifier(double speedModifier)
+    {
+        this.speedModifier = speedModifier;
+    }
+    
+    public double getSpeedModifier()
+    {
+        return speedModifier;
+    }
+    public float getBaseSpeed()
+    {
+        return baseSpeed;
     }
 
     public void setW(boolean W)
@@ -171,14 +192,14 @@ public class PlayerMovingPart implements EntityPart
         //Movement
         if (D)
         {
-            x = x + maxSpeed;
+            x = x + currentSpeed;
             if (!left && !right && !up && !down)
             {
                 rotation = 0;
             }
         } else if (A)
         {
-            x = x - maxSpeed;
+            x = x - currentSpeed;
             if (!left && !right && !up && !down)
             {
                 rotation = (float) Math.PI;
@@ -187,7 +208,7 @@ public class PlayerMovingPart implements EntityPart
 
         if (W)
         {
-            y = y + maxSpeed;
+            y = y + currentSpeed;
             if (!left && !right && !up && !down)
             {
                 rotation = (float) Math.PI / 2;
@@ -218,7 +239,7 @@ public class PlayerMovingPart implements EntityPart
                 }
 
             }
-            y = y - maxSpeed;
+            y = y - currentSpeed;
         }
 
         //Border tjek

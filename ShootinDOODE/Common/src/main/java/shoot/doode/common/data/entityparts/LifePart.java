@@ -14,17 +14,28 @@ import shoot.doode.common.data.GameData;
  */
 public class LifePart implements EntityPart {
 
-    private int life;
+    private boolean invulnerable;
+    private double life;
 
-    public LifePart(int life) {
+    public LifePart(double life) {
         this.life = life;
     }
 
-    public int getLife() {
+    public double getLife() {
         return life;
     }
+    
+    public boolean isInvulnerable()
+    {
+        return invulnerable;
+    }
+    
+    public void setInvulnerable(boolean invulnerable)
+    {
+        this.invulnerable = invulnerable;
+    }
 
-    public void setLife(int life) {
+    public void setLife(double life) {
         this.life = life;
     }
 

@@ -30,6 +30,10 @@ public class ProjectilePart implements EntityPart{
         this.ID = ID;
     }
     
+    public double getDamage(){
+        return this.damege;
+    }
+    
     @Override
     public void process(GameData gameData, Entity entity) {
     }

@@ -30,4 +30,9 @@ hs_err_pid*
 /ShootinDOODE/Collision/target/
 /ShootinDOODE/Weapon/target/
 /ShootinDOODE/CommonWeapon/target/
+<<<<<<< HEAD
 /ShootinDOODE/Map/target/
+=======
+/ShootinDOODE/CommonPowerUp/target/
+/ShootinDOODE/PowerUps/target/
+>>>>>>> PowerUp

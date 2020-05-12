@@ -27,8 +27,9 @@ public class PlayerControlSystem implements IEntityProcessingService {
             ShootingPart shootingPart = player.getPart(ShootingPart.class);
             LifePart lifePart = player.getPart(LifePart.class);
             SpritePart spritepart = player.getPart(SpritePart.class);
-            
-            
+            System.out.println(lifePart.getLife());
+            playerMovingPart.setCurrentSpeed(playerMovingPart.getBaseSpeed() * (float)playerMovingPart.getSpeedModifier());
+                    
             playerMovingPart.setLeft(gameData.getKeys().isDown(GameKeys.LEFT));
             if (gameData.getKeys().isDown(GameKeys.LEFT)){
             spritepart.setCurrentSprite(1);

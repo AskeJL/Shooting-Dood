@@ -32,11 +32,11 @@ public class Gun extends Weapon {
     }
 
     @Override
-    public void shoot(GameData gameData, World world) {
+    public void shoot(GameData gameData, World world,double dmgModifier) {
         SoundPart soundpart = this.getPart(SoundPart.class);
         PositionPart positionPart = this.getPart(PositionPart.class);
         
-        Entity bullet = Bullet.createBullet(this,positionPart.getRotation(),this.getDamage());
+        Entity bullet = Bullet.createBullet(this,positionPart.getRotation(),this.getDamage()*dmgModifier);
         world.addEntity(bullet);
         
         soundpart.setPlay("Gun_Fire.mp3", true);

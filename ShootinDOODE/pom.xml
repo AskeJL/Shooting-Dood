@@ -67,6 +67,8 @@
         <module>Collision</module>
         <module>CommonWeapon</module>
         <module>Weapon</module>
+        <module>CommonPowerUp</module>
+        <module>PowerUps</module>
         <module>Map</module>
     </modules>
 
