@@ -119,7 +119,7 @@ public class Game extends ApplicationAdapter {
                 break;
 
             case RUN:
-                if (gameData.getKeys().isPressed(GameKeys.ENTER)) {
+                if (gameData.getKeys().isPressed(GameKeys.ESCAPE)) {
                     System.out.println("Enter pressed");
                     pause();
                 }
@@ -137,7 +137,7 @@ public class Game extends ApplicationAdapter {
             case PAUSE:
                 System.out.println("Paused");
 
-                newPausedValue = gameData.getKeys().isDown(GameKeys.ENTER);
+                newPausedValue = gameData.getKeys().isDown(GameKeys.ESCAPE);
                 if (newPausedValue != oldPausedValue && newPausedValue) {
                     setGameState(State.RUN);
                 }
@@ -261,7 +261,6 @@ public class Game extends ApplicationAdapter {
 
     @Override
     public void resume() {
-        this.state = State.RESUME;
     }
 
     @Override
