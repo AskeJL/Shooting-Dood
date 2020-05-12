@@ -27,7 +27,7 @@ public class LifePart implements EntityPart {
     public void setLife(int life) {
         this.life = life;
     }
-
+    
     @Override
     public void process(GameData gameData, Entity entity) {
     }

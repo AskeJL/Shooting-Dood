@@ -5,6 +5,7 @@
  */
 package shoot.doode.enemy;
 
+import java.util.ArrayList;
 import java.util.Random;
 import shoot.doode.commonenemy.Enemy;
 import shoot.doode.commonenemy.AI;
@@ -21,6 +22,7 @@ import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
 import shoot.doode.common.data.CollidableEntity;
 import shoot.doode.common.data.entityparts.SpritePart;
+import shoot.doode.commonplayer.Player;
 
 /**
  *
@@ -32,32 +34,53 @@ public class EnemyControlSystem implements IEntityProcessingService, AI {
 
     @Override
     public void process(GameData gameData, World world) {
-        if(world.getEntities(Enemy.class).size() == 0)
-        {
+        if (world.getEntities(Enemy.class).size() == 0) {
             Entity enemy = createEnemy(gameData);
             world.addEntity(enemy);
         }
-        
+
         for (Entity enemy : world.getEntities(Enemy.class)) {
             PositionPart positionPart = enemy.getPart(PositionPart.class);
             MovingPart movingPart = enemy.getPart(MovingPart.class);
             LifePart lifePart = enemy.getPart(LifePart.class);
 
-            Random rand = new Random();
-
-            float rng = rand.nextFloat();
-
-            if (rng > 0.1f && rng < 0.9f) {
-                movingPart.setUp(true);
+            if (world.getEntities(Player.class).size() != 0) {
+                Entity player = world.getEntities(Player.class).get(0);
+                PositionPart playerPosition = player.getPart(PositionPart.class);
+                AStar a = new AStar(100, 50, (int) (positionPart.getX() / world.getTILESIZE()),
+                        (int) (positionPart.getY() / world.getTILESIZE()),
+                        (int) (playerPosition.getX() / world.getTILESIZE()),
+                        (int) (playerPosition.getY() / world.getTILESIZE()),
+                        world.getBlockedMap());
+                ArrayList<int[]> path = a.process();
+                if (path.size() > 1) {
+                    float[] destination = new float[2];
+                    destination[0] = path.get(path.size() - 2)[0] * world.getTILESIZE();
+                    destination[1] = path.get(path.size() - 2)[1] * world.getTILESIZE();
+                    movingPart.setDestination(destination);
+                } else if (!path.isEmpty()) {
+                    float[] destination = new float[2];
+                    destination[0] = path.get(path.size() - 1)[0] * world.getTILESIZE();
+                    destination[1] = path.get(path.size() - 1)[1] * world.getTILESIZE();
+                    movingPart.setDestination(destination);
+                }
             }
 
-            if (rng < 0.2f) {
-                movingPart.setLeft(true);
-            }
-
-            if (rng > 0.8f) {
-                movingPart.setRight(true);
-            }
+//            Random rand = new Random();
+//
+//            float rng = rand.nextFloat();
+//
+//            if (rng > 0.1f && rng < 0.9f) {
+//                movingPart.setUp(true);
+//            }
+//
+//            if (rng < 0.2f) {
+//                movingPart.setLeft(true);
+//            }
+//
+//            if (rng > 0.8f) {
+//                movingPart.setRight(true);
+//            }
 
             movingPart.process(gameData, enemy);
             positionPart.process(gameData, enemy);
@@ -65,9 +88,9 @@ public class EnemyControlSystem implements IEntityProcessingService, AI {
 
             updateShape(enemy);
 
-            movingPart.setRight(false);
-            movingPart.setLeft(false);
-            movingPart.setUp(false);
+//            movingPart.setRight(false);
+//            movingPart.setLeft(false);
+//            movingPart.setUp(false);
         }
     }
 
@@ -99,9 +122,9 @@ public class EnemyControlSystem implements IEntityProcessingService, AI {
     public void AI() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     private Entity createEnemy(GameData gameData) {
-        
+
         float deacceleration = 10;
         float acceleration = 150;
         float maxSpeed = 200;
@@ -118,42 +141,35 @@ public class EnemyControlSystem implements IEntityProcessingService, AI {
         String module = "Enemy";
         String[] spritePaths = new String[1];
         double ran = Math.random();
-        
+
         int boundaryWidth = 20;
         int boundaryHeight = 20;
-        if(ran > 0.75)
-        {
+        if (ran > 0.75) {
             spritePaths[0] = "Enemy-front.png";
-        }
-        else if(ran > 0.50)
-        {
+        } else if (ran > 0.50) {
             spritePaths[0] = "Enemy2-front.png";
-        }
-        else if(ran > 0.25)
-        {
+        } else if (ran > 0.25) {
             spritePaths[0] = "Green_Virus.png";
             boundaryWidth = 45;
             boundaryHeight = 45;
-        }
-        else
-        {
+        } else {
             spritePaths[0] = "Green_Virus.png"; //"Red_virus.png"; (file not found exception)
             boundaryWidth = 45;
             boundaryHeight = 45;
         }
-        
+
         CollidableEntity enemy = new Enemy();
         enemy.setRadius(8);
         enemy.setColour(colour);
         enemy.add(new MovingPart(deacceleration, acceleration, maxSpeed, rotationSpeed));
         enemy.add(new PositionPart(x, y, radians));
         enemy.add(new LifePart(1));
-        enemy.add(new SpritePart(module,spritePaths));
-        
+        enemy.add(new SpritePart(module, spritePaths));
+
         enemy.setBoundaryWidth(boundaryWidth);
         enemy.setBoundaryHeight(boundaryHeight);
-       
+
         return enemy;
     }
-    
+
 }

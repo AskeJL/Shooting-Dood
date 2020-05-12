@@ -11,6 +11,9 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author jcs
  */
 public class World {
+    
+    private int TILESIZE;
+    private int[][] blockedMap;
 
     private final Map<String, Entity> entityMap = new ConcurrentHashMap<>();
 
@@ -48,5 +51,25 @@ public class World {
     public Entity getEntity(String ID) {
         return entityMap.get(ID);
     }
+
+    public int getTILESIZE() {
+        return TILESIZE;
+    }
+
+    public void setTILESIZE(int TILESIZE) {
+        this.TILESIZE = TILESIZE;
+    }
+
+    public int[][] getBlockedMap() {
+        return blockedMap;
+    }
+
+    public void setBlockedMap(int[][] blockedMap) {
+        this.blockedMap = blockedMap;
+    }
+    
+    
+    
+    
 
 }

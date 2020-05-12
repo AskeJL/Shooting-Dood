@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Bullet/Bullet.iml" filepath="$PROJECT_DIR$/Bullet/Bullet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Collision/Collision.iml" filepath="$PROJECT_DIR$/Collision/Collision.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Common/Common.iml" filepath="$PROJECT_DIR$/Common/Common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CommonEnemy/CommonEnemy/CommonEnemy.iml" filepath="$PROJECT_DIR$/CommonEnemy/CommonEnemy/CommonEnemy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CommonWeapon/CommonWeapon.iml" filepath="$PROJECT_DIR$/CommonWeapon/CommonWeapon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Core/Core.iml" filepath="$PROJECT_DIR$/Core/Core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Enemy/Enemy.iml" filepath="$PROJECT_DIR$/Enemy/Enemy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Map/Map.iml" filepath="$PROJECT_DIR$/Map/Map.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Player/Player.iml" filepath="$PROJECT_DIR$/Player/Player.iml" />
+      <module fileurl="file://$PROJECT_DIR$/application/ShootinDOODE-app.iml" filepath="$PROJECT_DIR$/application/ShootinDOODE-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/branding/ShootinDOODE-branding.iml" filepath="$PROJECT_DIR$/branding/ShootinDOODE-branding.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ShootinDOODE-parent.iml" filepath="$PROJECT_DIR$/ShootinDOODE-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SilentUpdate/SilentUpdate.iml" filepath="$PROJECT_DIR$/SilentUpdate/SilentUpdate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Weapon/Weapon.iml" filepath="$PROJECT_DIR$/Weapon/Weapon.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ShootinDOODE-app" />
+        <module name="SilentUpdate" />
+        <module name="Common" />
+        <module name="Bullet" />
+        <module name="CommonWeapon" />
+        <module name="CommonEnemy" />
+        <module name="Player" />
+        <module name="Enemy" />
+        <module name="Collision" />
+        <module name="Weapon" />
+        <module name="Core" />
+        <module name="Map" />
+        <module name="ShootinDOODE-branding" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Bullet" target="1.8" />
+      <module name="Collision" target="1.8" />
+      <module name="Common" target="1.8" />
+      <module name="CommonEnemy" target="1.8" />
+      <module name="CommonWeapon" target="1.8" />
+      <module name="Core" target="1.8" />
+      <module name="Enemy" target="1.8" />
+      <module name="Map" target="1.8" />
+      <module name="Player" target="1.8" />
+      <module name="ShootinDOODE-app" target="1.8" />
+      <module name="ShootinDOODE-branding" target="1.8" />
+      <module name="ShootinDOODE-parent" target="1.5" />
+      <module name="SilentUpdate" target="1.8" />
+      <module name="Weapon" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

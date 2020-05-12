@@ -21,11 +21,12 @@ import static java.lang.Math.sqrt;
 public class MovingPart
         implements EntityPart {
 
-    
     private float dx, dy;
     private float deceleration, acceleration;
     private float maxSpeed, rotationSpeed;
     private boolean left, right, up;
+    
+    private float [] destination;
 
     public MovingPart(float deceleration, float acceleration, float maxSpeed, float rotationSpeed) {
         this.deceleration = deceleration;
@@ -128,6 +129,10 @@ public class MovingPart
         positionPart.setY(y);
 
         positionPart.setRotation(rotation);
+    }
+
+    public void setDestination(float[] destination) {
+        this.destination = destination;
     }
 
 }
