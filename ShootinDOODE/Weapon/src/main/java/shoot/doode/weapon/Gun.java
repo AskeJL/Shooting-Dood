@@ -4,6 +4,7 @@ import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
 import shoot.doode.common.data.World;
 import shoot.doode.common.data.entityparts.PositionPart;
+import shoot.doode.common.data.entityparts.ShootingPart;
 import shoot.doode.common.data.entityparts.SoundPart;
 import shoot.doode.common.data.entityparts.SpritePart;
 import shoot.doode.commonweapon.Bullet;
@@ -27,16 +28,16 @@ public class Gun extends Weapon {
         this.add(new SoundPart(module, soundPaths));
         
         this.setReloadTime(1);
-        this.setDamage(2);
+        this.setDamage(5);
         
     }
 
     @Override
-    public void shoot(GameData gameData, World world,double dmgModifier) {
+    public void shoot(GameData gameData, World world,ShootingPart shootingPart) {
         SoundPart soundpart = this.getPart(SoundPart.class);
         PositionPart positionPart = this.getPart(PositionPart.class);
-        
-        Entity bullet = Bullet.createBullet(this,positionPart.getRotation(),this.getDamage()*dmgModifier);
+        double dmgModifier = shootingPart.getDamageModifier();
+        Entity bullet = Bullet.createBullet(this,4.5f,positionPart.getRotation(),this.getDamage()*dmgModifier);
         world.addEntity(bullet);
         
         soundpart.setPlay("Gun_Fire.mp3", true);

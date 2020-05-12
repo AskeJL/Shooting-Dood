@@ -12,7 +12,9 @@ import shoot.doode.common.data.World;
 import shoot.doode.common.data.entityparts.PositionPart;
 import shoot.doode.common.data.entityparts.SoundPart;
 import shoot.doode.common.data.entityparts.SpritePart;
+import shoot.doode.common.data.entityparts.ShootingPart;
 import shoot.doode.commonweapon.Bullet;
+import java.util.ArrayList;
 
 /**
  *
@@ -34,28 +36,30 @@ public class Shotgun extends Weapon{
         this.add(new SpritePart(module, spritePaths));
         this.add(new SoundPart(module, soundPaths));
         
-        this.setReloadTime(1);
-        this.setDamage(2);
+        this.setReloadTime(2.5);
+        this.setDamage(1);
         
     }
 
     @Override
-    public void shoot(GameData gameData, World world,double dmgModifier) {
+    public void shoot(GameData gameData, World world,ShootingPart shootingPart) {
         SoundPart soundpart = this.getPart(SoundPart.class);
         PositionPart positionPart = this.getPart(PositionPart.class);
+        ArrayList<Entity> bulletList = new ArrayList<>();
+        double dmgModifier = shootingPart.getDamageModifier();
+        float bulletSpeed = 4.2f;
+        for(int i = 0; i < 17; i++)
+        {
+            Entity bullet = Bullet.createBullet(this,bulletSpeed + (float)((Math.random()-0.5)*1.3),positionPart.getRotation() + (float)((Math.random()-0.5)*1.25),dmgModifier);
+            bulletList.add(bullet);
+        }
         
-        Entity bullet1 = Bullet.createBullet(this, positionPart.getRotation(),this.getDamage()*dmgModifier);
-        Entity bullet2 = Bullet.createBullet(this, positionPart.getRotation()- ((float)Math.PI/4),this.getDamage()*dmgModifier);
-        Entity bullet3 = Bullet.createBullet(this, positionPart.getRotation() + ((float)Math.PI/4),this.getDamage()*dmgModifier);
+        for(Entity bullet : bulletList)
+        {
+            world.addEntity(bullet);
+        }
         
-        
-        
-        world.addEntity(bullet1);
-        world.addEntity(bullet2);
-        world.addEntity(bullet3);
-        soundpart.setPlay("Gun_Fire.mp3", true);
-        
-        
+        soundpart.setPlay("Gun_Fire.mp3", true);       
     }
     
 }

@@ -57,5 +57,17 @@ public class PowerUpAssetsLoader implements IAssetService {
     public String[] unLoadSounds() {
         return sounds();
     }
-
+    
+    @Override
+    public String[] loadMaps()
+    {
+        return null;
+    }
+    
+    @Override
+    public String[] unLoadMaps()
+    {
+        return null;
+    }
+    
 }
