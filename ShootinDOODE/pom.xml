@@ -70,6 +70,7 @@
         <module>CommonPowerUp</module>
         <module>PowerUps</module>
         <module>Map</module>
+        <module>Menu</module>
     </modules>
 
     <properties>

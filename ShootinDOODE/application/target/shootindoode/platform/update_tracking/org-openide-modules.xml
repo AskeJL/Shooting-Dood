@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="org.openide.modules">
-<<<<<<< HEAD
-    <module_version install_time="1589280439187" last="true" origin="installer" specification_version="7.54">
-=======
-    <module_version install_time="1589206010016" last="true" origin="installer" specification_version="7.54">
->>>>>>> PowerUp
+    <module_version install_time="1589295206660" last="true" origin="installer" specification_version="7.54">
         <file crc="1810389638" name="config/ModuleAutoDeps/org-openide-modules.xml"/>
         <file crc="9087806" name="lib/org-openide-modules.jar"/>
     </module_version>

@@ -1,0 +1,5 @@
+shoot\doode\menu\StartMenu.class
+META-INF\services\shoot.doode.common.services.IGameStateService
+shoot\doode\menu\MenuPlugin.class
+shoot\doode\menu\PauseMenu.class
+META-INF\services\shoot.doode.common.services.IGamePluginService

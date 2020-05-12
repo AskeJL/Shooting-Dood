@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.Menu">
+    <module_version install_time="1589295207738" last="true" origin="installer" specification_version="1.0">
+        <file crc="3742704826" name="config/Modules/shoot-doode-Menu.xml"/>
+        <file crc="3022794013" name="modules/ext/shoot.doode.Menu/com-badlogicgames-gdx/gdx-backend-lwjgl.jar"/>
+        <file crc="2942838198" name="modules/ext/shoot.doode.Menu/com-badlogicgames-gdx/gdx-box2d-platform-natives-desktop.jar"/>
+        <file crc="3609841812" name="modules/ext/shoot.doode.Menu/com-badlogicgames-gdx/gdx-box2d.jar"/>
+        <file crc="447614266" name="modules/ext/shoot.doode.Menu/com-badlogicgames-gdx/gdx-platform-natives-desktop.jar"/>
+        <file crc="3764980079" name="modules/ext/shoot.doode.Menu/com-badlogicgames-gdx/gdx.jar"/>
+        <file crc="1146210713" name="modules/ext/shoot.doode.Menu/com-badlogicgames-jlayer/jlayer.jar"/>
+        <file crc="517103641" name="modules/ext/shoot.doode.Menu/dk-sdu-cbse-asteroids/AsteroidsLibGDX.jar"/>
+        <file crc="426864957" name="modules/ext/shoot.doode.Menu/net-java-jinput/jinput.jar"/>
+        <file crc="1529865491" name="modules/ext/shoot.doode.Menu/net-java-jutils/jutils.jar"/>
+        <file crc="2846045197" name="modules/ext/shoot.doode.Menu/org-jcraft/jorbis.jar"/>
+        <file crc="3651848685" name="modules/ext/shoot.doode.Menu/org-lwjgl-lwjgl/lwjgl-platform-natives-linux.jar"/>
+        <file crc="892697031" name="modules/ext/shoot.doode.Menu/org-lwjgl-lwjgl/lwjgl-platform-natives-osx.jar"/>
+        <file crc="2303095678" name="modules/ext/shoot.doode.Menu/org-lwjgl-lwjgl/lwjgl-platform-natives-windows.jar"/>
+        <file crc="2615574348" name="modules/ext/shoot.doode.Menu/org-lwjgl-lwjgl/lwjgl.jar"/>
+        <file crc="2012419266" name="modules/ext/shoot.doode.Menu/org-lwjgl-lwjgl/lwjgl_util.jar"/>
+        <file crc="1094800503" name="modules/shoot-doode-Menu.jar"/>
+    </module_version>
+</module>

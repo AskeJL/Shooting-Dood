@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.ShootinDOODE.branding">
-    <module_version install_time="1589281077334" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1589293825805" last="true" origin="installer" specification_version="1.0">
         <file crc="2756717434" name="config/Modules/shoot-doode-ShootinDOODE-branding.xml"/>
-        <file crc="2443323771" name="modules/shoot-doode-ShootinDOODE-branding.jar"/>
-        <file crc="3607890922" name="update_tracking/shoot-doode-ShootinDOODE-branding.xml"/>
+        <file crc="784125436" name="modules/shoot-doode-ShootinDOODE-branding.jar"/>
+        <file crc="3220440770" name="update_tracking/shoot-doode-ShootinDOODE-branding.xml"/>
     </module_version>
 </module>

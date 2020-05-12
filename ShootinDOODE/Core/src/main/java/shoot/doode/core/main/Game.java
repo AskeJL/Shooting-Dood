@@ -1,20 +1,15 @@
 package shoot.doode.core.main;
 
 import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.maps.tiled.renderers.BatchTiledMapRenderer;
 import shoot.doode.common.data.entityparts.SpritePart;
 import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
@@ -35,6 +30,7 @@ import shoot.doode.common.data.entityparts.MapPart;
 import shoot.doode.common.data.entityparts.PlayerMovingPart;
 import shoot.doode.common.data.entityparts.SoundPart;
 import shoot.doode.common.services.IAssetService;
+import shoot.doode.common.services.IGameStateService;
 import shoot.doode.core.managers.AssetsHelper;
 
 public class Game extends ApplicationAdapter {
@@ -135,6 +131,11 @@ public class Game extends ApplicationAdapter {
                 break;
 
             case PAUSE:
+                System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                for (IGameStateService menu : getGameStateServices()) {
+                    System.out.println(menu);
+                    menu.render(batch);
+                }
                 System.out.println("Paused");
 
                 newPausedValue = gameData.getKeys().isDown(GameKeys.ESCAPE);
@@ -277,6 +278,10 @@ public class Game extends ApplicationAdapter {
 
     private Collection<? extends IPostEntityProcessingService> getPostEntityProcessingServices() {
         return lookup.lookupAll(IPostEntityProcessingService.class);
+    }
+
+    private Collection<? extends IGameStateService> getGameStateServices() {
+        return lookup.lookupAll(IGameStateService.class);
     }
 
     private final LookupListener lookupListener = new LookupListener() {

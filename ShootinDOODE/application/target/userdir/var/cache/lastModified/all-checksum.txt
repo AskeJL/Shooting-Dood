@@ -1,27 +1,9 @@
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-platform=1589280463334
-cluster.bin=1589280463332
-cluster.etc=1589280463333
-cluster.platform=1589280463334
-cluster.shootindoode=1589280463334
-user=1589280463334
-=======
-platform=1589206127903
-cluster.bin=1589206127903
-cluster.etc=1589206127903
-cluster.platform=1589206127903
-cluster.shootindoode=1589206127903
-user=1589206127903
->>>>>>> PowerUp
-=======
-platform=1589281118431
-cluster.bin=1589281118429
-cluster.etc=1589281118430
-cluster.platform=1589281118431
-cluster.shootindoode=1589281118431
-user=1589281118431
->>>>>>> Stashed changes
+platform=1589295218954
+cluster.bin=1589295218953
+cluster.etc=1589295218954
+cluster.platform=1589295218954
+cluster.shootindoode=1589295218954
+user=1589295218954
 crc=7
 locale=da_DK
 branding=shootindoode

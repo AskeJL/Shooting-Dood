@@ -1,0 +1,40 @@
+Manifest-Version: 1.0
+OpenIDE-Module-Localizing-Bundle: shoot/doode/menu/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+OpenIDE-Module-Implementation-Version: 1.0-20200512
+OpenIDE-Module-Build-Version: 202005121446
+OpenIDE-Module: shoot.doode.Menu
+OpenIDE-Module-Public-Packages: -
+OpenIDE-Module-Requires: org.openide.modules.ModuleFormat1
+OpenIDE-Module-Display-Category: shoot.doode
+OpenIDE-Module-Name: Menu
+OpenIDE-Module-Short-Description: <undefined>
+OpenIDE-Module-Long-Description: <undefined>
+X-Class-Path: ext/shoot.doode.Menu/com-badlogicgames-gdx/gdx.jar ext/s
+ hoot.doode.Menu/dk-sdu-cbse-asteroids/AsteroidsLibGDX.jar ext/shoot.d
+ oode.Menu/com-badlogicgames-gdx/gdx-platform-natives-desktop.jar ext/
+ shoot.doode.Menu/com-badlogicgames-gdx/gdx-backend-lwjgl.jar ext/shoo
+ t.doode.Menu/org-lwjgl-lwjgl/lwjgl.jar ext/shoot.doode.Menu/org-lwjgl
+ -lwjgl/lwjgl-platform-natives-windows.jar ext/shoot.doode.Menu/org-lw
+ jgl-lwjgl/lwjgl-platform-natives-linux.jar ext/shoot.doode.Menu/org-l
+ wjgl-lwjgl/lwjgl-platform-natives-osx.jar ext/shoot.doode.Menu/net-ja
+ va-jinput/jinput.jar ext/shoot.doode.Menu/net-java-jutils/jutils.jar 
+ ext/shoot.doode.Menu/org-lwjgl-lwjgl/lwjgl_util.jar ext/shoot.doode.M
+ enu/com-badlogicgames-jlayer/jlayer.jar ext/shoot.doode.Menu/org-jcra
+ ft/jorbis.jar ext/shoot.doode.Menu/com-badlogicgames-gdx/gdx-box2d.ja
+ r ext/shoot.doode.Menu/com-badlogicgames-gdx/gdx-box2d-platform-nativ
+ es-desktop.jar
+Maven-Class-Path: com.badlogicgames.gdx:gdx:1.9.10 dk.sdu.cbse.asteroi
+ ds:AsteroidsLibGDX:1.0-SNAPSHOT com.badlogicgames.gdx:gdx-platform:1.
+ 7.2:natives-desktop com.badlogicgames.gdx:gdx-backend-lwjgl:1.7.2 org
+ .lwjgl.lwjgl:lwjgl:2.9.2 org.lwjgl.lwjgl:lwjgl-platform:2.9.2:natives
+ -windows org.lwjgl.lwjgl:lwjgl-platform:2.9.2:natives-linux org.lwjgl
+ .lwjgl:lwjgl-platform:2.9.2:natives-osx net.java.jinput:jinput:2.0.5 
+ net.java.jutils:jutils:1.0.0 org.lwjgl.lwjgl:lwjgl_util:2.9.2 com.bad
+ logicgames.jlayer:jlayer:1.0.1-gdx org.jcraft:jorbis:0.0.17 com.badlo
+ gicgames.gdx:gdx-box2d:1.7.2 com.badlogicgames.gdx:gdx-box2d-platform
+ :1.7.2:natives-desktop
+OpenIDE-Module-Module-Dependencies: org.netbeans.api.annotations.commo
+ n/1 > 1.29.1, org.openide.util.lookup > 8.33.1, shoot.doode.Common > 
+ 1.0
+
