@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 platform=1589280463334
 cluster.bin=1589280463332
@@ -13,6 +14,14 @@ cluster.platform=1589206127903
 cluster.shootindoode=1589206127903
 user=1589206127903
 >>>>>>> PowerUp
+=======
+platform=1589281118431
+cluster.bin=1589281118429
+cluster.etc=1589281118430
+cluster.platform=1589281118431
+cluster.shootindoode=1589281118431
+user=1589281118431
+>>>>>>> Stashed changes
 crc=7
 locale=da_DK
 branding=shootindoode
