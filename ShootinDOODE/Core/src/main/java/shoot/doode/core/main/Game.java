@@ -107,6 +107,7 @@ public class Game extends ApplicationAdapter {
                 String module = mapPart.getModule();
                 String mapPath = mapPart.getMapPath();
                 map = AssetsHelper.getInstance().getMap(module, mapPath);
+                System.out.println(map);
                 renderer = new OrthogonalTiledMapRenderer(map, batch);
 
             }
@@ -198,8 +199,9 @@ public class Game extends ApplicationAdapter {
         System.out.println("Post process" + getPostEntityProcessingServices());
          */
         cam.update();
-        renderer.setView(cam);
         System.out.println(renderer);
+        renderer.setView(cam);
+        
         renderer.render();
         renderer.getBatch();
 
