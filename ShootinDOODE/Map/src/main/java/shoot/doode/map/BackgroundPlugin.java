@@ -24,25 +24,23 @@ public class BackgroundPlugin implements IGamePluginService  {
 
     @Override
     public void start(GameData gameData, World world) {
-        Entity background = createBackground(gameData);
+        background = createBackground(gameData);
         world.addEntity(background);
     }
     
     private Entity createBackground(GameData gameData) {
         String module = "Map";
-        String[] spritePaths = new String[1];
-        spritePaths[0] = "map.tmx";
+        String[] mapPaths = new String[1];
+        mapPaths[0] = "map.tmx";
         
         Entity map = new Background();
-        map.add(new MapPart(module, spritePaths));
+        map.add(new MapPart(module, mapPaths));
         
         return map;
     }
 
     @Override
     public void stop(GameData gameData, World world) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    
+        world.removeEntity(background);
+    }  
 }

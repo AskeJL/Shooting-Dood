@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.PowerUps">
-    <module_version install_time="1589206028437" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1589544678464" last="true" origin="installer" specification_version="1.0">
         <file crc="393334298" name="config/Modules/shoot-doode-PowerUps.xml"/>
-        <file crc="2785884025" name="modules/shoot-doode-PowerUps.jar"/>
-        <file crc="228931766" name="update_tracking/shoot-doode-PowerUps.xml"/>
+        <file crc="640289397" name="modules/shoot-doode-PowerUps.jar"/>
+        <file crc="1464345096" name="update_tracking/shoot-doode-PowerUps.xml"/>
     </module_version>
 </module>

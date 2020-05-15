@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.Collision">
-<<<<<<< HEAD
-    <module_version install_time="1589280440571" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1589544678412" last="true" origin="installer" specification_version="1.0">
         <file crc="3587771722" name="config/Modules/shoot-doode-Collision.xml"/>
         <file crc="1015876392" name="modules/ext/shoot.doode.Collision/com-badlogicgames-gdx/gdx.jar"/>
-        <file crc="3763958437" name="modules/shoot-doode-Collision.jar"/>
-        <file crc="466023575" name="update_tracking/shoot-doode-Collision.xml"/>
-=======
-    <module_version install_time="1589206028330" last="true" origin="installer" specification_version="1.0">
-        <file crc="3587771722" name="config/Modules/shoot-doode-Collision.xml"/>
-        <file crc="1015876392" name="modules/ext/shoot.doode.Collision/com-badlogicgames-gdx/gdx.jar"/>
-        <file crc="3232511941" name="modules/shoot-doode-Collision.jar"/>
-        <file crc="841157375" name="update_tracking/shoot-doode-Collision.xml"/>
->>>>>>> PowerUp
+        <file crc="2474531860" name="modules/shoot-doode-Collision.jar"/>
+        <file crc="996610039" name="update_tracking/shoot-doode-Collision.xml"/>
     </module_version>
 </module>

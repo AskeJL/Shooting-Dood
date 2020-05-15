@@ -174,7 +174,6 @@ public class AssetsHelper {
         manager.finishLoading();
         TiledMap map = manager.get(absolutePath.replaceAll("\\\\", "/"), TiledMap.class);
         
-
         mapMap.replace(path, map);
     }
     

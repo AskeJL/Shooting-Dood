@@ -71,7 +71,7 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>Common</artifactId>
+            <artifactId>Map</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -81,17 +81,12 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>CommonWeapon</artifactId>
+            <artifactId>Common</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>Weapon</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>Collision</artifactId>
+            <artifactId>CommonEnemy</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -106,7 +101,17 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>CommonEnemy</artifactId>
+            <artifactId>Collision</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>CommonWeapon</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>Weapon</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -117,11 +122,6 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>PowerUps</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>Map</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>

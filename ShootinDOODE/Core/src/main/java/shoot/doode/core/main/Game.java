@@ -63,9 +63,7 @@ public class Game extends ApplicationAdapter {
         gameData.setDisplayHeight(Gdx.graphics.getHeight());
 
         cam = new OrthographicCamera(gameData.getDisplayWidth(), gameData.getDisplayHeight());
-        //cam.translate(gameData.getDisplayWidth() / 2, gameData.getDisplayHeight() / 2);
         cam.position.set(gameData.getDisplayWidth() / 2, gameData.getDisplayHeight() / 2, 0);
-        //cam.update();
 
         sr = new ShapeRenderer();
 
@@ -90,26 +88,6 @@ public class Game extends ApplicationAdapter {
             AssetsHelper.getInstance().queueSounds(assetService.loadSounds());
             assetServices.add(assetService);
         }
-        for (String totalPath : AssetsHelper.getInstance().getMapMapKeys()) {
-            if (AssetsHelper.getInstance().getMap(totalPath) == null) {
-                AssetsHelper.getInstance().loadMaps(totalPath);
-                System.out.println("Loaded map at: " + totalPath);
-            } else {
-                System.out.println("Map was already loaded at: " + totalPath);
-            }
-        }
-        for (Entity entity : world.getEntities()) {
-            MapPart mapPart = entity.getPart(MapPart.class);
-            if (mapPart != null) {
-                String module = mapPart.getModule();
-                String mapPath = mapPart.getMapPath();
-                map = AssetsHelper.getInstance().getMap(module, mapPath);
-                System.out.println(map);
-                renderer = new OrthogonalTiledMapRenderer(map, batch);
-
-            }
-        }
-
     }
 
     @Override
@@ -168,37 +146,42 @@ public class Game extends ApplicationAdapter {
     }
 
     private void draw() {
-
-        for (String totalPath : AssetsHelper.getInstance().getMapMapKeys()) {
-            if (AssetsHelper.getInstance().getMap(totalPath) == null) {
-                AssetsHelper.getInstance().loadMaps(totalPath);
-                System.out.println("Loaded map at: " + totalPath);
-            } else {
-                System.out.println("Map was already loaded at: " + totalPath);
+        for (Entity entity : world.getEntities()) {
+            MapPart mapPart = entity.getPart(MapPart.class);
+            if (mapPart != null) {
+                for (String totalPath : AssetsHelper.getInstance().getMapMapKeys()) {
+                    if (AssetsHelper.getInstance().getMap(totalPath) == null) {
+                        AssetsHelper.getInstance().loadMaps(totalPath);
+                        System.out.println("Loaded map at: " + totalPath);
+                
+                        String module = mapPart.getModule();
+                        String mapPath = mapPart.getMapPath();
+                        map = AssetsHelper.getInstance().getMap(module, mapPath);
+                        renderer = new OrthogonalTiledMapRenderer(map, batch);
+                        break;
             }
         }
-        AssetsHelper.getInstance().loadQueue();
-
-        /*    
-        System.out.println("SpriteAmount: " + AssetsHelper.getInstance().getImageTotal());
-        System.out.println("SoundAmount: " + AssetsHelper.getInstance().getSoundTotal());
-            
-        //background.render(cam);
-        System.out.println("SpriteAmount: " + assetesHelper.getImageTotal());
-        System.out.println("SoundAmount: " + assetesHelper.getSoundTotal());
-        System.out.println("MapAmount: " + assetesHelper.getMapTotal());
-        System.out.println("AssetServices " + assetServices);
-        System.out.println("Gameplugins" + gamePlugins);
-        System.out.println("Entity process" + getEntityProcessingServices());
-        System.out.println("Post process" + getPostEntityProcessingServices());
-         */
+            }
+        }
         cam.update();
-        renderer.setView(cam);
-        System.out.println(renderer);
-        renderer.render();
-        renderer.getBatch();
+        for (Entity entity : world.getEntities()) {
+            MapPart mapPart = entity.getPart(MapPart.class);
+            if (mapPart != null && renderer != null) {
+                renderer.setView(cam);
+                renderer.render();
+                renderer.getBatch();
+                break;
+            }else{
+                Gdx.gl.glClearColor(0, 0, 0, 1);
+                Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
+            }}
+        AssetsHelper.getInstance().loadQueue();
+        
+
+        
 
         for (Entity entity : world.getEntities()) {
+            
             PlayerMovingPart pmp = entity.getPart(PlayerMovingPart.class);
             if (pmp != null) {
                 cam.position.set(pmp.getX(entity), pmp.getY(entity), 0);
@@ -210,7 +193,6 @@ public class Game extends ApplicationAdapter {
                 String imagePath = spritePart.getSpritePath();
 
                 Sprite sprite = AssetsHelper.getInstance().getSprite(module, imagePath);
-                //System.out.println(sprite);
                 PositionPart positionPart = entity.getPart(PositionPart.class);
                 sprite.setRotation(positionPart.getRotation());
                 sprite.setPosition(positionPart.getX() - sprite.getWidth() / 2, positionPart.getY() - sprite.getHeight() / 2);

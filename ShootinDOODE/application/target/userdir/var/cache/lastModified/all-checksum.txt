@@ -1,20 +1,11 @@
-<<<<<<< HEAD
-platform=1589280463334
-cluster.bin=1589280463332
-cluster.etc=1589280463333
-cluster.platform=1589280463334
-cluster.shootindoode=1589280463334
-user=1589280463334
-=======
-platform=1589206127903
-cluster.bin=1589206127903
-cluster.etc=1589206127903
-cluster.platform=1589206127903
-cluster.shootindoode=1589206127903
-user=1589206127903
->>>>>>> PowerUp
+platform=1589544687040
+cluster.bin=1589544687039
+cluster.etc=1589544687040
+cluster.platform=1589544687040
+cluster.shootindoode=1589544687040
+user=1589544687040
 crc=7
 locale=da_DK
 branding=shootindoode
-java.version=1.8.0_221
-java.vm.version=25.221-b11
+java.version=1.8.0_181
+java.vm.version=25.181-b13
