@@ -3,6 +3,7 @@ package shoot.doode.commonweapon;
 import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
 import shoot.doode.common.data.World;
+import shoot.doode.common.data.entityparts.ShootingPart;
 
 
 public abstract class Weapon extends Entity {
@@ -14,7 +15,7 @@ public abstract class Weapon extends Entity {
     public Weapon() {
     }
     
-    abstract public void shoot(GameData gameData, World world,double dmgModifer);
+    abstract public void shoot(GameData gameData, World world,ShootingPart shootingPart);
     
     public double getCurrentTime() {
         return currentTime;

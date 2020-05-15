@@ -1,0 +1,5 @@
+shoot\doode\powerupdamage\PowerUpDamage.class
+shoot\doode\powerupdamage\PowerUpDamageAssetsLoader.class
+META-INF\services\shoot.doode.common.services.IAssetService
+META-INF\services\shoot.doode.common.services.IGamePluginService
+META-INF\services\shoot.doode.common.services.IPowerUp

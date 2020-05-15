@@ -33,9 +33,12 @@ import org.openide.util.LookupListener;
 import shoot.doode.common.data.GameKeys;
 import shoot.doode.common.data.entityparts.MapPart;
 import shoot.doode.common.data.entityparts.PlayerMovingPart;
+import shoot.doode.common.data.entityparts.ProjectileMovingPart;
 import shoot.doode.common.data.entityparts.SoundPart;
 import shoot.doode.common.services.IAssetService;
+import shoot.doode.common.services.IPowerUp;
 import shoot.doode.core.managers.AssetsHelper;
+import shoot.doode.core.managers.PowerUpManager;
 
 public class Game extends ApplicationAdapter {
 
@@ -134,6 +137,10 @@ public class Game extends ApplicationAdapter {
     }
 
     private void update() {
+        
+        
+        PowerUpManager.getInstance().process(gameData,world,getPowerUpService());
+        
         // Update
         for (IEntityProcessingService entityProcessorService : getEntityProcessingServices()) {
             entityProcessorService.process(gameData, world);
@@ -196,7 +203,14 @@ public class Game extends ApplicationAdapter {
                 PositionPart positionPart = entity.getPart(PositionPart.class);
                 sprite.setRotation(positionPart.getRotation());
                 sprite.setPosition(positionPart.getX() - sprite.getWidth() / 2, positionPart.getY() - sprite.getHeight() / 2);
-
+                
+                ProjectileMovingPart projektileMovingPart = entity.getPart(ProjectileMovingPart.class);
+                if(projektileMovingPart != null)
+                {
+                    float rotation = positionPart.getRotation();
+                    sprite.setRotation((float)Math.toDegrees(rotation));
+                }
+                
                 batch.begin();
                 sprite.draw(batch);
                 batch.end();
@@ -238,7 +252,7 @@ public class Game extends ApplicationAdapter {
 
     @Override
     public void pause() {
-        this.state = State.PAUSE;
+        //this.state = State.PAUSE;
     }
 
     @Override
@@ -260,6 +274,11 @@ public class Game extends ApplicationAdapter {
     private Collection<? extends IPostEntityProcessingService> getPostEntityProcessingServices() {
         return lookup.lookupAll(IPostEntityProcessingService.class);
     }
+    
+    private Collection<? extends IPowerUp> getPowerUpService() {
+        return lookup.lookupAll(IPowerUp.class);
+    }
+    
 
     private final LookupListener lookupListener = new LookupListener() {
         @Override

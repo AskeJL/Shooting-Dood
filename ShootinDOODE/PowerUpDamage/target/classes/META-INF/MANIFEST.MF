@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+OpenIDE-Module-Localizing-Bundle: shoot/doode/powerupdamage/Bundle.pro
+ perties
+OpenIDE-Module-Specification-Version: 1.0
+OpenIDE-Module-Implementation-Version: 1.0-20200515
+OpenIDE-Module-Build-Version: 202005151134
+OpenIDE-Module: shoot.doode.PowerUpDamage
+OpenIDE-Module-Public-Packages: -
+OpenIDE-Module-Requires: org.openide.modules.ModuleFormat1
+OpenIDE-Module-Display-Category: shoot.doode
+OpenIDE-Module-Name: PowerUpDamage
+OpenIDE-Module-Short-Description: <undefined>
+OpenIDE-Module-Long-Description: <undefined>
+OpenIDE-Module-Module-Dependencies: org.netbeans.api.annotations.commo
+ n/1 > 1.33, shoot.doode.Common > 1.0
+

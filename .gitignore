@@ -36,3 +36,6 @@ hs_err_pid*
 /ShootinDOODE/CommonPowerUp/target/
 /ShootinDOODE/PowerUps/target/
 >>>>>>> PowerUp
+/ShootinDOODE/PowerUpMoveSpeed/target/
+/ShootinDOODE/PowerUpDamage/target/
+/ShootinDOODE/PowerUpReloadSpeed/target/

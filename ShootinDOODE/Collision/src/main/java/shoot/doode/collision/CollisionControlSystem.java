@@ -13,6 +13,7 @@ import shoot.doode.common.data.entityparts.PlayerMovingPart;
 import shoot.doode.common.data.entityparts.PositionPart;
 import shoot.doode.common.data.entityparts.ProjectilePart;
 import shoot.doode.common.services.IEntityProcessingService;
+import shoot.doode.common.services.IPowerUp;
 import shoot.doode.commonpowerup.PowerUp;
 /**
  *
@@ -46,13 +47,20 @@ public class CollisionControlSystem implements IEntityProcessingService {
                 if (rectangleCollision(collidableF, collidableE)) {
                     boolean fIsBullet = f.getPart(ProjectilePart.class) != null;
                     boolean eIsBullet = e.getPart(ProjectilePart.class) != null;
-                    boolean fIsPowerUp = f instanceof PowerUp;
-                    boolean eIsPowerUp = e instanceof PowerUp;
+                    boolean fIsPowerUp = f instanceof IPowerUp;
+                    boolean eIsPowerUp = e instanceof IPowerUp;
                     
+                    //If both are Bullets ignore
+                    if(fIsBullet && eIsBullet)
+                    {
+                        continue;
+                    }
                     
+                    //If a power up and the player interacts use the apply power up method
+                    //If one entity is a power up and the other is not ignore it
                     if(fIsPowerUp && e.getPart(PlayerMovingPart.class) != null)
                     {
-                        PowerUp fAsPowerUp = (PowerUp)f;
+                        IPowerUp fAsPowerUp = (IPowerUp)f;
                         fAsPowerUp.applyPowerUp(e);
                         world.removeEntity(f);
                         continue;
@@ -64,7 +72,7 @@ public class CollisionControlSystem implements IEntityProcessingService {
                     
                     if(e.getPart(PlayerMovingPart.class) != null && eIsPowerUp)
                     {
-                        PowerUp eAsPowerUp = (PowerUp)e;
+                        IPowerUp eAsPowerUp = (IPowerUp)e;
                         eAsPowerUp.applyPowerUp(f);
                         world.removeEntity(e);
                         continue;
@@ -93,6 +101,8 @@ public class CollisionControlSystem implements IEntityProcessingService {
                     
                     boolean removedEntity = false;
                     
+                    //If something with a life part gets hit by a bullet take damage = to the bullets damage
+                    //Remove the bullet and if the life gets = 0 remove the other entity
                     if (lifePartE != null && fIsBullet) {
                         ProjectilePart bullet = f.getPart(ProjectilePart.class);
                         lifePartE.setLife(lifePartE.getLife() - bullet.getDamage());
@@ -111,7 +121,7 @@ public class CollisionControlSystem implements IEntityProcessingService {
                         }
                     }
                        
-                    
+                    //If something with a lifepart hits a non static objekt it takes 1 damage
                     if (lifePartE != null && !collidableF.getIsStatic()) {
                         lifePartE.setLife(lifePartE.getLife() - 1);
                         if (lifePartE.getLife() <= 0) {
@@ -128,6 +138,7 @@ public class CollisionControlSystem implements IEntityProcessingService {
                         }
                     }
                     
+                    //If a bullet hits a static objekt remove the bullet
                     if (collidableE.getIsStatic() && fIsBullet) {
                         world.removeEntity(f); //Rebund could be nice AF
                     }
