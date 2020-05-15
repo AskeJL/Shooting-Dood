@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 OpenIDE-Module-Localizing-Bundle: shoot/doode/map/Bundle.properties
 OpenIDE-Module-Specification-Version: 1.0
-OpenIDE-Module-Implementation-Version: 1.0-20200510
-OpenIDE-Module-Build-Version: 202005101848
+OpenIDE-Module-Implementation-Version: 1.0-20200512
+OpenIDE-Module-Build-Version: 202005121628
 OpenIDE-Module: shoot.doode.Map
 OpenIDE-Module-Public-Packages: shoot.doode.map.*
 OpenIDE-Module-Requires: org.openide.modules.ModuleFormat1
