@@ -36,7 +36,9 @@ import shoot.doode.common.data.entityparts.PlayerMovingPart;
 import shoot.doode.common.data.entityparts.ProjectileMovingPart;
 import shoot.doode.common.data.entityparts.SoundPart;
 import shoot.doode.common.services.IAssetService;
+import shoot.doode.common.services.IPowerUp;
 import shoot.doode.core.managers.AssetsHelper;
+import shoot.doode.core.managers.PowerUpManager;
 
 public class Game extends ApplicationAdapter {
 
@@ -156,6 +158,10 @@ public class Game extends ApplicationAdapter {
     }
 
     private void update() {
+        
+        
+        PowerUpManager.getInstance().process(gameData,world,getPowerUpService());
+        
         // Update
         for (IEntityProcessingService entityProcessorService : getEntityProcessingServices()) {
             entityProcessorService.process(gameData, world);
@@ -262,7 +268,7 @@ public class Game extends ApplicationAdapter {
 
     @Override
     public void pause() {
-        this.state = State.PAUSE;
+        //this.state = State.PAUSE;
     }
 
     @Override
@@ -284,6 +290,11 @@ public class Game extends ApplicationAdapter {
     private Collection<? extends IPostEntityProcessingService> getPostEntityProcessingServices() {
         return lookup.lookupAll(IPostEntityProcessingService.class);
     }
+    
+    private Collection<? extends IPowerUp> getPowerUpService() {
+        return lookup.lookupAll(IPowerUp.class);
+    }
+    
 
     private final LookupListener lookupListener = new LookupListener() {
         @Override

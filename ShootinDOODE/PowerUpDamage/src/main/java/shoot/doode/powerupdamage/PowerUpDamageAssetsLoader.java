@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package shoot.doode.powerups;
+package shoot.doode.powerupdamage;
 
 import shoot.doode.common.services.IAssetService;
 import java.util.ArrayList;
@@ -17,16 +17,13 @@ import org.openide.util.lookup.ServiceProviders;
 @ServiceProviders(value = {
     @ServiceProvider(service = IAssetService.class),})
 
-public class PowerUpAssetsLoader implements IAssetService {
+public class PowerUpDamageAssetsLoader implements IAssetService {
 
-    String module = "PowerUps";
+    String module = "PowerUpDamage";
 
     private String[] images() {
         ArrayList<String> paths = new ArrayList<>();
-        paths.add("apple.png");
-        paths.add("banana.png");
         paths.add("ham.png");
-        paths.add("heart.png");
 
         return IAssetService.arrayListToString(module, paths);
     }

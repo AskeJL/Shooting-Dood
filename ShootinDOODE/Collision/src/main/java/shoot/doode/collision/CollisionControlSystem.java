@@ -13,6 +13,7 @@ import shoot.doode.common.data.entityparts.PlayerMovingPart;
 import shoot.doode.common.data.entityparts.PositionPart;
 import shoot.doode.common.data.entityparts.ProjectilePart;
 import shoot.doode.common.services.IEntityProcessingService;
+import shoot.doode.common.services.IPowerUp;
 import shoot.doode.commonpowerup.PowerUp;
 /**
  *
@@ -46,8 +47,8 @@ public class CollisionControlSystem implements IEntityProcessingService {
                 if (rectangleCollision(collidableF, collidableE)) {
                     boolean fIsBullet = f.getPart(ProjectilePart.class) != null;
                     boolean eIsBullet = e.getPart(ProjectilePart.class) != null;
-                    boolean fIsPowerUp = f instanceof PowerUp;
-                    boolean eIsPowerUp = e instanceof PowerUp;
+                    boolean fIsPowerUp = f instanceof IPowerUp;
+                    boolean eIsPowerUp = e instanceof IPowerUp;
                     
                     //If both are Bullets ignore
                     if(fIsBullet && eIsBullet)
@@ -59,7 +60,7 @@ public class CollisionControlSystem implements IEntityProcessingService {
                     //If one entity is a power up and the other is not ignore it
                     if(fIsPowerUp && e.getPart(PlayerMovingPart.class) != null)
                     {
-                        PowerUp fAsPowerUp = (PowerUp)f;
+                        IPowerUp fAsPowerUp = (IPowerUp)f;
                         fAsPowerUp.applyPowerUp(e);
                         world.removeEntity(f);
                         continue;
@@ -71,7 +72,7 @@ public class CollisionControlSystem implements IEntityProcessingService {
                     
                     if(e.getPart(PlayerMovingPart.class) != null && eIsPowerUp)
                     {
-                        PowerUp eAsPowerUp = (PowerUp)e;
+                        IPowerUp eAsPowerUp = (IPowerUp)e;
                         eAsPowerUp.applyPowerUp(f);
                         world.removeEntity(e);
                         continue;
