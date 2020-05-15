@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.PowerUpMoveSpeed">
-    <module_version install_time="1589301698252" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1589543744556" last="true" origin="installer" specification_version="1.0">
         <file crc="3564129836" name="config/Modules/shoot-doode-PowerUpMoveSpeed.xml"/>
-        <file crc="2024275522" name="modules/shoot-doode-PowerUpMoveSpeed.jar"/>
-        <file crc="2214787461" name="update_tracking/shoot-doode-PowerUpMoveSpeed.xml"/>
+        <file crc="2781246320" name="modules/shoot-doode-PowerUpMoveSpeed.jar"/>
+        <file crc="2460495065" name="update_tracking/shoot-doode-PowerUpMoveSpeed.xml"/>
     </module_version>
 </module>

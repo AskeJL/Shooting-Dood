@@ -17,8 +17,10 @@ import shoot.doode.common.data.entityparts.SpritePart;
 @ServiceProviders(value = {
     @ServiceProvider(service = IEntityProcessingService.class),})
 public class PlayerControlSystem implements IEntityProcessingService {
+
     private boolean oldSpaceValue;
     private boolean newSpaceValue;
+
     @Override
     public void process(GameData gameData, World world) {
         for (Entity player : world.getEntities(Player.class)) {
@@ -27,56 +29,51 @@ public class PlayerControlSystem implements IEntityProcessingService {
             ShootingPart shootingPart = player.getPart(ShootingPart.class);
             LifePart lifePart = player.getPart(LifePart.class);
             SpritePart spritepart = player.getPart(SpritePart.class);
-            playerMovingPart.setCurrentSpeed(playerMovingPart.getBaseSpeed() * (float)playerMovingPart.getSpeedModifier());
-                    
+            playerMovingPart.setCurrentSpeed(playerMovingPart.getBaseSpeed() * (float) playerMovingPart.getSpeedModifier());
+
             playerMovingPart.setLeft(gameData.getKeys().isDown(GameKeys.LEFT));
-            if (gameData.getKeys().isDown(GameKeys.LEFT)){
-            spritepart.setCurrentSprite(1);
+            if (gameData.getKeys().isDown(GameKeys.LEFT)) {
+                spritepart.setCurrentSprite(1);
             }
             playerMovingPart.setRight(gameData.getKeys().isDown(GameKeys.RIGHT));
-            if (gameData.getKeys().isDown(GameKeys.RIGHT)){
-            spritepart.setCurrentSprite(2);
+            if (gameData.getKeys().isDown(GameKeys.RIGHT)) {
+                spritepart.setCurrentSprite(2);
             }
             playerMovingPart.setUp(gameData.getKeys().isDown(GameKeys.UP));
-            if (gameData.getKeys().isDown(GameKeys.UP)){
-            spritepart.setCurrentSprite(3);
+            if (gameData.getKeys().isDown(GameKeys.UP)) {
+                spritepart.setCurrentSprite(3);
             }
             playerMovingPart.setDown(gameData.getKeys().isDown(GameKeys.DOWN));
-            if (gameData.getKeys().isDown(GameKeys.DOWN)){
-            spritepart.setCurrentSprite(0);
+            if (gameData.getKeys().isDown(GameKeys.DOWN)) {
+                spritepart.setCurrentSprite(0);
             }
-            
-            if(gameData.getKeys().isDown(GameKeys.LEFT) || gameData.getKeys().isDown(GameKeys.RIGHT) || gameData.getKeys().isDown(GameKeys.UP) || gameData.getKeys().isDown(GameKeys.DOWN))
-            {
+
+            if (gameData.getKeys().isDown(GameKeys.LEFT) || gameData.getKeys().isDown(GameKeys.RIGHT) || gameData.getKeys().isDown(GameKeys.UP) || gameData.getKeys().isDown(GameKeys.DOWN)) {
                 shootingPart.setIsShooting(true);
-            }
-            else{
+            } else {
                 shootingPart.setIsShooting(false);
             }
-            
+
             shootingPart.setSwitchWeapon(false);
-            newSpaceValue = gameData.getKeys().isDown(GameKeys.SPACE);            
-            if(newSpaceValue != oldSpaceValue && newSpaceValue)
-            {
+            newSpaceValue = gameData.getKeys().isDown(GameKeys.SPACE);
+            if (newSpaceValue != oldSpaceValue && newSpaceValue) {
                 shootingPart.setSwitchWeapon(true);
-            }           
+            }
             oldSpaceValue = newSpaceValue;
-   
+
             playerMovingPart.setW(gameData.getKeys().isDown(GameKeys.W));
             playerMovingPart.setA(gameData.getKeys().isDown(GameKeys.A));
             playerMovingPart.setS(gameData.getKeys().isDown(GameKeys.S));
-            playerMovingPart.setD(gameData.getKeys().isDown(GameKeys.D));        
-            
+            playerMovingPart.setD(gameData.getKeys().isDown(GameKeys.D));
+
             playerMovingPart.process(gameData, player);
             positionPart.process(gameData, player);
             shootingPart.process(gameData, player);
             lifePart.process(gameData, player);
-            
 
             updateShape(player);
         }
     }
-    
 
     private void updateShape(Entity entity) {
         float[] shapex = new float[4];

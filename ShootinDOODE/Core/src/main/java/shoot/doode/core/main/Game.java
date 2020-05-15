@@ -137,8 +137,6 @@ public class Game extends ApplicationAdapter {
                 break;
 
             case PAUSE:
-                System.out.println("Paused");
-
                 newPausedValue = gameData.getKeys().isDown(GameKeys.ESCAPE);
                 if (newPausedValue != oldPausedValue && newPausedValue) {
                     setGameState(State.RUN);

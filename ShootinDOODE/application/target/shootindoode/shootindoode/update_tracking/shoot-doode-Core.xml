@@ -1,17 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.Core">
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-    <module_version install_time="1589280440098" last="true" origin="installer" specification_version="1.0">
-=======
-    <module_version install_time="1589206028116" last="true" origin="installer" specification_version="1.0">
->>>>>>> PowerUp
-=======
-    <module_version install_time="1589281101635" last="true" origin="installer" specification_version="1.0">
->>>>>>> Stashed changes
-=======
-    <module_version install_time="1589301699583" last="true" origin="installer" specification_version="1.0">
->>>>>>> master
+    <module_version install_time="1589543746550" last="true" origin="installer" specification_version="1.0">
         <file crc="1284631590" name="config/Modules/shoot-doode-Core.xml"/>
         <file crc="2488665527" name="modules/ext/shoot.doode.Core/com-badlogicgames-gdx/gdx-backend-lwjgl.jar"/>
         <file crc="2933476186" name="modules/ext/shoot.doode.Core/com-badlogicgames-gdx/gdx-box2d-platform-natives-desktop.jar"/>
@@ -29,21 +17,7 @@
         <file crc="1629828147" name="modules/ext/shoot.doode.Core/org-lwjgl-lwjgl/lwjgl-platform-natives-windows.jar"/>
         <file crc="1810775593" name="modules/ext/shoot.doode.Core/org-lwjgl-lwjgl/lwjgl.jar"/>
         <file crc="1003691195" name="modules/ext/shoot.doode.Core/org-lwjgl-lwjgl/lwjgl_util.jar"/>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-        <file crc="1071418246" name="modules/shoot-doode-Core.jar"/>
-=======
-        <file crc="2741288062" name="modules/shoot-doode-Core.jar"/>
-        <file crc="1576897870" name="update_tracking/shoot-doode-Core.xml"/>
->>>>>>> PowerUp
-=======
-        <file crc="919644168" name="modules/shoot-doode-Core.jar"/>
-        <file crc="3223741255" name="update_tracking/shoot-doode-Core.xml"/>
->>>>>>> Stashed changes
-=======
-        <file crc="1562804830" name="modules/shoot-doode-Core.jar"/>
-        <file crc="1045665373" name="update_tracking/shoot-doode-Core.xml"/>
->>>>>>> master
+        <file crc="2756814908" name="modules/shoot-doode-Core.jar"/>
+        <file crc="2206269069" name="update_tracking/shoot-doode-Core.xml"/>
     </module_version>
 </module>
