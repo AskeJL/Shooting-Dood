@@ -1,0 +1,5 @@
+shoot\doode\powerupmovespeed\PowerUpMoveSpeedAssetsLoader.class
+META-INF\services\shoot.doode.common.services.IAssetService
+shoot\doode\powerupmovespeed\PowerUpMoveSpeed.class
+META-INF\services\shoot.doode.common.services.IGamePluginService
+META-INF\services\shoot.doode.common.services.IPowerUp
