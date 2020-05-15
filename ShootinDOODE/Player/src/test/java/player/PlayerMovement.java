@@ -17,9 +17,7 @@ import shoot.doode.common.data.entityparts.ShootingPart;
 import shoot.doode.common.data.entityparts.SpritePart;
 import shoot.doode.playersystem.Player;
 
-
 public class PlayerMovement {
-
     @Test
     public void playerMovementTest() throws InterruptedException {
         GameData gameData = mock(GameData.class);
@@ -43,15 +41,11 @@ public class PlayerMovement {
         world.addEntity(player);
 
         //Check that the world consist of 1 entity, the player entity
-        System.out.println("Testing that a player entity has been added to world");
         assertEquals(1, world.getEntities().size());
-        System.out.println("Test complete\n");
         
 
         //Check the initial y location of the player Entity. 1e-8 is the difference alloud and is used because it is a small number
-        System.out.println("Testing that inital location of player entity id 200.0");
         assertEquals(200.0, initialY, 1e-8);
-        System.out.println("Test complete\n");
         
         PlayerControlSystem playerControlSystem = new PlayerControlSystem();
 
@@ -60,11 +54,7 @@ public class PlayerMovement {
 
         // Call the process method to move the player and check the players location is higher than the initial
         playerControlSystem.process(gameData, world); 
-        System.out.println("Testing player entities y location is higher and has therefore moved up");
         assertTrue(positionPart.getY() > initialY);
-        System.out.println("Test complete\n");
-        
-        System.out.println("All tests complete. Player movement functions correct");
     }
     
      private Entity createPlayerShip(GameData gameData) {
