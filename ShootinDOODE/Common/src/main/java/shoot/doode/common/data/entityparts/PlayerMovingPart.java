@@ -241,20 +241,6 @@ public class PlayerMovingPart implements EntityPart
             }
             y = y - currentSpeed;
         }
-
-        //Border tjek
-        if (x > gameData.getDisplayWidth()) {
-            x = gameData.getDisplayWidth();
-        } else if (x < 0) {
-            x = 0;
-        }
-        
-        if (y > gameData.getDisplayHeight()) {
-            y = gameData.getDisplayHeight();
-        } else if (y < 0) {
-            y = 0;
-        }
-
         PositionPart.setX(x);
         PositionPart.setY(y);
         PositionPart.setRotation(rotation);
