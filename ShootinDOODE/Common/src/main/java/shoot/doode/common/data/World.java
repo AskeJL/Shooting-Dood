@@ -16,6 +16,7 @@ public class World {
 
     public String addEntity(Entity entity) {
         entityMap.put(entity.getID(), entity);
+        System.out.println("Added Entity: " + entity);
         return entity.getID();
     }
 

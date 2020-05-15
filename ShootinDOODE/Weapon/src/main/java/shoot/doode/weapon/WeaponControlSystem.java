@@ -44,7 +44,7 @@ public class WeaponControlSystem implements IEntityProcessingService {
                     if (playerShootingPart.isShooting()) {
                         if(weapon.getCurrentTime() >= weapon.getRealoadTime())
                         {
-                            weapon.shoot(gameData, world,playerShootingPart.getDamageModifier());
+                            weapon.shoot(gameData, world,playerShootingPart);
                             weapon.SetCurrentTime(0);
                         }
                     }
@@ -55,6 +55,13 @@ public class WeaponControlSystem implements IEntityProcessingService {
                         {
                             world.removeEntity(playerShootingPart.getWeapon());
                             Weapon newWeapon = createWeapon(player,Shotgun.class);
+                            world.addEntity(newWeapon);
+                            playerShootingPart.setWeapon(newWeapon);
+                        }
+                        else if (playerShootingPart.getWeapon() instanceof Shotgun)
+                        {
+                            world.removeEntity(playerShootingPart.getWeapon());
+                            Weapon newWeapon = createWeapon(player,MiniGun.class);
                             world.addEntity(newWeapon);
                             playerShootingPart.setWeapon(newWeapon);
                         }

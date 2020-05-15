@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.Collision">
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
     <module_version install_time="1589280440571" last="true" origin="installer" specification_version="1.0">
@@ -20,5 +21,12 @@
         <file crc="13358140" name="modules/shoot-doode-Collision.jar"/>
         <file crc="1960599286" name="update_tracking/shoot-doode-Collision.xml"/>
 >>>>>>> Stashed changes
+=======
+    <module_version install_time="1589301699695" last="true" origin="installer" specification_version="1.0">
+        <file crc="3587771722" name="config/Modules/shoot-doode-Collision.xml"/>
+        <file crc="1015876392" name="modules/ext/shoot.doode.Collision/com-badlogicgames-gdx/gdx.jar"/>
+        <file crc="672408784" name="modules/shoot-doode-Collision.jar"/>
+        <file crc="3169135878" name="update_tracking/shoot-doode-Collision.xml"/>
+>>>>>>> master
     </module_version>
 </module>

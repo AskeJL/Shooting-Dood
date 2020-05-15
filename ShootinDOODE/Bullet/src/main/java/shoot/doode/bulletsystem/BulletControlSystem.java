@@ -11,61 +11,28 @@ import shoot.doode.common.services.IEntityProcessingService;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
 import shoot.doode.common.data.entityparts.PlayerMovingPart;
+import shoot.doode.common.data.entityparts.ProjectileMovingPart;
 import shoot.doode.common.data.entityparts.ProjectilePart;
 
 @ServiceProviders(value = {
     @ServiceProvider(service = IEntityProcessingService.class),})
 public class BulletControlSystem implements IEntityProcessingService {
 
-    private double delta = 0.01;
-
     @Override
     public void process(GameData gameData, World world) {
         for (Entity bullet : world.getEntities(Bullet.class)) {
             
             PositionPart position = bullet.getPart(PositionPart.class);
-            PlayerMovingPart moving = bullet.getPart(PlayerMovingPart.class);
+            ProjectileMovingPart moving = bullet.getPart(ProjectileMovingPart.class);
             TimerPart time = bullet.getPart(TimerPart.class);
             ProjectilePart projectilePart = bullet.getPart(ProjectilePart.class);
-            System.out.println(projectilePart.getDamage());
             
-            //mpb.setUp(true);
             time.reduceExpiration(gameData.getDelta());
             LifePart life = bullet.getPart(LifePart.class);
-            //If duration is exceeded, remove the bullet.
-            if (time.getExpiration() < 0) {
-                world.removeEntity(bullet);
-            }
-
-            if(position.getRotation() == 0){
-                moving.setD(true);               
-            }
-            if(Math.abs(position.getRotation() - (float)Math.PI/2) < delta){
-                moving.setW(true);              
-            }
-            if(Math.abs(position.getRotation() - (float)Math.PI) < delta){
-                moving.setA(true);               
-            }
-            if(Math.abs(position.getRotation() - (float)(Math.PI+Math.PI/2)) < delta){
-                moving.setS(true);               
-            }
-            if(Math.abs(position.getRotation() - (float)Math.PI/4 ) < delta){
-                moving.setD(true);
-                moving.setW(true);              
-            }
-            if(Math.abs(position.getRotation() - (float)Math.PI*3/4) < delta){
-                moving.setW(true);
-                moving.setA(true);              
-            }
-            if(Math.abs(position.getRotation() - (float)(Math.PI+Math.PI/4)) < delta){
-                moving.setA(true);
-                moving.setS(true);              
-            }
-            if(Math.abs(position.getRotation() - (float)(Math.PI*2-Math.PI/4)) < delta){
-                moving.setS(true);
-                moving.setD(true);              
-            }
             
+//            if (time.getExpiration() < 0) {
+//                world.removeEntity(bullet);
+//            }
            
             position.process(gameData, bullet);
             moving.process(gameData, bullet);

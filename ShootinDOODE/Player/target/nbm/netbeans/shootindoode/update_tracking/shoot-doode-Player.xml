@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.Player">
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
     <module_version install_time="1589136508448" last="true" origin="installer" specification_version="1.0">
@@ -17,5 +18,11 @@
         <file crc="3087670030" name="modules/shoot-doode-Player.jar"/>
         <file crc="1343413033" name="update_tracking/shoot-doode-Player.xml"/>
 >>>>>>> Stashed changes
+=======
+    <module_version install_time="1589301696826" last="true" origin="installer" specification_version="1.0">
+        <file crc="462997863" name="config/Modules/shoot-doode-Player.xml"/>
+        <file crc="2739629790" name="modules/shoot-doode-Player.jar"/>
+        <file crc="2698585855" name="update_tracking/shoot-doode-Player.xml"/>
+>>>>>>> master
     </module_version>
 </module>
