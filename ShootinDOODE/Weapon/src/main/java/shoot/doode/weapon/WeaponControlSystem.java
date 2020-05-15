@@ -44,7 +44,7 @@ public class WeaponControlSystem implements IEntityProcessingService {
                     if (playerShootingPart.isShooting()) {
                         if(weapon.getCurrentTime() >= weapon.getRealoadTime())
                         {
-                            weapon.shoot(gameData, world,playerShootingPart);
+                            weapon.shoot(gameData, world,player);
                             weapon.SetCurrentTime(0);
                         }
                     }
