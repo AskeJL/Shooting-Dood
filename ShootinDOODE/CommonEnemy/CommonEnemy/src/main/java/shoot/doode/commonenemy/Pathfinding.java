@@ -211,10 +211,10 @@ public class Pathfinding {
                 String pointName = getPointName(point);
                 int cost = distanceBetweenPoints(point, pointToAdd);
                 
-                System.out.println("Adding line of sight to point: " + pathPointName + " -> " + pointName);
+                System.out.println("Adding line of sight to point: " + pointName + " -> " + pathPointName);
                 
                 NodeGeneration.BasicNode node2 = new NodeGeneration.BasicNode(pointName);
-                WeightedEdge<NodeGeneration.BasicNode> weightedEdge = new WeightedEdge<>(node1, node2, cost);
+                WeightedEdge<NodeGeneration.BasicNode> weightedEdge = new WeightedEdge<>(node2, node1, cost);
                 
                 edges.add(weightedEdge);
             }
