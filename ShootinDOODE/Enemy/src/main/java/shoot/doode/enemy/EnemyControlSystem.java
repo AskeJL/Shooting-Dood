@@ -5,6 +5,7 @@
  */
 package shoot.doode.enemy;
 
+import java.util.List;
 import java.util.Random;
 import shoot.doode.commonenemy.Enemy;
 import shoot.doode.commonenemy.AI;
@@ -22,6 +23,7 @@ import org.openide.util.lookup.ServiceProviders;
 import shoot.doode.common.data.CollidableEntity;
 import shoot.doode.common.data.entityparts.SpritePart;
 import shoot.doode.commonenemy.Pathfinding;
+import shoot.doode.commonenemy.Point;
 
 /**
  *
@@ -65,6 +67,8 @@ public class EnemyControlSystem implements IEntityProcessingService, AI {
             if (rng > 0.8f) {
                 movingPart.setRight(true);
             }
+            List<Point> path = pathfinding.generatePath(new Point(positionPart.getX(), positionPart.getY()), new Point(10, 10));
+            //movingPart.setDestination(path.get(0).x, path.get(0).y);
 
             movingPart.process(gameData, enemy);
             positionPart.process(gameData, enemy);

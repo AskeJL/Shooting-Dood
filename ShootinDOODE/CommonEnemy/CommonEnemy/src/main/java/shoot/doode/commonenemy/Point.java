@@ -5,8 +5,8 @@ package shoot.doode.commonenemy;
  * @author sande
  */
 public class Point {
-    float x;
-    float y;
+    public float x;
+    public float y;
 
     public Point() {
 
