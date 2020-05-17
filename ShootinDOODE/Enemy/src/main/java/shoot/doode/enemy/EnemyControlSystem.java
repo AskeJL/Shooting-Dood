@@ -41,7 +41,7 @@ public class EnemyControlSystem implements IEntityProcessingService, AI {
         // Calling it here is not the most performant method...
         pathfinding.setup(world);
         
-        if(world.getEntities(Enemy.class).size() == 0)
+        if(world.getEntities(Enemy.class).size() < 1)
         {
             Entity enemy = createEnemy(gameData);
             world.addEntity(enemy);
@@ -67,7 +67,7 @@ public class EnemyControlSystem implements IEntityProcessingService, AI {
             if (rng > 0.8f) {
                 movingPart.setRight(true);
             }
-            List<Point> path = pathfinding.generatePath(new Point(positionPart.getX(), positionPart.getY()), new Point(10, 10));
+            //List<Point> path = pathfinding.generatePath(new Point(positionPart.getX(), positionPart.getY()), new Point(10, 10));
             //movingPart.setDestination(path.get(0).x, path.get(0).y);
 
             movingPart.process(gameData, enemy);
@@ -88,7 +88,7 @@ public class EnemyControlSystem implements IEntityProcessingService, AI {
         PositionPart positionPart = entity.getPart(PositionPart.class);
         float x = positionPart.getX();
         float y = positionPart.getY();
-        float radians = positionPart.getRotation();
+        float radians = 0;//positionPart.getRotation();
 
         shapex[0] = (float) (x + Math.cos(radians) * entity.getRadius());
         shapey[0] = (float) (y + Math.sin(radians) * entity.getRadius());
