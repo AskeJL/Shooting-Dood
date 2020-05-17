@@ -73,7 +73,7 @@ public class Pathfinding {
             int cornerRange = 5;
             Point topLeft = new Point(posPart.getX() - cEntity.getBoundaryWidth() - cornerRange, posPart.getY() + cornerRange);
             Point topRight = new Point(posPart.getX() + cEntity.getBoundaryWidth() + cornerRange, posPart.getY() + cornerRange);
-            Point bottomLeft = new Point(posPart.getX() - cornerRange, posPart.getY() - cEntity.getBoundaryHeight() - cornerRange);
+            Point bottomLeft = new Point(posPart.getX() - cEntity.getBoundaryWidth() - cornerRange, posPart.getY() - cEntity.getBoundaryHeight() - cornerRange);
             Point bottomRight = new Point(posPart.getX() + cEntity.getBoundaryWidth() + cornerRange, posPart.getY() - cEntity.getBoundaryHeight() - cornerRange);
             
             //world.addEntity(createEnemy(topLeft.x, topLeft.y));
