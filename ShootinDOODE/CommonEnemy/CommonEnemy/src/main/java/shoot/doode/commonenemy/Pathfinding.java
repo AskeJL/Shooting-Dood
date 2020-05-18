@@ -33,9 +33,11 @@ public class Pathfinding {
     
     public void setup(World world) {
         if(world.getEntities().size() == lastEntityCount) {
+            System.out.println("samme mængde entities som sidste tjek");
             return;
         }
         else {
+            System.out.println("ny mængde entities");
             lastEntityCount = world.getEntities().size();
         }
         
@@ -164,9 +166,10 @@ public class Pathfinding {
         // TODO: Fix so current/destination cannot be inside of obstacle
         try {
             astar.aStarCostCalc(graph.getGraph(), current, destination);
+            
         }
         catch(Exception ex) {
-            
+            System.out.println("exception på aStarCostCalc" + ex);
         }
         
         removeLineOfSightToPoint(current);

@@ -25,7 +25,6 @@ import shoot.doode.common.data.entityparts.SpritePart;
 import shoot.doode.commonenemy.AStarAlgorithm;
 import shoot.doode.commonenemy.Pathfinding;
 import shoot.doode.commonenemy.Point;
-import shoot.doode.playersystem.Player;
 
 /**
  *
@@ -83,6 +82,7 @@ public class EnemyControlSystem implements IEntityProcessingService, AI {
             if(playerEntity != null) {
                 PositionPart playerPositionPart = playerEntity.getPart(PositionPart.class);
                 
+                System.out.println("laver path");
                 pathfinding.generatePath(new Point(positionPart.getX(), positionPart.getY()),
                         new Point(playerPositionPart.getX(), playerPositionPart.getY()));
 

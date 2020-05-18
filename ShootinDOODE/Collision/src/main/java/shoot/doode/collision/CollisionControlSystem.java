@@ -128,6 +128,7 @@ public class CollisionControlSystem implements IEntityProcessingService {
             }
 
             if (intersection.getHeight() < intersection.getWidth()) {
+                System.out.println(intersection.getHeight() + intersection.getWidth());
                 if (intersection.getY() == ep.getY()) {
                     ep.setY(intersection.getY() + intersection.getHeight());
                 }
@@ -135,6 +136,7 @@ public class CollisionControlSystem implements IEntityProcessingService {
                     ep.setY(intersection.getY() - e.getBoundaryHeight());
                 }
             } else if (intersection.getWidth() < intersection.getHeight()) {
+                System.out.println(intersection.getHeight() + intersection.getWidth());
                 if (intersection.getX() == ep.getX()) {
                     ep.setX(intersection.getX() + intersection.getWidth());
                 }

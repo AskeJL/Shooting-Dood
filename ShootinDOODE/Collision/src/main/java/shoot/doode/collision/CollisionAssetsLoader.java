@@ -20,6 +20,7 @@ public class CollisionAssetsLoader implements IAssetService {
         paths.add("brick_wall_red.png");
         paths.add("brick_wall_white.png");
         paths.add("brick_wall_blue.png");
+        paths.add("rsz_oa_bench.png");
         
         return IAssetService.arrayListToString(module, paths);
     }
