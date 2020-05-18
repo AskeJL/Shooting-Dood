@@ -42,28 +42,28 @@ public class BackgroundPlugin implements IGamePluginService  {
                     width = (40*35)*2;
                     height = 0;
                     boundary = createBoundary(gameData, x, y, width, height);
-                    world.addEntity(boundary);
+                    world.addEntity(boundary); // works
                 case 1:
-                    x = (39*35)*2;
-                    y = 0;
-                    width = (40*35)*2;
-                    height = 0;
-                    boundary = createBoundary(gameData, x, y, width, height);
-                    world.addEntity(boundary);
-                case 2:
-                    x = 0;
-                    y = (40*35)*2;
-                    width = 0;
-                    height = (40*35)*2;
-                    boundary = createBoundary(gameData, x, y, width, height);
-                    world.addEntity(boundary);
-                case 3:
                     x = 35;
                     y = 0;
                     width = 0;
                     height = (40*35)*2;
                     boundary = createBoundary(gameData, x, y, width, height);
-                    world.addEntity(boundary);
+                    world.addEntity(boundary); // Works
+                case 2:
+//                    x = 35;
+//                    y = (40*35)*2;
+//                    width = (40*35)*2;
+//                    height = 0;
+//                    boundary = createBoundary(gameData, x, y, width, height);
+//                    world.addEntity(boundary);
+                case 3:
+//                    x = (40*35)*2;
+//                    y = 0;
+//                    width = 0;
+//                    height = (40*35)*2;
+//                    boundary = createBoundary(gameData, x, y, width, height);
+//                    world.addEntity(boundary);
             }
         }
     }
