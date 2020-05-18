@@ -22,8 +22,10 @@ import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
 import shoot.doode.common.data.CollidableEntity;
 import shoot.doode.common.data.entityparts.SpritePart;
+import shoot.doode.commonenemy.AStarAlgorithm;
 import shoot.doode.commonenemy.Pathfinding;
 import shoot.doode.commonenemy.Point;
+import shoot.doode.playersystem.Player;
 
 /**
  *
@@ -67,8 +69,35 @@ public class EnemyControlSystem implements IEntityProcessingService, AI {
             if (rng > 0.8f) {
                 movingPart.setRight(true);
             }
-            //List<Point> path = pathfinding.generatePath(new Point(positionPart.getX(), positionPart.getY()), new Point(10, 10));
-            //movingPart.setDestination(path.get(0).x, path.get(0).y);
+            
+            // Get the player entity
+            Entity playerEntity = null;
+            for(Entity entity : world.getEntities()) {
+                if(entity.getClass().getName().contains(".Player")) {
+                    playerEntity = entity;
+                    break;
+                }
+            }
+            
+            
+            if(playerEntity != null) {
+                PositionPart playerPositionPart = playerEntity.getPart(PositionPart.class);
+                
+                pathfinding.generatePath(new Point(positionPart.getX(), positionPart.getY()),
+                        new Point(playerPositionPart.getX(), playerPositionPart.getY()));
+
+                Point nextPoint = pathfinding.astar.getNextPoint();
+                if(nextPoint.getX() != 0 && nextPoint.getY() != 0) {
+                    if(Point.getDistance(nextPoint, new Point(positionPart.getX(), positionPart.getY())) < 5) {
+                        //System.out.println("Point reached");
+                        pathfinding.astar.pointReached();
+                    }
+                    else {                
+                        //System.out.println("Moving towards: " + nextPoint.getX() + ", " + nextPoint.getY());
+                        movingPart.setDestination(nextPoint.getX(), nextPoint.getY());
+                    }
+                }
+            }
 
             movingPart.process(gameData, enemy);
             positionPart.process(gameData, enemy);

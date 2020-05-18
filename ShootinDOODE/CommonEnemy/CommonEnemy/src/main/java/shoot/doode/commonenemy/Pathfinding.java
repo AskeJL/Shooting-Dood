@@ -1,14 +1,7 @@
 package shoot.doode.commonenemy;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Random;
-import jgh.javagraph.Graph;
-import jgh.javagraph.WeightedEdge;
-import jgh.javagraph.algorithms.AStar;
-import jgh.javagraph.generation.NodeGeneration;
 import shoot.doode.common.data.CollidableEntity;
 import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
@@ -25,8 +18,9 @@ import shoot.doode.common.data.entityparts.SpritePart;
 public class Pathfinding {
     private List<Point> points = new ArrayList<>();
     private List<Rectangle> obstacles = new ArrayList<>();
+    public AStarAlgorithm astar = new AStarAlgorithm();
     
-    private ArrayList<WeightedEdge<NodeGeneration.BasicNode>> edges = new ArrayList<>();
+    Graph graph = new Graph();
     
     private int lastEntityCount = 0;
     
@@ -49,7 +43,7 @@ public class Pathfinding {
         
         points.clear();
         obstacles.clear();
-        edges.clear();
+        graph.getGraph().clear();
         
         for(Entity entity : world.getEntities()) {
             // Get only collidable entities
@@ -70,9 +64,9 @@ public class Pathfinding {
             obstacles.add(obstacle);
             
             // Build list of corners around obstacles
-            int cornerRange = 5;
-            Point topLeft = new Point(posPart.getX() - cEntity.getBoundaryWidth() - cornerRange, posPart.getY() + cornerRange);
-            Point topRight = new Point(posPart.getX() + cEntity.getBoundaryWidth() + cornerRange, posPart.getY() + cornerRange);
+            int cornerRange = 30;
+            Point topLeft = new Point(posPart.getX() - cEntity.getBoundaryWidth() - cornerRange, posPart.getY() + 30 + cornerRange);
+            Point topRight = new Point(posPart.getX() + cEntity.getBoundaryWidth() + cornerRange, posPart.getY() + 30 + cornerRange);
             Point bottomLeft = new Point(posPart.getX() - cEntity.getBoundaryWidth() - cornerRange, posPart.getY() - cEntity.getBoundaryHeight() - cornerRange);
             Point bottomRight = new Point(posPart.getX() + cEntity.getBoundaryWidth() + cornerRange, posPart.getY() - cEntity.getBoundaryHeight() - cornerRange);
             
@@ -129,20 +123,37 @@ public class Pathfinding {
     }
     
     public List<Point> generatePath(Point current, Point destination) {
-        List<Point> pathList = new ArrayList<>();
+        ArrayList<Point> pathList = new ArrayList<>();
         
-        if(hasLineOfSight(current, destination)) {
+        /*if(hasLineOfSight(current, destination)) {
             System.out.println("Has line of sight!");
             
             pathList.add(destination);
+            astar.setFinalPath(pathList);
+            
             return pathList;
-        }
+        }*/
         
-        System.out.println("No line of sight!");
+        //System.out.println("No line of sight!");
         
         // 1. add current, destination to line of sight map
         // 2. pathList = call A* algorithm on map
         // 3. remove current, destination from line of sight map
+        /*int closestCurrent = -1;
+        int closestDestination = -1;
+        for(Point point : points) {
+            int distanceCurrent = (int)Point.getDistance(current, point);
+            int distanceDestination = (int)Point.getDistance(destination, point);
+            
+            if(closestCurrent == -1 || distanceCurrent < closestCurrent) {
+                closestCurrent = distanceCurrent;
+                current = point;
+            }
+            if(closestDestination == -1 || distanceDestination < closestDestination) {
+                closestDestination = distanceDestination;
+                destination = point;
+            }
+        }*/
         
         addLineOfSight(current);
         addLineOfSightToPoint(current);
@@ -150,21 +161,13 @@ public class Pathfinding {
         addLineOfSight(destination);
         addLineOfSightToPoint(destination);
         
-        String nameCurrent = getPointName(current);
-        String nameDestination = getPointName(destination);
-        
-        NodeGeneration.BasicNode node1 = new NodeGeneration.BasicNode(nameCurrent);
-        NodeGeneration.BasicNode node2 = new NodeGeneration.BasicNode(nameDestination);
-        
-        Graph<NodeGeneration.BasicNode, WeightedEdge<NodeGeneration.BasicNode>> g = new Graph<NodeGeneration.BasicNode, WeightedEdge<NodeGeneration.BasicNode>>(edges);
-        ArrayList<NodeGeneration.BasicNode> path = AStar.findMinPath(g, node1, node2, new AStar.IAStarHeuristic<NodeGeneration.BasicNode>() {
-            @Override
-            public float getHeuristic(NodeGeneration.BasicNode t, NodeGeneration.BasicNode goal) {
-                return 15;
-            }
-        });
-        
-        System.out.println("Graph result: " + g.getEdges().size());
+        // TODO: Fix so current/destination cannot be inside of obstacle
+        try {
+            astar.aStarCostCalc(graph.getGraph(), current, destination);
+        }
+        catch(Exception ex) {
+            
+        }
         
         removeLineOfSightToPoint(current);
         removeLineOfSightToPoint(destination);
@@ -177,7 +180,6 @@ public class Pathfinding {
         // The map can then be given directly to an A* algorithm to find path from A to B
         
         String pathPointName = getPointName(pathPoint);
-        NodeGeneration.BasicNode node1 = new NodeGeneration.BasicNode(pathPointName);
         
         for(Point point : points) {
             if(point == pathPoint) {
@@ -188,20 +190,15 @@ public class Pathfinding {
                 String pointName = getPointName(point);
                 int cost = distanceBetweenPoints(point, pathPoint);
                 
-                System.out.println("Add line of sight: " + pathPointName + " -> " + pointName);
+                //System.out.println("Add line of sight: " + pathPointName + " -> " + pointName);
                 
-                NodeGeneration.BasicNode node2 = new NodeGeneration.BasicNode(pointName);
-                WeightedEdge<NodeGeneration.BasicNode> weightedEdge = new WeightedEdge<>(node1, node2, cost);
-                
-                edges.add(weightedEdge);
+                graph.addEdge(pathPoint, point);
             }
         }
     }
     
     private void addLineOfSightToPoint(Point pointToAdd) {
         String pathPointName = getPointName(pointToAdd);
-        NodeGeneration.BasicNode node1 = new NodeGeneration.BasicNode(pathPointName);
-        
         for(Point point : points) {
             if(point == pointToAdd) {
                 continue;
@@ -211,19 +208,15 @@ public class Pathfinding {
                 String pointName = getPointName(point);
                 int cost = distanceBetweenPoints(point, pointToAdd);
                 
-                System.out.println("Adding line of sight to point: " + pointName + " -> " + pathPointName);
+                //System.out.println("Adding line of sight to point: " + pointName + " -> " + pathPointName);
                 
-                NodeGeneration.BasicNode node2 = new NodeGeneration.BasicNode(pointName);
-                WeightedEdge<NodeGeneration.BasicNode> weightedEdge = new WeightedEdge<>(node2, node1, cost);
-                
-                edges.add(weightedEdge);
+                graph.addEdge(point, pointToAdd);
             }
         }
     }
     
     private void removeLineOfSightToPoint(Point pointToRemove) {
         String pointToRemoveName = getPointName(pointToRemove);
-        NodeGeneration.BasicNode node1 = new NodeGeneration.BasicNode(pointToRemoveName);
         
         for(Point point : points) {
             if(point == pointToRemove) {
@@ -231,14 +224,7 @@ public class Pathfinding {
             }
             
             String pointName = getPointName(point);
-            NodeGeneration.BasicNode node2 = new NodeGeneration.BasicNode(pointToRemoveName);
             
-            for(WeightedEdge<NodeGeneration.BasicNode> edge : edges) {
-                if(edge.to() == node1) {
-                    System.out.println("Removing edge!");
-                    edges.remove(edge);
-                }
-            }
         }
     }
     

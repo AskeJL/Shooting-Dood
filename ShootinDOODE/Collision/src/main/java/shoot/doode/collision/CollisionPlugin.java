@@ -35,8 +35,8 @@ public class CollisionPlugin implements IGamePluginService {
     
     private Entity createObstacle(GameData gameData) {
 
-        float x = 100;
-        float y = 100;
+        float x = 200;
+        float y = 150;
         float radians = 3.1415f / 2;
 
         float[] colour = new float[4];
