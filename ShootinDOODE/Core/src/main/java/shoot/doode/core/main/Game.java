@@ -1,5 +1,6 @@
 package shoot.doode.core.main;
 
+import shoot.doode.common.data.State;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
@@ -8,6 +9,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -54,17 +56,17 @@ public class Game extends ApplicationAdapter {
     private Lookup.Result<IAssetService> iAssetResult;
     private TiledMap map;
     private OrthogonalTiledMapRenderer renderer;
-
-    private State state = State.RUN;
+    BitmapFont font;
     private boolean newPausedValue;
     private boolean oldPausedValue;
 
     @Override
     public void create() {
+        font = new BitmapFont();
         batch = new SpriteBatch();
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
         gameData.setDisplayHeight(Gdx.graphics.getHeight());
-
+        gameData.setState(State.RUN);
         cam = new OrthographicCamera(gameData.getDisplayWidth(), gameData.getDisplayHeight());
         cam.position.set(gameData.getDisplayWidth() / 2, gameData.getDisplayHeight() / 2, 0);
 
@@ -95,32 +97,39 @@ public class Game extends ApplicationAdapter {
 
     @Override
     public void render() {
-        switch (state) {
+    gameData.setDelta(Gdx.graphics.getDeltaTime());
+    gameData.getKeys().update();
+    
+    switch (gameData.getState()) {
+            
+            case MAINMENU:
+                
+                break;
+            
+            
             case START:
                 break;
 
             case RUN:
-                if (gameData.getKeys().isPressed(GameKeys.ESCAPE)) {
-                    System.out.println("Enter pressed");
-                    pause();
-                }
+                
                 // clear screen to black
                 Gdx.gl.glClearColor(0, 0, 0, 1);
+    
                 Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
-
-                gameData.setDelta(Gdx.graphics.getDeltaTime());
-                gameData.getKeys().update();
 
                 update();
                 draw();
+                newPausedValue = gameData.getKeys().isDown(GameKeys.ESCAPE);
+                if (newPausedValue != oldPausedValue && newPausedValue) {
+                    gameData.setState(State.PAUSE);
+                }
+                oldPausedValue = newPausedValue;
                 break;
 
             case PAUSE:
-                System.out.println("Paused");
-
                 newPausedValue = gameData.getKeys().isDown(GameKeys.ESCAPE);
                 if (newPausedValue != oldPausedValue && newPausedValue) {
-                    setGameState(State.RUN);
+                    gameData.setState(State.RUN);
                 }
                 oldPausedValue = newPausedValue;
                 break;
@@ -131,10 +140,10 @@ public class Game extends ApplicationAdapter {
             case STOP:
                 break;
 
-            default:
-                break;
+        default:
+            break;
         }
-    }
+    } 
 
     private void update() {
         
@@ -261,10 +270,6 @@ public class Game extends ApplicationAdapter {
 
     @Override
     public void dispose() {
-    }
-
-    public void setGameState(State s) {
-        this.state = s;
     }
 
     private Collection<? extends IEntityProcessingService> getEntityProcessingServices() {

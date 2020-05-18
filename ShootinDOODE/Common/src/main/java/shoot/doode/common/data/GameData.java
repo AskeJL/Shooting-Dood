@@ -12,6 +12,16 @@ public class GameData {
     private int displayHeight;
     private final GameKeys keys = new GameKeys();
     private List<Event> events = new CopyOnWriteArrayList<>();
+    private State state;
+
+    public State getState() {
+        return state;
+    }
+    
+    public void setState(State state)
+    {
+        this.state = state;
+    }
 
     public void addEvent(Event e) {
         events.add(e);
