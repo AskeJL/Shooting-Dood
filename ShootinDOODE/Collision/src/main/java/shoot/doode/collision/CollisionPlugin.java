@@ -39,18 +39,11 @@ public class CollisionPlugin implements IGamePluginService {
         float y = 100;
         float radians = 3.1415f / 2;
 
-        float[] colour = new float[4];
-        colour[0] = 1.0f;
-        colour[1] = 1.0f;
-        colour[2] = 1.0f;
-        colour[3] = 1.0f;
-
         String[] spritePaths = new String[1];
         spritePaths[0] = "brick_wall_red.png";
         
         CollidableEntity entity = new CollidableEntity();
         entity.setRadius(30);
-        entity.setColour(colour);
         entity.add(new PositionPart(x, y, radians));
         entity.add(new SpritePart(module, spritePaths));
         

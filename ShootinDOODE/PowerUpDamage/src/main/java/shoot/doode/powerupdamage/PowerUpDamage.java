@@ -48,11 +48,6 @@ public class PowerUpDamage extends CollidableEntity implements IPowerUp, IGamePl
         float y = new Random().nextFloat() * gameData.getDisplayHeight();
         float radians = 0;
 
-        float[] colour = new float[4];
-        colour[0] = 1.0f;
-        colour[1] = 0.0f;
-        colour[2] = 0.0f;
-        colour[3] = 1.0f;
         String module = "PowerUpDamage";
         String[] spritePaths = new String[1];
         spritePaths[0] = "ham.png";

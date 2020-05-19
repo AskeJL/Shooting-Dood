@@ -1,5 +1,6 @@
 package shoot.doode.playersystem;
 
+import java.util.UUID;
 import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
 import shoot.doode.common.data.World;
@@ -38,12 +39,6 @@ public class PlayerPlugin implements IGamePluginService {
         float y = gameData.getDisplayHeight() / 2;
         float radians = 3.1415f / 2;
 
-        float[] colour = new float[4];
-        colour[0] = 1.0f;
-        colour[1] = 1.0f;
-        colour[2] = 1.0f;
-        colour[3] = 1.0f;
-
         String module = "Player";
         String[] spritePaths = new String[4];
         spritePaths[0] = "Doode-still.png";
@@ -52,13 +47,15 @@ public class PlayerPlugin implements IGamePluginService {
         spritePaths[3] = "Doode-back.png";
        
         CollidableEntity playerShip = new Player();
+        UUID id = UUID.randomUUID();
+        playerShip.setID(id.toString());
         playerShip.setRadius(8);
-        playerShip.setColour(colour);
         playerShip.add(new PlayerMovingPart(maxSpeed));
         playerShip.add(new PositionPart(x, y, radians));
         playerShip.add(new LifePart(1));
         playerShip.add(new SpritePart(module, spritePaths));
-        playerShip.add(new ShootingPart(playerShip.getID()));
+        playerShip.add(new ShootingPart(playerShip.getID(),true));
+        
         
         playerShip.setBoundaryWidth(50);
         playerShip.setBoundaryHeight(50);

@@ -10,10 +10,8 @@ public class Entity implements Serializable {
 
     private String ID = UUID.randomUUID().toString();
 
-    private float[] shapeX = new float[4];
-    private float[] shapeY = new float[4];
     private float radius;
-    private float[] colour;
+
     private Map<Class, EntityPart> parts;
 
     public Entity() {
@@ -48,27 +46,4 @@ public class Entity implements Serializable {
         this.ID = id;
     }
 
-    public float[] getShapeX() {
-        return shapeX;
-    }
-
-    public void setShapeX(float[] shapeX) {
-        this.shapeX = shapeX;
-    }
-
-    public float[] getShapeY() {
-        return shapeY;
-    }
-
-    public void setShapeY(float[] shapeY) {
-        this.shapeY = shapeY;
-    }
-
-    public float[] getColour() {
-        return this.colour;
-    }
-
-    public void setColour(float[] c) {
-        this.colour = c;
-    }
 }
