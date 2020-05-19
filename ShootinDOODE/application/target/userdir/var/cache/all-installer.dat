@@ -1,4 +1,4 @@
-#Mon May 18 15:28:05 CEST 2020
+#Tue May 19 11:58:47 CEST 2020
 shoot.doode.PowerUpReloadSpeed.AutoUpdate-Show-In-Client=\u0000
 org.netbeans.libs.osgi.OpenIDE-Module-Install=\u0000
 shoot.doode.Weapon.OpenIDE-Module-Hide-Classpath-Packages=\u0000
@@ -51,12 +51,12 @@ org.openide.modules.OpenIDE-Module-Hide-Classpath-Packages=\u0000
 shoot.doode.PowerUpDamage.AutoUpdate-Show-In-Client=\u0000
 shoot.doode.Bullet.OpenIDE-Module-Hide-Classpath-Packages=\u0000
 org.openide.modules.OpenIDE-Module-Description=\u0000
-org.netbeans.api.annotations.common.OpenIDE-Module-Description=\u0000
 shoot.doode.Map.AutoUpdate-Show-In-Client=\u0000
+org.netbeans.api.annotations.common.OpenIDE-Module-Description=\u0000
 shoot.doode.PowerUpMoveSpeed.OpenIDE-Module-Deprecated=\u0000
 org.netbeans.core.netigso.OpenIDE-Module-Hide-Classpath-Packages=\u0000
-org.netbeans.modules.netbinox.AutoUpdate-Show-In-Client=false
 shoot.doode.CommonEnemy.OpenIDE-Module-Install=\u0000
+org.netbeans.modules.netbinox.AutoUpdate-Show-In-Client=false
 shoot.doode.Enemy.OpenIDE-Module-Hide-Classpath-Packages=\u0000
 org.openide.filesystems.OpenIDE-Module-Description=\u0000
 shoot.doode.CommonEnemy.OpenIDE-Module-Hide-Classpath-Packages=\u0000
@@ -83,8 +83,8 @@ shoot.doode.CommonPowerUp.OpenIDE-Module-Deprecated=\u0000
 org.netbeans.modules.netbinox.OpenIDE-Module-Hide-Classpath-Packages=org.eclipse.core.runtime.**,org.eclipse.osgi.**
 shoot.doode.PowerUpReloadSpeed.OpenIDE-Module-Install=\u0000
 shoot.doode.CommonWeapon.OpenIDE-Module-Install=\u0000
-org.openide.util.OpenIDE-Module-Layer=\u0000
 org.netbeans.bootstrap.AutoUpdate-Show-In-Client=false
+org.openide.util.OpenIDE-Module-Layer=\u0000
 org.openide.filesystems.OpenIDE-Module-Hide-Classpath-Packages=\u0000
 org.netbeans.core.startup.base.OpenIDE-Module-Hide-Classpath-Packages=\u0000
 shoot.doode.Map.OpenIDE-Module-Install=\u0000

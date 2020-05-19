@@ -35,36 +35,38 @@ public class BackgroundPlugin implements IGamePluginService  {
         int width;
         int height;
         for(int i = 0; i<4; i++){
-            switch (i){
-                case 0:
+            if (i == 0){
                     x = 35;
                     y = 0;
                     width = (40*35)*2;
-                    height = 0;
+                    height = 35;
                     boundary = createBoundary(gameData, x, y, width, height);
                     world.addEntity(boundary); // works
-                case 1:
-                    x = 35;
+                    System.out.println("1 oprettes");}
+            else if (i == 1){
+                    x = 0;
                     y = 0;
-                    width = 0;
+                    width = 35;
                     height = (40*35)*2;
                     boundary = createBoundary(gameData, x, y, width, height);
                     world.addEntity(boundary); // Works
-                case 2:
-//                    x = 35;
-//                    y = (40*35)*2;
-//                    width = (40*35)*2;
-//                    height = 0;
-//                    boundary = createBoundary(gameData, x, y, width, height);
-//                    world.addEntity(boundary);
-                case 3:
-//                    x = (40*35)*2;
-//                    y = 0;
-//                    width = 0;
-//                    height = (40*35)*2;
-//                    boundary = createBoundary(gameData, x, y, width, height);
-//                    world.addEntity(boundary);
-            }
+                    System.out.println("2 oprettes");}
+            else if (i == 2){
+                    x = 35;
+                    y = (36*35);
+                    width = (40*35)*2;
+                    height = 0;
+                    boundary = createBoundary(gameData, x, y, width, height);
+                    world.addEntity(boundary);
+                    System.out.println("3 oprettes");}
+            else if (i == 3){
+                    x = (36*35);
+                    y = 0;
+                    width = 10;
+                    height = (40*35)*2;
+                    boundary = createBoundary(gameData, x, y, width, height);
+                    world.addEntity(boundary);
+                    System.out.println("4 oprettes");}       
         }
     }
     
@@ -84,12 +86,12 @@ public class BackgroundPlugin implements IGamePluginService  {
 
         float[] colour = new float[4];
         colour[0] = 1.0f;
-        colour[1] = 1.0f;
-        colour[2] = 1.0f;
-        colour[3] = 1.0f;
+        colour[1] = 89;
+        colour[2] = 100;
+        colour[3] = 31;
         
         CollidableEntity entity = new CollidableEntity();
-        entity.setRadius(1);
+        entity.setRadius(5);
         entity.setColour(colour);
         entity.add(new PositionPart(x, y, radians));
         
