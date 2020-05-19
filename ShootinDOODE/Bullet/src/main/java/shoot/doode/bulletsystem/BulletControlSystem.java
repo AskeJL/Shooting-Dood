@@ -38,14 +38,8 @@ public class BulletControlSystem implements IEntityProcessingService {
             time.process(gameData, bullet);
             life.process(gameData, bullet);
 
-            updateShape(bullet);
         }
     }
-
-    private void updateShape(Entity entity) {
-
-    }
-    
     
 
 }

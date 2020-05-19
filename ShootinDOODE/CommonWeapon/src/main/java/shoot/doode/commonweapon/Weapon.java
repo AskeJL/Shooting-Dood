@@ -14,6 +14,7 @@ public abstract class Weapon extends Entity {
     private double damage;
 
     public Weapon() {
+     
     }
     
     public static IBulletSpawner getSpawner(World world)

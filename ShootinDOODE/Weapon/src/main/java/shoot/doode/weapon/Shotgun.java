@@ -44,7 +44,6 @@ public class Shotgun extends Weapon {
     @Override
     public void shoot(GameData gameData, World world, Entity shooter) {
         IBulletSpawner bulletSpawner = Weapon.getSpawner(world);
-        
 
         SoundPart soundpart = this.getPart(SoundPart.class);
         PositionPart positionPart = this.getPart(PositionPart.class);
@@ -53,7 +52,8 @@ public class Shotgun extends Weapon {
         float bulletSpeed = 4.2f;
         if (bulletSpawner != null) {
             for (int i = 0; i < 17; i++) {
-                bulletSpawner.spawnBullet(this, bulletSpeed + (float) ((Math.random() - 0.5) * 1.3), positionPart.getRotation() + (float) ((Math.random() - 0.5) * 1.25), dmgModifier, world);             
+                //this looks kinda nuts
+                bulletSpawner.spawnBullet(positionPart.getX(),positionPart.getY(), bulletSpeed + (float) ((Math.random() - 0.5) * 1.3), positionPart.getRotation() + (float) ((Math.random() - 0.5) * 1.25),2, dmgModifier, shooter.getID(),world);             
             }
         }
 

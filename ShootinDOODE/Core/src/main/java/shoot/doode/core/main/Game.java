@@ -147,12 +147,14 @@ public class Game extends ApplicationAdapter {
 
     private void update() {
         
-        
         PowerUpManager.getInstance().process(gameData,world,getPowerUpService());
         
         // Update
         for (IEntityProcessingService entityProcessorService : getEntityProcessingServices()) {
+
             entityProcessorService.process(gameData, world);
+
+            
         }
 
         // Post Update
@@ -205,6 +207,8 @@ public class Game extends ApplicationAdapter {
 
             SpritePart spritePart = entity.getPart(SpritePart.class);
             if (spritePart != null) {
+                if(!spritePart.isInvis())
+                {
                 String module = spritePart.getModule();
                 String imagePath = spritePart.getSpritePath();
 
@@ -223,23 +227,7 @@ public class Game extends ApplicationAdapter {
                 batch.begin();
                 sprite.draw(batch);
                 batch.end();
-
-            } else {
-                sr.setColor(1, 1, 1, 1);
-
-                sr.begin(ShapeRenderer.ShapeType.Line);
-
-                float[] shapex = entity.getShapeX();
-                float[] shapey = entity.getShapeY();
-
-                for (int i = 0, j = shapex.length - 1;
-                        i < shapex.length;
-                        j = i++) {
-
-                    sr.line(shapex[i], shapey[i], shapex[j], shapey[j]);
                 }
-
-                sr.end();
             }
 
             SoundPart soundPart = entity.getPart(SoundPart.class);

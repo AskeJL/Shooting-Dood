@@ -33,7 +33,6 @@ public class EnemyAssetsLoader implements IAssetService {
 
     private String[] sounds() {
         ArrayList<String> paths = new ArrayList<>();
-        //paths.add("Gun_Fire.mp3");
 
         return IAssetService.arrayListToString(module, paths);
 

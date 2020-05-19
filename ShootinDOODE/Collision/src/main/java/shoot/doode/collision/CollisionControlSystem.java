@@ -12,9 +12,9 @@ import shoot.doode.common.data.entityparts.LifePart;
 import shoot.doode.common.data.entityparts.PlayerMovingPart;
 import shoot.doode.common.data.entityparts.PositionPart;
 import shoot.doode.common.data.entityparts.ProjectilePart;
+import shoot.doode.common.data.entityparts.ShootingPart;
 import shoot.doode.common.services.IEntityProcessingService;
 import shoot.doode.common.services.IPowerUp;
-import shoot.doode.commonpowerup.PowerUp;
 /**
  *
  * @author sande
@@ -82,11 +82,25 @@ public class CollisionControlSystem implements IEntityProcessingService {
                         continue;
                     }
                     
-                    // Check if player and bullet interacting
-                    if ((fIsBullet && e.getPart(PlayerMovingPart.class) != null) ||
-                        (f.getPart(PlayerMovingPart.class) != null && eIsBullet)) {
-                        continue;
+                    //If one is a bullet and the other have the same ID then ignore as the one with the same ID created the bullet
+                    if(fIsBullet)
+                    {
+                        ProjectilePart bullet = f.getPart(ProjectilePart.class);
+                        if(bullet.getID().equals(e.getID()))
+                        {
+                            continue;
+                        }
                     }
+                    
+                    if(eIsBullet)
+                    {
+                        ProjectilePart bullet = e.getPart(ProjectilePart.class);
+                        if(bullet.getID().equals(f.getID()))
+                        {
+                            continue;
+                        }
+                    }                
+                    
                     
                     // Check if enemy and static collidable interacting
                     if ((collidableE.getIsStatic() && collidableF.getClass().getName().contains("Enemy")) ||
@@ -140,11 +154,13 @@ public class CollisionControlSystem implements IEntityProcessingService {
                     
                     //If a bullet hits a static objekt remove the bullet
                     if (collidableE.getIsStatic() && fIsBullet) {
-                        world.removeEntity(f); //Rebund could be nice AF
+                        world.removeEntity(f); //Rebund could be nice 
+                        removedEntity = true;
                     }
                     
                     if (collidableF.getIsStatic() && eIsBullet) {
-                        world.removeEntity(e); //Rebund could be nice AF
+                        world.removeEntity(e); //Rebund could be nice 
+                        removedEntity = true;
                     }
                     
                     
@@ -152,6 +168,7 @@ public class CollisionControlSystem implements IEntityProcessingService {
                         return;
                     }
                     
+                    //If we are still here handle the physical collision
                     handleCollisionOverlap((CollidableEntity) f, (CollidableEntity) e);
                 }
             }

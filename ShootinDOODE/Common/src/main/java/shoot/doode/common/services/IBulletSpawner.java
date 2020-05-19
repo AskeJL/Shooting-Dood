@@ -5,7 +5,6 @@
  */
 package shoot.doode.common.services;
 
-import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.World;
 
 /**
@@ -13,6 +12,6 @@ import shoot.doode.common.data.World;
  * @author tobia
  */
 public interface IBulletSpawner {
-    public void spawnBullet(Entity shooter,float bulletSpeed, float rotation, double damege,World world);
+    public void spawnBullet(float xPos,float yPos,float bulletSpeed, float rotation,float timer , double damege, String shooterID,World world);
     
 }

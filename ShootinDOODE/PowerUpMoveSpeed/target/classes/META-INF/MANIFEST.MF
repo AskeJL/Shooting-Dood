@@ -2,8 +2,8 @@ Manifest-Version: 1.0
 OpenIDE-Module-Localizing-Bundle: shoot/doode/powerupmovespeed/Bundle.
  properties
 OpenIDE-Module-Specification-Version: 1.0
-OpenIDE-Module-Implementation-Version: 1.0-20200518
-OpenIDE-Module-Build-Version: 202005181907
+OpenIDE-Module-Implementation-Version: 1.0-20200519
+OpenIDE-Module-Build-Version: 202005191157
 OpenIDE-Module: shoot.doode.PowerUpMoveSpeed
 OpenIDE-Module-Public-Packages: -
 OpenIDE-Module-Requires: org.openide.modules.ModuleFormat1
@@ -12,5 +12,5 @@ OpenIDE-Module-Name: PowerUpMoveSpeed
 OpenIDE-Module-Short-Description: <undefined>
 OpenIDE-Module-Long-Description: <undefined>
 OpenIDE-Module-Module-Dependencies: org.netbeans.api.annotations.commo
- n/1 > 1.33, shoot.doode.CommonPowerUp > 1.0, shoot.doode.Common > 1.0
+ n/1 > 1.33, shoot.doode.Common > 1.0
 

@@ -13,9 +13,8 @@ import shoot.doode.common.data.entityparts.TimerPart;
 
 public class Bullet extends CollidableEntity {
 
-    //Could potentially do some shenanigans with differing colours for differing sources.
-    public static Entity createBullet(Entity shooter,float bulletSpeed, float rotation, double damege) {
-        PositionPart shooterPosition = shooter.getPart(PositionPart.class);
+    public static Entity createBullet(float xPos,float yPos,float bulletSpeed, float rotation,float timer , double damege, String shooterID) {
+
         CollidableEntity bullet = new Bullet();
         
         String module = "Bullet";
@@ -23,13 +22,12 @@ public class Bullet extends CollidableEntity {
         spritePaths[0] = "bullet.png";
         
         
-        bullet.add(new PositionPart(shooterPosition.getX(), shooterPosition.getY(), rotation));
+        bullet.add(new PositionPart(xPos, yPos, rotation));
         bullet.add(new ProjectileMovingPart(bulletSpeed));
-        bullet.add(new TimerPart(3));
+        bullet.add(new TimerPart(timer));
         bullet.add(new LifePart(1));
-        bullet.add(new SpritePart(module,spritePaths));
-        // Projectile Part only used for better collision detection     
-        bullet.add(new ProjectilePart(shooter.getID(), damege));
+        bullet.add(new SpritePart(module,spritePaths));  
+        bullet.add(new ProjectilePart(shooterID, damege));
         bullet.setRadius(2);
 
         bullet.setBoundaryWidth(10);
@@ -37,4 +35,5 @@ public class Bullet extends CollidableEntity {
 
         return bullet;
     }
+    
 }
