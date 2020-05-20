@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.Collision">
-    <module_version install_time="1589973466887" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1589973747347" last="true" origin="installer" specification_version="1.0">
         <file crc="3587771722" name="config/Modules/shoot-doode-Collision.xml"/>
         <file crc="1015876392" name="modules/ext/shoot.doode.Collision/com-badlogicgames-gdx/gdx.jar"/>
-        <file crc="1713751961" name="modules/shoot-doode-Collision.jar"/>
-        <file crc="1684106827" name="update_tracking/shoot-doode-Collision.xml"/>
+        <file crc="4039405423" name="modules/shoot-doode-Collision.jar"/>
+        <file crc="2473875563" name="update_tracking/shoot-doode-Collision.xml"/>
     </module_version>
 </module>
