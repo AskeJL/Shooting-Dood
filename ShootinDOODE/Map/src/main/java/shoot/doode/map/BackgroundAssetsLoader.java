@@ -20,17 +20,6 @@ public class BackgroundAssetsLoader implements IAssetService {
 
     String module = "Map";
 
-    private String[] images() {
-        ArrayList<String> paths = new ArrayList<>();
-        paths.add("brick_wall_red.png");
-        paths.add("brick_wall_white.png");
-        paths.add("brick_wall_blue.png");
-        paths.add("rsz_oa_bench.png");
-        paths.add("wall.png");
-
-        return IAssetService.arrayListToString(module, paths);
-    }
-
     private String[] maps() {
         ArrayList<String> paths = new ArrayList<>();
         paths.add("map.tmx");
@@ -39,12 +28,12 @@ public class BackgroundAssetsLoader implements IAssetService {
 
     @Override
     public String[] loadImages() {
-        return images();
+        return null;
     }
 
     @Override
     public String[] unLoadImages() {
-        return images();
+        return null;
     }
 
     @Override

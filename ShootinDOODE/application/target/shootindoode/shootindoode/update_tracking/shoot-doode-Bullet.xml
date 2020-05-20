@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.Bullet">
-<<<<<<< HEAD
-    <module_version install_time="1590001572737" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1590009868170" last="true" origin="installer" specification_version="1.0">
         <file crc="3090761841" name="config/Modules/shoot-doode-Bullet.xml"/>
-        <file crc="3192450662" name="modules/shoot-doode-Bullet.jar"/>
-        <file crc="3340231130" name="update_tracking/shoot-doode-Bullet.xml"/>
-=======
-    <module_version install_time="1590008262593" last="true" origin="installer" specification_version="1.0">
-        <file crc="3090761841" name="config/Modules/shoot-doode-Bullet.xml"/>
-        <file crc="3617982625" name="modules/shoot-doode-Bullet.jar"/>
->>>>>>> Walls
+        <file crc="2648540104" name="modules/shoot-doode-Bullet.jar"/>
+        <file crc="2550305438" name="update_tracking/shoot-doode-Bullet.xml"/>
     </module_version>
 </module>

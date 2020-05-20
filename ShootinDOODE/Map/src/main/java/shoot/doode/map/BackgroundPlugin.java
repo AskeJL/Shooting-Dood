@@ -35,12 +35,6 @@ public class BackgroundPlugin implements IGamePluginService {
         background = createBackground(gameData);
         world.addEntity(background);
 
-        for (int i = 0; i < 15; i++) {
-            Entity obstacle = createObstacle(gameData);
-            world.addEntity(obstacle);
-            obstacleList.add(obstacle);
-        }
-
         float x;
         float y;
         int width;
@@ -113,32 +107,9 @@ public class BackgroundPlugin implements IGamePluginService {
         return entity;
     }
 
-    private Entity createObstacle(GameData gameData) {
-
-        float x = (float) Math.random() * 36 * 33 + 50;
-        float y = (float) Math.random() * 36 * 33 + 50;
-        float radians = 3.1415f / 2;
-
-        String[] spritePaths = new String[1];
-        spritePaths[0] = "wall.png";
-
-        CollidableEntity entity = new CollidableEntity();
-        entity.add(new PositionPart(x, y, radians));
-        entity.add(new SpritePart(module, spritePaths));
-
-        entity.setBoundaryWidth(64);
-        entity.setBoundaryHeight(64);
-        entity.setIsStatic(true);
-        entity.setToughness(1);
-        return entity;
-    }
-
     @Override
     public void stop(GameData gameData, World world) {
         world.removeEntity(background);
-        for (Entity e : obstacleList) {
-            world.removeEntity(e);
-        }
         for(Entity e : boundaryList)
         {
             world.removeEntity(e);

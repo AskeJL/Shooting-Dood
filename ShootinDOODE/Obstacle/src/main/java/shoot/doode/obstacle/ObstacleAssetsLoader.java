@@ -40,9 +40,7 @@ public class ObstacleAssetsLoader implements IAssetService {
 
     @Override
     public String[] unLoadImages() {
-        ArrayList<String> paths = new ArrayList<>();
-
-        return IAssetService.arrayListToString(module, paths);
+        return images();
     }
     
     @Override

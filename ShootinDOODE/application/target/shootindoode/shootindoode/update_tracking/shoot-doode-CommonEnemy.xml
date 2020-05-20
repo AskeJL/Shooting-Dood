@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.CommonEnemy">
-<<<<<<< HEAD
-    <module_version install_time="1590001572668" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1590009868109" last="true" origin="installer" specification_version="1.0">
         <file crc="1604169143" name="config/Modules/shoot-doode-CommonEnemy.xml"/>
         <file crc="1015876392" name="modules/ext/shoot.doode.CommonEnemy/com-badlogicgames-gdx/gdx.jar"/>
-        <file crc="3026187038" name="modules/shoot-doode-CommonEnemy.jar"/>
-        <file crc="3236999009" name="update_tracking/shoot-doode-CommonEnemy.xml"/>
-=======
-    <module_version install_time="1590008262582" last="true" origin="installer" specification_version="1.0">
-        <file crc="1604169143" name="config/Modules/shoot-doode-CommonEnemy.xml"/>
-        <file crc="695360144" name="modules/shoot-doode-CommonEnemy.jar"/>
->>>>>>> Walls
+        <file crc="837865096" name="modules/shoot-doode-CommonEnemy.jar"/>
+        <file crc="3296382009" name="update_tracking/shoot-doode-CommonEnemy.xml"/>
     </module_version>
 </module>

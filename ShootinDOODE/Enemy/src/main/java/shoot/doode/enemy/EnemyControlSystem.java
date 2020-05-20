@@ -37,6 +37,7 @@ public class EnemyControlSystem implements IEntityProcessingService, AI {
 
     private Pathfinding pathfinding = new Pathfinding();
     private long lastPathGeneration = 0;
+    private int numberToSpawn= 0;
     
     @Override
     public void process(GameData gameData, World world) {
@@ -46,8 +47,12 @@ public class EnemyControlSystem implements IEntityProcessingService, AI {
         
         if(world.getEntities(NormalEnemy.class).size() < 1)
         {
-            Entity enemy = createNormalEnemy(gameData);
-            world.addEntity(enemy);
+            for(int i = 0; i < numberToSpawn;i++)
+            {
+                Entity enemy = createNormalEnemy(gameData);
+                world.addEntity(enemy);
+            }
+            numberToSpawn++;
         }
         
         for (Entity enemy : world.getEntities(NormalEnemy.class)) {

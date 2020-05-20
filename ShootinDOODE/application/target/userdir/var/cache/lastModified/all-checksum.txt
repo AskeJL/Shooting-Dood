@@ -1,18 +1,9 @@
-<<<<<<< HEAD
-platform=1590001579782
-cluster.bin=1590001579782
-cluster.etc=1590001579782
-cluster.platform=1590001579782
-cluster.shootindoode=1590001579782
-user=1590001579782
-=======
-platform=1590008269373
-cluster.bin=1590008269372
-cluster.etc=1590008269373
-cluster.platform=1590008269373
-cluster.shootindoode=1590008269373
-user=1590008269373
->>>>>>> Walls
+platform=1590009875749
+cluster.bin=1590009875749
+cluster.etc=1590009875749
+cluster.platform=1590009875749
+cluster.shootindoode=1590009875749
+user=1590009875749
 crc=7
 locale=da_DK
 branding=shootindoode

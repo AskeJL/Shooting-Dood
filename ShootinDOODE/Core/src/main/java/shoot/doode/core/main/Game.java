@@ -39,6 +39,7 @@ import shoot.doode.common.data.entityparts.ProjectileMovingPart;
 import shoot.doode.common.data.entityparts.SoundPart;
 import shoot.doode.common.services.IAssetService;
 import shoot.doode.common.services.IPowerUp;
+import shoot.doode.commonenemy.Enemy;
 import shoot.doode.core.managers.AssetsHelper;
 import shoot.doode.core.managers.PowerUpManager;
 
@@ -97,8 +98,7 @@ public class Game extends ApplicationAdapter {
 
     @Override
     public void render() {
-
-       
+    
     gameData.setDelta(Gdx.graphics.getDeltaTime());
     gameData.getKeys().update();
     gameData.setScore(gameData.getScore() - gameData.getDelta());

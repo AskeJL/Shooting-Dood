@@ -22,12 +22,11 @@ import shoot.doode.common.services.IGamePluginService;
 public class ObstaclePlugin implements IGamePluginService {
 
     private String module = "Obstacle";
-    private Entity obstacle = new Obstacles();
     
     @Override
     public void start(GameData gameData, World world) {
         for (int i = 0; i<7; i++){
-        obstacle = createObstacle(gameData);
+        Entity obstacle = createObstacle(gameData);
         world.addEntity(obstacle);}
     }
 
@@ -82,7 +81,6 @@ public class ObstaclePlugin implements IGamePluginService {
         }
         
         CollidableEntity obstacle = new Obstacles();
-        obstacle.setRadius(8);
         obstacle.add(new PositionPart(x, y, radians));
         obstacle.add(new SpritePart(module,spritePaths));
         
