@@ -89,7 +89,7 @@ public class EnemyControlSystem implements IEntityProcessingService, AI {
                 PositionPart playerPositionPart = playerEntity.getPart(PositionPart.class);
 
                 long current = System.currentTimeMillis();
-                if(current - lastPathGeneration > 2000) {
+                if(current - lastPathGeneration > 500) {
                     System.out.println("laver path");
                     pathfinding.generatePath(new Point(positionPart.getX(), positionPart.getY()),
                             new Point(playerPositionPart.getX(), playerPositionPart.getY()));

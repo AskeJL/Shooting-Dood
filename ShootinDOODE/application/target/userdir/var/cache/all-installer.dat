@@ -1,4 +1,4 @@
-#Wed May 20 23:24:52 CEST 2020
+#Wed May 20 23:29:37 CEST 2020
 shoot.doode.Common.OpenIDE-Module-Install=\u0000
 shoot.doode.EnemyShoot.OpenIDE-Module-Layer=\u0000
 org.netbeans.libs.asm.OpenIDE-Module-Deprecated=\u0000
@@ -161,8 +161,8 @@ org.netbeans.libs.asm.OpenIDE-Module-Description=\u0000
 shoot.doode.Enemy.OpenIDE-Module-Install=\u0000
 shoot.doode.PowerUpReloadSpeed.OpenIDE-Module-Deprecated=\u0000
 shoot.doode.PowerUpMoveSpeed.AutoUpdate-Show-In-Client=\u0000
-org.openide.util.lookup.AutoUpdate-Show-In-Client=false
 shoot.doode.PowerUpReloadSpeed.AutoUpdate-Show-In-Client=\u0000
+org.openide.util.lookup.AutoUpdate-Show-In-Client=false
 shoot.doode.Bullet.OpenIDE-Module-Layer=\u0000
 org.openide.filesystems.AutoUpdate-Show-In-Client=false
 shoot.doode.Obstacle.OpenIDE-Module-Layer=\u0000

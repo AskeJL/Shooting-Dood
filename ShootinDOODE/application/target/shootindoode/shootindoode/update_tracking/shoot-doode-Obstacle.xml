@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.Obstacle">
-    <module_version install_time="1590009868784" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1590010116844" last="true" origin="installer" specification_version="1.0">
         <file crc="401545680" name="config/Modules/shoot-doode-Obstacle.xml"/>
-        <file crc="2260167949" name="modules/shoot-doode-Obstacle.jar"/>
-        <file crc="1229741960" name="update_tracking/shoot-doode-Obstacle.xml"/>
+        <file crc="2165454820" name="modules/shoot-doode-Obstacle.jar"/>
+        <file crc="4152835486" name="update_tracking/shoot-doode-Obstacle.xml"/>
     </module_version>
 </module>
