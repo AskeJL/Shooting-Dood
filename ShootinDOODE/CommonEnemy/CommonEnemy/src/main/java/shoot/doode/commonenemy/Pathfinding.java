@@ -1,5 +1,6 @@
 package shoot.doode.commonenemy;
 
+import com.badlogic.gdx.math.Intersector;
 import java.util.ArrayList;
 import java.util.List;
 import shoot.doode.common.data.CollidableEntity;
@@ -33,11 +34,11 @@ public class Pathfinding {
     
     public void setup(World world) {
         if(world.getEntities().size() == lastEntityCount) {
-            System.out.println("samme mængde entities som sidste tjek");
+            //System.out.println("samme mængde entities som sidste tjek");
             return;
         }
         else {
-            System.out.println("ny mængde entities");
+            //System.out.println("ny mængde entities");
             lastEntityCount = world.getEntities().size();
         }
         
@@ -141,21 +142,29 @@ public class Pathfinding {
         // 1. add current, destination to line of sight map
         // 2. pathList = call A* algorithm on map
         // 3. remove current, destination from line of sight map
-        /*int closestCurrent = -1;
+        int closestCurrent = -1;
+        Point bestCurrent = null;
+        
         int closestDestination = -1;
+        Point bestDestination = null;
+        
         for(Point point : points) {
             int distanceCurrent = (int)Point.getDistance(current, point);
             int distanceDestination = (int)Point.getDistance(destination, point);
             
             if(closestCurrent == -1 || distanceCurrent < closestCurrent) {
                 closestCurrent = distanceCurrent;
-                current = point;
+                bestCurrent = point;
             }
             if(closestDestination == -1 || distanceDestination < closestDestination) {
                 closestDestination = distanceDestination;
-                destination = point;
+                bestDestination = point;
             }
-        }*/
+        }
+        current = bestCurrent;
+        destination = bestDestination;
+        
+        hasRectCollision(current);
         
         addLineOfSight(current);
         addLineOfSightToPoint(current);
@@ -166,7 +175,6 @@ public class Pathfinding {
         // TODO: Fix so current/destination cannot be inside of obstacle
         try {
             astar.aStarCostCalc(graph.getGraph(), current, destination);
-            
         }
         catch(Exception ex) {
             System.out.println("exception på aStarCostCalc" + ex);
@@ -181,8 +189,6 @@ public class Pathfinding {
     private void addLineOfSight(Point pathPoint) {
         // Build map with each point that has the given point in line of sight
         // The map can then be given directly to an A* algorithm to find path from A to B
-        
-        String pathPointName = getPointName(pathPoint);
         
         for(Point point : points) {
             if(point == pathPoint) {
@@ -201,7 +207,6 @@ public class Pathfinding {
     }
     
     private void addLineOfSightToPoint(Point pointToAdd) {
-        String pathPointName = getPointName(pointToAdd);
         for(Point point : points) {
             if(point == pointToAdd) {
                 continue;
@@ -227,7 +232,7 @@ public class Pathfinding {
             }
             
             String pointName = getPointName(point);
-            
+            graph.removeFromSight(pointToRemove);
         }
     }
     
@@ -240,6 +245,18 @@ public class Pathfinding {
             }
         }
         return true;
+    }
+    
+    private boolean hasRectCollision(Point point) {
+        Rectangle pointRect = new Rectangle(point.x - 1, point.y - 1, 2, 2);
+        for(Rectangle obstacle : obstacles) {
+            com.badlogic.gdx.math.Rectangle intersectRect = new com.badlogic.gdx.math.Rectangle();
+            if(Intersector.intersectRectangles(new com.badlogic.gdx.math.Rectangle(pointRect.x, pointRect.y, pointRect.width, pointRect.height),
+                    new com.badlogic.gdx.math.Rectangle(obstacle.x, obstacle.y, obstacle.width, obstacle.height), intersectRect)) {
+                System.out.println("Intersection!");
+            }
+        }
+        return false;
     }
     
     private boolean hasPointRectCollision(float x1, float y1, float x2, float y2, float minX, float minY, float maxX, float maxY) {

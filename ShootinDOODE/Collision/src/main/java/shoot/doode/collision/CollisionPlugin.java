@@ -30,7 +30,7 @@ public class CollisionPlugin implements IGamePluginService {
     @Override
     public void start(GameData gameData, World world) {
         obstacles = new ArrayList<Entity>();
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 10; i++) {
             obstacles.add(i, createObstacle(gameData));
         }
         for (Entity obstacle : obstacles) {
@@ -67,8 +67,8 @@ public class CollisionPlugin implements IGamePluginService {
         entity.add(new PositionPart(x, y, radians));
         entity.add(new SpritePart(module, spritePaths));
 
-        entity.setBoundaryWidth(40);
-        entity.setBoundaryHeight(40);
+        entity.setBoundaryWidth(30);
+        entity.setBoundaryHeight(30);
         entity.setIsStatic(true);
 
         return entity;

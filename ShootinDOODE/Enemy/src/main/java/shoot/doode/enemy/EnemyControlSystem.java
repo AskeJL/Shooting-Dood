@@ -35,6 +35,7 @@ import shoot.doode.commonenemy.Point;
 public class EnemyControlSystem implements IEntityProcessingService, AI {
 
     private Pathfinding pathfinding = new Pathfinding();
+    private long lastPathGeneration = 0;
     
     @Override
     public void process(GameData gameData, World world) {
@@ -78,13 +79,16 @@ public class EnemyControlSystem implements IEntityProcessingService, AI {
                 }
             }
             
-            
             if(playerEntity != null) {
                 PositionPart playerPositionPart = playerEntity.getPart(PositionPart.class);
-                
-                System.out.println("laver path");
-                pathfinding.generatePath(new Point(positionPart.getX(), positionPart.getY()),
-                        new Point(playerPositionPart.getX(), playerPositionPart.getY()));
+
+                long current = System.currentTimeMillis();
+                if(current - lastPathGeneration > 2000) {
+                    System.out.println("laver path");
+                    pathfinding.generatePath(new Point(positionPart.getX(), positionPart.getY()),
+                            new Point(playerPositionPart.getX(), playerPositionPart.getY()));
+                    lastPathGeneration = System.currentTimeMillis();
+                }
 
                 Point nextPoint = pathfinding.astar.getNextPoint();
                 if(nextPoint.getX() != 0 && nextPoint.getY() != 0) {

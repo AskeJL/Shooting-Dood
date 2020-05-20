@@ -99,7 +99,7 @@ public class MovingPart
                 y = destinationY;
             }
             else {
-                movementVector.nor().scl(45 * dt);
+                movementVector.nor().scl(65 * dt);
                 x += movementVector.x;
                 y += movementVector.y;
             }
