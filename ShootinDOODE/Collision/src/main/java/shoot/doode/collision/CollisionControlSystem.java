@@ -207,18 +207,18 @@ public class CollisionControlSystem implements IPostEntityProcessingService {
             if (intersection.getHeight() < intersection.getWidth()) {
                 //System.out.println(intersection.getHeight() + intersection.getWidth());
                 if (intersection.getY() == ep.getY()) {
-                    ep.setY(intersection.getY() + intersection.getHeight());
+                    ep.setY(fp.getY() + (f.getBoundaryHeight() / 2) + (e.getBoundaryHeight() / 2)); // ep.setY(intersection.getY() + intersection.getHeight() - 15);
                 }
                 if (intersection.getY() > ep.getY()) {
-                    ep.setY(intersection.getY() - e.getBoundaryHeight());
+                    ep.setY(fp.getY() - (f.getBoundaryHeight() / 2)); // ep.setY(intersection.getY() - e.getBoundaryHeight() - 2);
                 }
             } else if (intersection.getWidth() < intersection.getHeight()) {
                 //System.out.println(intersection.getHeight() + intersection.getWidth());
                 if (intersection.getX() == ep.getX()) {
-                    ep.setX(intersection.getX() + intersection.getWidth());
+                    ep.setX(fp.getX() + (f.getBoundaryWidth() / 2) + (e.getBoundaryWidth() / 2)); // ep.setX(intersection.getX() + intersection.getWidth() - 15);
                 }
                 if (intersection.getX() > ep.getX()) {
-                    ep.setX(intersection.getX() - e.getBoundaryWidth());
+                    ep.setX(fp.getX() - (f.getBoundaryWidth() / 2)); //ep.setX(intersection.getX() - e.getBoundaryWidth() - 2);
                 }
             }
         }

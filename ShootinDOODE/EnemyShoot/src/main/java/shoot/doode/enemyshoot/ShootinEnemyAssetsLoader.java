@@ -19,7 +19,7 @@ import org.openide.util.lookup.ServiceProviders;
 
 public class ShootinEnemyAssetsLoader implements IAssetService {
 
-    String module = "Enemy";
+    String module = "EnemyShoot";
 
     private String[] images() {
         ArrayList<String> paths = new ArrayList<>();

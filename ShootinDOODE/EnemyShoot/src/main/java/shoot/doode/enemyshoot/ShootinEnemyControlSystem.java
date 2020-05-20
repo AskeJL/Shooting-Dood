@@ -149,7 +149,7 @@ public class ShootinEnemyControlSystem implements IEntityProcessingService, AI {
         float y = new Random().nextFloat() * gameData.getDisplayHeight();
         float radians = 3.1415f / 2;
 
-        String module = "Enemy";
+        String module = "EnemyShoot";
         String[] spritePaths = new String[1];
         double ran = Math.random();
         

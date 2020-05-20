@@ -56,8 +56,8 @@ public class PlayerPlugin implements IGamePluginService {
         playerShip.add(new ShootingPart(true));
         
         playerShip.setToughness(2);
-        playerShip.setBoundaryWidth(25);
-        playerShip.setBoundaryHeight(25);
+        playerShip.setBoundaryWidth(30);
+        playerShip.setBoundaryHeight(30);
 
         return playerShip;
     }

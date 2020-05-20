@@ -124,8 +124,8 @@ public class BackgroundPlugin implements IGamePluginService  {
         entity.add(new PositionPart(x, y, radians));
         entity.add(new SpritePart(module, spritePaths));
 
-        entity.setBoundaryWidth(70);
-        entity.setBoundaryHeight(70);
+        entity.setBoundaryWidth(64);
+        entity.setBoundaryHeight(64);
         entity.setIsStatic(true);
         entity.setToughness(1);
         return entity;
