@@ -12,10 +12,8 @@ import shoot.doode.common.data.GameData;
 import shoot.doode.common.data.World;
 import shoot.doode.common.data.entityparts.LifePart;
 import shoot.doode.common.data.entityparts.MovingPart;
-import shoot.doode.common.data.entityparts.PlayerMovingPart;
 import shoot.doode.common.data.entityparts.PositionPart;
 import shoot.doode.common.services.IGamePluginService;
-import java.util.UUID;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
 import shoot.doode.common.data.CollidableEntity;
@@ -28,7 +26,7 @@ import shoot.doode.common.data.entityparts.SpritePart;
 @ServiceProviders(value = {
     @ServiceProvider(service = IGamePluginService.class),})
 public class EnemyPlugin implements IGamePluginService {
-     private Entity enemy = new Enemy();
+    private Entity enemy = new Enemy();
 
     public EnemyPlugin() {
     }

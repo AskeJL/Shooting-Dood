@@ -5,6 +5,7 @@
  */
 package shoot.doode.common.data.entityparts;
 
+import com.badlogic.gdx.math.Vector2;
 import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
 import static shoot.doode.common.data.GameKeys.LEFT;
@@ -26,7 +27,9 @@ public class MovingPart
     private float deceleration, acceleration;
     private float maxSpeed, rotationSpeed;
     private boolean left, right, up;
-
+    private float destinationX, destinationY;
+    private Vector2 movementVector = new Vector2();
+    
     public MovingPart(float deceleration, float acceleration, float maxSpeed, float rotationSpeed) {
         this.deceleration = deceleration;
         this.acceleration = acceleration;
@@ -74,6 +77,11 @@ public class MovingPart
     public void setUp(boolean up) {
         this.up = up;
     }
+    
+    public void setDestination(float x, float y) {
+        this.destinationX = x;
+        this.destinationY = y;
+    }
 
     @Override
     public void process(GameData gameData, Entity entity) {
@@ -83,31 +91,45 @@ public class MovingPart
         float rotation = positionPart.getRotation();
         float dt = gameData.getDelta();
 
-        // turning
-        if (left) {
-            rotation += rotationSpeed * dt;
+        if(destinationX != 0 && destinationY != 0) {
+            movementVector.set(destinationX, destinationY).sub(x, y);
+            
+            if(movementVector.len() < 3) {
+                x = destinationX;
+                y = destinationY;
+            }
+            else {
+                movementVector.nor().scl(65 * dt);
+                x += movementVector.x;
+                y += movementVector.y;
+            }
         }
+        else {
+            // turning
+            if (left) {
+                rotation += rotationSpeed * dt;
+            }
 
-        if (right) {
-            rotation -= rotationSpeed * dt;
-        }
+            if (right) {
+                rotation -= rotationSpeed * dt;
+            }
 
-        // accelerating            
-        if (up) {
-            dx += cos(rotation) * acceleration * dt;
-            dy += sin(rotation) * acceleration * dt;
-        }
+            // accelerating            
+            if (up) {
+                dx += cos(rotation) * acceleration * dt;
+                dy += sin(rotation) * acceleration * dt;
+            }
 
-        // deccelerating
-        float vec = (float) sqrt(dx * dx + dy * dy);
-        if (vec > 0) {
-            dx -= (dx / vec) * deceleration * dt;
-            dy -= (dy / vec) * deceleration * dt;
-        }
-        if (vec > maxSpeed) {
-            dx = (dx / vec) * maxSpeed;
-            dy = (dy / vec) * maxSpeed;
-        }
+            // deccelerating
+            float vec = (float) sqrt(dx * dx + dy * dy);
+            if (vec > 0) {
+                dx -= (dx / vec) * deceleration * dt;
+                dy -= (dy / vec) * deceleration * dt;
+            }
+            if (vec > maxSpeed) {
+                dx = (dx / vec) * maxSpeed;
+                dy = (dy / vec) * maxSpeed;
+            }
 
         // set position
         x += dx * dt;

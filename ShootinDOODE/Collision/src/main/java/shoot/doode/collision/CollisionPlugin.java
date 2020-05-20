@@ -1,5 +1,6 @@
 package shoot.doode.collision;
 
+import java.util.ArrayList;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
 import shoot.doode.common.data.CollidableEntity;
@@ -19,36 +20,49 @@ import shoot.doode.common.services.IGamePluginService;
 public class CollisionPlugin implements IGamePluginService {
 
     private String module = "Collision";
-    private Entity obstacle;
-    
+    private ArrayList<Entity> obstacles;
+//    private Entity obstacle1;
+//    private Entity obstacle2;
+//    private Entity obstacle3;
+//    private Entity obstacle4;
+//    private Entity obstacle5;
+
     @Override
     public void start(GameData gameData, World world) {
-        obstacle = createObstacle(gameData);
-        world.addEntity(obstacle);
+        obstacles = new ArrayList<Entity>();
+        for (int i = 0; i < 10; i++) {
+            obstacles.add(i, createObstacle(gameData));
+        }
+        for (Entity obstacle : obstacles) {
+            world.addEntity(obstacle);
+        };
+        
+        
+
     }
 
     @Override
     public void stop(GameData gameData, World world) {
-        
-        
+
     }
-    
+
     private Entity createObstacle(GameData gameData) {
 
-        float x = 100;
-        float y = 100;
+        float x = (float) Math.random() * 700;
+        float y = (float) Math.random() * 500;
         float radians = 3.1415f / 2;
 
         String[] spritePaths = new String[1];
-        spritePaths[0] = "brick_wall_red.png";
-        
+        spritePaths[0] = "rsz_oa_bench.png";
+
         CollidableEntity entity = new CollidableEntity();
-        entity.setRadius(30);
+        entity.setRadius(15);
+        entity.setColour(colour);
         entity.add(new PositionPart(x, y, radians));
         entity.add(new SpritePart(module, spritePaths));
-        
-        entity.setBoundaryWidth(40);
-        entity.setBoundaryHeight(40);
+
+        entity.setBoundaryWidth(30);
+        entity.setBoundaryHeight(30);
         entity.setIsStatic(true);
 
         return entity;

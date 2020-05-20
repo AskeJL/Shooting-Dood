@@ -5,6 +5,7 @@
  */
 package shoot.doode.enemy;
 
+import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 import shoot.doode.commonenemy.Enemy;
@@ -22,6 +23,9 @@ import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
 import shoot.doode.common.data.CollidableEntity;
 import shoot.doode.common.data.entityparts.SpritePart;
+import shoot.doode.commonenemy.AStarAlgorithm;
+import shoot.doode.commonenemy.Pathfinding;
+import shoot.doode.commonenemy.Point;
 
 /**
  *
@@ -31,9 +35,16 @@ import shoot.doode.common.data.entityparts.SpritePart;
     @ServiceProvider(service = IEntityProcessingService.class),})
 public class EnemyControlSystem implements IEntityProcessingService, AI {
 
+    private Pathfinding pathfinding = new Pathfinding();
+    private long lastPathGeneration = 0;
+    
     @Override
     public void process(GameData gameData, World world) {
-        if(world.getEntities(Enemy.class).size() == 0)
+        // If new obstacles are loaded, this needs to be called again
+        // Calling it here is not the most performant method...
+        pathfinding.setup(world);
+        
+        if(world.getEntities(Enemy.class).size() < 1)
         {
             Entity enemy = createEnemy(gameData);
             world.addEntity(enemy);
@@ -58,6 +69,39 @@ public class EnemyControlSystem implements IEntityProcessingService, AI {
 
             if (rng > 0.8f) {
                 movingPart.setRight(true);
+            }
+            
+            // Get the player entity
+            Entity playerEntity = null;
+            for(Entity entity : world.getEntities()) {
+                if(entity.getClass().getName().contains(".Player")) {
+                    playerEntity = entity;
+                    break;
+                }
+            }
+            
+            if(playerEntity != null) {
+                PositionPart playerPositionPart = playerEntity.getPart(PositionPart.class);
+
+                long current = System.currentTimeMillis();
+                if(current - lastPathGeneration > 2000) {
+                    System.out.println("laver path");
+                    pathfinding.generatePath(new Point(positionPart.getX(), positionPart.getY()),
+                            new Point(playerPositionPart.getX(), playerPositionPart.getY()));
+                    lastPathGeneration = System.currentTimeMillis();
+                }
+
+                Point nextPoint = pathfinding.astar.getNextPoint();
+                if(nextPoint.getX() != 0 && nextPoint.getY() != 0) {
+                    if(Point.getDistance(nextPoint, new Point(positionPart.getX(), positionPart.getY())) < 5) {
+                        //System.out.println("Point reached");
+                        pathfinding.astar.pointReached();
+                    }
+                    else {                
+                        //System.out.println("Moving towards: " + nextPoint.getX() + ", " + nextPoint.getY());
+                        movingPart.setDestination(nextPoint.getX(), nextPoint.getY());
+                    }
+                }
             }
 
             movingPart.process(gameData, enemy);
