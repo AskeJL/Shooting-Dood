@@ -55,7 +55,6 @@ public class PowerUpReloadSpeed extends CollidableEntity implements IPowerUp, IG
         int boundaryHeight = 20;
         CollidableEntity powerUp = new PowerUpReloadSpeed();
         
-        powerUp.setRadius(8);
         powerUp.add(new PositionPart(x, y, radians));
         powerUp.add(new SpritePart(module,spritePaths));
         

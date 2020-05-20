@@ -39,6 +39,7 @@ import shoot.doode.common.data.entityparts.ProjectileMovingPart;
 import shoot.doode.common.data.entityparts.SoundPart;
 import shoot.doode.common.services.IAssetService;
 import shoot.doode.common.services.IPowerUp;
+import shoot.doode.commonenemy.Enemy;
 import shoot.doode.core.managers.AssetsHelper;
 import shoot.doode.core.managers.PowerUpManager;
 
@@ -97,8 +98,10 @@ public class Game extends ApplicationAdapter {
 
     @Override
     public void render() {
+    
     gameData.setDelta(Gdx.graphics.getDeltaTime());
     gameData.getKeys().update();
+    gameData.setScore(gameData.getScore() - gameData.getDelta());
     
     switch (gameData.getState()) {
             
@@ -164,6 +167,7 @@ public class Game extends ApplicationAdapter {
     }
 
     private void draw() {
+
         for (Entity entity : world.getEntities()) {
             MapPart mapPart = entity.getPart(MapPart.class);
             if (mapPart != null) {
@@ -214,6 +218,9 @@ public class Game extends ApplicationAdapter {
 
                 Sprite sprite = AssetsHelper.getInstance().getSprite(module, imagePath);
                 PositionPart positionPart = entity.getPart(PositionPart.class);
+                System.out.println(entity.getClass());
+                System.out.println(module + imagePath);
+                System.out.println(sprite);
                 sprite.setRotation(positionPart.getRotation());
                 sprite.setPosition(positionPart.getX() - sprite.getWidth() / 2, positionPart.getY() - sprite.getHeight() / 2);
                 
@@ -241,6 +248,9 @@ public class Game extends ApplicationAdapter {
                 }
             }
         }
+        batch.begin();
+        font.draw(batch, "Score: " + (int)gameData.getScore(),0 , 0);
+        batch.end();
     }
 
     @Override

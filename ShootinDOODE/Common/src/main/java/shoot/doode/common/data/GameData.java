@@ -13,7 +13,29 @@ public class GameData {
     private final GameKeys keys = new GameKeys();
     private List<Event> events = new CopyOnWriteArrayList<>();
     private State state;
+    private float score;
+    private int wave;
 
+    public void setScore(float score)
+    {
+        this.score = score;
+    }
+    
+    public void setWave(int wave)
+    {
+        this.wave = wave;
+    }
+    
+    public float getScore()
+    {
+        return score;
+    }
+    
+    public int getWave()
+    {
+        return wave;
+    }
+    
     public State getState() {
         return state;
     }

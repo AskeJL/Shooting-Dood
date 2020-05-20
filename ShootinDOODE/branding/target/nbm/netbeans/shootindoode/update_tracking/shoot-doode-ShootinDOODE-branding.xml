@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.ShootinDOODE.branding">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <module_version install_time="1589546002966" last="true" origin="installer" specification_version="1.0">
         <file crc="2756717434" name="config/Modules/shoot-doode-ShootinDOODE-branding.xml"/>
         <file crc="1450688520" name="modules/shoot-doode-ShootinDOODE-branding.jar"/>
@@ -10,5 +11,10 @@
         <file crc="1997790794" name="modules/shoot-doode-ShootinDOODE-branding.jar"/>
         <file crc="1341967630" name="update_tracking/shoot-doode-ShootinDOODE-branding.xml"/>
 >>>>>>> Test
+=======
+    <module_version install_time="1590008241960" last="true" origin="installer" specification_version="1.0">
+        <file crc="2756717434" name="config/Modules/shoot-doode-ShootinDOODE-branding.xml"/>
+        <file crc="2460681071" name="modules/shoot-doode-ShootinDOODE-branding.jar"/>
+>>>>>>> Walls
     </module_version>
 </module>

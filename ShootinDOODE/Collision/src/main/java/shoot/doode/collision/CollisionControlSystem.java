@@ -14,14 +14,17 @@ import shoot.doode.common.data.entityparts.PositionPart;
 import shoot.doode.common.data.entityparts.ProjectilePart;
 import shoot.doode.common.data.entityparts.ShootingPart;
 import shoot.doode.common.services.IEntityProcessingService;
+import shoot.doode.common.services.IPostEntityProcessingService;
 import shoot.doode.common.services.IPowerUp;
+import shoot.doode.common.services.IScoreGiver;
+
 /**
  *
  * @author sande
  */
 @ServiceProviders(value = {
-    @ServiceProvider(service = IEntityProcessingService.class)})
-public class CollisionControlSystem implements IEntityProcessingService {
+    @ServiceProvider(service = IPostEntityProcessingService.class)})
+public class CollisionControlSystem implements IPostEntityProcessingService {
 
     @Override
     public void process(GameData gameData, World world) {
@@ -40,134 +43,123 @@ public class CollisionControlSystem implements IEntityProcessingService {
                 if (e.getID().equals(f.getID())) {
                     continue;
                 }
-                
-                CollidableEntity collidableF = (CollidableEntity)f;
-                CollidableEntity collidableE = (CollidableEntity)e;
+
+                CollidableEntity collidableF = (CollidableEntity) f;
+                CollidableEntity collidableE = (CollidableEntity) e;
+
+                //If they have the same toughness continue as they are of the same type or a bullet who got shot from that type
+                if (collidableF.getToughness() == collidableE.getToughness()) {
+                    continue;
+                }
 
                 if (rectangleCollision(collidableF, collidableE)) {
                     boolean fIsBullet = f.getPart(ProjectilePart.class) != null;
                     boolean eIsBullet = e.getPart(ProjectilePart.class) != null;
                     boolean fIsPowerUp = f instanceof IPowerUp;
                     boolean eIsPowerUp = e instanceof IPowerUp;
-                    
+
                     //If both are Bullets ignore
-                    if(fIsBullet && eIsBullet)
-                    {
+                    if (fIsBullet && eIsBullet) {
                         continue;
                     }
-                    
+
                     //If a power up and the player interacts use the apply power up method
                     //If one entity is a power up and the other is not ignore it
-                    if(fIsPowerUp && e.getPart(PlayerMovingPart.class) != null)
-                    {
-                        IPowerUp fAsPowerUp = (IPowerUp)f;
+                    if (fIsPowerUp && e.getPart(PlayerMovingPart.class) != null) {
+                        IPowerUp fAsPowerUp = (IPowerUp) f;
                         fAsPowerUp.applyPowerUp(e);
                         world.removeEntity(f);
                         continue;
-                    }
-                    else if(fIsPowerUp)
-                    {
+                    } else if (fIsPowerUp) {
                         continue;
                     }
-                    
-                    if(e.getPart(PlayerMovingPart.class) != null && eIsPowerUp)
-                    {
-                        IPowerUp eAsPowerUp = (IPowerUp)e;
+
+                    if (e.getPart(PlayerMovingPart.class) != null && eIsPowerUp) {
+                        IPowerUp eAsPowerUp = (IPowerUp) e;
                         eAsPowerUp.applyPowerUp(f);
                         world.removeEntity(e);
                         continue;
-                    }
-                    else if(eIsPowerUp)
-                    {
+                    } else if (eIsPowerUp) {
                         continue;
                     }
-                    
-                    //If one is a bullet and the other have the same ID then ignore as the one with the same ID created the bullet
-                    if(fIsBullet)
-                    {
-                        ProjectilePart bullet = f.getPart(ProjectilePart.class);
-                        if(bullet.getID().equals(e.getID()))
-                        {
-                            continue;
-                        }
-                    }
-                    
-                    if(eIsBullet)
-                    {
-                        ProjectilePart bullet = e.getPart(ProjectilePart.class);
-                        if(bullet.getID().equals(f.getID()))
-                        {
-                            continue;
-                        }
-                    }                
-                    
-                    
+
                     // Check if enemy and static collidable interacting
-                    if ((collidableE.getIsStatic() && collidableF.getClass().getName().contains("Enemy")) ||
-                        (collidableF.getIsStatic() && collidableE.getClass().getName().contains("Enemy"))) {
+                    if ((collidableE.getIsStatic() && collidableF.getClass().getName().contains("Enemy"))
+                            || (collidableF.getIsStatic() && collidableE.getClass().getName().contains("Enemy"))) {
                         continue;
                     }
-                    
+
                     //System.out.println(collidableF.getClass().getName());
-                    
                     LifePart lifePartF = f.getPart(LifePart.class);
                     LifePart lifePartE = e.getPart(LifePart.class);
-                    
+
                     boolean removedEntity = false;
-                    
+
                     //If something with a life part gets hit by a bullet take damage = to the bullets damage
                     //Remove the bullet and if the life gets = 0 remove the other entity
                     if (lifePartE != null && fIsBullet) {
                         ProjectilePart bullet = f.getPart(ProjectilePart.class);
                         lifePartE.setLife(lifePartE.getLife() - bullet.getDamage());
                         if (lifePartE.getLife() <= 0) {
-                            world.removeEntity(f);
+                            if (e instanceof IScoreGiver) {
+                                IScoreGiver eScoreGiver = (IScoreGiver) e;
+                                gameData.setScore(gameData.getScore() + eScoreGiver.getScore());
+                            }
+                            world.removeEntity(e);
                             removedEntity = true;
                         }
                     }
-                    
+
                     if (lifePartF != null && eIsBullet) {
                         ProjectilePart bullet = e.getPart(ProjectilePart.class);
                         lifePartF.setLife(lifePartF.getLife() - bullet.getDamage());
                         if (lifePartF.getLife() <= 0) {
+                            if (f instanceof IScoreGiver) {
+                                IScoreGiver fScoreGiver = (IScoreGiver) f;
+                                gameData.setScore(gameData.getScore() + fScoreGiver.getScore());
+                            }
                             world.removeEntity(f);
                             removedEntity = true;
                         }
                     }
-                       
-                    //If something with a lifepart hits a non static objekt it takes 1 damage
+
+                    //If something with a lifepart hits a non static objekt the one with the lowest toughness takes 1 damage
                     if (lifePartE != null && !collidableF.getIsStatic()) {
-                        lifePartE.setLife(lifePartE.getLife() - 1);
-                        if (lifePartE.getLife() <= 0) {
-                            world.removeEntity(e);
-                            removedEntity = true;
+                        if (collidableE.getToughness() < collidableF.getToughness()) {
+                            lifePartE.setLife(lifePartE.getLife() - 1);
+                            if (lifePartE.getLife() <= 0) {
+                                world.removeEntity(e);
+                                removedEntity = true;
+                            }
                         }
+
                     }
-                    
+
                     if (lifePartF != null && !collidableE.getIsStatic()) {
-                        lifePartE.setLife(lifePartE.getLife() - 1);
-                        if (lifePartE.getLife() <= 0) {
-                            world.removeEntity(e);
-                            removedEntity = true;
+                         if (collidableF.getToughness() < collidableE.getToughness()) {
+                            lifePartF.setLife(lifePartF.getLife() - 1);
+                            if (lifePartF.getLife() <= 0) {
+                                world.removeEntity(f);
+                                removedEntity = true;
+                            }
                         }
                     }
-                    
+
                     //If a bullet hits a static objekt remove the bullet
                     if (collidableE.getIsStatic() && fIsBullet) {
                         world.removeEntity(f); //Rebund could be nice 
                         removedEntity = true;
                     }
-                    
+
                     if (collidableF.getIsStatic() && eIsBullet) {
                         world.removeEntity(e); //Rebund could be nice 
                         removedEntity = true;
                     }
-                    
-                    
+
                     if (removedEntity) {
                         return;
                     }
-                    
+
                     //If we are still here handle the physical collision
                     handleCollisionOverlap((CollidableEntity) f, (CollidableEntity) e);
                 }
@@ -178,7 +170,7 @@ public class CollisionControlSystem implements IEntityProcessingService {
     private boolean rectangleCollision(CollidableEntity e, CollidableEntity f) {
         PositionPart ep = e.getPart(PositionPart.class);
         PositionPart fp = f.getPart(PositionPart.class);
-        
+
         Rectangle rec1 = new Rectangle(ep.getX() - (e.getBoundaryWidth() / 2),
                 ep.getY() - (e.getBoundaryHeight() / 2),
                 e.getBoundaryWidth(),
@@ -195,7 +187,7 @@ public class CollisionControlSystem implements IEntityProcessingService {
     private void handleCollisionOverlap(CollidableEntity e, CollidableEntity f) {
         PositionPart ep = e.getPart(PositionPart.class);
         PositionPart fp = f.getPart(PositionPart.class);
-        
+
         Rectangle rec1 = new Rectangle(ep.getX(),
                 ep.getY(),
                 e.getBoundaryWidth(),
@@ -215,18 +207,18 @@ public class CollisionControlSystem implements IEntityProcessingService {
             if (intersection.getHeight() < intersection.getWidth()) {
                 //System.out.println(intersection.getHeight() + intersection.getWidth());
                 if (intersection.getY() == ep.getY()) {
-                    ep.setY(intersection.getY() + intersection.getHeight());
+                    ep.setY(fp.getY() + (f.getBoundaryHeight() / 2) + (e.getBoundaryHeight() / 2)); // ep.setY(intersection.getY() + intersection.getHeight() - 15);
                 }
                 if (intersection.getY() > ep.getY()) {
-                    ep.setY(intersection.getY() - e.getBoundaryHeight());
+                    ep.setY(fp.getY() - (f.getBoundaryHeight() / 2)); // ep.setY(intersection.getY() - e.getBoundaryHeight() - 2);
                 }
             } else if (intersection.getWidth() < intersection.getHeight()) {
                 //System.out.println(intersection.getHeight() + intersection.getWidth());
                 if (intersection.getX() == ep.getX()) {
-                    ep.setX(intersection.getX() + intersection.getWidth());
+                    ep.setX(fp.getX() + (f.getBoundaryWidth() / 2) + (e.getBoundaryWidth() / 2)); // ep.setX(intersection.getX() + intersection.getWidth() - 15);
                 }
                 if (intersection.getX() > ep.getX()) {
-                    ep.setX(intersection.getX() - e.getBoundaryWidth());
+                    ep.setX(fp.getX() - (f.getBoundaryWidth() / 2)); //ep.setX(intersection.getX() - e.getBoundaryWidth() - 2);
                 }
             }
         }

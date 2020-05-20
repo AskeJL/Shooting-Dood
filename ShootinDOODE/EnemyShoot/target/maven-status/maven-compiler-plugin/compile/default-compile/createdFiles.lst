@@ -1,0 +1,7 @@
+META-INF\services\shoot.doode.common.services.IEntityProcessingService
+shoot\doode\enemyshoot\ShootinEnemy.class
+shoot\doode\enemyshoot\ShootinEnemyControlSystem.class
+META-INF\services\shoot.doode.common.services.IAssetService
+shoot\doode\enemyshoot\ShootinEnemyPlugin.class
+shoot\doode\enemyshoot\ShootinEnemyAssetsLoader.class
+META-INF\services\shoot.doode.common.services.IGamePluginService

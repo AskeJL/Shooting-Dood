@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.UUID;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
+import shoot.doode.common.data.CollidableEntity;
 import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
 import shoot.doode.common.data.World;
@@ -27,43 +28,43 @@ public class WeaponControlSystem implements IEntityProcessingService {
         for (Entity entity : world.getEntities()) {
             if (entity.getPart(ShootingPart.class) != null) {
                 ShootingPart shootingPart = entity.getPart(ShootingPart.class);
+                if (shootingPart.isUsesWeapons()) {
 
-                //If the entity has a shooting part and should have weapons but don't, give them weapons
-                if (shootingPart.getWeaponAmount() == 0 && shootingPart.isUsesWeapons()) {
-                    Weapon gun = createWeapon(entity, Gun.class);
-                    world.addEntity(gun);
-                    shootingPart.addWeapon(gun);
+                    //If the entity has a shooting part and should have weapons but don't, give them weapons
+                    if (shootingPart.getWeaponAmount() == 0 && shootingPart.isUsesWeapons()) {
+                        Weapon gun = createWeapon(entity, Gun.class);
+                        world.addEntity(gun);
+                        shootingPart.addWeapon(gun);
 
-                    Weapon shotgun = createWeapon(entity, Shotgun.class);
-                    world.addEntity(shotgun);
-                    shootingPart.addWeapon(shotgun);
+                        Weapon shotgun = createWeapon(entity, Shotgun.class);
+                        world.addEntity(shotgun);
+                        shootingPart.addWeapon(shotgun);
 
-                    Weapon mingun = createWeapon(entity, MiniGun.class);
-                    world.addEntity(mingun);
-                    shootingPart.addWeapon(mingun);
-                }
-
-                PositionPart playerPosition = entity.getPart(PositionPart.class);
-                Weapon weapon = (Weapon) shootingPart.getWeapon();
-                PositionPart weaponPosition = weapon.getPart(PositionPart.class);
-                //Set the rotation and position of the weapon = to the player
-               weaponPosition.setPosition(playerPosition.getX() + 12, playerPosition.getY());
-                weaponPosition.setRotation(playerPosition.getRotation());
-
-                
-                weaponPosition.process(gameData, weapon);
-                //If the shooting part is shooting and the enityt uses weapons than use the shoot method form the weapon
-                if (shootingPart.isShooting()&& shootingPart.isUsesWeapons()) {
-                    if (weapon.getCurrentTime() >= weapon.getRealoadTime()) {
-                        weapon.shoot(gameData, world, entity);
-                        weapon.SetCurrentTime(0);
+                        Weapon mingun = createWeapon(entity, MiniGun.class);
+                        world.addEntity(mingun);
+                        shootingPart.addWeapon(mingun);
                     }
+
+                    PositionPart playerPosition = entity.getPart(PositionPart.class);
+                    Weapon weapon = (Weapon) shootingPart.getWeapon();
+                    PositionPart weaponPosition = weapon.getPart(PositionPart.class);
+                    //Set the rotation and position of the weapon = to the player
+                    weaponPosition.setPosition(playerPosition.getX() + 12, playerPosition.getY());
+                    weaponPosition.setRotation(playerPosition.getRotation());
+
+                    weaponPosition.process(gameData, weapon);
+                    //If the shooting part is shooting and the enityt uses weapons than use the shoot method form the weapon
+                    if (shootingPart.isShooting() && shootingPart.isUsesWeapons()) {
+                        if (weapon.getCurrentTime() >= weapon.getRealoadTime()) {
+                            weapon.shoot(gameData, world, (CollidableEntity) entity);
+                            weapon.SetCurrentTime(0);
+                        }
+                    }
+                    //process the shooting part (which changes hwat weapon you have equiped if the boolean is true)
+                    shootingPart.process(gameData, entity);
+                    weapon.SetCurrentTime(weapon.getCurrentTime() + gameData.getDelta() * shootingPart.getReloadModifier());
+
                 }
-                //process the shooting part (which changes hwat weapon you have equiped if the boolean is true)
-                shootingPart.process(gameData, entity);
-                weapon.SetCurrentTime(weapon.getCurrentTime() + gameData.getDelta() * shootingPart.getReloadModifier());
-
-
             }
         }
     }
@@ -84,8 +85,6 @@ public class WeaponControlSystem implements IEntityProcessingService {
         }
         //it does not need a movepart as the position is just what the enitty that holds it has. Or if it is laying on the ground it should not move.
         weapon.add(new PositionPart(x, y, radians));
-
-        weapon.setRadius(5);
 
         return weapon;
     }

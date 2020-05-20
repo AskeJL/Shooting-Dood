@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
 import shoot.doode.common.services.IAssetService;
+
 /**
  *
  * @author askel
@@ -16,17 +17,19 @@ import shoot.doode.common.services.IAssetService;
 @ServiceProviders(value = {
     @ServiceProvider(service = IAssetService.class),})
 public class BackgroundAssetsLoader implements IAssetService {
-    
+
     String module = "Map";
-    
+
     private String[] maps() {
         ArrayList<String> paths = new ArrayList<>();
         paths.add("map.tmx");
-        return IAssetService.arrayListToString(module, paths);}
+        return IAssetService.arrayListToString(module, paths);
+    }
 
     @Override
     public String[] loadImages() {
-        return null;  }
+        return null;
+    }
 
     @Override
     public String[] unLoadImages() {
@@ -35,11 +38,13 @@ public class BackgroundAssetsLoader implements IAssetService {
 
     @Override
     public String[] loadSounds() {
-        return null;    }
+        return null;
+    }
 
     @Override
     public String[] unLoadSounds() {
-        return null;    }
+        return null;
+    }
 
     @Override
     public String[] loadMaps() {
@@ -50,5 +55,5 @@ public class BackgroundAssetsLoader implements IAssetService {
     public String[] unLoadMaps() {
         return maps();
     }
-    
+
 }

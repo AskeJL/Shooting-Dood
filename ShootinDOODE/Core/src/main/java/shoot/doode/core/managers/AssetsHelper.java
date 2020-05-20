@@ -118,7 +118,7 @@ public class AssetsHelper {
 
     public void loadImages(String path) {
         FileHandle file = jarfile.resolve(path);
-
+        System.out.println(file.exists());
         Texture texture = new Texture(file);
         Sprite sprite = new Sprite(texture);
 
@@ -169,7 +169,7 @@ public class AssetsHelper {
         manager.setLoader(TiledMap.class, new TmxMapLoader());
         String currentPath = System.getProperty("user.dir");
         String subPath = currentPath.substring(0, currentPath.lastIndexOf("ShootinDOODE"));
-        String absolutePath = subPath + "ShootinDOODE\\Map\\src\\main\\resources\\assets\\Maps\\map.tmx";
+        String absolutePath = subPath + "ShootinDOODE\\Map\\src\\main\\resources\\Assets\\Maps\\map.tmx";
         manager.load(absolutePath, TiledMap.class);
         manager.finishLoading();
         TiledMap map = manager.get(absolutePath.replaceAll("\\\\", "/"), TiledMap.class);

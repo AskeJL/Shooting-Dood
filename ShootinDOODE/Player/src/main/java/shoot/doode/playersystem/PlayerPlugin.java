@@ -49,16 +49,15 @@ public class PlayerPlugin implements IGamePluginService {
         CollidableEntity playerShip = new Player();
         UUID id = UUID.randomUUID();
         playerShip.setID(id.toString());
-        playerShip.setRadius(8);
         playerShip.add(new PlayerMovingPart(maxSpeed));
         playerShip.add(new PositionPart(x, y, radians));
         playerShip.add(new LifePart(1));
         playerShip.add(new SpritePart(module, spritePaths));
-        playerShip.add(new ShootingPart(playerShip.getID(),true));
+        playerShip.add(new ShootingPart(true));
         
-        
-        playerShip.setBoundaryWidth(50);
-        playerShip.setBoundaryHeight(50);
+        playerShip.setToughness(2);
+        playerShip.setBoundaryWidth(30);
+        playerShip.setBoundaryHeight(30);
 
         return playerShip;
     }

@@ -71,6 +71,8 @@
         <module>PowerUpMoveSpeed</module>
         <module>PowerUpReloadSpeed</module>
         <module>PowerUpDamage</module>
+        <module>EnemyShoot</module>
+        <module>Obstacle</module>
     </modules>
 
     <properties>
