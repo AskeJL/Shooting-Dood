@@ -139,5 +139,9 @@ public class BackgroundPlugin implements IGamePluginService {
         for (Entity e : obstacleList) {
             world.removeEntity(e);
         }
+        for(Entity e : boundaryList)
+        {
+            world.removeEntity(e);
+        }
     }
 }
