@@ -23,8 +23,6 @@ public class CollisionPlugin implements IGamePluginService {
     
     @Override
     public void start(GameData gameData, World world) {
-        obstacle = createObstacle(gameData);
-        world.addEntity(obstacle);
     }
 
     @Override
@@ -46,7 +44,7 @@ public class CollisionPlugin implements IGamePluginService {
         colour[3] = 1.0f;
 
         String[] spritePaths = new String[1];
-        spritePaths[0] = "brick_wall_red.png";
+        spritePaths[0] = "JeepB.png";
         
         CollidableEntity entity = new CollidableEntity();
         entity.setRadius(30);

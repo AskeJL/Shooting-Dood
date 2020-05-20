@@ -1,5 +1,5 @@
 shoot\doode\map\BackgroundAssetsLoader.class
-shoot\doode\map\Background.class
 META-INF\services\shoot.doode.common.services.IAssetService
+shoot\doode\map\Background.class
 META-INF\services\shoot.doode.common.services.IGamePluginService
 shoot\doode\map\BackgroundPlugin.class
