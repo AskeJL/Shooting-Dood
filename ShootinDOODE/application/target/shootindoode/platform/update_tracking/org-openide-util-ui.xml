@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="org.openide.util.ui">
+<<<<<<< HEAD
     <module_version install_time="1589994767543" last="true" origin="installer" specification_version="9.14">
+=======
+    <module_version install_time="1590008261756" last="true" origin="installer" specification_version="9.14">
+>>>>>>> Walls
         <file crc="3057570575" name="lib/org-openide-util-ui.jar"/>
     </module_version>
 </module>
