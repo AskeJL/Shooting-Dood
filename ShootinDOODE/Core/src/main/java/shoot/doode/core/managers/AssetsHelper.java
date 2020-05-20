@@ -118,7 +118,7 @@ public class AssetsHelper {
 
     public void loadImages(String path) {
         FileHandle file = jarfile.resolve(path);
-
+        System.out.println(file.exists());
         Texture texture = new Texture(file);
         Sprite sprite = new Sprite(texture);
 

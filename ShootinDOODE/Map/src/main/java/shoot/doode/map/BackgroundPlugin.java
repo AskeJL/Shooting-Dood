@@ -23,87 +23,89 @@ import java.util.ArrayList;
  */
 @ServiceProviders(value = {
     @ServiceProvider(service = IGamePluginService.class),})
-public class BackgroundPlugin implements IGamePluginService  {
+public class BackgroundPlugin implements IGamePluginService {
+
     private String module = "Map";
     Entity background = new Background();
-    private Entity boundary;
-    ArrayList<Entity> obstacleList = new ArrayList<>();
+    private ArrayList<Entity> boundaryList = new ArrayList<>();
+    private ArrayList<Entity> obstacleList = new ArrayList<>();
 
     @Override
     public void start(GameData gameData, World world) {
         background = createBackground(gameData);
         world.addEntity(background);
-        
-        for(int i = 0; i < 15; i++)
-        {
+
+        for (int i = 0; i < 15; i++) {
             Entity obstacle = createObstacle(gameData);
             world.addEntity(obstacle);
             obstacleList.add(obstacle);
         }
-        
-        
+
         float x;
         float y;
         int width;
         int height;
-        for(int i = 0; i<4; i++){
-            if (i == 0){
-                    x = 35;
-                    y = 0;
-                    width = (40*35)*2;
-                    height = 40;
-                    boundary = createBoundary(gameData, x, y, width, height);
-                    world.addEntity(boundary); // works
-                    System.out.println("1 oprettes");}
-            else if (i == 1){
-                    x = 0;
-                    y = 0;
-                    width = 40;
-                    height = (40*35)*2;
-                    boundary = createBoundary(gameData, x, y, width, height);
-                    world.addEntity(boundary); // Works
-                    System.out.println("2 oprettes");}
-            else if (i == 2){
-                    x = 35;
-                    y = (36*35);
-                    width = (40*35)*2;
-                    height = 60;
-                    boundary = createBoundary(gameData, x, y, width, height);
-                    world.addEntity(boundary);
-                    System.out.println("3 oprettes");}
-            else if (i == 3){
-                    x = (36*35);
-                    y = 0;
-                    width = 60;
-                    height = (40*35)*2;
-                    boundary = createBoundary(gameData, x, y, width, height);
-                    world.addEntity(boundary);
-                    System.out.println("4 oprettes");}       
+        for (int i = 0; i < 4; i++) {
+            if (i == 0) {
+                x = 35;
+                y = 0;
+                width = (40 * 35) * 2;
+                height = 40;
+                Entity boundary = createBoundary(gameData, x, y, width, height);
+                boundaryList.add(boundary);
+                world.addEntity(boundary); // works
+                System.out.println("1 oprettes");
+            } else if (i == 1) {
+                x = 0;
+                y = 0;
+                width = 40;
+                height = (40 * 35) * 2;
+                Entity boundary = createBoundary(gameData, x, y, width, height);
+                boundaryList.add(boundary);
+                world.addEntity(boundary); // Works
+
+                System.out.println("2 oprettes");
+            } else if (i == 2) {
+                x = 35;
+                y = (36 * 35);
+                width = (40 * 35) * 2;
+                height = 60;
+                Entity boundary = createBoundary(gameData, x, y, width, height);
+                boundaryList.add(boundary);
+                world.addEntity(boundary);
+                System.out.println("3 oprettes");
+            } else if (i == 3) {
+                x = (36 * 35);
+                y = 0;
+                width = 60;
+                height = (40 * 35) * 2;
+                Entity boundary = createBoundary(gameData, x, y, width, height);
+                boundaryList.add(boundary);
+                world.addEntity(boundary);
+                System.out.println("4 oprettes");
+            }
         }
-        
-        
-        
-        
-        
+
     }
-    
+
     private Entity createBackground(GameData gameData) {
         String module = "Map";
         String[] mapPaths = new String[1];
         mapPaths[0] = "map.tmx";
-        
+
         Entity map = new Background();
         map.add(new MapPart(module, mapPaths));
-        
+
         return map;
     }
+
     private Entity createBoundary(GameData gameData, float x, float y, int width, int height) {
-        
+
         float radians = 3.1415f / 2;
-        
+
         CollidableEntity entity = new CollidableEntity();
         entity.add(new PositionPart(x, y, radians));
-        
+
         entity.setBoundaryWidth(width);
         entity.setBoundaryHeight(height);
         entity.setIsStatic(true);
@@ -111,10 +113,10 @@ public class BackgroundPlugin implements IGamePluginService  {
         return entity;
     }
 
-        private Entity createObstacle(GameData gameData) {
+    private Entity createObstacle(GameData gameData) {
 
-        float x = (float) Math.random() * 36*33+50;
-        float y = (float) Math.random() * 36*33+50;
+        float x = (float) Math.random() * 36 * 33 + 50;
+        float y = (float) Math.random() * 36 * 33 + 50;
         float radians = 3.1415f / 2;
 
         String[] spritePaths = new String[1];
@@ -130,14 +132,12 @@ public class BackgroundPlugin implements IGamePluginService  {
         entity.setToughness(1);
         return entity;
     }
-    
-    
+
     @Override
     public void stop(GameData gameData, World world) {
         world.removeEntity(background);
-        for(Entity e : obstacleList)
-        {
+        for (Entity e : obstacleList) {
             world.removeEntity(e);
         }
-    }  
+    }
 }

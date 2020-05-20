@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.Map">
-    <module_version install_time="1589980870190" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1590001569917" last="true" origin="installer" specification_version="1.0">
         <file crc="1308149456" name="config/Modules/shoot-doode-Map.xml"/>
         <file crc="2488665527" name="modules/ext/shoot.doode.Map/com-badlogicgames-gdx/gdx-backend-lwjgl.jar"/>
         <file crc="2933476186" name="modules/ext/shoot.doode.Map/com-badlogicgames-gdx/gdx-box2d-platform-natives-desktop.jar"/>
@@ -17,7 +17,7 @@
         <file crc="1629828147" name="modules/ext/shoot.doode.Map/org-lwjgl-lwjgl/lwjgl-platform-natives-windows.jar"/>
         <file crc="1810775593" name="modules/ext/shoot.doode.Map/org-lwjgl-lwjgl/lwjgl.jar"/>
         <file crc="1003691195" name="modules/ext/shoot.doode.Map/org-lwjgl-lwjgl/lwjgl_util.jar"/>
-        <file crc="2509763582" name="modules/shoot-doode-Map.jar"/>
-        <file crc="1097083476" name="update_tracking/shoot-doode-Map.xml"/>
+        <file crc="2443793133" name="modules/shoot-doode-Map.jar"/>
+        <file crc="2598913591" name="update_tracking/shoot-doode-Map.xml"/>
     </module_version>
 </module>
