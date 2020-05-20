@@ -131,26 +131,25 @@ public class MovingPart
                 dy = (dy / vec) * maxSpeed;
             }
 
-        // set position
-        x += dx * dt;
-        if (x > 40*32) {
-            x = 40*32;
-        } else if (x < 0) {
-            x = 0;
-        }
+            // set position
+            x += dx * dt;
+            if (x > 40*32) {
+                x = 40*32;
+            } else if (x < 0) {
+                x = 0;
+            }
 
-        y += dy * dt;
-        if (y > 40*32) {
-            y = 40*32;
-        } else if (y < 0) {
-            y = 0;
+            y += dy * dt;
+            if (y > 40*32) {
+                y = 40*32;
+            } else if (y < 0) {
+                y = 0;
+            }
         }
-
+        
         positionPart.setX(x);
         positionPart.setY(y);
 
         positionPart.setRotation(rotation);
     }
-
-}
 }
