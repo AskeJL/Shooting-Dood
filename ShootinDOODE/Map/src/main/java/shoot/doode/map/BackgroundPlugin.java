@@ -127,7 +127,7 @@ public class BackgroundPlugin implements IGamePluginService  {
         entity.setBoundaryWidth(70);
         entity.setBoundaryHeight(70);
         entity.setIsStatic(true);
-
+        entity.setToughness(1);
         return entity;
     }
     
