@@ -89,35 +89,6 @@ public class Pathfinding {
         }
     }
     
-    private Entity createEnemy(float x, float y) {
-        
-        float deacceleration = 10;
-        float acceleration = 150;
-        float maxSpeed = 200;
-        float rotationSpeed = 5;
-        float radians = 3.1415f / 2;
-
-        String module = "Enemy";
-        String[] spritePaths = new String[1];
-        double ran = Math.random();
-        
-        int boundaryWidth = 20;
-        int boundaryHeight = 20;
-        spritePaths[0] = "Enemy-front.png";
-        
-        CollidableEntity enemy = new Enemy();
-        enemy.setRadius(8);
-        enemy.add(new MovingPart(0, 0, 0, 0));
-        enemy.add(new PositionPart(x, y, radians));
-        enemy.add(new LifePart(1));
-        enemy.add(new SpritePart(module,spritePaths));
-        
-        enemy.setBoundaryWidth(boundaryWidth);
-        enemy.setBoundaryHeight(boundaryHeight);
-       
-        return enemy;
-    }
-    
     public List<Point> generatePath(Point current, Point destination) {
         ArrayList<Point> pathList = new ArrayList<>();
         

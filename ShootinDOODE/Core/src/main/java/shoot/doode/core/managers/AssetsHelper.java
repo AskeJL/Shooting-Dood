@@ -169,7 +169,7 @@ public class AssetsHelper {
         manager.setLoader(TiledMap.class, new TmxMapLoader());
         String currentPath = System.getProperty("user.dir");
         String subPath = currentPath.substring(0, currentPath.lastIndexOf("ShootinDOODE"));
-        String absolutePath = subPath + "ShootinDOODE\\Map\\src\\main\\resources\\assets\\Maps\\map.tmx";
+        String absolutePath = subPath + "ShootinDOODE\\Map\\src\\main\\resources\\Assets\\Maps\\map.tmx";
         manager.load(absolutePath, TiledMap.class);
         manager.finishLoading();
         TiledMap map = manager.get(absolutePath.replaceAll("\\\\", "/"), TiledMap.class);

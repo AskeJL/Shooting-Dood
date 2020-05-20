@@ -26,7 +26,6 @@ import shoot.doode.common.data.entityparts.SpritePart;
 @ServiceProviders(value = {
     @ServiceProvider(service = IGamePluginService.class),})
 public class EnemyPlugin implements IGamePluginService {
-    private Entity enemy = new Enemy();
 
     public EnemyPlugin() {
     }
@@ -38,9 +37,9 @@ public class EnemyPlugin implements IGamePluginService {
  
     @Override
     public void stop(GameData gameData, World world) {
-        for(int i = 0; i < world.getEntities(Enemy.class).size();i++)
+        for(int i = 0; i < world.getEntities(NormalEnemy.class).size();i++)
         {
-            world.removeEntity(world.getEntities(Enemy.class).get(i));
+            world.removeEntity(world.getEntities(NormalEnemy.class).get(i));
         }
     }
 

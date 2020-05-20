@@ -1,5 +1,6 @@
 package shoot.doode.commonweapon;
 
+import shoot.doode.common.data.CollidableEntity;
 import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
 import shoot.doode.common.data.World;
@@ -16,19 +17,8 @@ public abstract class Weapon extends Entity {
     public Weapon() {
      
     }
-    
-    public static IBulletSpawner getSpawner(World world)
-    {
-        IBulletSpawner bulletSpawner = null;
-        for (Entity ibullet : world.getEntities()) {
-            if (ibullet instanceof IBulletSpawner) {
-                bulletSpawner = (IBulletSpawner) ibullet;
-            }
-        }
-        return bulletSpawner;
-    }
-    
-    abstract public void shoot(GameData gameData, World world,Entity shooter);
+     
+    abstract public void shoot(GameData gameData, World world,CollidableEntity shooter);
     
     public double getCurrentTime() {
         return currentTime;

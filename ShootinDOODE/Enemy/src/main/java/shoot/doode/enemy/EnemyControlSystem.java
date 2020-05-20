@@ -44,13 +44,13 @@ public class EnemyControlSystem implements IEntityProcessingService, AI {
         // Calling it here is not the most performant method...
         pathfinding.setup(world);
         
-        if(world.getEntities(Enemy.class).size() < 1)
+        if(world.getEntities(NormalEnemy.class).size() < 1)
         {
-            Entity enemy = createEnemy(gameData);
+            Entity enemy = createNormalEnemy(gameData);
             world.addEntity(enemy);
         }
         
-        for (Entity enemy : world.getEntities(Enemy.class)) {
+        for (Entity enemy : world.getEntities(NormalEnemy.class)) {
             PositionPart positionPart = enemy.getPart(PositionPart.class);
             MovingPart movingPart = enemy.getPart(MovingPart.class);
             LifePart lifePart = enemy.getPart(LifePart.class);
@@ -120,7 +120,7 @@ public class EnemyControlSystem implements IEntityProcessingService, AI {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    private Entity createEnemy(GameData gameData) {
+    private Entity createNormalEnemy(GameData gameData) {
         
         float deacceleration = 10;
         float acceleration = 150;
@@ -134,37 +134,22 @@ public class EnemyControlSystem implements IEntityProcessingService, AI {
         String[] spritePaths = new String[1];
         double ran = Math.random();
         
-        int boundaryWidth = 20;
-        int boundaryHeight = 20;
-        if(ran > 0.75)
-        {
-            spritePaths[0] = "Enemy-front.png";
-        }
-        else if(ran > 0.50)
-        {
-            spritePaths[0] = "Enemy2-front.png";
-        }
-        else if(ran > 0.25)
+        if(ran > 0.50)
         {
             spritePaths[0] = "Green_Virus.png";
-            boundaryWidth = 45;
-            boundaryHeight = 45;
         }
         else
         {
-            spritePaths[0] = "Green_Virus.png"; //"Red_virus.png"; (file not found exception)
-            boundaryWidth = 45;
-            boundaryHeight = 45;
+            spritePaths[0] = "Red_Virus.png"; //"Red_virus.png"; (file not found exception)
         }
         
-        CollidableEntity enemy = new Enemy();
-        enemy.setRadius(8);
+        CollidableEntity enemy = new NormalEnemy(50);
         enemy.add(new MovingPart(deacceleration, acceleration, maxSpeed, rotationSpeed));
         enemy.add(new PositionPart(x, y, radians));
         enemy.add(new LifePart(1));
         enemy.add(new SpritePart(module,spritePaths));
-        enemy.setBoundaryWidth(boundaryWidth);
-        enemy.setBoundaryHeight(boundaryHeight);
+        enemy.setBoundaryWidth(40);
+        enemy.setBoundaryHeight(40);
        
         return enemy;
     }

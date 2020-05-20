@@ -10,8 +10,6 @@ public class Entity implements Serializable {
 
     private String ID = UUID.randomUUID().toString();
 
-    private float radius;
-
     private Map<Class, EntityPart> parts;
 
     public Entity() {
@@ -28,14 +26,6 @@ public class Entity implements Serializable {
 
     public <E extends EntityPart> E getPart(Class partClass) {
         return (E) parts.get(partClass);
-    }
-
-    public void setRadius(float r) {
-        this.radius = r;
-    }
-
-    public float getRadius() {
-        return radius;
     }
 
     public String getID() {

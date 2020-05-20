@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.PowerUpDamage">
-    <module_version install_time="1589964107712" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1589973467671" last="true" origin="installer" specification_version="1.0">
         <file crc="819170787" name="config/Modules/shoot-doode-PowerUpDamage.xml"/>
-        <file crc="808872687" name="modules/shoot-doode-PowerUpDamage.jar"/>
-        <file crc="2144292589" name="update_tracking/shoot-doode-PowerUpDamage.xml"/>
+        <file crc="3018483767" name="modules/shoot-doode-PowerUpDamage.jar"/>
+        <file crc="3397156781" name="update_tracking/shoot-doode-PowerUpDamage.xml"/>
     </module_version>
 </module>

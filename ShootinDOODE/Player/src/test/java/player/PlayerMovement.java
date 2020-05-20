@@ -78,12 +78,11 @@ public class PlayerMovement {
         spritePaths[3] = "Doode-back.png";
        
         CollidableEntity playerShip = new Player();
-        playerShip.setRadius(8);
         playerShip.add(new PlayerMovingPart(maxSpeed));
         playerShip.add(new PositionPart(x, y, radians));
         playerShip.add(new LifePart(1));
         playerShip.add(new SpritePart(module, spritePaths));
-        playerShip.add(new ShootingPart(playerShip.getID(),true));
+        playerShip.add(new ShootingPart(true));
         
         playerShip.setBoundaryWidth(50);
         playerShip.setBoundaryHeight(50);

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package shoot.doode.weapon;
+import shoot.doode.common.data.CollidableEntity;
 import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
 import shoot.doode.common.data.World;
@@ -41,8 +42,8 @@ public class MiniGun extends Weapon {
     }
 
     @Override
-    public void shoot(GameData gameData, World world,Entity shooter) {
-        IBulletSpawner bulletSpawner = Weapon.getSpawner(world);
+    public void shoot(GameData gameData, World world,CollidableEntity shooter) {
+        IBulletSpawner bulletSpawner = IBulletSpawner.getSpawner(world);
         
         SoundPart soundpart = this.getPart(SoundPart.class);
         PositionPart positionPart = this.getPart(PositionPart.class);
@@ -50,7 +51,7 @@ public class MiniGun extends Weapon {
         double dmgModifier = shootingPart.getDamageModifier();
         if(bulletSpawner != null)
         {
-            bulletSpawner.spawnBullet(positionPart.getX(),positionPart.getY(), 4.5f, positionPart.getRotation()+(float)((Math.random()-0.5)*0.3),3, this.getDamage() * dmgModifier,shooter.getID(), world);
+            bulletSpawner.spawnBullet(positionPart.getX(),positionPart.getY(), 4.5f, positionPart.getRotation()+(float)((Math.random()-0.5)*0.3),3, this.getDamage() * dmgModifier,shooter.getToughness(), world);
         }
         
         soundpart.setPlay("Gun_Fire.mp3", true);

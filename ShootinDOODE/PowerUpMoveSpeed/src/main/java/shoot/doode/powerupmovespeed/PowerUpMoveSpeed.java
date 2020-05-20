@@ -55,7 +55,6 @@ public class PowerUpMoveSpeed extends CollidableEntity implements IPowerUp, IGam
         int boundaryHeight = 20;
         CollidableEntity powerUp = new PowerUpMoveSpeed();
         
-        powerUp.setRadius(8);
         powerUp.add(new PositionPart(x, y, radians));
         powerUp.add(new SpritePart(module,spritePaths));
         

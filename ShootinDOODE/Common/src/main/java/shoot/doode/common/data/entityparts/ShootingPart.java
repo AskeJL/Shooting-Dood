@@ -14,10 +14,8 @@ public class ShootingPart implements EntityPart{
     private ArrayList<Entity> weapons = new ArrayList<>();
     private int wepaonEquiped = 0;
     private boolean isSchooting;
-    private String ID;
 
-    public ShootingPart(String ID,boolean usesWeapons) {
-        this.ID = ID;
+    public ShootingPart(boolean usesWeapons) {
         this.usesWeapons = usesWeapons;
     }
     
@@ -78,15 +76,6 @@ public class ShootingPart implements EntityPart{
     public void setIsShooting(boolean b){
         this.isSchooting = b;
     }
-
-    public String getID() {
-        return ID;
-    }
-
-    public void setID(String ID) {
-        this.ID = ID;
-    }
-    
     public void emptyWeapons()
     {
         weapons.clear();

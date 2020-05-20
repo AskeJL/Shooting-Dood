@@ -97,8 +97,11 @@ public class Game extends ApplicationAdapter {
 
     @Override
     public void render() {
+
+       
     gameData.setDelta(Gdx.graphics.getDeltaTime());
     gameData.getKeys().update();
+    gameData.setScore(gameData.getScore() - gameData.getDelta());
     
     switch (gameData.getState()) {
             
@@ -164,6 +167,7 @@ public class Game extends ApplicationAdapter {
     }
 
     private void draw() {
+
         for (Entity entity : world.getEntities()) {
             MapPart mapPart = entity.getPart(MapPart.class);
             if (mapPart != null) {
@@ -241,6 +245,9 @@ public class Game extends ApplicationAdapter {
                 }
             }
         }
+        batch.begin();
+        font.draw(batch, "Score: " + (int)gameData.getScore(),0 , 0);
+        batch.end();
     }
 
     @Override

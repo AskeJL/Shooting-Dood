@@ -23,8 +23,6 @@ public class EnemyAssetsLoader implements IAssetService {
 
     private String[] images() {
         ArrayList<String> paths = new ArrayList<>();
-        paths.add("Enemy-front.png");
-        paths.add("Enemy2-front.png");
         paths.add("Green_Virus.png");
         paths.add("Red_Virus.png");
 

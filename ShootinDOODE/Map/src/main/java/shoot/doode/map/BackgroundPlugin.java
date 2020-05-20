@@ -15,6 +15,7 @@ import shoot.doode.common.data.entityparts.MapPart;
 import shoot.doode.common.data.entityparts.PositionPart;
 import shoot.doode.common.data.entityparts.SpritePart;
 import shoot.doode.common.services.IGamePluginService;
+import java.util.ArrayList;
 
 /**
  *
@@ -23,13 +24,24 @@ import shoot.doode.common.services.IGamePluginService;
 @ServiceProviders(value = {
     @ServiceProvider(service = IGamePluginService.class),})
 public class BackgroundPlugin implements IGamePluginService  {
+    private String module = "Map";
     Entity background = new Background();
     private Entity boundary;
+    ArrayList<Entity> obstacleList = new ArrayList<>();
 
     @Override
     public void start(GameData gameData, World world) {
         background = createBackground(gameData);
         world.addEntity(background);
+        
+        for(int i = 0; i < 15; i++)
+        {
+            Entity obstacle = createObstacle(gameData);
+            world.addEntity(obstacle);
+            obstacleList.add(obstacle);
+        }
+        
+        
         float x;
         float y;
         int width;
@@ -68,6 +80,11 @@ public class BackgroundPlugin implements IGamePluginService  {
                     world.addEntity(boundary);
                     System.out.println("4 oprettes");}       
         }
+        
+        
+        
+        
+        
     }
     
     private Entity createBackground(GameData gameData) {
@@ -85,7 +102,6 @@ public class BackgroundPlugin implements IGamePluginService  {
         float radians = 3.1415f / 2;
         
         CollidableEntity entity = new CollidableEntity();
-        entity.setRadius(5);
         entity.add(new PositionPart(x, y, radians));
         
         entity.setBoundaryWidth(width);
@@ -95,8 +111,33 @@ public class BackgroundPlugin implements IGamePluginService  {
         return entity;
     }
 
+        private Entity createObstacle(GameData gameData) {
+
+        float x = (float) Math.random() * 36*33+50;
+        float y = (float) Math.random() * 36*33+50;
+        float radians = 3.1415f / 2;
+
+        String[] spritePaths = new String[1];
+        spritePaths[0] = "wall.png";
+
+        CollidableEntity entity = new CollidableEntity();
+        entity.add(new PositionPart(x, y, radians));
+        entity.add(new SpritePart(module, spritePaths));
+
+        entity.setBoundaryWidth(100);
+        entity.setBoundaryHeight(100);
+        entity.setIsStatic(true);
+
+        return entity;
+    }
+    
+    
     @Override
     public void stop(GameData gameData, World world) {
         world.removeEntity(background);
+        for(Entity e : obstacleList)
+        {
+            world.removeEntity(e);
+        }
     }  
 }

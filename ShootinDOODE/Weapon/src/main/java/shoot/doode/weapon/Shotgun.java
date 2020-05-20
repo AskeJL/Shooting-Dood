@@ -5,6 +5,7 @@
  */
 package shoot.doode.weapon;
 
+import shoot.doode.common.data.CollidableEntity;
 import shoot.doode.commonweapon.Weapon;
 import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
@@ -42,8 +43,8 @@ public class Shotgun extends Weapon {
     }
 
     @Override
-    public void shoot(GameData gameData, World world, Entity shooter) {
-        IBulletSpawner bulletSpawner = Weapon.getSpawner(world);
+    public void shoot(GameData gameData, World world, CollidableEntity shooter) {
+        IBulletSpawner bulletSpawner = IBulletSpawner.getSpawner(world);
 
         SoundPart soundpart = this.getPart(SoundPart.class);
         PositionPart positionPart = this.getPart(PositionPart.class);
@@ -53,7 +54,7 @@ public class Shotgun extends Weapon {
         if (bulletSpawner != null) {
             for (int i = 0; i < 17; i++) {
                 //this looks kinda nuts
-                bulletSpawner.spawnBullet(positionPart.getX(),positionPart.getY(), bulletSpeed + (float) ((Math.random() - 0.5) * 1.3), positionPart.getRotation() + (float) ((Math.random() - 0.5) * 1.25),2, dmgModifier, shooter.getID(),world);             
+                bulletSpawner.spawnBullet(positionPart.getX(),positionPart.getY(), bulletSpeed + (float) ((Math.random() - 0.5) * 1.3), positionPart.getRotation() + (float) ((Math.random() - 0.5) * 1.25),2, dmgModifier, shooter.getToughness(),world);             
             }
         }
 
