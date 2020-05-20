@@ -163,8 +163,6 @@ public class EnemyControlSystem implements IEntityProcessingService, AI {
         enemy.add(new PositionPart(x, y, radians));
         enemy.add(new LifePart(1));
         enemy.add(new SpritePart(module,spritePaths));
-        UUID id = UUID.randomUUID();
-        enemy.setID(id.toString());
         enemy.setBoundaryWidth(boundaryWidth);
         enemy.setBoundaryHeight(boundaryHeight);
        

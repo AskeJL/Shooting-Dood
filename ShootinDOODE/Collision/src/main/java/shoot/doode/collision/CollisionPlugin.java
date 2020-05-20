@@ -57,7 +57,6 @@ public class CollisionPlugin implements IGamePluginService {
 
         CollidableEntity entity = new CollidableEntity();
         entity.setRadius(15);
-        entity.setColour(colour);
         entity.add(new PositionPart(x, y, radians));
         entity.add(new SpritePart(module, spritePaths));
 

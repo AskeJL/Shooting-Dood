@@ -83,16 +83,9 @@ public class BackgroundPlugin implements IGamePluginService  {
     private Entity createBoundary(GameData gameData, float x, float y, int width, int height) {
         
         float radians = 3.1415f / 2;
-
-        float[] colour = new float[4];
-        colour[0] = 1.0f;
-        colour[1] = 89;
-        colour[2] = 100;
-        colour[3] = 31;
         
         CollidableEntity entity = new CollidableEntity();
         entity.setRadius(5);
-        entity.setColour(colour);
         entity.add(new PositionPart(x, y, radians));
         
         entity.setBoundaryWidth(width);

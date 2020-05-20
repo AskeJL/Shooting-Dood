@@ -147,7 +147,6 @@ public class PlayerMovingPart implements EntityPart
     @Override
     public void process(GameData gameData, Entity entity)
     {
-        System.out.println("helloo");
         PositionPart PositionPart = entity.getPart(PositionPart.class);
         float x = PositionPart.getX();
         float y = PositionPart.getY();

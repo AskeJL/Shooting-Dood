@@ -97,12 +97,6 @@ public class Pathfinding {
         float rotationSpeed = 5;
         float radians = 3.1415f / 2;
 
-        float[] colour = new float[4];
-        colour[0] = 1.0f;
-        colour[1] = 0.0f;
-        colour[2] = 0.0f;
-        colour[3] = 1.0f;
-
         String module = "Enemy";
         String[] spritePaths = new String[1];
         double ran = Math.random();
@@ -113,7 +107,6 @@ public class Pathfinding {
         
         CollidableEntity enemy = new Enemy();
         enemy.setRadius(8);
-        enemy.setColour(colour);
         enemy.add(new MovingPart(0, 0, 0, 0));
         enemy.add(new PositionPart(x, y, radians));
         enemy.add(new LifePart(1));

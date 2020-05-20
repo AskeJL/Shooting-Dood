@@ -70,30 +70,7 @@ public class PlayerControlSystem implements IEntityProcessingService {
             positionPart.process(gameData, player);
             shootingPart.process(gameData, player);
             lifePart.process(gameData, player);
-<<<<<<< HEAD
             
         }
     }
-=======
-
-            updateShape(player);
         }
-    }
-
-    private void updateShape(Entity entity) {
-        float[] shapex = new float[4];
-        float[] shapey = new float[4];
-        PositionPart positionPart = entity.getPart(PositionPart.class);
-        float x = positionPart.getX();
-        float y = positionPart.getY();
-        float rotation = positionPart.getRotation();
-
-        shapex[0] = (float) (x + Math.cos(rotation) * entity.getRadius());
-        shapey[0] = (float) (y + Math.sin(rotation) * entity.getRadius());
-
-        shapex[1] = (float) (x + Math.cos(rotation - 4 * 3.1415f / 5) * entity.getRadius());
-        shapey[1] = (float) (y + Math.sin(rotation - 4 * 3.1145f / 5) * entity.getRadius());
->>>>>>> Test
-
-
-}
