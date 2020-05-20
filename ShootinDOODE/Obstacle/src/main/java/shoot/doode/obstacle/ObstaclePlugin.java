@@ -21,7 +21,7 @@ import shoot.doode.common.services.IGamePluginService;
     @ServiceProvider(service = IGamePluginService.class)})
 public class ObstaclePlugin implements IGamePluginService {
 
-    private String module = "Collision";
+    private String module = "Obstacle";
     private Entity obstacle = new Obstacles();
     
     @Override
@@ -46,14 +46,7 @@ public class ObstaclePlugin implements IGamePluginService {
         float y = new Random().nextFloat() * gameData.getDisplayHeight();
         float radians = 3.1415f / 2;
 
-        float[] colour = new float[4];
-        colour[0] = 1.0f;
-        colour[1] = 0.0f;
-        colour[2] = 0.0f;
-        colour[3] = 1.0f;
-
-        String module = "Obstacle";
-        String[] spritePaths = new String[5];
+        String[] spritePaths = new String[1];
         double ran = Math.random();
         
         int boundaryWidth;
@@ -90,7 +83,6 @@ public class ObstaclePlugin implements IGamePluginService {
         
         CollidableEntity obstacle = new Obstacles();
         obstacle.setRadius(8);
-        obstacle.setColour(colour);
         obstacle.add(new PositionPart(x, y, radians));
         obstacle.add(new SpritePart(module,spritePaths));
         
