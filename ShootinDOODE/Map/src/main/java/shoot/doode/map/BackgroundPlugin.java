@@ -51,14 +51,14 @@ public class BackgroundPlugin implements IGamePluginService  {
                     x = 35;
                     y = 0;
                     width = (40*35)*2;
-                    height = 35;
+                    height = 40;
                     boundary = createBoundary(gameData, x, y, width, height);
                     world.addEntity(boundary); // works
                     System.out.println("1 oprettes");}
             else if (i == 1){
                     x = 0;
                     y = 0;
-                    width = 35;
+                    width = 40;
                     height = (40*35)*2;
                     boundary = createBoundary(gameData, x, y, width, height);
                     world.addEntity(boundary); // Works
@@ -67,14 +67,14 @@ public class BackgroundPlugin implements IGamePluginService  {
                     x = 35;
                     y = (36*35);
                     width = (40*35)*2;
-                    height = 0;
+                    height = 60;
                     boundary = createBoundary(gameData, x, y, width, height);
                     world.addEntity(boundary);
                     System.out.println("3 oprettes");}
             else if (i == 3){
                     x = (36*35);
                     y = 0;
-                    width = 10;
+                    width = 60;
                     height = (40*35)*2;
                     boundary = createBoundary(gameData, x, y, width, height);
                     world.addEntity(boundary);
