@@ -1,4 +1,4 @@
-#Tue May 19 11:58:47 CEST 2020
+#Wed May 20 20:03:49 CEST 2020
 shoot.doode.PowerUpReloadSpeed.AutoUpdate-Show-In-Client=\u0000
 org.netbeans.libs.osgi.OpenIDE-Module-Install=\u0000
 shoot.doode.Weapon.OpenIDE-Module-Hide-Classpath-Packages=\u0000
@@ -34,8 +34,8 @@ org.netbeans.libs.osgi.OpenIDE-Module-Deprecated=\u0000
 shoot.doode.Bullet.OpenIDE-Module-Description=\u0000
 shoot.doode.Player.OpenIDE-Module-Install=\u0000
 org.openide.util.ui.OpenIDE-Module-Deprecated=\u0000
-org.netbeans.core.startup.AutoUpdate-Show-In-Client=false
 shoot.doode.PowerUpDamage.OpenIDE-Module-Deprecated=\u0000
+org.netbeans.core.startup.AutoUpdate-Show-In-Client=false
 org.openide.filesystems.AutoUpdate-Show-In-Client=false
 org.openide.util.ui.OpenIDE-Module-Layer=\u0000
 shoot.doode.Weapon.OpenIDE-Module-Description=\u0000
@@ -140,8 +140,8 @@ shoot.doode.Enemy.OpenIDE-Module-Description=\u0000
 org.netbeans.core.netigso.OpenIDE-Module-Description=\u0000
 org.openide.util.lookup.OpenIDE-Module-Description=\u0000
 shoot.doode.CommonWeapon.OpenIDE-Module-Layer=\u0000
-shoot.doode.Core.AutoUpdate-Show-In-Client=\u0000
 shoot.doode.CommonWeapon.OpenIDE-Module-Deprecated=\u0000
+shoot.doode.Core.AutoUpdate-Show-In-Client=\u0000
 shoot.doode.Bullet.OpenIDE-Module-Deprecated=\u0000
 shoot.doode.Core.OpenIDE-Module-Deprecated=\u0000
 shoot.doode.Weapon.OpenIDE-Module-Layer=\u0000
