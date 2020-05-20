@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #Tue May 19 11:58:47 CEST 2020
+=======
+#Fri May 15 13:27:42 CEST 2020
+>>>>>>> Test
 shoot.doode.PowerUpReloadSpeed.AutoUpdate-Show-In-Client=\u0000
 org.netbeans.libs.osgi.OpenIDE-Module-Install=\u0000
 shoot.doode.Weapon.OpenIDE-Module-Hide-Classpath-Packages=\u0000
@@ -7,14 +11,20 @@ shoot.doode.Enemy.AutoUpdate-Show-In-Client=\u0000
 shoot.doode.Core.OpenIDE-Module-Install=shoot/doode/core/main/Installer.class
 org.openide.util.OpenIDE-Module-Description=\u0000
 org.openide.modules.OpenIDE-Module-Install=\u0000
+<<<<<<< HEAD
 shoot.doode.Map.OpenIDE-Module-Hide-Classpath-Packages=\u0000
+=======
+>>>>>>> Test
 org.netbeans.core.netigso.OpenIDE-Module-Layer=\u0000
 shoot.doode.PowerUpMoveSpeed.OpenIDE-Module-Hide-Classpath-Packages=\u0000
 shoot.doode.Bullet.OpenIDE-Module-Layer=\u0000
 org.netbeans.libs.osgi.OpenIDE-Module-Description=\u0000
 org.openide.modules.OpenIDE-Module-Layer=\u0000
 shoot.doode.PowerUpDamage.OpenIDE-Module-Hide-Classpath-Packages=\u0000
+<<<<<<< HEAD
 shoot.doode.Map.OpenIDE-Module-Description=\u0000
+=======
+>>>>>>> Test
 org.netbeans.libs.asm.OpenIDE-Module-Hide-Classpath-Packages=\u0000
 shoot.doode.PowerUpMoveSpeed.OpenIDE-Module-Install=\u0000
 shoot.doode.Core.OpenIDE-Module-Description=\u0000
@@ -34,14 +44,22 @@ org.netbeans.libs.osgi.OpenIDE-Module-Deprecated=\u0000
 shoot.doode.Bullet.OpenIDE-Module-Description=\u0000
 shoot.doode.Player.OpenIDE-Module-Install=\u0000
 org.openide.util.ui.OpenIDE-Module-Deprecated=\u0000
+<<<<<<< HEAD
 org.netbeans.core.startup.AutoUpdate-Show-In-Client=false
 shoot.doode.PowerUpDamage.OpenIDE-Module-Deprecated=\u0000
+=======
+shoot.doode.PowerUpDamage.OpenIDE-Module-Deprecated=\u0000
+org.netbeans.core.startup.AutoUpdate-Show-In-Client=false
+>>>>>>> Test
 org.openide.filesystems.AutoUpdate-Show-In-Client=false
 org.openide.util.ui.OpenIDE-Module-Layer=\u0000
 shoot.doode.Weapon.OpenIDE-Module-Description=\u0000
 shoot.doode.PowerUpReloadSpeed.OpenIDE-Module-Hide-Classpath-Packages=\u0000
 shoot.doode.PowerUpDamage.OpenIDE-Module-Description=\u0000
+<<<<<<< HEAD
 shoot.doode.Map.OpenIDE-Module-Deprecated=\u0000
+=======
+>>>>>>> Test
 org.netbeans.bootstrap.OpenIDE-Module-Hide-Classpath-Packages=\u0000
 org.netbeans.modules.netbinox.OpenIDE-Module-Description=\u0000
 org.netbeans.modules.netbinox.OpenIDE-Module-Deprecated=\u0000
@@ -51,12 +69,20 @@ org.openide.modules.OpenIDE-Module-Hide-Classpath-Packages=\u0000
 shoot.doode.PowerUpDamage.AutoUpdate-Show-In-Client=\u0000
 shoot.doode.Bullet.OpenIDE-Module-Hide-Classpath-Packages=\u0000
 org.openide.modules.OpenIDE-Module-Description=\u0000
+<<<<<<< HEAD
 shoot.doode.Map.AutoUpdate-Show-In-Client=\u0000
 org.netbeans.api.annotations.common.OpenIDE-Module-Description=\u0000
 shoot.doode.PowerUpMoveSpeed.OpenIDE-Module-Deprecated=\u0000
 org.netbeans.core.netigso.OpenIDE-Module-Hide-Classpath-Packages=\u0000
 shoot.doode.CommonEnemy.OpenIDE-Module-Install=\u0000
 org.netbeans.modules.netbinox.AutoUpdate-Show-In-Client=false
+=======
+org.netbeans.api.annotations.common.OpenIDE-Module-Description=\u0000
+shoot.doode.PowerUpMoveSpeed.OpenIDE-Module-Deprecated=\u0000
+org.netbeans.core.netigso.OpenIDE-Module-Hide-Classpath-Packages=\u0000
+org.netbeans.modules.netbinox.AutoUpdate-Show-In-Client=false
+shoot.doode.CommonEnemy.OpenIDE-Module-Install=\u0000
+>>>>>>> Test
 shoot.doode.Enemy.OpenIDE-Module-Hide-Classpath-Packages=\u0000
 org.openide.filesystems.OpenIDE-Module-Description=\u0000
 shoot.doode.CommonEnemy.OpenIDE-Module-Hide-Classpath-Packages=\u0000
@@ -87,7 +113,10 @@ org.netbeans.bootstrap.AutoUpdate-Show-In-Client=false
 org.openide.util.OpenIDE-Module-Layer=\u0000
 org.openide.filesystems.OpenIDE-Module-Hide-Classpath-Packages=\u0000
 org.netbeans.core.startup.base.OpenIDE-Module-Hide-Classpath-Packages=\u0000
+<<<<<<< HEAD
 shoot.doode.Map.OpenIDE-Module-Install=\u0000
+=======
+>>>>>>> Test
 org.openide.util.lookup.AutoUpdate-Show-In-Client=false
 org.netbeans.core.netigso.AutoUpdate-Show-In-Client=false
 org.openide.util.OpenIDE-Module-Hide-Classpath-Packages=\u0000
@@ -112,7 +141,10 @@ org.openide.modules.OpenIDE-Module-Deprecated=\u0000
 shoot.doode.CommonEnemy.OpenIDE-Module-Description=\u0000
 org.openide.util.OpenIDE-Module-Deprecated=\u0000
 shoot.doode.Common.OpenIDE-Module-Description=\u0000
+<<<<<<< HEAD
 shoot.doode.Map.OpenIDE-Module-Layer=\u0000
+=======
+>>>>>>> Test
 shoot.doode.Common.OpenIDE-Module-Deprecated=\u0000
 shoot.doode.Collision.OpenIDE-Module-Description=\u0000
 shoot.doode.Enemy.OpenIDE-Module-Install=\u0000
@@ -140,8 +172,13 @@ shoot.doode.Enemy.OpenIDE-Module-Description=\u0000
 org.netbeans.core.netigso.OpenIDE-Module-Description=\u0000
 org.openide.util.lookup.OpenIDE-Module-Description=\u0000
 shoot.doode.CommonWeapon.OpenIDE-Module-Layer=\u0000
+<<<<<<< HEAD
 shoot.doode.Core.AutoUpdate-Show-In-Client=\u0000
 shoot.doode.CommonWeapon.OpenIDE-Module-Deprecated=\u0000
+=======
+shoot.doode.CommonWeapon.OpenIDE-Module-Deprecated=\u0000
+shoot.doode.Core.AutoUpdate-Show-In-Client=\u0000
+>>>>>>> Test
 shoot.doode.Bullet.OpenIDE-Module-Deprecated=\u0000
 shoot.doode.Core.OpenIDE-Module-Deprecated=\u0000
 shoot.doode.Weapon.OpenIDE-Module-Layer=\u0000

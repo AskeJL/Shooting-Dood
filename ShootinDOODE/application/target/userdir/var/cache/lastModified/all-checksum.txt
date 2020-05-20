@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 platform=1589889475248
 cluster.bin=1589889475248
 cluster.etc=1589889475248
@@ -18,3 +19,16 @@ locale=da_DK
 branding=shootindoode
 java.version=10.0.2
 java.vm.version=10.0.2+13
+=======
+platform=1589542044119
+cluster.bin=1589542044118
+cluster.etc=1589542044119
+cluster.platform=1589542044119
+cluster.shootindoode=1589542044120
+user=1589542044120
+crc=7
+locale=da_DK
+branding=shootindoode
+java.version=1.8.0_221
+java.vm.version=25.221-b11
+>>>>>>> Test
