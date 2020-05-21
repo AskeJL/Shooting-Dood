@@ -3,7 +3,7 @@ OpenIDE-Module-Localizing-Bundle: shoot/doode/powerupreloadspeed/Bundl
  e.properties
 OpenIDE-Module-Specification-Version: 1.0
 OpenIDE-Module-Implementation-Version: 1.0-20200521
-OpenIDE-Module-Build-Version: 202005211050
+OpenIDE-Module-Build-Version: 202005211422
 OpenIDE-Module: shoot.doode.PowerUpReloadSpeed
 OpenIDE-Module-Public-Packages: -
 OpenIDE-Module-Requires: org.openide.modules.ModuleFormat1

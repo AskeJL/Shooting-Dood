@@ -37,18 +37,16 @@ public class Gun extends Weapon {
     public void shoot(GameData gameData, World world,CollidableEntity shooter) {
         IBulletSpawner bulletSpawner = IBulletSpawner.getSpawner(world);
         
-        
         SoundPart soundpart = this.getPart(SoundPart.class);
         PositionPart positionPart = this.getPart(PositionPart.class);
         ShootingPart shootingPart = shooter.getPart(ShootingPart.class);
         double dmgModifier = shootingPart.getDamageModifier();
+
         if(bulletSpawner != null)
         {
             bulletSpawner.spawnBullet(positionPart.getX(),positionPart.getY(), 4.5f, positionPart.getRotation(),5, this.getDamage()*dmgModifier,shooter.getToughness(), world);
         }
         
         soundpart.setPlay("Gun_Fire.mp3", true);
-        
-        
     }
 }

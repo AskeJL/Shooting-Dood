@@ -16,8 +16,8 @@ import shoot.doode.common.services.IBulletSpawner;
 public class BulletSpawner extends Entity implements IBulletSpawner{
 
     @Override
-    public void spawnBullet(float xPos,float yPos,float bulletSpeed, float rotation,float timer , double damege, int toughness,World world) {
-        Entity bullet = Bullet.createBullet(xPos,yPos,bulletSpeed, rotation,timer , damege, toughness);
+    public void spawnBullet(float xPos,float yPos,float bulletSpeed, float rotation,float timer , double damage, int toughness,World world) {
+        Entity bullet = Bullet.createBullet(xPos,yPos,bulletSpeed, rotation,timer , damage, toughness);
         world.addEntity(bullet);
     }
     

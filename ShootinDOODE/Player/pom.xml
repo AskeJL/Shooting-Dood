@@ -60,5 +60,26 @@
             <scope>test</scope>
             <type>jar</type>
         </dependency>
+        <dependency>
+            <groupId>shoot.doode</groupId>
+            <artifactId>CommonWeapon</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>shoot.doode</groupId>
+            <artifactId>Weapon</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>shoot.doode</groupId>
+            <artifactId>Bullet</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
     </dependencies>
 </project>
