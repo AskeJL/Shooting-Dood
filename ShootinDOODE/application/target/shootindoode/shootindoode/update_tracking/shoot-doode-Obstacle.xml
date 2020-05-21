@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.Obstacle">
+<<<<<<< Updated upstream
     <module_version install_time="1590048760945" last="true" origin="installer" specification_version="1.0">
         <file crc="401545680" name="config/Modules/shoot-doode-Obstacle.xml"/>
         <file crc="930356615" name="modules/shoot-doode-Obstacle.jar"/>
+=======
+    <module_version install_time="1590051297942" last="true" origin="installer" specification_version="1.0">
+        <file crc="401545680" name="config/Modules/shoot-doode-Obstacle.xml"/>
+        <file crc="2122205580" name="modules/shoot-doode-Obstacle.jar"/>
+        <file crc="3466444784" name="update_tracking/shoot-doode-Obstacle.xml"/>
+>>>>>>> Stashed changes
     </module_version>
 </module>

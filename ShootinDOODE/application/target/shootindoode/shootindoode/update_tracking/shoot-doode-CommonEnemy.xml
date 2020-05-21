@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.CommonEnemy">
+<<<<<<< Updated upstream
     <module_version install_time="1590048760658" last="true" origin="installer" specification_version="1.0">
         <file crc="1604169143" name="config/Modules/shoot-doode-CommonEnemy.xml"/>
         <file crc="1015876392" name="modules/ext/shoot.doode.CommonEnemy/com-badlogicgames-gdx/gdx.jar"/>
         <file crc="613274317" name="modules/shoot-doode-CommonEnemy.jar"/>
+=======
+    <module_version install_time="1590051297252" last="true" origin="installer" specification_version="1.0">
+        <file crc="1604169143" name="config/Modules/shoot-doode-CommonEnemy.xml"/>
+        <file crc="1015876392" name="modules/ext/shoot.doode.CommonEnemy/com-badlogicgames-gdx/gdx.jar"/>
+        <file crc="3783410934" name="modules/shoot-doode-CommonEnemy.jar"/>
+        <file crc="3913868593" name="update_tracking/shoot-doode-CommonEnemy.xml"/>
+>>>>>>> Stashed changes
     </module_version>
 </module>
