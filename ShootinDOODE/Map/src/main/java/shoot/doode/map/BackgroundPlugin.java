@@ -48,7 +48,7 @@ public class BackgroundPlugin implements IGamePluginService {
                 Entity boundary = createBoundary(gameData, x, y, width, height);
                 boundaryList.add(boundary);
                 world.addEntity(boundary); // works
-                System.out.println("1 oprettes");
+                System.out.println("1 created");
             } else if (i == 1) {
                 x = 0;
                 y = 0;
@@ -58,7 +58,7 @@ public class BackgroundPlugin implements IGamePluginService {
                 boundaryList.add(boundary);
                 world.addEntity(boundary); // Works
 
-                System.out.println("2 oprettes");
+                System.out.println("2 created");
             } else if (i == 2) {
                 x = 35;
                 y = (36 * 35);
@@ -67,7 +67,7 @@ public class BackgroundPlugin implements IGamePluginService {
                 Entity boundary = createBoundary(gameData, x, y, width, height);
                 boundaryList.add(boundary);
                 world.addEntity(boundary);
-                System.out.println("3 oprettes");
+                System.out.println("3 created");
             } else if (i == 3) {
                 x = (36 * 35);
                 y = 0;
@@ -76,7 +76,7 @@ public class BackgroundPlugin implements IGamePluginService {
                 Entity boundary = createBoundary(gameData, x, y, width, height);
                 boundaryList.add(boundary);
                 world.addEntity(boundary);
-                System.out.println("4 oprettes");
+                System.out.println("4 created");
             }
         }
 
