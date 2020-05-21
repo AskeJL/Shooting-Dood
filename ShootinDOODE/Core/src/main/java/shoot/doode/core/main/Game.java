@@ -39,7 +39,6 @@ import shoot.doode.common.data.entityparts.ProjectileMovingPart;
 import shoot.doode.common.data.entityparts.SoundPart;
 import shoot.doode.common.services.IAssetService;
 import shoot.doode.common.services.IPowerUp;
-import shoot.doode.commonenemy.Enemy;
 import shoot.doode.core.managers.AssetsHelper;
 import shoot.doode.core.managers.PowerUpManager;
 
@@ -183,13 +182,13 @@ public class Game extends ApplicationAdapter {
                         break;
             }
         }
-            }
+        }
         }
         cam.update();
         for (Entity entity : world.getEntities()) {
             MapPart mapPart = entity.getPart(MapPart.class);
             if (mapPart != null && renderer != null) {
-                renderer.setView(cam);
+            renderer.setView(cam);
                 renderer.render();
                 renderer.getBatch();
                 break;
@@ -206,7 +205,8 @@ public class Game extends ApplicationAdapter {
             
             PlayerMovingPart pmp = entity.getPart(PlayerMovingPart.class);
             if (pmp != null) {
-                cam.position.set(pmp.getX(entity), pmp.getY(entity), 0);
+                PositionPart positionPart = entity.getPart(PositionPart.class);
+                cam.position.set(positionPart.getX(), positionPart.getY(), 0);
             }
 
             SpritePart spritePart = entity.getPart(SpritePart.class);

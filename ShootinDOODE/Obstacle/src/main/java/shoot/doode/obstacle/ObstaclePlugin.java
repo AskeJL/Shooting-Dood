@@ -32,9 +32,10 @@ public class ObstaclePlugin implements IGamePluginService {
 
     @Override
     public void stop(GameData gameData, World world) {
-        for(int i = 0; i < world.getEntities(Obstacles.class).size();i++)
-        {
-            world.removeEntity(world.getEntities(Obstacles.class).get(i));
+        for (Entity e : world.getEntities()) {
+            if (e.getClass() == Obstacles.class) {
+                world.removeEntity(e);
+            }
         }
         
     }
