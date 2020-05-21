@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -32,6 +33,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.openide.util.Lookup;
 import org.openide.util.LookupEvent;
 import org.openide.util.LookupListener;
+import shoot.doode.common.data.CollidableEntity;
 import shoot.doode.common.data.GameKeys;
 import shoot.doode.common.data.entityparts.MapPart;
 import shoot.doode.common.data.entityparts.PlayerMovingPart;
@@ -41,6 +43,7 @@ import shoot.doode.common.services.IAssetService;
 import shoot.doode.common.services.IPowerUp;
 import shoot.doode.core.managers.AssetsHelper;
 import shoot.doode.core.managers.PowerUpManager;
+import shoot.doode.obstacle.Obstacles;
 
 public class Game extends ApplicationAdapter {
 
@@ -97,26 +100,25 @@ public class Game extends ApplicationAdapter {
 
     @Override
     public void render() {
-    
-    gameData.setDelta(Gdx.graphics.getDeltaTime());
-    gameData.getKeys().update();
-    gameData.setScore(gameData.getScore() - gameData.getDelta());
-    
-    switch (gameData.getState()) {
-            
+
+        gameData.setDelta(Gdx.graphics.getDeltaTime());
+        gameData.getKeys().update();
+        gameData.setScore(gameData.getScore() - gameData.getDelta());
+
+        switch (gameData.getState()) {
+
             case MAINMENU:
-                
+
                 break;
-            
-            
+
             case START:
                 break;
 
             case RUN:
-                
+
                 // clear screen to black
                 Gdx.gl.glClearColor(0, 0, 0, 1);
-    
+
                 Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
 
                 update();
@@ -142,21 +144,20 @@ public class Game extends ApplicationAdapter {
             case STOP:
                 break;
 
-        default:
-            break;
+            default:
+                break;
         }
-    } 
+    }
 
     private void update() {
-        
-        PowerUpManager.getInstance().process(gameData,world,getPowerUpService());
-        
+
+        PowerUpManager.getInstance().process(gameData, world, getPowerUpService());
+
         // Update
         for (IEntityProcessingService entityProcessorService : getEntityProcessingServices()) {
 
             entityProcessorService.process(gameData, world);
 
-            
         }
 
         // Post Update
@@ -174,35 +175,35 @@ public class Game extends ApplicationAdapter {
                     if (AssetsHelper.getInstance().getMap(totalPath) == null) {
                         AssetsHelper.getInstance().loadMaps(totalPath);
                         System.out.println("Loaded map at: " + totalPath);
-                
+
                         String module = mapPart.getModule();
                         String mapPath = mapPart.getMapPath();
                         map = AssetsHelper.getInstance().getMap(module, mapPath);
                         renderer = new OrthogonalTiledMapRenderer(map, batch);
                         break;
+                    }
+                }
             }
         }
-        }
-        }
+        
+        
         cam.update();
         for (Entity entity : world.getEntities()) {
             MapPart mapPart = entity.getPart(MapPart.class);
             if (mapPart != null && renderer != null) {
-            renderer.setView(cam);
+                renderer.setView(cam);
                 renderer.render();
                 renderer.getBatch();
                 break;
-            }else{
+            } else {
                 Gdx.gl.glClearColor(0, 0, 0, 1);
                 Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
-            }}
+            }
+        }
         AssetsHelper.getInstance().loadQueue();
-        
-
-        
 
         for (Entity entity : world.getEntities()) {
-            
+
             PlayerMovingPart pmp = entity.getPart(PlayerMovingPart.class);
             if (pmp != null) {
                 PositionPart positionPart = entity.getPart(PositionPart.class);
@@ -211,26 +212,24 @@ public class Game extends ApplicationAdapter {
 
             SpritePart spritePart = entity.getPart(SpritePart.class);
             if (spritePart != null) {
-                if(!spritePart.isInvis())
-                {
-                String module = spritePart.getModule();
-                String imagePath = spritePart.getSpritePath();
+                if (!spritePart.isInvis()) {
+                    String module = spritePart.getModule();
+                    String imagePath = spritePart.getSpritePath();
 
-                Sprite sprite = AssetsHelper.getInstance().getSprite(module, imagePath);
-                PositionPart positionPart = entity.getPart(PositionPart.class);
-                sprite.setRotation(positionPart.getRotation());
-                sprite.setPosition(positionPart.getX() - sprite.getWidth() / 2, positionPart.getY() - sprite.getHeight() / 2);
-                
-                ProjectileMovingPart projektileMovingPart = entity.getPart(ProjectileMovingPart.class);
-                if(projektileMovingPart != null)
-                {
-                    float rotation = positionPart.getRotation();
-                    sprite.setRotation((float)Math.toDegrees(rotation));
-                }
-                
-                batch.begin();
-                sprite.draw(batch);
-                batch.end();
+                    Sprite sprite = AssetsHelper.getInstance().getSprite(module, imagePath);
+                    PositionPart positionPart = entity.getPart(PositionPart.class);
+                    sprite.setRotation(positionPart.getRotation());
+                    sprite.setPosition(positionPart.getX() - sprite.getWidth() / 2, positionPart.getY() - sprite.getHeight() / 2);
+
+                    ProjectileMovingPart projektileMovingPart = entity.getPart(ProjectileMovingPart.class);
+                    if (projektileMovingPart != null) {
+                        float rotation = positionPart.getRotation();
+                        sprite.setRotation((float) Math.toDegrees(rotation));
+                    }
+
+                    batch.begin();
+                    sprite.draw(batch);
+                    batch.end();
                 }
             }
 
@@ -245,8 +244,9 @@ public class Game extends ApplicationAdapter {
                 }
             }
         }
+        
         batch.begin();
-        font.draw(batch, "Score: " + (int)gameData.getScore(),0 , 0);
+        font.draw(batch, "Score: " + (int) gameData.getScore(), 0, 0);
         batch.end();
     }
 
@@ -274,11 +274,10 @@ public class Game extends ApplicationAdapter {
     private Collection<? extends IPostEntityProcessingService> getPostEntityProcessingServices() {
         return lookup.lookupAll(IPostEntityProcessingService.class);
     }
-    
+
     private Collection<? extends IPowerUp> getPowerUpService() {
         return lookup.lookupAll(IPowerUp.class);
     }
-    
 
     private final LookupListener lookupListener = new LookupListener() {
         @Override

@@ -7,18 +7,18 @@ package shoot.doode.commonenemy;
 public class Point implements Comparable<Point> {
     int x;
     int y;
-    double fcost;
+    double heuristicValue;
 
     public Point(int x, int y, double costSoFar) {
         this.x = x;
         this.y = y;
-        this.fcost = costSoFar;
+        this.heuristicValue = costSoFar;
     }
     
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
-        this.fcost = 0.0;
+        this.heuristicValue = 0.0;
     }
     
     public Point(float x, float y) {
@@ -39,16 +39,16 @@ public class Point implements Comparable<Point> {
         this.y = y;
     }
 
-    public double getFcost() {
-        return fcost;
+    public double getHeuristicValue() {
+        return heuristicValue;
     }
-    public void setFcost(double priority) {
-        this.fcost = priority;
+    public void setHeuristicValue(double priority) {
+        this.heuristicValue = priority;
     }
 
     @Override
     public int compareTo(Point p1) {
-        return (int)(this.fcost - p1.getFcost());
+        return (int)(this.heuristicValue - p1.getHeuristicValue());
     }	
 
     public static boolean comparePoints (Point p1, Point p2) {

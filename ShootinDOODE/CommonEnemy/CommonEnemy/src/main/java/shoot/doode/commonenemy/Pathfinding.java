@@ -53,25 +53,25 @@ public class Pathfinding {
             //System.out.println("Collidable: " + cEntity);
             PositionPart posPart = cEntity.getPart(PositionPart.class);
 
-                Rectangle obstacle = new Rectangle(posPart.getX(), posPart.getY(), cEntity.getBoundaryWidth(), cEntity.getBoundaryHeight());
-                obstacles.add(obstacle);
+            Rectangle obstacle = new Rectangle(posPart.getX(), posPart.getY(), cEntity.getBoundaryWidth(), cEntity.getBoundaryHeight());
+            obstacles.add(obstacle);
 
-                // Build list of corners around obstacles
-                int cornerRange = 30;
-                Point topLeft = new Point(posPart.getX() - cEntity.getBoundaryWidth() - cornerRange, posPart.getY() + 30 + cornerRange);
-                Point topRight = new Point(posPart.getX() + cEntity.getBoundaryWidth() + cornerRange, posPart.getY() + 30 + cornerRange);
-                Point bottomLeft = new Point(posPart.getX() - cEntity.getBoundaryWidth() - cornerRange, posPart.getY() - cEntity.getBoundaryHeight() - cornerRange);
-                Point bottomRight = new Point(posPart.getX() + cEntity.getBoundaryWidth() + cornerRange, posPart.getY() - cEntity.getBoundaryHeight() - cornerRange);
+            // Build list of corners around obstacles
+            int cornerRange = 30;
+            Point topLeft = new Point(posPart.getX() - cEntity.getBoundaryWidth() - cornerRange, posPart.getY() + 30 + cornerRange);
+            Point topRight = new Point(posPart.getX() + cEntity.getBoundaryWidth() + cornerRange, posPart.getY() + 30 + cornerRange);
+            Point bottomLeft = new Point(posPart.getX() - cEntity.getBoundaryWidth() - cornerRange, posPart.getY() - cEntity.getBoundaryHeight() - cornerRange);
+            Point bottomRight = new Point(posPart.getX() + cEntity.getBoundaryWidth() + cornerRange, posPart.getY() - cEntity.getBoundaryHeight() - cornerRange);
 
-                //world.addEntity(createEnemy(topLeft.x, topLeft.y));
-                //world.addEntity(createEnemy(topRight.x, topRight.y));
-                //world.addEntity(createEnemy(bottomLeft.x, bottomLeft.y));
-                //world.addEntity(createEnemy(bottomRight.x, bottomRight.y));
-                points.add(topLeft);
-                points.add(topRight);
-                points.add(bottomLeft);
-                points.add(bottomRight);
-            
+            //world.addEntity(createEnemy(topLeft.x, topLeft.y));
+            //world.addEntity(createEnemy(topRight.x, topRight.y));
+            //world.addEntity(createEnemy(bottomLeft.x, bottomLeft.y));
+            //world.addEntity(createEnemy(bottomRight.x, bottomRight.y));
+            points.add(topLeft);
+            points.add(topRight);
+            points.add(bottomLeft);
+            points.add(bottomRight);
+
         }
 
         for (Point point : points) {
@@ -82,42 +82,17 @@ public class Pathfinding {
     public List<Point> generatePath(Point current, Point destination) {
         ArrayList<Point> pathList = new ArrayList<>();
 
-        /*if(hasLineOfSight(current, destination)) {
-            System.out.println("Has line of sight!");
-            
+        if (hasLineOfSight(current, destination)) {
+
             pathList.add(destination);
             astar.setFinalPath(pathList);
-            
+
             return pathList;
-        }*/
+        }
         //System.out.println("No line of sight!");
         // 1. add current, destination to line of sight map
         // 2. pathList = call A* algorithm on map
         // 3. remove current, destination from line of sight map
-        int closestCurrent = -1;
-        Point bestCurrent = null;
-
-        int closestDestination = -1;
-        Point bestDestination = null;
-
-        for (Point point : points) {
-            int distanceCurrent = (int) Point.getDistance(current, point);
-            int distanceDestination = (int) Point.getDistance(destination, point);
-
-            if (closestCurrent == -1 || distanceCurrent < closestCurrent) {
-                closestCurrent = distanceCurrent;
-                bestCurrent = point;
-            }
-            if (closestDestination == -1 || distanceDestination < closestDestination) {
-                closestDestination = distanceDestination;
-                bestDestination = point;
-            }
-        }
-               
-        //current = bestCurrent;
-        //destination = bestDestination;
-
-        hasRectCollision(current);
 
         addLineOfSight(current);
         addLineOfSightToPoint(current);
@@ -125,11 +100,21 @@ public class Pathfinding {
         addLineOfSight(destination);
         addLineOfSightToPoint(destination);
 
-        // TODO: Fix so current/destination cannot be inside of obstacle
         try {
-            astar.aStarCostCalc(graph.getGraph(), current, destination);
+            for (Rectangle obstacle : obstacles) {
+                if (obstacle.containsPoint(current.x, current.y)) {
+                    current.setX((int) (obstacle.x - obstacle.width));
+                    current.setY((int) (obstacle.y - obstacle.height));
+                }
+                if (obstacle.containsPoint(destination.x, destination.y)) {
+                    destination.setX((int) (obstacle.x - obstacle.width));
+                    destination.setY((int) (obstacle.y - obstacle.height));
+                }
+            }
+            astar.generatePath(graph.getGraph(), current, destination);
+
         } catch (Exception ex) {
-            System.out.println("exception på aStarCostCalc" + ex);
+            System.out.println("exception på generatePath" + ex);
         }
 
         removeLineOfSightToPoint(current);
@@ -195,18 +180,6 @@ public class Pathfinding {
             }
         }
         return true;
-    }
-
-    private boolean hasRectCollision(Point point) {
-        Rectangle pointRect = new Rectangle(point.x - 1, point.y - 1, 2, 2);
-        for (Rectangle obstacle : obstacles) {
-            com.badlogic.gdx.math.Rectangle intersectRect = new com.badlogic.gdx.math.Rectangle();
-            if (Intersector.intersectRectangles(new com.badlogic.gdx.math.Rectangle(pointRect.x, pointRect.y, pointRect.width, pointRect.height),
-                    new com.badlogic.gdx.math.Rectangle(obstacle.x, obstacle.y, obstacle.width, obstacle.height), intersectRect)) {
-                System.out.println("Intersection!");
-            }
-        }
-        return false;
     }
 
     private boolean hasPointRectCollision(float x1, float y1, float x2, float y2, float minX, float minY, float maxX, float maxY) {

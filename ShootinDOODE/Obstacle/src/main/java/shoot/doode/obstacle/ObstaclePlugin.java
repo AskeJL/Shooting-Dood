@@ -60,8 +60,8 @@ public class ObstaclePlugin implements IGamePluginService {
         if(ran > 0.80)
         {
             spritePaths[0] = "JeepB.png";
-            boundaryWidth = 42;
-            boundaryHeight = 83;
+            boundaryWidth = 52;
+            boundaryHeight = 103;
         }
         else if(ran > 0.60)
         {
@@ -78,8 +78,8 @@ public class ObstaclePlugin implements IGamePluginService {
         else if(ran > 0.20)
         {
             spritePaths[0] = "RamB.png";
-            boundaryWidth = 39;
-            boundaryHeight = 87;
+            boundaryWidth = 49;
+            boundaryHeight = 107;
         }
         else {
             spritePaths[0] = "SuperB.png";
