@@ -41,8 +41,14 @@ public class ObstaclePlugin implements IGamePluginService {
     
     private Entity createObstacle(GameData gameData) {
 
-        float x = new Random().nextFloat() * (38*35);
-        float y = new Random().nextFloat() * (38*35);
+        float x = new Random().nextFloat() * (36*35);
+        float y = new Random().nextFloat() * (36*35);
+        if (x > (40*35)){
+            x = (36*35);
+        }
+        if (y > (40*35)){
+            y = (36*35);
+        }
         float radians = 3.1415f / 2;
 
         String[] spritePaths = new String[1];
