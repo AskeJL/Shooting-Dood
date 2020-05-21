@@ -14,6 +14,7 @@ public class AStarAlgorithm {
     
     public Point getNextPoint() {
         if(finalPath.isEmpty()) {
+            
             return new Point(0, 0);
         }
         return finalPath.get(finalPath.size() - 1);

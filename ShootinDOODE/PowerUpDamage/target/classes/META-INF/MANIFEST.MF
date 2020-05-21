@@ -3,11 +3,7 @@ OpenIDE-Module-Localizing-Bundle: shoot/doode/powerupdamage/Bundle.pro
  perties
 OpenIDE-Module-Specification-Version: 1.0
 OpenIDE-Module-Implementation-Version: 1.0-20200521
-<<<<<<< Updated upstream
-OpenIDE-Module-Build-Version: 202005210812
-=======
-OpenIDE-Module-Build-Version: 202005210854
->>>>>>> Stashed changes
+OpenIDE-Module-Build-Version: 202005210934
 OpenIDE-Module: shoot.doode.PowerUpDamage
 OpenIDE-Module-Public-Packages: -
 OpenIDE-Module-Requires: org.openide.modules.ModuleFormat1

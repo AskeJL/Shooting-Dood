@@ -218,9 +218,6 @@ public class Game extends ApplicationAdapter {
 
                 Sprite sprite = AssetsHelper.getInstance().getSprite(module, imagePath);
                 PositionPart positionPart = entity.getPart(PositionPart.class);
-                System.out.println(entity.getClass());
-                System.out.println(module + imagePath);
-                System.out.println(sprite);
                 sprite.setRotation(positionPart.getRotation());
                 sprite.setPosition(positionPart.getX() - sprite.getWidth() / 2, positionPart.getY() - sprite.getHeight() / 2);
                 

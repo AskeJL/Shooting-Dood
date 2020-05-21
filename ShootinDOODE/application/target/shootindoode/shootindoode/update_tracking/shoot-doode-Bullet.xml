@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.Bullet">
-<<<<<<< Updated upstream
-    <module_version install_time="1590048760696" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1590053646405" last="true" origin="installer" specification_version="1.0">
         <file crc="3090761841" name="config/Modules/shoot-doode-Bullet.xml"/>
-        <file crc="840682658" name="modules/shoot-doode-Bullet.jar"/>
-=======
-    <module_version install_time="1590051297305" last="true" origin="installer" specification_version="1.0">
-        <file crc="3090761841" name="config/Modules/shoot-doode-Bullet.xml"/>
-        <file crc="89992064" name="modules/shoot-doode-Bullet.jar"/>
-        <file crc="1402186695" name="update_tracking/shoot-doode-Bullet.xml"/>
->>>>>>> Stashed changes
+        <file crc="2000505478" name="modules/shoot-doode-Bullet.jar"/>
+        <file crc="1409173772" name="update_tracking/shoot-doode-Bullet.xml"/>
     </module_version>
 </module>

@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.Map">
-<<<<<<< Updated upstream
-    <module_version install_time="1590048755451" last="true" origin="installer" specification_version="1.0">
-=======
-    <module_version install_time="1590051293907" last="true" origin="installer" specification_version="1.0">
->>>>>>> Stashed changes
+    <module_version install_time="1590053643520" last="true" origin="installer" specification_version="1.0">
         <file crc="1308149456" name="config/Modules/shoot-doode-Map.xml"/>
         <file crc="2488665527" name="modules/ext/shoot.doode.Map/com-badlogicgames-gdx/gdx-backend-lwjgl.jar"/>
         <file crc="2933476186" name="modules/ext/shoot.doode.Map/com-badlogicgames-gdx/gdx-box2d-platform-natives-desktop.jar"/>
@@ -21,11 +17,7 @@
         <file crc="1629828147" name="modules/ext/shoot.doode.Map/org-lwjgl-lwjgl/lwjgl-platform-natives-windows.jar"/>
         <file crc="1810775593" name="modules/ext/shoot.doode.Map/org-lwjgl-lwjgl/lwjgl.jar"/>
         <file crc="1003691195" name="modules/ext/shoot.doode.Map/org-lwjgl-lwjgl/lwjgl_util.jar"/>
-<<<<<<< Updated upstream
-        <file crc="277599832" name="modules/shoot-doode-Map.jar"/>
-=======
-        <file crc="2615043803" name="modules/shoot-doode-Map.jar"/>
-        <file crc="2154379218" name="update_tracking/shoot-doode-Map.xml"/>
->>>>>>> Stashed changes
+        <file crc="2395830820" name="modules/shoot-doode-Map.jar"/>
+        <file crc="3836065117" name="update_tracking/shoot-doode-Map.xml"/>
     </module_version>
 </module>

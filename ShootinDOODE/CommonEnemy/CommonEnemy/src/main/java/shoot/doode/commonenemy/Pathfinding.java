@@ -35,8 +35,6 @@ public class Pathfinding {
      */
     public void setup(World world) {
 
-        System.out.println("Setting up pathfinding");
-
         points.clear();
         obstacles.clear();
         graph.getGraph().clear();
@@ -54,12 +52,6 @@ public class Pathfinding {
 
             //System.out.println("Collidable: " + cEntity);
             PositionPart posPart = cEntity.getPart(PositionPart.class);
-
-            if (entity.getPart(PlayerMovingPart.class) != null) {
-
-                Point player = new Point(posPart.getX(), posPart.getY());
-                points.add(player);
-            } else {
 
                 Rectangle obstacle = new Rectangle(posPart.getX(), posPart.getY(), cEntity.getBoundaryWidth(), cEntity.getBoundaryHeight());
                 obstacles.add(obstacle);
@@ -79,7 +71,7 @@ public class Pathfinding {
                 points.add(topRight);
                 points.add(bottomLeft);
                 points.add(bottomRight);
-            }
+            
         }
 
         for (Point point : points) {
@@ -121,8 +113,9 @@ public class Pathfinding {
                 bestDestination = point;
             }
         }
-        current = bestCurrent;
-        destination = bestDestination;
+               
+        //current = bestCurrent;
+        //destination = bestDestination;
 
         hasRectCollision(current);
 

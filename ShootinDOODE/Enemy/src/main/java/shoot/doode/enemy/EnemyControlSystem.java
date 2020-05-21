@@ -43,7 +43,7 @@ public class EnemyControlSystem implements IEntityProcessingService, AI {
     public void process(GameData gameData, World world) {
         // If new obstacles are loaded, this needs to be called again
         // Calling it here is not the most performant method...
-        pathfinding.setup(world);
+        
         
         if(world.getEntities(NormalEnemy.class).size() < 1)
         {
@@ -90,6 +90,7 @@ public class EnemyControlSystem implements IEntityProcessingService, AI {
 
                 long current = System.currentTimeMillis();
                 if(current - lastPathGeneration > 500) {
+                    pathfinding.setup(world);
                     System.out.println("laver path");
                     pathfinding.generatePath(new Point(positionPart.getX(), positionPart.getY()),
                             new Point(playerPositionPart.getX(), playerPositionPart.getY()));
