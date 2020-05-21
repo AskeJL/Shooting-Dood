@@ -41,8 +41,8 @@ public class ObstaclePlugin implements IGamePluginService {
     
     private Entity createObstacle(GameData gameData) {
 
-        float x = new Random().nextFloat() * gameData.getDisplayWidth();
-        float y = new Random().nextFloat() * gameData.getDisplayHeight();
+        float x = new Random().nextFloat() * (38*35);
+        float y = new Random().nextFloat() * (38*35);
         float radians = 3.1415f / 2;
 
         String[] spritePaths = new String[1];
@@ -53,31 +53,31 @@ public class ObstaclePlugin implements IGamePluginService {
         if(ran > 0.80)
         {
             spritePaths[0] = "JeepB.png";
-            boundaryWidth = 29;
-            boundaryHeight = 68;
+            boundaryWidth = 42;
+            boundaryHeight = 83;
         }
         else if(ran > 0.60)
         {
             spritePaths[0] = "GalardB.png";
-            boundaryWidth = 22;
-            boundaryHeight = 48;
+            boundaryWidth = 35;
+            boundaryHeight = 63;
         }
         else if(ran > 0.40)
         {
             spritePaths[0] = "BuickerB.png";
-            boundaryWidth = 20;
-            boundaryHeight = 59;
+            boundaryWidth = 33;
+            boundaryHeight = 74;
         }
         else if(ran > 0.20)
         {
             spritePaths[0] = "RamB.png";
-            boundaryWidth = 26;
-            boundaryHeight = 72;
+            boundaryWidth = 39;
+            boundaryHeight = 87;
         }
         else {
             spritePaths[0] = "SuperB.png";
-            boundaryWidth = 20;
-            boundaryHeight = 50;
+            boundaryWidth = 35;
+            boundaryHeight = 65;
         }
         
         CollidableEntity obstacle = new Obstacles();
