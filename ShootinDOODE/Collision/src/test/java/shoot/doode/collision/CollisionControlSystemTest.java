@@ -78,7 +78,6 @@ public class CollisionControlSystemTest {
         System.out.println("Collision Should remove");
         
         CollisionControlSystem instance = new CollisionControlSystem();
-        System.out.println(e1);
         int expected = 2;
         assertEquals(expected, world.getEntities().size());
         instance.process(gameData, world);
@@ -92,7 +91,6 @@ public class CollisionControlSystemTest {
     @org.junit.jupiter.api.Test
     public void testProcess2() {
         System.out.println("No Collision Should not remove");
-        System.out.println(e1);
         CollisionControlSystem instance = new CollisionControlSystem();
         PositionPart p1 = e1.getPart(PositionPart.class);
         PositionPart p2 = e2.getPart(PositionPart.class);
@@ -112,7 +110,6 @@ public class CollisionControlSystemTest {
     @org.junit.jupiter.api.Test
     public void testProcess3() {
         System.out.println("Collision but with a static objekt, should not remove");
-        System.out.println(e1);
         CollisionControlSystem instance = new CollisionControlSystem();
         e1.setIsStatic(true);
            
