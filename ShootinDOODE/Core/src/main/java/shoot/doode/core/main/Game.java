@@ -43,7 +43,6 @@ import shoot.doode.common.services.IAssetService;
 import shoot.doode.common.services.IPowerUp;
 import shoot.doode.core.managers.AssetsHelper;
 import shoot.doode.core.managers.PowerUpManager;
-import shoot.doode.obstacle.Obstacles;
 
 public class Game extends ApplicationAdapter {
 
