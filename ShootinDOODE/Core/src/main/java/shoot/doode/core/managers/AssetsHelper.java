@@ -118,7 +118,6 @@ public class AssetsHelper {
 
     public void loadImages(String path) {
         FileHandle file = jarfile.resolve(path);
-        System.out.println(file.exists());
         Texture texture = new Texture(file);
         Sprite sprite = new Sprite(texture);
 
@@ -164,7 +163,6 @@ public class AssetsHelper {
     public void loadMaps(String path) {
         FileHandle file = jarfile.resolve(path);
         boolean exists = file.exists();
-        System.out.println(exists);
         manager = new AssetManager(new ExternalFileHandleResolver());
         manager.setLoader(TiledMap.class, new TmxMapLoader());
         String currentPath = System.getProperty("user.dir");

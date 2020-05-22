@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.PowerUpReloadSpeed">
+<<<<<<< HEAD
     <module_version install_time="1590070929206" last="true" origin="installer" specification_version="1.0">
         <file crc="2454457679" name="config/Modules/shoot-doode-PowerUpReloadSpeed.xml"/>
         <file crc="3297921753" name="modules/shoot-doode-PowerUpReloadSpeed.jar"/>
+=======
+    <module_version install_time="1590057851310" last="true" origin="installer" specification_version="1.0">
+        <file crc="2454457679" name="config/Modules/shoot-doode-PowerUpReloadSpeed.xml"/>
+        <file crc="1555129359" name="modules/shoot-doode-PowerUpReloadSpeed.jar"/>
+        <file crc="2738146727" name="update_tracking/shoot-doode-PowerUpReloadSpeed.xml"/>
+>>>>>>> master
     </module_version>
 </module>

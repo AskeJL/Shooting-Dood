@@ -17,18 +17,15 @@ public class World {
 
     public String addEntity(Entity entity) {
         entityMap.put(entity.getID(), entity);
-        System.out.println("Added Entity: " + entity);
         return entity.getID();
     }
 
     public void removeEntity(String entityID) {
         entityMap.remove(entityID);
-        System.out.println("Removed entity");
     }
 
     public void removeEntity(Entity entity) {
         entityMap.remove(entity.getID());
-        System.out.println("Removed entity");
     }
 
     public Collection<Entity> getEntities() {

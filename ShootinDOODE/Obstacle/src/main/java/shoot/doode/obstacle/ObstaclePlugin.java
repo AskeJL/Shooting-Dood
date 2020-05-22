@@ -32,9 +32,10 @@ public class ObstaclePlugin implements IGamePluginService {
 
     @Override
     public void stop(GameData gameData, World world) {
-        for(int i = 0; i < world.getEntities(Obstacles.class).size();i++)
-        {
-            world.removeEntity(world.getEntities(Obstacles.class).get(i));
+        for (Entity e : world.getEntities()) {
+            if (e.getClass() == Obstacles.class) {
+                world.removeEntity(e);
+            }
         }
         
     }
@@ -59,8 +60,8 @@ public class ObstaclePlugin implements IGamePluginService {
         if(ran > 0.80)
         {
             spritePaths[0] = "JeepB.png";
-            boundaryWidth = 42;
-            boundaryHeight = 83;
+            boundaryWidth = 52;
+            boundaryHeight = 103;
         }
         else if(ran > 0.60)
         {
@@ -77,8 +78,8 @@ public class ObstaclePlugin implements IGamePluginService {
         else if(ran > 0.20)
         {
             spritePaths[0] = "RamB.png";
-            boundaryWidth = 39;
-            boundaryHeight = 87;
+            boundaryWidth = 49;
+            boundaryHeight = 107;
         }
         else {
             spritePaths[0] = "SuperB.png";

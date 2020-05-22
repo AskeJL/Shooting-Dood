@@ -188,12 +188,14 @@ public class CollisionControlSystem implements IPostEntityProcessingService {
         PositionPart ep = e.getPart(PositionPart.class);
         PositionPart fp = f.getPart(PositionPart.class);
 
-        Rectangle rec1 = new Rectangle(ep.getX(),
+        Rectangle rec1 = new Rectangle(
+                ep.getX(),
                 ep.getY(),
                 e.getBoundaryWidth(),
                 e.getBoundaryHeight());
 
-        Rectangle rec2 = new Rectangle(fp.getX(),
+        Rectangle rec2 = new Rectangle(
+                fp.getX(),
                 fp.getY(),
                 f.getBoundaryWidth(),
                 f.getBoundaryHeight());

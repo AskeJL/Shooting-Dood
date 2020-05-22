@@ -37,9 +37,9 @@ public class ShootinEnemyPlugin implements IGamePluginService {
  
     @Override
     public void stop(GameData gameData, World world) {
-        for(int i = 0; i < world.getEntities(ShootinEnemy.class).size();i++)
+        for(Entity e : world.getEntities(ShootinEnemy.class))
         {
-            world.removeEntity(world.getEntities(ShootinEnemy.class).get(i));
+            world.removeEntity(e);
         }
     }
 

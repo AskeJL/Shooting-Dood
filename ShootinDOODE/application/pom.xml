@@ -66,12 +66,32 @@
         -->
         <dependency>
             <groupId>${project.groupId}</groupId>
+            <artifactId>Collision</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
             <artifactId>Core</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>Collision</artifactId>
+            <artifactId>Bullet</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>Weapon</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>PowerUpMoveSpeed</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>PowerUpReloadSpeed</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -86,12 +106,7 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>Bullet</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>Common</artifactId>
+            <artifactId>Map</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -101,27 +116,12 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>Enemy</artifactId>
+            <artifactId>Common</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>Map</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>Weapon</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>PowerUpReloadSpeed</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>PowerUpMoveSpeed</artifactId>
+            <artifactId>Obstacle</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -136,7 +136,7 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>Obstacle</artifactId>
+            <artifactId>Enemy</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
