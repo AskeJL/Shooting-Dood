@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 platform=1590071243102
 cluster.bin=1590071243094
 cluster.etc=1590071243094
@@ -9,3 +10,16 @@ locale=da_DK
 branding=shootindoode
 java.version=1.8.0_221
 java.vm.version=25.221-b11
+=======
+platform=1590135996205
+cluster.bin=1590135996205
+cluster.etc=1590135996205
+cluster.platform=1590135996205
+cluster.shootindoode=1590135996205
+user=1590135996205
+crc=7
+locale=da_DK
+branding=shootindoode
+java.version=10.0.2
+java.vm.version=10.0.2+13
+>>>>>>> Stashed changes

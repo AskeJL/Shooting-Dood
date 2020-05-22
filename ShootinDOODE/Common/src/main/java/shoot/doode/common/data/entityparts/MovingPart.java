@@ -95,13 +95,22 @@ public class MovingPart
             movementVector.set(destinationX, destinationY).sub(x, y);
             
             if(movementVector.len() < 3) {
+                float oldX = x;
+                float oldY = y;
                 x = destinationX;
                 y = destinationY;
+                
+                rotation = (float)Math.atan2(y-oldY, x-oldX);
+                
+                
             }
             else {
                 movementVector.nor().scl(65 * dt);
+                float oldX = x;
+                float oldY = y;
                 x += movementVector.x;
                 y += movementVector.y;
+                rotation = (float)Math.atan2(y-oldY, x-oldX);
             }
         }
         else {

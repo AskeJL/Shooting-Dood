@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.PowerUpDamage">
+<<<<<<< Updated upstream
 <<<<<<< HEAD
     <module_version install_time="1590070931121" last="true" origin="installer" specification_version="1.0">
         <file crc="819170787" name="config/Modules/shoot-doode-PowerUpDamage.xml"/>
@@ -9,5 +10,11 @@
         <file crc="2399827526" name="modules/shoot-doode-PowerUpDamage.jar"/>
         <file crc="2285012617" name="update_tracking/shoot-doode-PowerUpDamage.xml"/>
 >>>>>>> master
+=======
+    <module_version install_time="1590135986783" last="true" origin="installer" specification_version="1.0">
+        <file crc="819170787" name="config/Modules/shoot-doode-PowerUpDamage.xml"/>
+        <file crc="856552075" name="modules/shoot-doode-PowerUpDamage.jar"/>
+        <file crc="281137752" name="update_tracking/shoot-doode-PowerUpDamage.xml"/>
+>>>>>>> Stashed changes
     </module_version>
 </module>

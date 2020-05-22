@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.Enemy">
+<<<<<<< Updated upstream
 <<<<<<< HEAD
     <module_version install_time="1590070935421" last="true" origin="installer" specification_version="1.0">
         <file crc="2358616893" name="config/Modules/shoot-doode-Enemy.xml"/>
@@ -9,5 +10,11 @@
         <file crc="1338910869" name="modules/shoot-doode-Enemy.jar"/>
         <file crc="4114835004" name="update_tracking/shoot-doode-Enemy.xml"/>
 >>>>>>> master
+=======
+    <module_version install_time="1590135989189" last="true" origin="installer" specification_version="1.0">
+        <file crc="2358616893" name="config/Modules/shoot-doode-Enemy.xml"/>
+        <file crc="1197648330" name="modules/shoot-doode-Enemy.jar"/>
+        <file crc="3884478064" name="update_tracking/shoot-doode-Enemy.xml"/>
+>>>>>>> Stashed changes
     </module_version>
 </module>
