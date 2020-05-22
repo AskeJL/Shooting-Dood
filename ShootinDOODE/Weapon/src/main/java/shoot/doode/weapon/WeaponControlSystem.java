@@ -29,7 +29,6 @@ public class WeaponControlSystem implements IEntityProcessingService {
             if (entity.getPart(ShootingPart.class) != null) {
                 ShootingPart shootingPart = entity.getPart(ShootingPart.class);
                 if (shootingPart.isUsesWeapons()) {
-
                     //If the entity has a shooting part and should have weapons but don't, give them weapons
                     if (shootingPart.getWeaponAmount() == 0 && shootingPart.isUsesWeapons()) {
                         Weapon gun = createWeapon(entity, Gun.class);
@@ -44,10 +43,10 @@ public class WeaponControlSystem implements IEntityProcessingService {
                         world.addEntity(mingun);
                         shootingPart.addWeapon(mingun);
                     }
-
                     PositionPart playerPosition = entity.getPart(PositionPart.class);
                     Weapon weapon = (Weapon) shootingPart.getWeapon();
                     PositionPart weaponPosition = weapon.getPart(PositionPart.class);
+                    
                     //Set the rotation and position of the weapon = to the player
                     weaponPosition.setPosition(playerPosition.getX() + 12, playerPosition.getY());
                     weaponPosition.setRotation(playerPosition.getRotation());
