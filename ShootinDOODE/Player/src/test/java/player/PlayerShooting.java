@@ -49,10 +49,7 @@ public class PlayerShooting {
         // Create player entity
         Entity player = createPlayerShip(gameData);
         
-        /*
-        // Loop through the world and get the amount of bullet entities
         
-        float initialY = positionPart.getY();*/
         World world = new World();
         world.addEntity(player);
 
