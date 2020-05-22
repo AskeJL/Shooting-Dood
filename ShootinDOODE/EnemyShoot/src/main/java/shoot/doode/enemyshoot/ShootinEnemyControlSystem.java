@@ -1,22 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package shoot.doode.enemyshoot;
 
-import java.util.List;
 import java.util.Random;
-import java.util.UUID;
-import shoot.doode.commonenemy.Enemy;
 import shoot.doode.commonenemy.AI;
 import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
-import shoot.doode.common.data.GameKeys;
 import shoot.doode.common.data.World;
 import shoot.doode.common.data.entityparts.LifePart;
 import shoot.doode.common.data.entityparts.MovingPart;
-import shoot.doode.common.data.entityparts.PlayerMovingPart;
 import shoot.doode.common.data.entityparts.PositionPart;
 import shoot.doode.common.services.IEntityProcessingService;
 import org.openide.util.lookup.ServiceProvider;
@@ -24,7 +14,6 @@ import org.openide.util.lookup.ServiceProviders;
 import shoot.doode.common.data.CollidableEntity;
 import shoot.doode.common.data.entityparts.ShootingPart;
 import shoot.doode.common.data.entityparts.SpritePart;
-import shoot.doode.commonenemy.AStarAlgorithm;
 import shoot.doode.commonenemy.Pathfinding;
 import shoot.doode.commonenemy.Point;
 
@@ -105,7 +94,6 @@ public class ShootinEnemyControlSystem implements IEntityProcessingService, AI {
 
                 long current = System.currentTimeMillis();
                 if(current - lastPathGeneration > 2000) {
-                    System.out.println("laver path");
                     pathfinding.generatePath(new Point(positionPart.getX(), positionPart.getY()),
                             new Point(playerPositionPart.getX(), playerPositionPart.getY()));
                     lastPathGeneration = System.currentTimeMillis();

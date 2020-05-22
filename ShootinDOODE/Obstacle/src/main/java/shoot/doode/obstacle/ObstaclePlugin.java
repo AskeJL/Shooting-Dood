@@ -7,8 +7,6 @@ import shoot.doode.common.data.CollidableEntity;
 import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
 import shoot.doode.common.data.World;
-import shoot.doode.common.data.entityparts.LifePart;
-import shoot.doode.common.data.entityparts.MovingPart;
 import shoot.doode.common.data.entityparts.PositionPart;
 import shoot.doode.common.data.entityparts.SpritePart;
 import shoot.doode.common.services.IGamePluginService;
@@ -26,7 +24,7 @@ public class ObstaclePlugin implements IGamePluginService {
     @Override
     public void start(GameData gameData, World world) {
         for (int i = 0; i<7; i++){
-        Entity obstacle = createObstacle(gameData);
+        Entity obstacle = createObstacle();
         world.addEntity(obstacle);}
     }
 
@@ -40,7 +38,7 @@ public class ObstaclePlugin implements IGamePluginService {
         
     }
     
-    private Entity createObstacle(GameData gameData) {
+    private Entity createObstacle() {
 
         float x = new Random().nextFloat() * (36*35);
         float y = new Random().nextFloat() * (36*35);

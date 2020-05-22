@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package shoot.doode.powerupreloadspeed;
 
 import shoot.doode.common.services.IAssetService;
@@ -21,7 +16,7 @@ public class PowerUpReloadSpeedAssetsLoader implements IAssetService {
 
     String module = "PowerUpReloadSpeed";
 
-    private String[] images() {
+    private String[] sprites() {
         ArrayList<String> paths = new ArrayList<>();
         paths.add("apple.png");
 
@@ -36,13 +31,13 @@ public class PowerUpReloadSpeedAssetsLoader implements IAssetService {
     }
 
     @Override
-    public String[] loadImages() {
-        return images();
+    public String[] loadSprites() {
+        return sprites();
     }
 
     @Override
-    public String[] unLoadImages() {
-        return images();
+    public String[] unLoadSprites() {
+        return sprites();
     }
 
     @Override

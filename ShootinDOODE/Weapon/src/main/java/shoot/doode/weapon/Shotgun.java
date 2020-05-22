@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package shoot.doode.weapon;
 
 import shoot.doode.common.data.CollidableEntity;
 import shoot.doode.commonweapon.Weapon;
-import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
 import shoot.doode.common.data.World;
 import shoot.doode.common.data.entityparts.PositionPart;

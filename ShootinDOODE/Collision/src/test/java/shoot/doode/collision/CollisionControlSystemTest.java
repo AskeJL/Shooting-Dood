@@ -1,18 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package shoot.doode.collision;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import shoot.doode.common.data.CollidableEntity;
-import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
 import shoot.doode.common.data.World;
 import shoot.doode.common.data.entityparts.LifePart;
@@ -70,9 +59,7 @@ public class CollisionControlSystemTest {
     public void tearDown() throws Exception {       
     }
 
-    /**
-     * Test of process method, of class CollisionControlSystem.
-     */
+    //Test of process method, of class CollisionControlSystem.
     @org.junit.jupiter.api.Test
     public void testProcess1() {
         System.out.println("Collision Should remove");
@@ -85,9 +72,8 @@ public class CollisionControlSystemTest {
         assertEquals(expected, world.getEntities().size());
     }
     
-    /**
-     * Test of process method, of class CollisionControlSystem.
-     */
+    
+    //Test of process method, of class CollisionControlSystem.
     @org.junit.jupiter.api.Test
     public void testProcess2() {
         System.out.println("No Collision Should not remove");
@@ -104,9 +90,7 @@ public class CollisionControlSystemTest {
         assertEquals(expected, world.getEntities().size());
     }
     
-    /**
-     * Test of process method, of class CollisionControlSystem.
-     */
+    //Test of process method, of class CollisionControlSystem.
     @org.junit.jupiter.api.Test
     public void testProcess3() {
         System.out.println("Collision but with a static objekt, should not remove");

@@ -12,8 +12,6 @@ import shoot.doode.common.data.entityparts.LifePart;
 import shoot.doode.common.data.entityparts.PlayerMovingPart;
 import shoot.doode.common.data.entityparts.PositionPart;
 import shoot.doode.common.data.entityparts.ProjectilePart;
-import shoot.doode.common.data.entityparts.ShootingPart;
-import shoot.doode.common.services.IEntityProcessingService;
 import shoot.doode.common.services.IPostEntityProcessingService;
 import shoot.doode.common.services.IPowerUp;
 import shoot.doode.common.services.IScoreGiver;
@@ -89,7 +87,6 @@ public class CollisionControlSystem implements IPostEntityProcessingService {
                         continue;
                     }
 
-                    //System.out.println(collidableF.getClass().getName());
                     LifePart lifePartF = f.getPart(LifePart.class);
                     LifePart lifePartE = e.getPart(LifePart.class);
 
@@ -207,7 +204,6 @@ public class CollisionControlSystem implements IPostEntityProcessingService {
             }
 
             if (intersection.getHeight() < intersection.getWidth()) {
-                //System.out.println(intersection.getHeight() + intersection.getWidth());
                 if (intersection.getY() == ep.getY()) {
                     ep.setY(fp.getY() + (f.getBoundaryHeight() / 2) + (e.getBoundaryHeight() / 2)); // ep.setY(intersection.getY() + intersection.getHeight() - 15);
                 }
@@ -215,7 +211,6 @@ public class CollisionControlSystem implements IPostEntityProcessingService {
                     ep.setY(fp.getY() - (f.getBoundaryHeight() / 2)); // ep.setY(intersection.getY() - e.getBoundaryHeight() - 2);
                 }
             } else if (intersection.getWidth() < intersection.getHeight()) {
-                //System.out.println(intersection.getHeight() + intersection.getWidth());
                 if (intersection.getX() == ep.getX()) {
                     ep.setX(fp.getX() + (f.getBoundaryWidth() / 2) + (e.getBoundaryWidth() / 2)); // ep.setX(intersection.getX() + intersection.getWidth() - 15);
                 }

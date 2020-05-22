@@ -1,11 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package player;
 
-import org.junit.Assert;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
@@ -22,16 +17,12 @@ import shoot.doode.common.data.entityparts.PlayerMovingPart;
 import shoot.doode.common.data.entityparts.PositionPart;
 import shoot.doode.common.data.entityparts.ShootingPart;
 import shoot.doode.common.data.entityparts.SpritePart;
-import shoot.doode.common.services.IBulletSpawner;
 import shoot.doode.commonweapon.Weapon;
 import shoot.doode.playersystem.Player;
 import shoot.doode.playersystem.PlayerControlSystem;
 import shoot.doode.weapon.WeaponControlSystem;
 
-/**
- *
- * @author emili
- */
+
 public class PlayerShooting {
     @Test
     public void playerShootingTest() throws InterruptedException {
@@ -67,16 +58,16 @@ public class PlayerShooting {
         Weapon weapon = (Weapon) shootingPart.getWeapon();
         weapon.SetCurrentTime(2.0);
         
+        // add BulletSpawner since it will be nessecary to add bullets to the world
+        BulletSpawner bulletSpawner = new BulletSpawner();
+        world.addEntity(bulletSpawner);
+        
         // Make sure the arrow keys is consideret pressed
         when(keys.isDown(GameKeys.LEFT) || keys.isDown(GameKeys.RIGHT) || keys.isDown(GameKeys.UP) || keys.isDown(GameKeys.DOWN)).thenReturn(true);
 
         // Call the players process method to get the player to shoot
         playerControlSystem.process(gameData, world);
-        
-        // add BulletSpawner since it will be nessecary to add bullets to the world
-        BulletSpawner bulletSpawner = new BulletSpawner();
-        world.addEntity(bulletSpawner);
-        
+               
         //Call the weapons process method to get the weapon to react and shoot bullets
         weaponControlSystem.process(gameData, world);
         

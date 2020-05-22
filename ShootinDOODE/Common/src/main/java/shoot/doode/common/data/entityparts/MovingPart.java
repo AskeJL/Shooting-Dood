@@ -1,16 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package shoot.doode.common.data.entityparts;
 
 import com.badlogic.gdx.math.Vector2;
 import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
-import static shoot.doode.common.data.GameKeys.LEFT;
-import static shoot.doode.common.data.GameKeys.RIGHT;
-import static shoot.doode.common.data.GameKeys.UP;
 import static java.lang.Math.cos;
 import static java.lang.Math.sin;
 import static java.lang.Math.sqrt;

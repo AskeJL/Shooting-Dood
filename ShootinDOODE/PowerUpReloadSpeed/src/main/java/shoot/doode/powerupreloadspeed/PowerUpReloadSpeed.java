@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package shoot.doode.powerupreloadspeed;
 
 import java.util.Random;
@@ -14,7 +9,6 @@ import shoot.doode.common.data.GameData;
 import shoot.doode.common.data.World;
 import shoot.doode.common.data.entityparts.PositionPart;
 import shoot.doode.common.data.entityparts.SpritePart;
-import shoot.doode.common.data.entityparts.PlayerMovingPart;
 import shoot.doode.common.data.entityparts.ShootingPart;
 import shoot.doode.common.services.IGamePluginService;
 import shoot.doode.common.services.IPowerUp;

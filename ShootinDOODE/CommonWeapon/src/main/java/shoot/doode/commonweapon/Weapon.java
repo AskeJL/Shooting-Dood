@@ -4,8 +4,6 @@ import shoot.doode.common.data.CollidableEntity;
 import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
 import shoot.doode.common.data.World;
-import shoot.doode.common.data.entityparts.ShootingPart;
-import shoot.doode.common.services.IBulletSpawner;
 
 
 public abstract class Weapon extends Entity {

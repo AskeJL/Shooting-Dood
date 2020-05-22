@@ -6,7 +6,7 @@ import shoot.doode.common.data.World;
 import shoot.doode.common.services.IGamePluginService;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
-import shoot.doode.common.data.entityparts.ShootingPart;
+
 
 @ServiceProviders(value = {
     @ServiceProvider(service = IGamePluginService.class),})
