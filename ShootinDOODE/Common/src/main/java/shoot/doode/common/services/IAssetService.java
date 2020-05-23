@@ -12,14 +12,10 @@ public interface IAssetService {
 
     String[] unLoadSprites();
     
-    String[] loadMaps();
-
-    String[] unLoadMaps();
-
     String[] loadSounds();
 
     String[] unLoadSounds();
-
+    
     public static String[] arrayListToString(String module, ArrayList<String> paths) {
         if (paths.size() >= 1) {
             for (int i = 0; i < paths.size(); i++) {
@@ -31,5 +27,13 @@ public interface IAssetService {
 
         return paths.toArray(new String[paths.size()]);
     }
+    
+    String[] loadMaps();
+
+    String[] unLoadMaps();
+
+
+
+    
 
 }

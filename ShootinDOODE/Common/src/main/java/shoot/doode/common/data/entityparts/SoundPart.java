@@ -13,10 +13,10 @@ public class SoundPart implements EntityPart{
     String module;
     HashMap<String,Boolean> sounds = new HashMap<>();
       
-    public SoundPart(String module, String[] spritePaths)
+    public SoundPart(String module, String[] soundPaths)
     {
         this.module = module;
-        for(String path : spritePaths)
+        for(String path : soundPaths)
         {
             sounds.put(path, false);
         }
