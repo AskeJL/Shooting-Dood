@@ -11,6 +11,8 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
 import java.util.Set;
 
 /**
@@ -19,8 +21,8 @@ import java.util.Set;
  */
 public class AssetsHelper {
 
-    private ArrayList<String> soundQueue = new ArrayList<>();
-    private ArrayList<String> spriteQueue = new ArrayList<>();
+    private PriorityQueue<String> soundQueue = new PriorityQueue<>();
+    private PriorityQueue<String> spriteQueue = new PriorityQueue<>();
     private HashMap<String, Sprite> spriteMap = new HashMap<>();
     private HashMap<String, Sound> soundMap = new HashMap<>();
     private HashMap<String, TiledMap> mapMap = new HashMap<>();
@@ -28,7 +30,6 @@ public class AssetsHelper {
     private String spritePath = ".jar!/Assets/Images/";
     private String soundPath = ".jar!/Assets/Sounds/";
     private String mapPath = ".jar!/Assets/Maps/";
-    private AssetsJarFileResolver jarfile = new AssetsJarFileResolver();;
     private AssetManager manager;
     
     private static AssetsHelper single_instance = null;
@@ -68,11 +69,6 @@ public class AssetsHelper {
         return soundMap.get(inputPath);
     }
     
-    public String getSpritesTotal() {
-        String s = spriteMap.size() + " " + spriteQueue.size();
-        return s;
-    }
-    
      public TiledMap getMap(String module, String assetPath) {
 
         String inputPath = jarPath + module + mapPath + assetPath;
@@ -84,26 +80,19 @@ public class AssetsHelper {
 
         return mapMap.get(totalAssetPath);
     }
-
-    public String getSoundTotal() {
-        String s = soundMap.size() + " " + soundQueue.size();
-        return s;
-    }
     
     
     public void loadQueue()
     {
-        for(String path : spriteQueue)
+        while(!spriteQueue.isEmpty())
         {
-            loadSprites(path);
+            loadSprites(spriteQueue.poll());
         }
-            
-        for(String path : soundQueue)
+        
+        while(!soundQueue.isEmpty())
         {
-            loadSounds(path);
+            loadSounds(soundQueue.poll());
         }
-        spriteQueue.clear();
-        soundQueue.clear();
     }
     
     public int getMapTotal() {
@@ -112,7 +101,7 @@ public class AssetsHelper {
     }
 
     public void loadSprites(String path) {
-        FileHandle file = jarfile.resolve(path);
+        FileHandle file = new JarFileHandleStream(path);
         Texture texture = new Texture(file);
         Sprite sprite = new Sprite(texture);
 
@@ -137,7 +126,7 @@ public class AssetsHelper {
     }
 
     public void loadSounds(String path) {
-        FileHandle file = jarfile.resolve(path);
+        FileHandle file = new JarFileHandleStream(path);
         Sound sound = Gdx.audio.newSound(file);
         soundMap.put(path, sound);
     }
