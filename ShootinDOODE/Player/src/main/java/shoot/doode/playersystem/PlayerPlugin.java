@@ -47,12 +47,13 @@ public class PlayerPlugin implements IGamePluginService {
         spritePaths[3] = "Doode-back.png";
        
         CollidableEntity playerShip = new Player();
+        playerShip.add(new SpritePart(module, spritePaths));
         UUID id = UUID.randomUUID();
         playerShip.setID(id.toString());
         playerShip.add(new PlayerMovingPart(maxSpeed));
         playerShip.add(new PositionPart(x, y, radians));
         playerShip.add(new LifePart(1));
-        playerShip.add(new SpritePart(module, spritePaths));
+        
         playerShip.add(new ShootingPart(true));
         
         playerShip.setToughness(2);
