@@ -1,9 +1,18 @@
+<<<<<<< Updated upstream
 platform=1590233139652
 cluster.bin=1590233139652
 cluster.etc=1590233139652
 cluster.platform=1590233139652
 cluster.shootindoode=1590233139652
 user=1590233139652
+=======
+platform=1590307710756
+cluster.bin=1590307710755
+cluster.etc=1590307710756
+cluster.platform=1590307710756
+cluster.shootindoode=1590307710756
+user=1590307710756
+>>>>>>> Stashed changes
 crc=7
 locale=da_DK
 branding=shootindoode
