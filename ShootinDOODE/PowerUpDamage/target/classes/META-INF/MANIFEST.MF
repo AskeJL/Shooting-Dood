@@ -2,8 +2,22 @@ Manifest-Version: 1.0
 OpenIDE-Module-Localizing-Bundle: shoot/doode/powerupdamage/Bundle.pro
  perties
 OpenIDE-Module-Specification-Version: 1.0
+<<<<<<< HEAD
 OpenIDE-Module-Implementation-Version: 1.0-20200523
 OpenIDE-Module-Build-Version: 202005231346
+=======
+<<<<<<< Updated upstream
+OpenIDE-Module-Implementation-Version: 1.0-20200521
+<<<<<<< HEAD
+OpenIDE-Module-Build-Version: 202005211422
+=======
+OpenIDE-Module-Build-Version: 202005211044
+>>>>>>> master
+=======
+OpenIDE-Module-Implementation-Version: 1.0-20200522
+OpenIDE-Module-Build-Version: 202005220826
+>>>>>>> Stashed changes
+>>>>>>> master
 OpenIDE-Module: shoot.doode.PowerUpDamage
 OpenIDE-Module-Public-Packages: -
 OpenIDE-Module-Requires: org.openide.modules.ModuleFormat1

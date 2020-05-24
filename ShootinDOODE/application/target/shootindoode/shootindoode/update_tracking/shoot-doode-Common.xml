@@ -1,8 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.Common">
+<<<<<<< HEAD
     <module_version install_time="1590241611008" last="true" origin="installer" specification_version="1.0">
         <file crc="340195565" name="config/Modules/shoot-doode-Common.xml"/>
         <file crc="1015876392" name="modules/ext/shoot.doode.Common/com-badlogicgames-gdx/gdx.jar"/>
         <file crc="981170733" name="modules/shoot-doode-Common.jar"/>
         <file crc="1052608367" name="update_tracking/shoot-doode-Common.xml"/>
+=======
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+    <module_version install_time="1590070935381" last="true" origin="installer" specification_version="1.0">
+        <file crc="340195565" name="config/Modules/shoot-doode-Common.xml"/>
+        <file crc="1015876392" name="modules/ext/shoot.doode.Common/com-badlogicgames-gdx/gdx.jar"/>
+        <file crc="3114024040" name="modules/shoot-doode-Common.jar"/>
+=======
+    <module_version install_time="1590058251583" last="true" origin="installer" specification_version="1.0">
+        <file crc="340195565" name="config/Modules/shoot-doode-Common.xml"/>
+        <file crc="1015876392" name="modules/ext/shoot.doode.Common/com-badlogicgames-gdx/gdx.jar"/>
+        <file crc="3871692376" name="modules/shoot-doode-Common.jar"/>
+        <file crc="2561281352" name="update_tracking/shoot-doode-Common.xml"/>
+>>>>>>> master
+=======
+    <module_version install_time="1590135989002" last="true" origin="installer" specification_version="1.0">
+        <file crc="340195565" name="config/Modules/shoot-doode-Common.xml"/>
+        <file crc="1015876392" name="modules/ext/shoot.doode.Common/com-badlogicgames-gdx/gdx.jar"/>
+        <file crc="3407136438" name="modules/shoot-doode-Common.jar"/>
+        <file crc="1164160807" name="update_tracking/shoot-doode-Common.xml"/>
+>>>>>>> Stashed changes
+>>>>>>> master
     </module_version>
 </module>
