@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.PowerUpReloadSpeed">
+<<<<<<< HEAD
     <module_version install_time="1590241610526" last="true" origin="installer" specification_version="1.0">
         <file crc="2454457679" name="config/Modules/shoot-doode-PowerUpReloadSpeed.xml"/>
         <file crc="2752724387" name="modules/shoot-doode-PowerUpReloadSpeed.jar"/>
         <file crc="435919051" name="update_tracking/shoot-doode-PowerUpReloadSpeed.xml"/>
+=======
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+    <module_version install_time="1590070935623" last="true" origin="installer" specification_version="1.0">
+        <file crc="2454457679" name="config/Modules/shoot-doode-PowerUpReloadSpeed.xml"/>
+        <file crc="3297921753" name="modules/shoot-doode-PowerUpReloadSpeed.jar"/>
+=======
+    <module_version install_time="1590058251033" last="true" origin="installer" specification_version="1.0">
+        <file crc="2454457679" name="config/Modules/shoot-doode-PowerUpReloadSpeed.xml"/>
+        <file crc="1555129359" name="modules/shoot-doode-PowerUpReloadSpeed.jar"/>
+        <file crc="3534114567" name="update_tracking/shoot-doode-PowerUpReloadSpeed.xml"/>
+>>>>>>> master
+=======
+    <module_version install_time="1590135988400" last="true" origin="installer" specification_version="1.0">
+        <file crc="2454457679" name="config/Modules/shoot-doode-PowerUpReloadSpeed.xml"/>
+        <file crc="2921724528" name="modules/shoot-doode-PowerUpReloadSpeed.jar"/>
+        <file crc="4290808913" name="update_tracking/shoot-doode-PowerUpReloadSpeed.xml"/>
+>>>>>>> Stashed changes
+>>>>>>> master
     </module_version>
 </module>
