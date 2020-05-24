@@ -59,22 +59,6 @@ public class EnemyControlSystem implements IEntityProcessingService, AI {
             PositionPart positionPart = enemy.getPart(PositionPart.class);
             MovingPart movingPart = enemy.getPart(MovingPart.class);
             LifePart lifePart = enemy.getPart(LifePart.class);
-
-            Random rand = new Random();
-
-            float rng = rand.nextFloat();
-
-            if (rng > 0.1f && rng < 0.9f) {
-                movingPart.setUp(true);
-            }
-
-            if (rng < 0.2f) {
-                movingPart.setLeft(true);
-            }
-
-            if (rng > 0.8f) {
-                movingPart.setRight(true);
-            }
             
             // Get the player entity
             Entity playerEntity = null;

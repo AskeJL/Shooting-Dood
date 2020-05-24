@@ -1,20 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.PowerUpMoveSpeed">
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-    <module_version install_time="1590070930114" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1590354455153" last="true" origin="installer" specification_version="1.0">
         <file crc="3564129836" name="config/Modules/shoot-doode-PowerUpMoveSpeed.xml"/>
-        <file crc="3295441288" name="modules/shoot-doode-PowerUpMoveSpeed.jar"/>
-=======
-    <module_version install_time="1590057849114" last="true" origin="installer" specification_version="1.0">
-        <file crc="3564129836" name="config/Modules/shoot-doode-PowerUpMoveSpeed.xml"/>
-        <file crc="1305510336" name="modules/shoot-doode-PowerUpMoveSpeed.jar"/>
-        <file crc="634530281" name="update_tracking/shoot-doode-PowerUpMoveSpeed.xml"/>
->>>>>>> master
-=======
-    <module_version install_time="1590135982918" last="true" origin="installer" specification_version="1.0">
-        <file crc="3564129836" name="config/Modules/shoot-doode-PowerUpMoveSpeed.xml"/>
-        <file crc="3475189819" name="modules/shoot-doode-PowerUpMoveSpeed.jar"/>
-        <file crc="2525625024" name="update_tracking/shoot-doode-PowerUpMoveSpeed.xml"/>
->>>>>>> Stashed changes
+        <file crc="653153839" name="modules/shoot-doode-PowerUpMoveSpeed.jar"/>
     </module_version>
 </module>
