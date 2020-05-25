@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.EnemyShoot">
-    <module_version install_time="1590354474803" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1590408920387" last="true" origin="installer" specification_version="1.0">
         <file crc="3283317249" name="config/Modules/shoot-doode-EnemyShoot.xml"/>
-        <file crc="1032293357" name="modules/shoot-doode-EnemyShoot.jar"/>
+        <file crc="2928187246" name="modules/shoot-doode-EnemyShoot.jar"/>
+        <file crc="2534975517" name="update_tracking/shoot-doode-EnemyShoot.xml"/>
     </module_version>
 </module>
