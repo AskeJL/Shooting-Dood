@@ -13,10 +13,6 @@ import shoot.doode.common.data.entityparts.PositionPart;
 import shoot.doode.common.data.entityparts.SpritePart;
 import shoot.doode.common.services.IGamePluginService;
 
-/**
- *
- * @author sande
- */
 @ServiceProviders(value = {
     @ServiceProvider(service = IGamePluginService.class)})
 public class ObstaclePlugin implements IGamePluginService {

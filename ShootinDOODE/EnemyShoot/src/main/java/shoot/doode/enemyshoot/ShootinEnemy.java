@@ -5,10 +5,6 @@ import shoot.doode.common.data.entityparts.PositionPart;
 import shoot.doode.common.services.IBulletSpawner;
 import shoot.doode.commonenemy.Enemy;
 
-/**
- *
- * @author tobia
- */
 public class ShootinEnemy extends Enemy {
 
     public ShootinEnemy(float score) {

@@ -2,10 +2,6 @@ package shoot.doode.commonenemy;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author sande
- */
 public class Graph {
     int vertex;
     ArrayList<ArrayList<Point>> adjList;

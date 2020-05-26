@@ -1,9 +1,5 @@
 package shoot.doode.commonenemy;
 
-/**
- *
- * @author sande
- */
 public class Point implements Comparable<Point> {
     int x;
     int y;

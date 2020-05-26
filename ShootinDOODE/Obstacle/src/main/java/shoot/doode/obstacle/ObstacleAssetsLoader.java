@@ -5,10 +5,6 @@ import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
 import shoot.doode.common.services.IAssetService;
 
-/**
- *
- * @author sande
- */
 @ServiceProviders(value = {
     @ServiceProvider(service = IAssetService.class),})
 public class ObstacleAssetsLoader implements IAssetService {

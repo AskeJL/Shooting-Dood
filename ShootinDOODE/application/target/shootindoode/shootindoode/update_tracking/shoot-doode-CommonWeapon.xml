@@ -1,40 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.CommonWeapon">
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <module_version install_time="1590354474318" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1590488396528" last="true" origin="installer" specification_version="1.0">
         <file crc="438391617" name="config/Modules/shoot-doode-CommonWeapon.xml"/>
-        <file crc="1799843405" name="modules/shoot-doode-CommonWeapon.jar"/>
-=======
-<<<<<<< HEAD
-    <module_version install_time="1590241610542" last="true" origin="installer" specification_version="1.0">
-        <file crc="438391617" name="config/Modules/shoot-doode-CommonWeapon.xml"/>
-        <file crc="161211867" name="modules/shoot-doode-CommonWeapon.jar"/>
-        <file crc="2913773870" name="update_tracking/shoot-doode-CommonWeapon.xml"/>
-=======
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-    <module_version install_time="1590070935278" last="true" origin="installer" specification_version="1.0">
-        <file crc="438391617" name="config/Modules/shoot-doode-CommonWeapon.xml"/>
-        <file crc="4264342415" name="modules/shoot-doode-CommonWeapon.jar"/>
-=======
-    <module_version install_time="1590058251053" last="true" origin="installer" specification_version="1.0">
-        <file crc="438391617" name="config/Modules/shoot-doode-CommonWeapon.xml"/>
-        <file crc="2052175472" name="modules/shoot-doode-CommonWeapon.jar"/>
-        <file crc="4043839715" name="update_tracking/shoot-doode-CommonWeapon.xml"/>
->>>>>>> master
-=======
-    <module_version install_time="1590135988413" last="true" origin="installer" specification_version="1.0">
-        <file crc="438391617" name="config/Modules/shoot-doode-CommonWeapon.xml"/>
-        <file crc="1680637437" name="modules/shoot-doode-CommonWeapon.jar"/>
-        <file crc="4075136884" name="update_tracking/shoot-doode-CommonWeapon.xml"/>
->>>>>>> Stashed changes
->>>>>>> master
->>>>>>> Refactor
-=======
-    <module_version install_time="1590408920130" last="true" origin="installer" specification_version="1.0">
-        <file crc="438391617" name="config/Modules/shoot-doode-CommonWeapon.xml"/>
-        <file crc="251399571" name="modules/shoot-doode-CommonWeapon.jar"/>
-        <file crc="3796090492" name="update_tracking/shoot-doode-CommonWeapon.xml"/>
->>>>>>> ObstacleSpawning
+        <file crc="2775495588" name="modules/shoot-doode-CommonWeapon.jar"/>
+        <file crc="1698060963" name="update_tracking/shoot-doode-CommonWeapon.xml"/>
     </module_version>
 </module>

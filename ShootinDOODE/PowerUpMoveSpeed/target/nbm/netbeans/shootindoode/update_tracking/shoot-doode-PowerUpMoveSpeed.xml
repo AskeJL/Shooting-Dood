@@ -1,40 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.PowerUpMoveSpeed">
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <module_version install_time="1590354455153" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1590488388440" last="true" origin="installer" specification_version="1.0">
         <file crc="3564129836" name="config/Modules/shoot-doode-PowerUpMoveSpeed.xml"/>
-        <file crc="653153839" name="modules/shoot-doode-PowerUpMoveSpeed.jar"/>
-=======
-<<<<<<< HEAD
-    <module_version install_time="1590241604762" last="true" origin="installer" specification_version="1.0">
-        <file crc="3564129836" name="config/Modules/shoot-doode-PowerUpMoveSpeed.xml"/>
-        <file crc="2701231691" name="modules/shoot-doode-PowerUpMoveSpeed.jar"/>
-        <file crc="3421541477" name="update_tracking/shoot-doode-PowerUpMoveSpeed.xml"/>
-=======
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-    <module_version install_time="1590070930114" last="true" origin="installer" specification_version="1.0">
-        <file crc="3564129836" name="config/Modules/shoot-doode-PowerUpMoveSpeed.xml"/>
-        <file crc="3295441288" name="modules/shoot-doode-PowerUpMoveSpeed.jar"/>
-=======
-    <module_version install_time="1590057849114" last="true" origin="installer" specification_version="1.0">
-        <file crc="3564129836" name="config/Modules/shoot-doode-PowerUpMoveSpeed.xml"/>
-        <file crc="1305510336" name="modules/shoot-doode-PowerUpMoveSpeed.jar"/>
-        <file crc="634530281" name="update_tracking/shoot-doode-PowerUpMoveSpeed.xml"/>
->>>>>>> master
-=======
-    <module_version install_time="1590135982918" last="true" origin="installer" specification_version="1.0">
-        <file crc="3564129836" name="config/Modules/shoot-doode-PowerUpMoveSpeed.xml"/>
-        <file crc="3475189819" name="modules/shoot-doode-PowerUpMoveSpeed.jar"/>
-        <file crc="2525625024" name="update_tracking/shoot-doode-PowerUpMoveSpeed.xml"/>
->>>>>>> Stashed changes
->>>>>>> master
->>>>>>> Refactor
-=======
-    <module_version install_time="1590408913752" last="true" origin="installer" specification_version="1.0">
-        <file crc="3564129836" name="config/Modules/shoot-doode-PowerUpMoveSpeed.xml"/>
-        <file crc="2660249187" name="modules/shoot-doode-PowerUpMoveSpeed.jar"/>
-        <file crc="283608356" name="update_tracking/shoot-doode-PowerUpMoveSpeed.xml"/>
->>>>>>> ObstacleSpawning
+        <file crc="2356014741" name="modules/shoot-doode-PowerUpMoveSpeed.jar"/>
+        <file crc="1734488012" name="update_tracking/shoot-doode-PowerUpMoveSpeed.xml"/>
     </module_version>
 </module>

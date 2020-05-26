@@ -5,10 +5,6 @@ import shoot.doode.common.data.GameData;
 import shoot.doode.common.data.World;
 import shoot.doode.common.services.IPowerUp;
 
-/**
- *
- * @author tobia
- */
 public class PowerUpManager {
     
     private static PowerUpManager single_instance = null;

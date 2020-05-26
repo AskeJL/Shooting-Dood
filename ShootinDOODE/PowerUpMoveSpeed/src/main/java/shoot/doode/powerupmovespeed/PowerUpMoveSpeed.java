@@ -13,10 +13,6 @@ import shoot.doode.common.data.entityparts.PlayerMovingPart;
 import shoot.doode.common.services.IGamePluginService;
 import shoot.doode.common.services.IPowerUp;
 
-/**
- *
- * @author tobia
- */
 @ServiceProviders(value={
     @ServiceProvider(service=IPowerUp.class),
     @ServiceProvider(service=IGamePluginService.class)}

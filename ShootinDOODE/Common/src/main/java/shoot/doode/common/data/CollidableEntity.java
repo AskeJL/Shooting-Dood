@@ -1,9 +1,5 @@
 package shoot.doode.common.data;
 
-/**
- *
- * @author sande
- */
 public class CollidableEntity extends Entity {
     private int boundaryWidth;
     private int boundaryHeight;

@@ -3,10 +3,6 @@ package shoot.doode.commonenemy;
 import shoot.doode.common.data.CollidableEntity;
 import shoot.doode.common.services.IScoreGiver;
 
-/**
- *
- * @author askel
- */
 public abstract class Enemy extends CollidableEntity implements IScoreGiver{
     private float score;
     

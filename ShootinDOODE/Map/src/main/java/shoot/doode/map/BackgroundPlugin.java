@@ -11,10 +11,6 @@ import shoot.doode.common.data.entityparts.PositionPart;
 import shoot.doode.common.services.IGamePluginService;
 import java.util.ArrayList;
 
-/**
- *
- * @author askel
- */
 @ServiceProviders(value = {
     @ServiceProvider(service = IGamePluginService.class),})
 public class BackgroundPlugin implements IGamePluginService {

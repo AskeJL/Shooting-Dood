@@ -3,10 +3,6 @@ package shoot.doode.common.data.entityparts;
 import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
 
-/**
- *
- * @author tobia
- */
 public class SpritePart implements EntityPart {
     String module;
     String[] spritePaths;

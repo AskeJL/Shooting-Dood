@@ -4,10 +4,7 @@ import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
 import java.util.HashMap;
 import java.util.ArrayList;
-/**
- *
- * @author tobia
- */
+
 public class SoundPart implements EntityPart{
     
     String module;

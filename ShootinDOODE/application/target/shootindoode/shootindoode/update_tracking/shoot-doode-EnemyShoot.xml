@@ -1,40 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.EnemyShoot">
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <module_version install_time="1590354474803" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1590488397244" last="true" origin="installer" specification_version="1.0">
         <file crc="3283317249" name="config/Modules/shoot-doode-EnemyShoot.xml"/>
-        <file crc="1032293357" name="modules/shoot-doode-EnemyShoot.jar"/>
-=======
-<<<<<<< HEAD
-    <module_version install_time="1590241611122" last="true" origin="installer" specification_version="1.0">
-        <file crc="3283317249" name="config/Modules/shoot-doode-EnemyShoot.xml"/>
-        <file crc="1869090301" name="modules/shoot-doode-EnemyShoot.jar"/>
-        <file crc="232220314" name="update_tracking/shoot-doode-EnemyShoot.xml"/>
-=======
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-    <module_version install_time="1590070935663" last="true" origin="installer" specification_version="1.0">
-        <file crc="3283317249" name="config/Modules/shoot-doode-EnemyShoot.xml"/>
-        <file crc="2678246172" name="modules/shoot-doode-EnemyShoot.jar"/>
-=======
-    <module_version install_time="1590058251713" last="true" origin="installer" specification_version="1.0">
-        <file crc="3283317249" name="config/Modules/shoot-doode-EnemyShoot.xml"/>
-        <file crc="2637532244" name="modules/shoot-doode-EnemyShoot.jar"/>
-        <file crc="137873863" name="update_tracking/shoot-doode-EnemyShoot.xml"/>
->>>>>>> master
-=======
-    <module_version install_time="1590135989137" last="true" origin="installer" specification_version="1.0">
-        <file crc="3283317249" name="config/Modules/shoot-doode-EnemyShoot.xml"/>
-        <file crc="3793982889" name="modules/shoot-doode-EnemyShoot.jar"/>
-        <file crc="1115812785" name="update_tracking/shoot-doode-EnemyShoot.xml"/>
->>>>>>> Stashed changes
->>>>>>> master
->>>>>>> Refactor
-=======
-    <module_version install_time="1590408920387" last="true" origin="installer" specification_version="1.0">
-        <file crc="3283317249" name="config/Modules/shoot-doode-EnemyShoot.xml"/>
-        <file crc="2928187246" name="modules/shoot-doode-EnemyShoot.jar"/>
-        <file crc="2534975517" name="update_tracking/shoot-doode-EnemyShoot.xml"/>
->>>>>>> ObstacleSpawning
+        <file crc="3796133344" name="modules/shoot-doode-EnemyShoot.jar"/>
+        <file crc="199253758" name="update_tracking/shoot-doode-EnemyShoot.xml"/>
     </module_version>
 </module>

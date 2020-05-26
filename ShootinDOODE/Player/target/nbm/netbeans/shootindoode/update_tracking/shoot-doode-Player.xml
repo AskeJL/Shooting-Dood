@@ -1,40 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.Player">
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <module_version install_time="1590354467679" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1590488392461" last="true" origin="installer" specification_version="1.0">
         <file crc="462997863" name="config/Modules/shoot-doode-Player.xml"/>
-        <file crc="446749079" name="modules/shoot-doode-Player.jar"/>
-=======
-<<<<<<< HEAD
-    <module_version install_time="1590241608490" last="true" origin="installer" specification_version="1.0">
-        <file crc="462997863" name="config/Modules/shoot-doode-Player.xml"/>
-        <file crc="3082346098" name="modules/shoot-doode-Player.jar"/>
-        <file crc="2777091512" name="update_tracking/shoot-doode-Player.xml"/>
-=======
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-    <module_version install_time="1590070923210" last="true" origin="installer" specification_version="1.0">
-        <file crc="462997863" name="config/Modules/shoot-doode-Player.xml"/>
-        <file crc="2598949973" name="modules/shoot-doode-Player.jar"/>
-=======
-    <module_version install_time="1590057851571" last="true" origin="installer" specification_version="1.0">
-        <file crc="462997863" name="config/Modules/shoot-doode-Player.xml"/>
-        <file crc="869324466" name="modules/shoot-doode-Player.jar"/>
-        <file crc="1125650425" name="update_tracking/shoot-doode-Player.xml"/>
->>>>>>> master
-=======
-    <module_version install_time="1590135986133" last="true" origin="installer" specification_version="1.0">
-        <file crc="462997863" name="config/Modules/shoot-doode-Player.xml"/>
-        <file crc="1058007794" name="modules/shoot-doode-Player.jar"/>
-        <file crc="4133492103" name="update_tracking/shoot-doode-Player.xml"/>
->>>>>>> Stashed changes
->>>>>>> master
->>>>>>> Refactor
-=======
-    <module_version install_time="1590408918045" last="true" origin="installer" specification_version="1.0">
-        <file crc="462997863" name="config/Modules/shoot-doode-Player.xml"/>
-        <file crc="2833869774" name="modules/shoot-doode-Player.jar"/>
-        <file crc="2889463962" name="update_tracking/shoot-doode-Player.xml"/>
->>>>>>> ObstacleSpawning
+        <file crc="1836904460" name="modules/shoot-doode-Player.jar"/>
+        <file crc="3228198895" name="update_tracking/shoot-doode-Player.xml"/>
     </module_version>
 </module>

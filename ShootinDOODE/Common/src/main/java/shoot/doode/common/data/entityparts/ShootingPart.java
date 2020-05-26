@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
 
-
 public class ShootingPart implements EntityPart{
     
     private boolean usesWeapons;
