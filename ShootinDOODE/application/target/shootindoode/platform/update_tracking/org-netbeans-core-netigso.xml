@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.core.netigso">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <module_version install_time="1590354473659" last="true" origin="installer" specification_version="1.37">
 =======
     <module_version install_time="1590232899266" last="true" origin="installer" specification_version="1.37">
 >>>>>>> Refactor
+=======
+    <module_version install_time="1590408893081" last="true" origin="installer" specification_version="1.37">
+>>>>>>> ObstacleSpawning
         <file crc="3723901005" name="config/Modules/org-netbeans-core-netigso.xml"/>
         <file crc="765203922" name="modules/org-netbeans-core-netigso.jar"/>
     </module_version>

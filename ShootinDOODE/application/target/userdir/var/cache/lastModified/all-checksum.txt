@@ -1,10 +1,19 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 platform=1590354578338
 cluster.bin=1590354578338
 cluster.etc=1590354578338
 cluster.platform=1590354578338
 cluster.shootindoode=1590354578338
 user=1590354578338
+=======
+platform=1590408947407
+cluster.bin=1590408947407
+cluster.etc=1590408947407
+cluster.platform=1590408947407
+cluster.shootindoode=1590408947407
+user=1590408947407
+>>>>>>> ObstacleSpawning
 crc=7
 locale=da_DK
 branding=shootindoode

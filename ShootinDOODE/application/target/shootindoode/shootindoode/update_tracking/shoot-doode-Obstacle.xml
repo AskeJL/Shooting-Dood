@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.Obstacle">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <module_version install_time="1590354474766" last="true" origin="installer" specification_version="1.0">
         <file crc="401545680" name="config/Modules/shoot-doode-Obstacle.xml"/>
         <file crc="3675360230" name="modules/shoot-doode-Obstacle.jar"/>
@@ -29,5 +30,12 @@
 >>>>>>> Stashed changes
 >>>>>>> master
 >>>>>>> Refactor
+=======
+    <module_version install_time="1590408920350" last="true" origin="installer" specification_version="1.0">
+        <file crc="401545680" name="config/Modules/shoot-doode-Obstacle.xml"/>
+        <file crc="1015876392" name="modules/ext/shoot.doode.Obstacle/com-badlogicgames-gdx/gdx.jar"/>
+        <file crc="2619884117" name="modules/shoot-doode-Obstacle.jar"/>
+        <file crc="1844297340" name="update_tracking/shoot-doode-Obstacle.xml"/>
+>>>>>>> ObstacleSpawning
     </module_version>
 </module>

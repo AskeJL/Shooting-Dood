@@ -2,6 +2,7 @@ Manifest-Version: 1.0
 OpenIDE-Module-Localizing-Bundle: shoot/doode/map/Bundle.properties
 OpenIDE-Module-Specification-Version: 1.0
 <<<<<<< HEAD
+<<<<<<< HEAD
 OpenIDE-Module-Implementation-Version: 1.0-20200524
 OpenIDE-Module-Build-Version: 202005242107
 =======
@@ -22,6 +23,10 @@ OpenIDE-Module-Build-Version: 202005220826
 >>>>>>> Stashed changes
 >>>>>>> master
 >>>>>>> Refactor
+=======
+OpenIDE-Module-Implementation-Version: 1.0-20200525
+OpenIDE-Module-Build-Version: 202005251215
+>>>>>>> ObstacleSpawning
 OpenIDE-Module: shoot.doode.Map
 OpenIDE-Module-Public-Packages: shoot.doode.map.*
 OpenIDE-Module-Requires: org.openide.modules.ModuleFormat1

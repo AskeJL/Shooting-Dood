@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.core.startup.base">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <module_version install_time="1590354473622" last="true" origin="installer" specification_version="1.68.0.1">
 =======
     <module_version install_time="1590232899246" last="true" origin="installer" specification_version="1.68.0.1">
 >>>>>>> Refactor
+=======
+    <module_version install_time="1590408893053" last="true" origin="installer" specification_version="1.68.0.1">
+>>>>>>> ObstacleSpawning
         <file crc="2986119528" name="core/core-base.jar"/>
     </module_version>
 </module>

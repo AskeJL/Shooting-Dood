@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.Map">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <module_version install_time="1590354474588" last="true" origin="installer" specification_version="1.0">
 =======
 <<<<<<< HEAD
@@ -16,6 +17,9 @@
 >>>>>>> Stashed changes
 >>>>>>> master
 >>>>>>> Refactor
+=======
+    <module_version install_time="1590408920247" last="true" origin="installer" specification_version="1.0">
+>>>>>>> ObstacleSpawning
         <file crc="1308149456" name="config/Modules/shoot-doode-Map.xml"/>
         <file crc="2488665527" name="modules/ext/shoot.doode.Map/com-badlogicgames-gdx/gdx-backend-lwjgl.jar"/>
         <file crc="2933476186" name="modules/ext/shoot.doode.Map/com-badlogicgames-gdx/gdx-box2d-platform-natives-desktop.jar"/>
@@ -33,6 +37,7 @@
         <file crc="1629828147" name="modules/ext/shoot.doode.Map/org-lwjgl-lwjgl/lwjgl-platform-natives-windows.jar"/>
         <file crc="1810775593" name="modules/ext/shoot.doode.Map/org-lwjgl-lwjgl/lwjgl.jar"/>
         <file crc="1003691195" name="modules/ext/shoot.doode.Map/org-lwjgl-lwjgl/lwjgl_util.jar"/>
+<<<<<<< HEAD
 <<<<<<< HEAD
         <file crc="77382916" name="modules/shoot-doode-Map.jar"/>
 =======
@@ -53,5 +58,9 @@
 >>>>>>> Stashed changes
 >>>>>>> master
 >>>>>>> Refactor
+=======
+        <file crc="3572918874" name="modules/shoot-doode-Map.jar"/>
+        <file crc="567152228" name="update_tracking/shoot-doode-Map.xml"/>
+>>>>>>> ObstacleSpawning
     </module_version>
 </module>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.ShootinDOODE.branding">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <module_version install_time="1590354438054" last="true" origin="installer" specification_version="1.0">
         <file crc="2756717434" name="config/Modules/shoot-doode-ShootinDOODE-branding.xml"/>
         <file crc="1781075629" name="modules/shoot-doode-ShootinDOODE-branding.jar"/>
@@ -9,5 +10,11 @@
         <file crc="4060204590" name="modules/shoot-doode-ShootinDOODE-branding.jar"/>
         <file crc="4244588968" name="update_tracking/shoot-doode-ShootinDOODE-branding.xml"/>
 >>>>>>> Refactor
+=======
+    <module_version install_time="1590408907330" last="true" origin="installer" specification_version="1.0">
+        <file crc="2756717434" name="config/Modules/shoot-doode-ShootinDOODE-branding.xml"/>
+        <file crc="780046043" name="modules/shoot-doode-ShootinDOODE-branding.jar"/>
+        <file crc="291598824" name="update_tracking/shoot-doode-ShootinDOODE-branding.xml"/>
+>>>>>>> ObstacleSpawning
     </module_version>
 </module>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.Bullet">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <module_version install_time="1590354474202" last="true" origin="installer" specification_version="1.0">
         <file crc="3090761841" name="config/Modules/shoot-doode-Bullet.xml"/>
         <file crc="2401468194" name="modules/shoot-doode-Bullet.jar"/>
@@ -29,5 +30,11 @@
 >>>>>>> Stashed changes
 >>>>>>> master
 >>>>>>> Refactor
+=======
+    <module_version install_time="1590408920047" last="true" origin="installer" specification_version="1.0">
+        <file crc="3090761841" name="config/Modules/shoot-doode-Bullet.xml"/>
+        <file crc="465945455" name="modules/shoot-doode-Bullet.jar"/>
+        <file crc="921299643" name="update_tracking/shoot-doode-Bullet.xml"/>
+>>>>>>> ObstacleSpawning
     </module_version>
 </module>

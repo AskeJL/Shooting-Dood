@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.bootstrap/1">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <module_version install_time="1590354473433" last="true" origin="installer" specification_version="2.84">
 =======
     <module_version install_time="1590232898908" last="true" origin="installer" specification_version="2.84">
 >>>>>>> Refactor
+=======
+    <module_version install_time="1590408892890" last="true" origin="installer" specification_version="2.84">
+>>>>>>> ObstacleSpawning
         <file crc="1512827149" name="lib/boot.jar"/>
         <file crc="2204427180" name="lib/nbexec"/>
         <file crc="3345651022" name="lib/nbexec.dll"/>

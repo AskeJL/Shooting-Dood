@@ -4,12 +4,17 @@ OpenIDE-Module-Localizing-Bundle: dk/sdu/mmmi/cbse/asteroidsnetbeansmo
 AutoUpdate-Essential-Module: true
 OpenIDE-Module-Specification-Version: 1.0
 <<<<<<< HEAD
+<<<<<<< HEAD
 OpenIDE-Module-Implementation-Version: 1.0-20200524
 OpenIDE-Module-Build-Version: 202005242107
 =======
 OpenIDE-Module-Implementation-Version: 1.0-20200522
 OpenIDE-Module-Build-Version: 202005222014
 >>>>>>> Refactor
+=======
+OpenIDE-Module-Implementation-Version: 1.0-20200525
+OpenIDE-Module-Build-Version: 202005251215
+>>>>>>> ObstacleSpawning
 OpenIDE-Module: shoot.doode.ShootinDOODE.branding
 OpenIDE-Module-Public-Packages: -
 OpenIDE-Module-Requires: org.openide.modules.ModuleFormat1

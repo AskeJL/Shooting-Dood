@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.CommonEnemy">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <module_version install_time="1590354474401" last="true" origin="installer" specification_version="1.0">
         <file crc="1604169143" name="config/Modules/shoot-doode-CommonEnemy.xml"/>
         <file crc="1015876392" name="modules/ext/shoot.doode.CommonEnemy/com-badlogicgames-gdx/gdx.jar"/>
@@ -34,5 +35,12 @@
 >>>>>>> Stashed changes
 >>>>>>> master
 >>>>>>> Refactor
+=======
+    <module_version install_time="1590408920161" last="true" origin="installer" specification_version="1.0">
+        <file crc="1604169143" name="config/Modules/shoot-doode-CommonEnemy.xml"/>
+        <file crc="1015876392" name="modules/ext/shoot.doode.CommonEnemy/com-badlogicgames-gdx/gdx.jar"/>
+        <file crc="110269444" name="modules/shoot-doode-CommonEnemy.jar"/>
+        <file crc="25745997" name="update_tracking/shoot-doode-CommonEnemy.xml"/>
+>>>>>>> ObstacleSpawning
     </module_version>
 </module>

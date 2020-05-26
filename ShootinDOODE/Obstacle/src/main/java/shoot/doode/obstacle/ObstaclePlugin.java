@@ -1,5 +1,7 @@
 package shoot.doode.obstacle;
 
+import com.badlogic.gdx.math.Intersector;
+import com.badlogic.gdx.math.Rectangle;
 import java.util.Random;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
@@ -24,7 +26,7 @@ public class ObstaclePlugin implements IGamePluginService {
     @Override
     public void start(GameData gameData, World world) {
         for (int i = 0; i<7; i++){
-        Entity obstacle = createObstacle();
+        Entity obstacle = createObstacle(gameData, world);
         world.addEntity(obstacle);}
     }
 
@@ -38,7 +40,7 @@ public class ObstaclePlugin implements IGamePluginService {
         
     }
     
-    private Entity createObstacle() {
+    private Entity createObstacle(GameData gameData, World world) {
 
         float x = new Random().nextFloat() * (36*35);
         float y = new Random().nextFloat() * (36*35);
@@ -92,7 +94,45 @@ public class ObstaclePlugin implements IGamePluginService {
         obstacle.setBoundaryWidth(boundaryWidth);
         obstacle.setBoundaryHeight(boundaryHeight);
         obstacle.setIsStatic(true);
-       
+        
+       for(Entity e : world.getEntities()){
+            if(e.getClass() == Obstacles.class){
+                CollidableEntity collidableE = (CollidableEntity) e;
+                if (rectangleCollision(collidableE, obstacle) == true){
+                    PositionPart ep = collidableE.getPart(PositionPart.class);
+                    x = ep.getX() + (35*2);
+                    y = ep.getY() + (35*2);
+                    if (x > (40*35)){
+                        x = ep.getX() - (35*2);
+                    }
+                    if (y > (40*35)){
+                        y = ep.getY() - (35*2);
+                    }
+                    obstacle = new Obstacles();
+                    obstacle.add(new PositionPart(x, y, radians));
+                    obstacle.add(new SpritePart(module,spritePaths));
+        
+                    obstacle.setBoundaryWidth(boundaryWidth);
+                    obstacle.setBoundaryHeight(boundaryHeight);
+                    obstacle.setIsStatic(true);
+                }
+            }
+        }
         return obstacle;
+    }
+    private boolean rectangleCollision(CollidableEntity e, CollidableEntity f) {
+        PositionPart ep = e.getPart(PositionPart.class);
+        PositionPart fp = f.getPart(PositionPart.class);
+        Rectangle rec1 = new Rectangle(ep.getX() - (e.getBoundaryWidth() / 2),
+                ep.getY() - (e.getBoundaryHeight() / 2),
+                e.getBoundaryWidth(),
+                e.getBoundaryHeight());
+
+        Rectangle rec2 = new Rectangle(fp.getX() - (f.getBoundaryWidth() / 2),
+                fp.getY() - (f.getBoundaryHeight() / 2),
+                f.getBoundaryWidth(),
+                f.getBoundaryHeight());
+
+        return Intersector.overlaps(rec1, rec2);
     }
 }
