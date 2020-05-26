@@ -47,7 +47,6 @@ public class Shotgun extends Weapon {
         float bulletSpeed = 4.2f;
         if (bulletSpawner != null) {
             for (int i = 0; i < 17; i++) {
-                //this looks kinda nuts
                 bulletSpawner.spawnBullet(positionPart.getX(),positionPart.getY(), bulletSpeed + (float) ((Math.random() - 0.5) * 1.3), positionPart.getRotation() + (float) ((Math.random() - 0.5) * 1.25),2, dmgModifier, shooter.getToughness(),world);             
             }
         }

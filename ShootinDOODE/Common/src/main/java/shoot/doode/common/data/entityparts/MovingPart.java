@@ -3,71 +3,20 @@ package shoot.doode.common.data.entityparts;
 import com.badlogic.gdx.math.Vector2;
 import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
-import static java.lang.Math.cos;
-import static java.lang.Math.sin;
-import static java.lang.Math.sqrt;
 
-/**
- *
- * @author Alexander
- */
 public class MovingPart
         implements EntityPart {
 
-    
-    private float dx, dy;
-    private float deceleration, acceleration;
-    private float maxSpeed, rotationSpeed;
-    private boolean left, right, up;
     private float destinationX, destinationY;
+    private float maxSpeed;
     private Vector2 movementVector = new Vector2();
     
-    public MovingPart(float deceleration, float acceleration, float maxSpeed, float rotationSpeed) {
-        this.deceleration = deceleration;
-        this.acceleration = acceleration;
+    public MovingPart(float maxSpeed) {
         this.maxSpeed = maxSpeed;
-        this.rotationSpeed = rotationSpeed;
-    }
-
-    public float getDx() {
-        return dx;
-    }
-
-    public float getDy() {
-        return dy;
-    }
-
-    public void setDeceleration(float deceleration) {
-        this.deceleration = deceleration;
-    }
-
-    public void setAcceleration(float acceleration) {
-        this.acceleration = acceleration;
     }
 
     public void setMaxSpeed(float maxSpeed) {
         this.maxSpeed = maxSpeed;
-    }
-
-    public void setSpeed(float speed) {
-        this.acceleration = speed;
-        this.maxSpeed = speed;
-    }
-
-    public void setRotationSpeed(float rotationSpeed) {
-        this.rotationSpeed = rotationSpeed;
-    }
-
-    public void setLeft(boolean left) {
-        this.left = left;
-    }
-
-    public void setRight(boolean right) {
-        this.right = right;
-    }
-
-    public void setUp(boolean up) {
-        this.up = up;
     }
     
     public void setDestination(float x, float y) {
@@ -86,7 +35,7 @@ public class MovingPart
         if(destinationX != 0 && destinationY != 0) {
             movementVector.set(destinationX, destinationY).sub(x, y);
             
-            if(movementVector.len() < 3) {
+            if(movementVector.len() < maxSpeed*dt) {
                 float oldX = x;
                 float oldY = y;
                 x = destinationX;
@@ -97,54 +46,12 @@ public class MovingPart
                 
             }
             else {
-                movementVector.nor().scl(65 * dt);
+                movementVector.nor().scl(maxSpeed * dt);
                 float oldX = x;
                 float oldY = y;
                 x += movementVector.x;
                 y += movementVector.y;
                 rotation = (float)Math.atan2(y-oldY, x-oldX);
-            }
-        }
-        else {
-            // turning
-            if (left) {
-                rotation += rotationSpeed * dt;
-            }
-
-            if (right) {
-                rotation -= rotationSpeed * dt;
-            }
-
-            // accelerating            
-            if (up) {
-                dx += cos(rotation) * acceleration * dt;
-                dy += sin(rotation) * acceleration * dt;
-            }
-
-            // deccelerating
-            float vec = (float) sqrt(dx * dx + dy * dy);
-            if (vec > 0) {
-                dx -= (dx / vec) * deceleration * dt;
-                dy -= (dy / vec) * deceleration * dt;
-            }
-            if (vec > maxSpeed) {
-                dx = (dx / vec) * maxSpeed;
-                dy = (dy / vec) * maxSpeed;
-            }
-
-            // set position
-            x += dx * dt;
-            if (x > 40*32) {
-                x = 40*32;
-            } else if (x < 0) {
-                x = 0;
-            }
-
-            y += dy * dt;
-            if (y > 40*32) {
-                y = 40*32;
-            } else if (y < 0) {
-                y = 0;
             }
         }
         

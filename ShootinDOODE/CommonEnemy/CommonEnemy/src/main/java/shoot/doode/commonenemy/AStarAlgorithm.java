@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.PriorityQueue;
 
-/**
- *
- * @author sander
- */
 public class AStarAlgorithm {
 
     private ArrayList<Point> finalPath = new ArrayList<>();

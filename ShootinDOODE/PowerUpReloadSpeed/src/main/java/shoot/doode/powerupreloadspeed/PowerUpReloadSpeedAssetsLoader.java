@@ -5,10 +5,6 @@ import java.util.ArrayList;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
 
-/**
- *
- * @author tobia
- */
 @ServiceProviders(value = {
     @ServiceProvider(service = IAssetService.class),})
 

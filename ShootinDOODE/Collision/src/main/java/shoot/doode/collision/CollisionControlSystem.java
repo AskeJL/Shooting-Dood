@@ -16,10 +16,6 @@ import shoot.doode.common.services.IPostEntityProcessingService;
 import shoot.doode.common.services.IPowerUp;
 import shoot.doode.common.services.IScoreGiver;
 
-/**
- *
- * @author sande
- */
 @ServiceProviders(value = {
     @ServiceProvider(service = IPostEntityProcessingService.class)})
 public class CollisionControlSystem implements IPostEntityProcessingService {

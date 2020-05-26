@@ -3,10 +3,6 @@ package shoot.doode.common.data.entityparts;
 import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
 
-/**
- *
- * @author Alexander
- */
 public class PositionPart implements EntityPart {
 
     private float x;

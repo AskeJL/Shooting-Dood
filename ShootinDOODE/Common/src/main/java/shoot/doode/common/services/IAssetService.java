@@ -2,10 +2,6 @@ package shoot.doode.common.services;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author tobia
- */
 public interface IAssetService {
 
     String[] loadSprites();

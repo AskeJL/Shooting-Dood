@@ -1,9 +1,5 @@
 package shoot.doode.commonenemy;
 
-/**
- *
- * @author sande
- */
 public class Rectangle {
 
     float x;

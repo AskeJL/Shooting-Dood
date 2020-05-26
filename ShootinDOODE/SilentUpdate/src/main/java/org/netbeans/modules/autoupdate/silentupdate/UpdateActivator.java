@@ -5,10 +5,6 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import org.openide.modules.ModuleInstall;
 
-/**
- * Manages a module's lifecycle. Remember that an installer is optional and
- * often not needed at all.
- */
 public class UpdateActivator extends ModuleInstall {
 
     private final ScheduledExecutorService exector = Executors.newScheduledThreadPool(1);
@@ -30,7 +26,7 @@ public class UpdateActivator extends ModuleInstall {
 
     @Override
     public void uninstalled() {
-        super.uninstalled(); //To change body of generated methods, choose Tools | Templates.
+        super.uninstalled();
     }
 
 }

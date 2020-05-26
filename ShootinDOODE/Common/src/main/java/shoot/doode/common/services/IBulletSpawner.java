@@ -3,10 +3,6 @@ package shoot.doode.common.services;
 import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.World;
 
-/**
- *
- * @author tobia
- */
 public interface IBulletSpawner {
     public static IBulletSpawner getSpawner(World world)
     {

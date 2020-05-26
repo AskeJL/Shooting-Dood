@@ -10,27 +10,20 @@ import shoot.doode.common.data.entityparts.SpritePart;
 import shoot.doode.common.data.entityparts.TimerPart;
 
 public class Bullet extends CollidableEntity {
-
-    public static Entity createBullet(float xPos,float yPos,float bulletSpeed, float rotation,float timer , double damege, int toughness) {
-
-        CollidableEntity bullet = new Bullet();
-        
+    public Bullet(float xPos,float yPos,float bulletSpeed, float rotation,float timer , double damege, int toughness)
+    {
         String module = "Bullet";
         String[] spritePaths = new String[1];
         spritePaths[0] = "bullet.png";
         
-        
-        bullet.add(new PositionPart(xPos, yPos, rotation));
-        bullet.add(new ProjectileMovingPart(bulletSpeed));
-        bullet.add(new TimerPart(timer));
-        bullet.add(new LifePart(1));
-        bullet.add(new SpritePart(module,spritePaths));  
-        bullet.add(new ProjectilePart(damege));
-        bullet.setToughness(toughness);
-        bullet.setBoundaryWidth(5);
-        bullet.setBoundaryHeight(5);
-
-        return bullet;
+        this.add(new PositionPart(xPos, yPos, rotation));
+        this.add(new ProjectileMovingPart(bulletSpeed));
+        this.add(new TimerPart(timer));
+        this.add(new LifePart(1));
+        this.add(new SpritePart(module,spritePaths));  
+        this.add(new ProjectilePart(damege));
+        this.setToughness(toughness);
+        this.setBoundaryWidth(5);
+        this.setBoundaryHeight(5);
     }
-    
 }

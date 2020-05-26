@@ -2,7 +2,6 @@ package shoot.doode.enemy;
 
 
 import java.util.Random;
-import shoot.doode.commonenemy.AI;
 import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.GameData;
 import shoot.doode.common.data.World;
@@ -17,13 +16,9 @@ import shoot.doode.common.data.entityparts.SpritePart;
 import shoot.doode.commonenemy.Pathfinding;
 import shoot.doode.commonenemy.Point;
 
-/**
- *
- * @author askel
- */
 @ServiceProviders(value = {
     @ServiceProvider(service = IEntityProcessingService.class),})
-public class EnemyControlSystem implements IEntityProcessingService, AI {
+public class EnemyControlSystem implements IEntityProcessingService{
 
     private Pathfinding pathfinding = new Pathfinding();
     private long lastPathGeneration = 0;
@@ -63,7 +58,7 @@ public class EnemyControlSystem implements IEntityProcessingService, AI {
                 PositionPart playerPositionPart = playerEntity.getPart(PositionPart.class);
 
                 long current = System.currentTimeMillis();
-                if(current - lastPathGeneration > 500) {
+                if(current - lastPathGeneration > 200) {
                     pathfinding.setup(world);
                     pathfinding.generatePath(new Point(positionPart.getX(), positionPart.getY()),
                             new Point(playerPositionPart.getX(), playerPositionPart.getY()));
@@ -84,25 +79,12 @@ public class EnemyControlSystem implements IEntityProcessingService, AI {
             movingPart.process(gameData, enemy);
             positionPart.process(gameData, enemy);
             lifePart.process(gameData, enemy);
-
-            movingPart.setRight(false);
-            movingPart.setLeft(false);
-            movingPart.setUp(false);
         }
     }
 
-
-    @Override
-    public void AI() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-    
     private Entity createNormalEnemy(GameData gameData) {
         
-        float deacceleration = 10;
-        float acceleration = 150;
-        float maxSpeed = 200;
-        float rotationSpeed = 5;
+        float maxSpeed = 100;
         float x = new Random().nextFloat() * gameData.getDisplayWidth();
         float y = new Random().nextFloat() * gameData.getDisplayHeight();
         float radians = 3.1415f / 2;
@@ -121,7 +103,7 @@ public class EnemyControlSystem implements IEntityProcessingService, AI {
         }
         
         CollidableEntity enemy = new NormalEnemy(50);
-        enemy.add(new MovingPart(deacceleration, acceleration, maxSpeed, rotationSpeed));
+        enemy.add(new MovingPart(maxSpeed));
         enemy.add(new PositionPart(x, y, radians));
         enemy.add(new LifePart(1));
         enemy.add(new SpritePart(module,spritePaths));

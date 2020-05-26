@@ -7,10 +7,6 @@ import shoot.doode.common.data.Entity;
 import shoot.doode.common.data.World;
 import shoot.doode.common.data.entityparts.PositionPart;
 
-/**
- *
- * @author sande
- */
 public class Pathfinding {
 
     private List<Point> points = new ArrayList<>();

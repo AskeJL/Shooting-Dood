@@ -9,16 +9,10 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Set;
 
-/**
- *
- * @author tobia
- */
 public class AssetsHelper {
 
     private PriorityQueue<String> soundQueue = new PriorityQueue<>();
