@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package shoot.doode.core.managers;
 
 import com.badlogic.gdx.Gdx;
@@ -16,6 +11,8 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
 import java.util.Set;
 
 /**
@@ -24,16 +21,15 @@ import java.util.Set;
  */
 public class AssetsHelper {
 
-    private ArrayList<String> soundQueue = new ArrayList<>();
-    private ArrayList<String> spriteQueue = new ArrayList<>();
+    private PriorityQueue<String> soundQueue = new PriorityQueue<>();
+    private PriorityQueue<String> spriteQueue = new PriorityQueue<>();
     private HashMap<String, Sprite> spriteMap = new HashMap<>();
     private HashMap<String, Sound> soundMap = new HashMap<>();
     private HashMap<String, TiledMap> mapMap = new HashMap<>();
     private String jarPath = "shootindoode/modules/shoot-doode-";
-    private String imagePath = ".jar!/Assets/Images/";
+    private String spritePath = ".jar!/Assets/Images/";
     private String soundPath = ".jar!/Assets/Sounds/";
     private String mapPath = ".jar!/Assets/Maps/";
-    private AssetsJarFileResolver jarfile = new AssetsJarFileResolver();;
     private AssetManager manager;
     
     private static AssetsHelper single_instance = null;
@@ -61,7 +57,7 @@ public class AssetsHelper {
 
     public Sprite getSprite(String module, String assetPath) {
 
-        String inputPath = jarPath + module + imagePath + assetPath;
+        String inputPath = jarPath + module + spritePath + assetPath;
 
         return spriteMap.get(inputPath);
     }
@@ -71,11 +67,6 @@ public class AssetsHelper {
         String inputPath = jarPath + module + soundPath + assetPath;
 
         return soundMap.get(inputPath);
-    }
-    
-    public String getImageTotal() {
-        String s = spriteMap.size() + " " + spriteQueue.size();
-        return s;
     }
     
      public TiledMap getMap(String module, String assetPath) {
@@ -89,26 +80,19 @@ public class AssetsHelper {
 
         return mapMap.get(totalAssetPath);
     }
-
-    public String getSoundTotal() {
-        String s = soundMap.size() + " " + soundQueue.size();
-        return s;
-    }
     
     
     public void loadQueue()
     {
-        for(String path : spriteQueue)
+        while(!spriteQueue.isEmpty())
         {
-            loadImages(path);
+            loadSprites(spriteQueue.poll());
         }
-            
-        for(String path : soundQueue)
+        
+        while(!soundQueue.isEmpty())
         {
-            loadSounds(path);
+            loadSounds(soundQueue.poll());
         }
-        spriteQueue.clear();
-        soundQueue.clear();
     }
     
     public int getMapTotal() {
@@ -116,20 +100,20 @@ public class AssetsHelper {
         return mapMap.size();
     }
 
-    public void loadImages(String path) {
-        FileHandle file = jarfile.resolve(path);
+    public void loadSprites(String path) {
+        FileHandle file = new JarFileHandleStream(path);
         Texture texture = new Texture(file);
         Sprite sprite = new Sprite(texture);
 
         spriteMap.put(path, sprite);
     }
 
-    public void queueImages(String[] paths) {
+    public void queueSprites(String[] paths) {
 
         if (paths != null) {
             for (String path : paths) {
 
-                String inputPath = getImagePath(path);
+                String inputPath = getSpritePath(path);
 
                 if (!spriteMap.containsKey(inputPath) && !spriteQueue.contains(inputPath)) {
                     spriteQueue.add(inputPath);
@@ -142,7 +126,7 @@ public class AssetsHelper {
     }
 
     public void loadSounds(String path) {
-        FileHandle file = jarfile.resolve(path);
+        FileHandle file = new JarFileHandleStream(path);
         Sound sound = Gdx.audio.newSound(file);
         soundMap.put(path, sound);
     }
@@ -161,8 +145,6 @@ public class AssetsHelper {
     }
     
     public void loadMaps(String path) {
-        FileHandle file = jarfile.resolve(path);
-        boolean exists = file.exists();
         manager = new AssetManager(new ExternalFileHandleResolver());
         manager.setLoader(TiledMap.class, new TmxMapLoader());
         String currentPath = System.getProperty("user.dir");
@@ -208,12 +190,12 @@ public class AssetsHelper {
         }
     }
 
-    public void unLoadImages(String[] paths) {
+    public void unLoadSprites(String[] paths) {
 
         if (paths != null) {
             for (String path : paths) {
 
-                String inputPath = getImagePath(path);
+                String inputPath = getSpritePath(path);
 
                 if (spriteMap.containsKey(inputPath)) {
                     spriteMap.remove(inputPath);
@@ -237,13 +219,13 @@ public class AssetsHelper {
         }
     }
 
-    private String getImagePath(String splitAble) {
+    private String getSpritePath(String splitAble) {
 
         String[] split = splitAble.split("!");
         String module = split[0];
         String assetPath = split[1];
 
-        return jarPath + module + imagePath + assetPath;
+        return jarPath + module + spritePath + assetPath;
     }
 
     private String getSoundPath(String splitAble) {

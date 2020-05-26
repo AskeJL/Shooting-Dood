@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.Enemy">
+<<<<<<< HEAD
     <module_version install_time="1590354474823" last="true" origin="installer" specification_version="1.0">
         <file crc="2358616893" name="config/Modules/shoot-doode-Enemy.xml"/>
         <file crc="482643879" name="modules/shoot-doode-Enemy.jar"/>
+=======
+<<<<<<< HEAD
+    <module_version install_time="1590241611168" last="true" origin="installer" specification_version="1.0">
+        <file crc="2358616893" name="config/Modules/shoot-doode-Enemy.xml"/>
+        <file crc="1504844435" name="modules/shoot-doode-Enemy.jar"/>
+        <file crc="546739402" name="update_tracking/shoot-doode-Enemy.xml"/>
+=======
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+    <module_version install_time="1590070935421" last="true" origin="installer" specification_version="1.0">
+        <file crc="2358616893" name="config/Modules/shoot-doode-Enemy.xml"/>
+        <file crc="596438605" name="modules/shoot-doode-Enemy.jar"/>
+=======
+    <module_version install_time="1590058251778" last="true" origin="installer" specification_version="1.0">
+        <file crc="2358616893" name="config/Modules/shoot-doode-Enemy.xml"/>
+        <file crc="1338910869" name="modules/shoot-doode-Enemy.jar"/>
+        <file crc="4114835004" name="update_tracking/shoot-doode-Enemy.xml"/>
+>>>>>>> master
+=======
+    <module_version install_time="1590135989189" last="true" origin="installer" specification_version="1.0">
+        <file crc="2358616893" name="config/Modules/shoot-doode-Enemy.xml"/>
+        <file crc="1197648330" name="modules/shoot-doode-Enemy.jar"/>
+        <file crc="3884478064" name="update_tracking/shoot-doode-Enemy.xml"/>
+>>>>>>> Stashed changes
+>>>>>>> master
+>>>>>>> Refactor
     </module_version>
 </module>

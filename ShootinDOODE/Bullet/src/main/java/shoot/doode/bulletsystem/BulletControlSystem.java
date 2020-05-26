@@ -9,9 +9,7 @@ import shoot.doode.common.data.entityparts.TimerPart;
 import shoot.doode.common.services.IEntityProcessingService;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
-import shoot.doode.common.data.entityparts.PlayerMovingPart;
 import shoot.doode.common.data.entityparts.ProjectileMovingPart;
-import shoot.doode.common.data.entityparts.ProjectilePart;
 
 @ServiceProviders(value = {
     @ServiceProvider(service = IEntityProcessingService.class),})
@@ -24,7 +22,6 @@ public class BulletControlSystem implements IEntityProcessingService {
             PositionPart position = bullet.getPart(PositionPart.class);
             ProjectileMovingPart moving = bullet.getPart(ProjectileMovingPart.class);
             TimerPart time = bullet.getPart(TimerPart.class);
-            ProjectilePart projectilePart = bullet.getPart(ProjectilePart.class);
             
             time.reduceExpiration(gameData.getDelta());
             LifePart life = bullet.getPart(LifePart.class);

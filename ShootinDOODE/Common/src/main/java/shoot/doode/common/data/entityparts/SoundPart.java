@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package shoot.doode.common.data.entityparts;
 
 import shoot.doode.common.data.Entity;
@@ -18,10 +13,10 @@ public class SoundPart implements EntityPart{
     String module;
     HashMap<String,Boolean> sounds = new HashMap<>();
       
-    public SoundPart(String module, String[] spritePaths)
+    public SoundPart(String module, String[] soundPaths)
     {
         this.module = module;
-        for(String path : spritePaths)
+        for(String path : soundPaths)
         {
             sounds.put(path, false);
         }

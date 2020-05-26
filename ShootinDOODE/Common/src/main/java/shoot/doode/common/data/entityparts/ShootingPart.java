@@ -12,7 +12,7 @@ public class ShootingPart implements EntityPart{
     private double reloadModifier = 1;
     private boolean switchWeapon = false;
     private ArrayList<Entity> weapons = new ArrayList<>();
-    private int wepaonEquiped = 0;
+    private int weaponEquiped = 0;
     private boolean isSchooting;
 
     public ShootingPart(boolean usesWeapons) {
@@ -30,7 +30,7 @@ public class ShootingPart implements EntityPart{
     }
     
     public Entity getWeapon() {
-        return weapons.get(wepaonEquiped);
+        return weapons.get(weaponEquiped);
     }
     
     
@@ -86,14 +86,14 @@ public class ShootingPart implements EntityPart{
         if(switchWeapon && !weapons.isEmpty())
         {
             int size = weapons.size();
-            wepaonEquiped++;
-            wepaonEquiped = wepaonEquiped%size;
+            weaponEquiped++;
+            weaponEquiped = weaponEquiped%size;
         }
         for(int i = 0; i < weapons.size(); i++)
         {
             Entity e = weapons.get(i);
             SpritePart spritePart = e.getPart(SpritePart.class);
-            if(wepaonEquiped == i)
+            if(weaponEquiped == i)
             {
                 spritePart.setInvis(false);
             }

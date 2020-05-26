@@ -6,7 +6,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -28,7 +27,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.openide.util.Lookup;
 import org.openide.util.LookupEvent;
 import org.openide.util.LookupListener;
-import shoot.doode.common.data.CollidableEntity;
 import shoot.doode.common.data.GameKeys;
 import shoot.doode.common.data.entityparts.MapPart;
 import shoot.doode.common.data.entityparts.PlayerMovingPart;
@@ -39,11 +37,11 @@ import shoot.doode.common.services.IPowerUp;
 import shoot.doode.core.managers.AssetsHelper;
 import shoot.doode.core.managers.PowerUpManager;
 
+
 public class Game extends ApplicationAdapter {
 
     private SpriteBatch batch;
     private static OrthographicCamera cam;
-    private ShapeRenderer sr;
     private final Lookup lookup = Lookup.getDefault();
     private final GameData gameData = new GameData();
     private World world = new World();
@@ -67,8 +65,6 @@ public class Game extends ApplicationAdapter {
         cam = new OrthographicCamera(gameData.getDisplayWidth(), gameData.getDisplayHeight());
         cam.position.set(gameData.getDisplayWidth() / 2, gameData.getDisplayHeight() / 2, 0);
 
-        sr = new ShapeRenderer();
-
         Gdx.input.setInputProcessor(new GameInputProcessor(gameData));
 
         iGameResult = lookup.lookupResult(IGamePluginService.class);
@@ -86,7 +82,7 @@ public class Game extends ApplicationAdapter {
 
         for (IAssetService assetService : iAssetResult.allInstances()) {
             AssetsHelper.getInstance().queueMaps(assetService.loadMaps());
-            AssetsHelper.getInstance().queueImages(assetService.loadImages());
+            AssetsHelper.getInstance().queueSprites(assetService.loadSprites());
             AssetsHelper.getInstance().queueSounds(assetService.loadSounds());
             assetServices.add(assetService);
         }
@@ -109,7 +105,6 @@ public class Game extends ApplicationAdapter {
                 break;
 
             case RUN:
-
                 // clear screen to black
                 Gdx.gl.glClearColor(0, 0, 0, 1);
 
@@ -117,6 +112,8 @@ public class Game extends ApplicationAdapter {
 
                 update();
                 draw();
+                
+                //Check if escape is pressed to pause game
                 newPausedValue = gameData.getKeys().isDown(GameKeys.ESCAPE);
                 if (newPausedValue != oldPausedValue && newPausedValue) {
                     gameData.setState(State.PAUSE);
@@ -125,6 +122,7 @@ public class Game extends ApplicationAdapter {
                 break;
 
             case PAUSE:
+                //Check for game to be unpaused
                 newPausedValue = gameData.getKeys().isDown(GameKeys.ESCAPE);
                 if (newPausedValue != oldPausedValue && newPausedValue) {
                     gameData.setState(State.RUN);
@@ -149,9 +147,7 @@ public class Game extends ApplicationAdapter {
 
         // Update
         for (IEntityProcessingService entityProcessorService : getEntityProcessingServices()) {
-
             entityProcessorService.process(gameData, world);
-
         }
 
         // Post Update
@@ -250,7 +246,6 @@ public class Game extends ApplicationAdapter {
 
     @Override
     public void pause() {
-        //this.state = State.PAUSE;
     }
 
     @Override
@@ -284,7 +279,7 @@ public class Game extends ApplicationAdapter {
                 // Newly installed modules
                 if (!assetServices.contains(us)) {
                     System.out.println("New AssetLoader: " + us);
-                    AssetsHelper.getInstance().queueImages(us.loadImages());
+                    AssetsHelper.getInstance().queueSprites(us.loadSprites());
                     AssetsHelper.getInstance().queueSounds(us.loadSounds());
                     assetServices.add(us);
                 }
@@ -294,7 +289,7 @@ public class Game extends ApplicationAdapter {
             for (IAssetService gs : assetServices) {
                 if (!iAssetUpdated.contains(gs)) {
                     System.out.println("Remove AssetLoader: " + gs);
-                    AssetsHelper.getInstance().unLoadImages(gs.unLoadImages());
+                    AssetsHelper.getInstance().unLoadSprites(gs.unLoadSprites());
                     AssetsHelper.getInstance().unLoadSounds(gs.unLoadSounds());
                     assetServices.remove(gs);
                 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package shoot.doode.common.data.entityparts;
 
 import shoot.doode.common.data.Entity;
@@ -16,14 +11,15 @@ public class MapPart implements EntityPart {
     String module;
     String[] MapPaths;
     int currentMap = 0;
-    //**Creates an SpritePart, which alows the entity to have images showed that represent it
+    
+    //Creates an SpritePart, which alows the entity to have images showed that represent it
     public MapPart(String module,String[] MapPaths)
     {
         this.module = module;
         this.MapPaths = MapPaths;
     }
     
-    //** Sets which asset that should be showed by the draw method 
+    //Sets which asset that should be showed by the draw method 
     public void setCurrentMap(int currentMap)
     {
         this.currentMap = currentMap;

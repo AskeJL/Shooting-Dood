@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="shoot.doode.PowerUpDamage">
+<<<<<<< HEAD
     <module_version install_time="1590354469895" last="true" origin="installer" specification_version="1.0">
         <file crc="819170787" name="config/Modules/shoot-doode-PowerUpDamage.xml"/>
         <file crc="2367351717" name="modules/shoot-doode-PowerUpDamage.jar"/>
+=======
+<<<<<<< HEAD
+    <module_version install_time="1590241609119" last="true" origin="installer" specification_version="1.0">
+        <file crc="819170787" name="config/Modules/shoot-doode-PowerUpDamage.xml"/>
+        <file crc="2353898525" name="modules/shoot-doode-PowerUpDamage.jar"/>
+        <file crc="626193507" name="update_tracking/shoot-doode-PowerUpDamage.xml"/>
+=======
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+    <module_version install_time="1590070931121" last="true" origin="installer" specification_version="1.0">
+        <file crc="819170787" name="config/Modules/shoot-doode-PowerUpDamage.xml"/>
+        <file crc="2699186922" name="modules/shoot-doode-PowerUpDamage.jar"/>
+=======
+    <module_version install_time="1590057850695" last="true" origin="installer" specification_version="1.0">
+        <file crc="819170787" name="config/Modules/shoot-doode-PowerUpDamage.xml"/>
+        <file crc="2399827526" name="modules/shoot-doode-PowerUpDamage.jar"/>
+        <file crc="2285012617" name="update_tracking/shoot-doode-PowerUpDamage.xml"/>
+>>>>>>> master
+=======
+    <module_version install_time="1590135986783" last="true" origin="installer" specification_version="1.0">
+        <file crc="819170787" name="config/Modules/shoot-doode-PowerUpDamage.xml"/>
+        <file crc="856552075" name="modules/shoot-doode-PowerUpDamage.jar"/>
+        <file crc="281137752" name="update_tracking/shoot-doode-PowerUpDamage.xml"/>
+>>>>>>> Stashed changes
+>>>>>>> master
+>>>>>>> Refactor
     </module_version>
 </module>

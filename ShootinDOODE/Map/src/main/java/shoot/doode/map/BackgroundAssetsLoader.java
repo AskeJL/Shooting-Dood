@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package shoot.doode.map;
 
 import java.util.ArrayList;
@@ -27,12 +22,12 @@ public class BackgroundAssetsLoader implements IAssetService {
     }
 
     @Override
-    public String[] loadImages() {
+    public String[] loadSprites() {
         return null;
     }
 
     @Override
-    public String[] unLoadImages() {
+    public String[] unLoadSprites() {
         return null;
     }
 

@@ -4,14 +4,15 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import org.openide.modules.ModuleInstall;
 
+
 public class Installer extends ModuleInstall {
 
-    private static Game g;
+    private static Game game;
 
     @Override
     public void restored() {
 
-        g = new Game();
+        game = new Game();
 
         LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
         cfg.title = "Shootin-Doode";
@@ -20,6 +21,6 @@ public class Installer extends ModuleInstall {
         cfg.useGL30 = false;
         cfg.resizable = false;
 
-        new LwjglApplication(g, cfg);
+        new LwjglApplication(game, cfg);
     }
 }

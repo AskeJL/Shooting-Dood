@@ -1,17 +1,11 @@
 package shoot.doode.commonenemy;
 
-import com.badlogic.gdx.math.Intersector;
 import java.util.ArrayList;
 import java.util.List;
 import shoot.doode.common.data.CollidableEntity;
 import shoot.doode.common.data.Entity;
-import shoot.doode.common.data.GameData;
 import shoot.doode.common.data.World;
-import shoot.doode.common.data.entityparts.LifePart;
-import shoot.doode.common.data.entityparts.MovingPart;
-import shoot.doode.common.data.entityparts.PlayerMovingPart;
 import shoot.doode.common.data.entityparts.PositionPart;
-import shoot.doode.common.data.entityparts.SpritePart;
 
 /**
  *

@@ -15,7 +15,7 @@ public class ObstacleAssetsLoader implements IAssetService {
 
     String module = "Obstacle";
 
-    private String[] images() {
+    private String[] sprites() {
         ArrayList<String> paths = new ArrayList<>();
         paths.add("BuickerB.png");
         paths.add("GalardB.png");
@@ -34,13 +34,13 @@ public class ObstacleAssetsLoader implements IAssetService {
     }
 
     @Override
-    public String[] loadImages() {
-        return images();
+    public String[] loadSprites() {
+        return sprites();
     }
 
     @Override
-    public String[] unLoadImages() {
-        return images();
+    public String[] unLoadSprites() {
+        return sprites();
     }
     
     @Override

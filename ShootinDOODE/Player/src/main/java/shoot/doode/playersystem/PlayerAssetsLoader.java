@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package shoot.doode.playersystem;
 
 import shoot.doode.common.services.IAssetService;
@@ -21,7 +16,7 @@ public class PlayerAssetsLoader implements IAssetService {
 
     String module = "Player";
 
-    private String[] images() {
+    private String[] Sprites() {
         ArrayList<String> paths = new ArrayList<>();
         paths.add("Doode-still.png");
         paths.add("Doode-left.png");
@@ -39,13 +34,13 @@ public class PlayerAssetsLoader implements IAssetService {
     }
 
     @Override
-    public String[] loadImages() {
-        return images();
+    public String[] loadSprites() {
+        return Sprites();
     }
 
     @Override
-    public String[] unLoadImages() {
-        return images();
+    public String[] unLoadSprites() {
+        return Sprites();
     }
 
     @Override

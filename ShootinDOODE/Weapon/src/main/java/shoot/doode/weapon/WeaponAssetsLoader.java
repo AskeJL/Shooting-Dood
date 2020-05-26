@@ -12,7 +12,7 @@ public class WeaponAssetsLoader implements IAssetService {
 
     String module = "Weapon";
 
-    private String[] images() {
+    private String[] sprites() {
         ArrayList<String> paths = new ArrayList<>();
         paths.add("knife.png");
         paths.add("gun.png");
@@ -30,13 +30,13 @@ public class WeaponAssetsLoader implements IAssetService {
     }
 
     @Override
-    public String[] loadImages() {
-        return images();
+    public String[] loadSprites() {
+        return sprites();
     }
 
     @Override
-    public String[] unLoadImages() {
-        return images();
+    public String[] unLoadSprites() {
+        return sprites();
     }
 
     
